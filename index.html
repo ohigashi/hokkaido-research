@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北海道・地域課題リサーチ</title>
+<style>
+  /* ===== 北海道「地形メモ」デザイン =====
+     パレット: 残雪のオフホワイト × 針葉樹の深緑 × 凍土のスレート × 流氷ブルーのアクセント
+     タイポ: 見出しは太いゴシックで地名標識のように。本文は端正に。
+     シグネチャ: 等高線（contour）が背景に走り、課題=地形という比喩を持たせる */
+  :root{
+    --snow:#F2F0E9;
+    --snow2:#E8E5DB;
+    --ink:#1F2A28;
+    --moss:#2C6E63;
+    --slate:#3A4A52;
+    --ice:#2E7CA8;
+    --line:#CDCABE;
+    --paper:#FBFAF6;
+    --shadow:rgba(31,42,40,.08);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",system-ui,sans-serif;
+    background:var(--snow);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* 等高線の背景 */
+  .contour-bg{
+    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  }
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* ===== ヘッダー ===== */
+  header.hero{
+    position:relative;z-index:1;
+    padding:64px 0 40px;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:0;
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:.32em;font-weight:700;color:var(--moss);
+    text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:2px;background:var(--moss);display:inline-block}
+  h1.title{
+    font-size:clamp(30px,5.4vw,58px);
+    font-weight:900;line-height:1.12;letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  h1.title .hl{
+    background:linear-gradient(transparent 62%, rgba(46,124,168,.28) 62%);
+    padding:0 .1em;
+  }
+  .lede{font-size:clamp(14px,1.6vw,16px);max-width:62ch;color:var(--slate)}
+  .lede strong{color:var(--ink);font-weight:700;border-bottom:1.5px solid var(--ice)}
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px;
+    font-size:12.5px;color:var(--slate);align-items:center;
+  }
+  .meta-row b{color:var(--ink)}
+  .pill{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+    background:var(--ink);color:var(--snow);padding:4px 11px;border-radius:2px;
+  }
+
+  /* ===== コントロール ===== */
+  .controls{
+    position:sticky;top:0;z-index:20;background:var(--snow);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;margin-bottom:8px;
+  }
+  .controls .wrap{display:flex;flex-direction:column;gap:12px}
+  .ctrl-label{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:var(--slate);text-transform:uppercase;margin-bottom:7px}
+  .chip-row{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
+    background:var(--paper);border:1.5px solid var(--line);color:var(--slate);
+    padding:6px 13px;border-radius:30px;transition:all .15s;white-space:nowrap;
+  }
+  .chip:hover{border-color:var(--slate);color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--snow)}
+  .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;transform:translateY(-1px)}
+  .sort-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .sort-btn{
+    font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;
+    background:none;border:none;color:var(--slate);padding:5px 9px;border-radius:4px;
+  }
+  .sort-btn[aria-pressed="true"]{background:var(--moss);color:var(--snow)}
+  .count{margin-left:auto;font-size:12px;color:var(--slate)}
+  .count b{color:var(--ink);font-size:15px}
+
+  /* ===== 課題グリッド ===== */
+  main{padding:30px 0 60px}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;
+  }
+  .card{
+    position:relative;background:var(--paper);border:1px solid var(--line);
+    border-radius:6px;overflow:hidden;cursor:pointer;
+    transition:transform .18s,box-shadow .18s,border-color .18s;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px var(--shadow);border-color:var(--slate)}
+  .card .cat-bar{height:5px;width:100%}
+  .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+  .cat-name{font-size:10.5px;font-weight:700;letter-spacing:.06em}
+  .scores{display:flex;gap:9px;flex-shrink:0}
+  .score{text-align:center;font-size:9px;color:var(--slate);font-weight:700;letter-spacing:.04em}
+  .dots{display:flex;gap:2px;margin-top:3px;justify-content:center}
+  .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);display:block}
+  .dots i.on{background:var(--slate)}
+  .dots.u i.on{background:var(--ice)}
+  .dots.s i.on{background:#B5733A}
+  .card h3{font-size:18px;font-weight:800;line-height:1.32;margin-bottom:9px}
+  .card .summary{font-size:13px;color:var(--slate);line-height:1.6;flex:1}
+  .card-foot{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;align-items:center}
+  .rtag{font-size:10.5px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.09);padding:3px 8px;border-radius:3px}
+  .ini-count{font-size:10.5px;color:var(--slate);margin-left:auto;display:flex;align-items:center;gap:4px}
+  .ini-count b{color:var(--ink)}
+
+  /* ===== モーダル ===== */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:100;background:rgba(31,42,40,.55);
+    display:none;align-items:flex-start;justify-content:center;padding:40px 18px;overflow-y:auto;
+    backdrop-filter:blur(3px);
+  }
+  .modal-overlay.open{display:flex}
+  .modal{
+    background:var(--paper);max-width:680px;width:100%;border-radius:8px;
+    box-shadow:0 24px 60px rgba(0,0,0,.3);overflow:hidden;animation:rise .25s ease;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .modal-head{padding:24px 26px 20px;color:#fff;position:relative}
+  .modal-close{
+    position:absolute;top:16px;right:18px;background:rgba(255,255,255,.18);border:none;
+    color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1;
+  }
+  .modal-close:hover{background:rgba(255,255,255,.32)}
+  .modal-cat{font-size:11px;font-weight:700;letter-spacing:.08em;opacity:.9;margin-bottom:8px}
+  .modal-head h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:14px;padding-right:30px}
+  .modal-scores{display:flex;gap:22px}
+  .modal-score{font-size:11px;font-weight:700;letter-spacing:.04em;opacity:.95}
+  .modal-score .dots{margin-top:5px}
+  .modal-score .dots i{background:rgba(255,255,255,.3)}
+  .modal-score .dots i.on{background:#fff}
+  .modal-body{padding:24px 26px 28px}
+  .mb-section{margin-bottom:22px}
+  .mb-label{
+    font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  }
+  .mb-label::before{content:"";width:14px;height:2px;background:currentColor}
+  .mb-label.fact{color:var(--ice)}
+  .mb-label.interp{color:var(--moss)}
+  .mb-label.ini{color:#B5733A}
+  .mb-text{font-size:13.5px;line-height:1.75;color:var(--ink)}
+  .mb-region{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+  .mb-region .rtag{font-size:11.5px}
+  .ini-list{display:flex;flex-direction:column;gap:11px}
+  .ini-item{
+    border:1px solid var(--line);border-left:3px solid #B5733A;border-radius:4px;
+    padding:12px 14px;background:var(--snow);
+  }
+  .ini-who{font-size:13px;font-weight:800;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .ini-region-tag{font-size:10px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.1);padding:2px 7px;border-radius:3px}
+  .ini-what{font-size:12.5px;color:var(--slate);line-height:1.6}
+  .ini-src{font-size:11px;margin-top:6px}
+  .ini-src a{color:var(--ice);text-decoration:none;border-bottom:1px solid transparent}
+  .ini-src a:hover{border-bottom-color:var(--ice)}
+  .mb-sources{border-top:1px solid var(--line);padding-top:16px;margin-top:4px}
+  .mb-sources ul{list-style:none}
+  .mb-sources li{font-size:11.5px;line-height:1.5;margin-bottom:7px;padding-left:16px;position:relative}
+  .mb-sources li::before{content:"›";position:absolute;left:0;color:var(--slate);font-weight:700}
+  .mb-sources a{color:var(--ice);text-decoration:none}
+  .mb-sources a:hover{text-decoration:underline}
+  .mb-sources .src-org{color:var(--slate)}
+
+  /* 外部検索・共有 */
+  .search-row{display:flex;flex-wrap:wrap;gap:8px}
+  .search-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:700;text-decoration:none;
+    color:var(--ink);background:var(--snow2);border:1.5px solid var(--line);
+    padding:7px 13px;border-radius:30px;transition:all .15s;
+  }
+  .search-link:hover{border-color:var(--ice);color:var(--ice);background:#fff}
+  .search-link .ic{font-size:13px}
+  .ini-search{font-size:11px;margin-left:8px;text-decoration:none;color:var(--slate);border-bottom:1px dotted var(--slate);white-space:nowrap}
+  .ini-search:hover{color:var(--ice);border-bottom-color:var(--ice)}
+  .share-btn{
+    font-family:inherit;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    font-size:12px;font-weight:700;color:var(--snow);background:var(--slate);
+    border:none;padding:8px 16px;border-radius:30px;transition:background .15s;
+  }
+  .share-btn:hover{background:var(--ink)}
+  .share-btn.copied{background:var(--moss)}
+  .search-note{font-size:10.5px;color:var(--slate);margin-top:8px}
+
+  /* 深掘り */
+  .dig-btn{
+    font-family:inherit;cursor:pointer;font-size:11px;font-weight:700;
+    color:var(--ice);background:rgba(46,124,168,.08);border:1px solid rgba(46,124,168,.3);
+    padding:4px 11px;border-radius:30px;transition:all .15s;
+  }
+  .dig-btn:hover{background:var(--ice);color:#fff;border-color:var(--ice)}
+  .deep-toggle{
+    font-family:inherit;cursor:pointer;width:100%;text-align:left;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    font-size:13px;font-weight:800;color:var(--ink);
+    background:linear-gradient(135deg, rgba(46,124,168,.07), rgba(44,110,99,.07));
+    border:1.5px solid var(--line);border-radius:6px;padding:13px 16px;transition:border-color .15s;
+  }
+  .deep-toggle:hover{border-color:var(--ice)}
+  .deep-toggle .arrow{transition:transform .2s;font-size:12px;color:var(--slate)}
+  .deep-toggle[aria-expanded="true"] .arrow{transform:rotate(180deg)}
+  .deep-body{
+    border:1.5px solid var(--line);border-top:none;border-radius:0 0 6px 6px;
+    padding:18px 16px 14px;background:var(--snow);
+    margin-top:-6px;
+  }
+  .deep-sec{margin-bottom:18px}
+  .deep-sec:last-of-type{margin-bottom:8px}
+  .deep-sec h4{
+    font-size:12px;font-weight:800;color:var(--moss);margin-bottom:6px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .deep-sec h4::before{content:"";width:10px;height:10px;border:2.5px solid var(--moss);border-radius:50%;flex-shrink:0}
+  .deep-sec p{font-size:13px;line-height:1.8;color:var(--ink)}
+  .deep-note{font-size:10.5px;color:var(--slate);border-top:1px dashed var(--line);padding-top:10px}
+
+  /* 重要性データ */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}
+  .stat-box{
+    background:var(--snow);border:1.5px solid var(--line);border-radius:6px;
+    padding:12px 13px;position:relative;overflow:hidden;
+  }
+  .stat-box::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--ice)}
+  .stat-v{font-size:21px;font-weight:900;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
+  .stat-l{font-size:10.5px;color:var(--slate);line-height:1.45;margin-top:4px}
+
+  /* 施策の例 */
+  .measure-list{display:flex;flex-direction:column;gap:10px;counter-reset:msr}
+  .measure{
+    counter-increment:msr;position:relative;
+    border:1px solid var(--line);border-radius:5px;background:var(--paper);
+    padding:12px 14px 12px 44px;
+  }
+  .measure::before{
+    content:counter(msr,decimal-leading-zero);
+    position:absolute;left:13px;top:13px;
+    font-size:13px;font-weight:900;color:var(--moss);font-variant-numeric:tabular-nums;
+  }
+  .measure h5{font-size:13px;font-weight:800;margin-bottom:3px;color:var(--ink)}
+  .measure p{font-size:12px;color:var(--slate);line-height:1.65}
+  .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
+
+  /* ===== フッター ===== */
+  footer{border-top:2px solid var(--ink);padding:32px 0 50px;font-size:12.5px;color:var(--slate)}
+  footer .wrap{display:flex;flex-direction:column;gap:14px}
+  footer p{max-width:70ch;line-height:1.7}
+  footer .disc{font-size:11.5px;background:var(--snow2);border-radius:5px;padding:14px 16px}
+  .empty{text-align:center;padding:60px 20px;color:var(--slate);font-size:14px;grid-column:1/-1}
+
+  @media(max-width:560px){
+    header.hero{padding:44px 0 30px}
+    .grid{grid-template-columns:1fr}
+    .modal-overlay{padding:0}
+    .modal{border-radius:0;min-height:100vh}
+  }
+</style>
+</head>
+<body>
+
+<svg class="contour-bg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g fill="none" stroke="#2C6E63" stroke-width="1" opacity="0.13">
+    <path d="M-50,120 Q300,40 600,140 T1250,120"/>
+    <path d="M-50,200 Q320,110 600,220 T1250,200"/>
+    <path d="M-50,290 Q280,200 620,300 T1250,290"/>
+    <path d="M-50,390 Q340,300 600,400 T1250,390"/>
+    <path d="M-50,490 Q300,400 640,500 T1250,490"/>
+    <path d="M-50,590 Q330,500 600,600 T1250,590"/>
+    <path d="M-50,690 Q290,600 620,700 T1250,690"/>
+  </g>
+  <g fill="none" stroke="#2E7CA8" stroke-width="1" opacity="0.08">
+    <path d="M-50,160 Q310,80 600,180 T1250,160"/>
+    <path d="M-50,340 Q300,250 620,350 T1250,340"/>
+    <path d="M-50,540 Q330,450 600,550 T1250,540"/>
+  </g>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">北海道・地域課題リサーチ</div>
+    <h1 class="title">北海道の地域課題を知る、<br><span class="hl">北海道の未来をつくる。</span></h1>
+    <p class="lede">道内に共通する<strong>課題</strong>と、ブロックごとの<strong>地域固有</strong>の課題を二層で整理した課題マッピング。各カードに、自治体・個人・法人の<strong>取り組み事例</strong>と公開出典を添えています。</p>
+    <div class="meta-row">
+      <span class="pill">2025国勢調査 反映</span>
+      <span><b>500万人割れ</b>（戦後初・2020→25で約4.2%減）</span>
+      <span>最終更新 <b id="upd"></b>（v7）</span>
+      <span>出典：公開情報のみ</span>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div>
+      <div class="ctrl-label">社会システムで絞る</div>
+      <div class="chip-row" id="cat-chips"></div>
+    </div>
+    <div>
+      <div class="ctrl-label">地域で絞る</div>
+      <div class="chip-row" id="region-chips"></div>
+    </div>
+    <div class="sort-row">
+      <span class="ctrl-label" style="margin:0">並び替え</span>
+      <button class="sort-btn" data-sort="urgency" aria-pressed="true">緊急度</button>
+      <button class="sort-btn" data-sort="severity" aria-pressed="false">深刻度</button>
+      <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組数</button>
+      <span class="count"><b id="num">0</b> 件の課題</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>このページは、北海道の地域社会が向き合う構造課題を、共通課題と地域固有課題の二層で分類し、自治体・個人・法人の取り組みと公開出典を参照できるよう整理した課題地図です。事実・解釈・取り組みを分けて記載しています。</p>
+    <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。スコア（緊急度・深刻度）は相対的な目安です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
+  <div class="modal" id="modal-inner"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+  document.getElementById('upd').textContent = META.updated;
+  const catMap = Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
+  const regMap = Object.fromEntries(REGIONS.map(r=>[r.id,r]));
+
+  let state = { cat:'all', region:'all', sort:'urgency' };
+
+  // チップ生成
+  const catChips = document.getElementById('cat-chips');
+  catChips.innerHTML = `<button class="chip" data-cat="all" aria-pressed="true">すべて</button>` +
+    CATEGORIES.map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="false"><span class="dot" style="background:${c.color}"></span>${c.name}</button>`).join('');
+  const regChips = document.getElementById('region-chips');
+  regChips.innerHTML = REGIONS.map(r=>`<button class="chip" data-region="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('');
+
+  catChips.addEventListener('click',e=>{
+    const b=e.target.closest('[data-cat]'); if(!b)return;
+    state.cat=b.dataset.cat;
+    catChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    render();
+  });
+  regChips.addEventListener('click',e=>{
+    const b=e.target.closest('[data-region]'); if(!b)return;
+    state.region=b.dataset.region;
+    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    render();
+  });
+  document.querySelector('.sort-row').addEventListener('click',e=>{
+    const b=e.target.closest('[data-sort]'); if(!b)return;
+    state.sort=b.dataset.sort;
+    document.querySelectorAll('.sort-btn').forEach(s=>s.setAttribute('aria-pressed', s===b));
+    render();
+  });
+
+  function dots(n,cls){let h=`<div class="dots ${cls}">`;for(let i=1;i<=5;i++)h+=`<i class="${i<=n?'on':''}"></i>`;h+='</div>';return h;}
+
+  function filtered(){
+    let list = ISSUES.filter(it=>{
+      const okCat = state.cat==='all' || it.cat===state.cat;
+      const okReg = state.region==='all' || it.regions.includes(state.region);
+      return okCat && okReg;
+    });
+    list.sort((a,b)=>{
+      if(state.sort==='initiatives') return b.initiatives.length - a.initiatives.length;
+      const s = state.sort;
+      return (b[s]-a[s]) || (b.severity-a.severity);
+    });
+    return list;
+  }
+
+  function render(){
+    const list = filtered();
+    document.getElementById('num').textContent = list.length;
+    const grid = document.getElementById('grid');
+    if(!list.length){grid.innerHTML=`<div class="empty">条件に合う課題はありません。フィルタを調整してください。</div>`;return;}
+    grid.innerHTML = list.map(it=>{
+      const c = catMap[it.cat];
+      const rtags = it.regions.map(r=>`<span class="rtag">${regMap[r].short}</span>`).join('');
+      return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
+        <div class="cat-bar" style="background:${c.color}"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="cat-name" style="color:${c.color}">${c.name}</span>
+            <div class="scores">
+              <div class="score">緊急${dots(it.urgency,'u')}</div>
+              <div class="score">深刻${dots(it.severity,'s')}</div>
+            </div>
+          </div>
+          <h3>${it.title}</h3>
+          <p class="summary">${it.summary}</p>
+          <div class="card-foot">
+            ${rtags}
+            <span class="ini-count">取組 <b>${it.initiatives.length}</b></span>
+            ${it.deep ? `<button class="dig-btn" data-dig="${it.id}">⛏ 深掘り</button>` : ''}
+          </div>
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  // モーダル
+  const modal = document.getElementById('modal');
+  const inner = document.getElementById('modal-inner');
+  // サンドボックス環境（artifactプレビュー等）ではURL書き換えが禁止されているため機能検知
+  const canUseHistory = (()=>{ try{ history.replaceState(null,'',location.href); return true; }catch(e){ return false; } })();
+  function setHash(h){ if(!canUseHistory) return; try{ history.replaceState(null,'', h ? '#'+h : location.pathname+location.search); }catch(e){} }
+
+  function openModal(id, pushHash=true, expandDeep=false){
+    const it = ISSUES.find(x=>x.id===id); if(!it)return;
+    if(pushHash){ setHash(id); }
+    const c = catMap[it.cat];
+    const rtags = it.regions.map(r=>`<span class="rtag" title="${regMap[r].desc}">${regMap[r].name}</span>`).join('');
+    const enc = encodeURIComponent;
+    const newsQ = it.q || (it.title + ' 北海道');
+    const inis = it.initiatives.map(n=>{
+      const src = (n.s>=0 && SOURCES[n.s]) ? `<div class="ini-src"><a href="${SOURCES[n.s].u}" target="_blank" rel="noopener">出典：${SOURCES[n.s].o} ↗</a></div>` : '';
+      const rt = n.region ? `<span class="ini-region-tag">${regMap[n.region]?regMap[n.region].short:n.region}</span>` : '';
+      const topicWords = (it.q||it.title).split(' ').filter(w=>w!=='北海道').slice(0,2).join(' ');
+      const iniSearch = `<a class="ini-search" href="https://news.google.com/search?q=${enc(n.who.replace(/（.*?）/g,'')+' '+topicWords)}&hl=ja&gl=JP&ceid=JP:ja" target="_blank" rel="noopener">記事を検索 ↗</a>`;
+      return `<div class="ini-item"><div class="ini-who">${n.who}${rt}${iniSearch}</div><div class="ini-what">${n.what}</div>${src}</div>`;
+    }).join('');
+    const srcList = (it.sources&&it.sources.length)
+      ? `<div class="mb-sources"><div class="mb-label">出典・データ</div><ul>${it.sources.map(si=>{const s=SOURCES[si];return s?`<li><a href="${s.u}" target="_blank" rel="noopener">${s.t}</a> <span class="src-org">／ ${s.o}</span></li>`:'';}).join('')}</ul></div>`
+      : '';
+    const searchBlock = `
+      <div class="mb-section">
+        <div class="mb-label">関連情報を検索（常に最新）</div>
+        <div class="search-row">
+          <a class="search-link" href="https://news.google.com/search?q=${enc(newsQ)}&hl=ja&gl=JP&ceid=JP:ja" target="_blank" rel="noopener"><span class="ic">📰</span>ニュース記事</a>
+          <a class="search-link" href="https://www.google.com/search?q=${enc(newsQ)}+site:pref.hokkaido.lg.jp" target="_blank" rel="noopener"><span class="ic">🏛</span>道庁の資料</a>
+          <a class="search-link" href="https://www.google.com/search?q=${enc(newsQ)}+site:go.jp+filetype:pdf" target="_blank" rel="noopener"><span class="ic">📄</span>国の資料（PDF）</a>
+          <a class="search-link" href="https://www.google.com/search?q=${enc(newsQ)}+site:lg.jp+-site:pref.hokkaido.lg.jp" target="_blank" rel="noopener"><span class="ic">🏘</span>市町村サイト</a>
+        </div>
+        <div class="search-note">検索リンクは課題ごとのキーワードで外部検索を開きます。掲載時点の出典と違い、常に最新の記事・公開資料にあたれます。</div>
+      </div>`;
+    const shareBlock = `
+      <div class="mb-section" style="margin-bottom:0">
+        <button class="share-btn" id="share-card">🔗 このカードのリンクをコピー</button>
+      </div>`;
+    const deepBlock = (it.deep && it.deep.length) ? `
+      <div class="mb-section">
+        <button class="deep-toggle" id="deep-toggle" aria-expanded="false">
+          <span>⛏ 深掘り解説 — 構造・論点・取り組みの読み解き</span><span class="arrow">▼</span>
+        </button>
+        <div class="deep-body" id="deep-body" hidden>
+          ${it.deep.map(d=>`<div class="deep-sec"><h4>${d.h}</h4><p>${d.b}</p></div>`).join('')}
+          <div class="deep-note">この深掘り解説は、出典欄の公開情報をもとにした編集部の構造解説・見立てを含みます。事実関係は各出典をご確認ください。</div>
+        </div>
+      </div>` : '';
+    const statsBlock = (it.stats && it.stats.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:var(--ice)">重要性を示すデータ</div>
+        <div class="stat-grid">${it.stats.map(s=>`<div class="stat-box"><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div></div>`).join('')}</div>
+      </div>` : '';
+    const measuresBlock = (it.measures && it.measures.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:var(--moss)">取りうる施策の例</div>
+        <div class="measure-list">${it.measures.map(m=>`<div class="measure"><h5>${m.t}</h5><p>${m.d}</p></div>`).join('')}</div>
+        <div class="measure-note">施策例は公開事例と一般的な政策メニューを編集部が整理した選択肢であり、特定地域への推奨ではありません。</div>
+      </div>` : '';
+    const researchBlock = (it.research && it.research.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:#6B5B95">調査研究・レポート（深く学ぶ）</div>
+        <div class="mb-sources" style="border-top:none;padding-top:0;margin-top:0"><ul>
+          ${it.research.map(r=>`<li><a href="${r.u}" target="_blank" rel="noopener">${r.t}</a> <span class="src-org">／ ${r.o}</span></li>`).join('')}
+        </ul></div>
+      </div>` : '';
+    inner.innerHTML = `
+      <div class="modal-head" style="background:${c.color}">
+        <button class="modal-close" aria-label="閉じる">×</button>
+        <div class="modal-cat">${c.name}</div>
+        <h2>${it.title}</h2>
+        <div class="modal-scores">
+          <div class="modal-score">緊急度 ${dots(it.urgency,'')}</div>
+          <div class="modal-score">深刻度 ${dots(it.severity,'')}</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="mb-region">${rtags}</div>
+        <div class="mb-section"><div class="mb-text">${it.summary}</div></div>
+        ${statsBlock}
+        <div class="mb-section"><div class="mb-label fact">事実</div><div class="mb-text">${it.fact}</div></div>
+        <div class="mb-section"><div class="mb-label interp">解釈・見立て</div><div class="mb-text">${it.interp}</div></div>
+        ${deepBlock}
+        <div class="mb-section"><div class="mb-label ini">取り組み事例（${it.initiatives.length}）</div><div class="ini-list">${inis||'<div class="mb-text" style="color:var(--slate)">公開された具体事例は整理中。</div>'}</div></div>
+        ${measuresBlock}
+        ${researchBlock}
+        ${searchBlock}
+        ${srcList}
+        ${shareBlock}
+      </div>`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    inner.querySelector('.modal-close').addEventListener('click',closeModal);
+    const dt = inner.querySelector('#deep-toggle');
+    if(dt){
+      const db = inner.querySelector('#deep-body');
+      const setOpen = (open)=>{ db.hidden=!open; dt.setAttribute('aria-expanded', open); };
+      dt.addEventListener('click', ()=> setOpen(db.hidden));
+      if(expandDeep){
+        setOpen(true);
+        setTimeout(()=>{ dt.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+      }
+    }
+    const sb = inner.querySelector('#share-card');
+    sb.addEventListener('click', async ()=>{
+      const url = location.href.split('#')[0] + '#' + it.id;
+      let ok = false;
+      try{ await navigator.clipboard.writeText(url); ok = true; }catch(e){}
+      if(!ok){
+        try{
+          const ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta);
+          ta.select(); ok = document.execCommand('copy'); ta.remove();
+        }catch(e){}
+      }
+      if(ok){
+        sb.textContent = '✓ コピーしました'; sb.classList.add('copied');
+        setTimeout(()=>{ sb.textContent='🔗 このカードのリンクをコピー'; sb.classList.remove('copied'); }, 1800);
+      }else{
+        // コピーが禁止された環境では、URLを直接表示して手動コピーしてもらう
+        try{ window.prompt('このカードのリンク（手動でコピーしてください）', url); }catch(e){}
+      }
+    });
+  }
+  function closeModal(){
+    modal.classList.remove('open');document.body.style.overflow='';
+    setHash('');
+  }
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  document.getElementById('grid').addEventListener('click',e=>{
+    const dig=e.target.closest('[data-dig]');
+    if(dig){ e.stopPropagation(); openModal(dig.dataset.dig, true, true); return; }
+    const card=e.target.closest('[data-id]');
+    if(card)openModal(card.dataset.id);
+  });
+  document.getElementById('grid').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.dataset.id){e.preventDefault();openModal(e.target.dataset.id);}});
+
+  render();
+
+  // 共有リンク（#課題ID）で開かれたら該当カードを自動表示
+  try{
+    if(location.hash){
+      const hid = location.hash.slice(1);
+      if(ISSUES.find(x=>x.id===hid)) openModal(hid, false);
+    }
+    window.addEventListener('hashchange', ()=>{
+      const hid = location.hash.slice(1);
+      if(hid && ISSUES.find(x=>x.id===hid)) openModal(hid, false);
+    });
+  }catch(e){}
+</script>
+</body>
+</html>
