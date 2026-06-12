@@ -208,13 +208,15 @@
   .card-bookmark-btn:hover{transform:scale(1.15);background:#fff;color:#B5733A}
   .card-bookmark-btn.is-bookmarked{color:#B5733A}
   .modal-bookmark-btn{
-    font-family:inherit;cursor:pointer;font-size:12px;font-weight:700;
-    background:transparent;border:1px solid rgba(255,255,255,.4);
-    color:#fff;padding:6px 13px;border-radius:30px;
+    position:absolute;top:16px;right:56px;z-index:2;
+    background:rgba(255,255,255,.18);border:none;cursor:pointer;
+    color:#fff;width:32px;height:32px;border-radius:50%;
+    font-size:16px;line-height:1;
+    display:inline-flex;align-items:center;justify-content:center;
     transition:all .15s;
   }
-  .modal-bookmark-btn:hover{background:rgba(255,255,255,.15)}
-  .modal-bookmark-btn.is-bookmarked{background:#B5733A;border-color:#B5733A}
+  .modal-bookmark-btn:hover{background:rgba(255,255,255,.32);transform:scale(1.08)}
+  .modal-bookmark-btn.is-bookmarked{background:#B5733A}
   .bookmark-view-btn{
     font-family:inherit;cursor:pointer;
     font-size:11.5px;font-weight:700;
@@ -1094,13 +1096,6 @@
       b.classList.toggle('is-bookmarked', on);
       b.textContent = on ? '♥' : '♡';
     });
-    const modalBookmark = document.getElementById('modal-bookmark-btn');
-    if(modalBookmark){
-      const id = modalBookmark.dataset.bookmarkId;
-      const on = isBookmarked(id);
-      modalBookmark.classList.toggle('is-bookmarked', on);
-      modalBookmark.innerHTML = on ? '♥ 気になる解除' : '♡ 気になるに追加';
-    }
   }
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
   // 意味的ラベル ( データから自動算出 )
@@ -1711,11 +1706,11 @@
     inner.innerHTML = `
       <div class="modal-head" style="background:${c.color}">
         <button class="modal-close" aria-label="閉じる">×</button>
+        <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加">${isBookmarked(it.id)?'♥':'♡'}</button>
         <div class="modal-cat">${c.name}</div>
         <h2>${it.title}</h2>
         <div class="modal-scores">
           ${metaLabels(it).map(l=>`<span class="modal-meta-label">${l}</span>`).join('')}
-          <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}">${isBookmarked(it.id)?'♥ 気になる解除':'♡ 気になるに追加'}</button>
         </div>
       </div>
       <div class="modal-body">
