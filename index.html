@@ -402,6 +402,11 @@
   .stat-box::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--ice)}
   .stat-v{font-size:21px;font-weight:900;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
   .stat-l{font-size:10.5px;color:var(--slate);line-height:1.45;margin-top:4px}
+  .stat-source{font-size:9.5px;color:var(--slate);margin-top:6px;border-top:1px dashed var(--line);padding-top:5px;line-height:1.4}
+  .stat-source a{color:var(--slate);text-decoration:none;border-bottom:1px dotted var(--slate);font-weight:700}
+  .stat-source a:hover{color:var(--ice);border-bottom-color:var(--ice)}
+  .stat-box[data-card-url]{cursor:pointer}
+  .stat-box[data-card-url]:hover{border-color:var(--ice)}
   .stat-trend{margin-top:9px;display:flex;flex-direction:column;gap:3px;border-top:1px dashed var(--line);padding-top:8px}
   .stat-trend-row{display:flex;align-items:center;gap:7px;font-size:9.5px;color:var(--slate)}
   .stat-trend-year{font-weight:700;min-width:30px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
@@ -1657,7 +1662,11 @@
     const statsBlock = (it.stats && it.stats.length) ? `
       <div class="mb-section">
         <div class="mb-label" style="color:var(--ice)">数値で見る現状</div>
-        <div class="stat-grid">${it.stats.map(s=>`<div class="stat-box"><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div>${renderTrend(s.trend)}</div>`).join('')}</div>
+        <div class="stat-grid">${it.stats.map(s=>{
+          const src = s.source;
+          const srcHtml = src ? `<div class="stat-source">出典: <a href="${src.u}" target="_blank" rel="noopener">${src.o || src.t} ↗</a>${src.year?` ・ ${src.year}`:''}</div>` : '';
+          return `<div class="stat-box"${src?` data-card-url="${src.u}"`:''}><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div>${renderTrend(s.trend)}${srcHtml}</div>`;
+        }).join('')}</div>
       </div>` : '';
     const measuresBlock = (it.measures && it.measures.length) ? `
       <div class="mb-section">
