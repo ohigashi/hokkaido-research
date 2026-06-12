@@ -538,14 +538,43 @@
     background:rgba(31,42,40,.04);border:1px solid rgba(31,42,40,.12);
     border-radius:7px;
   }
-  .info-stat{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .info-stat{
+    font-family:inherit;cursor:pointer;background:transparent;border:none;
+    display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap;
+    padding:2px 4px;border-radius:4px;transition:background .12s;
+  }
+  .info-stat:hover{background:rgba(46,124,168,.08)}
   .info-stat .n{font-size:28px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.02em}
-  .info-stat .l{font-size:12px;font-weight:700;color:var(--slate);letter-spacing:.04em}
+  .info-stat .l{font-size:12px;font-weight:700;color:var(--slate);letter-spacing:.04em;border-bottom:1px dotted var(--slate)}
+  .info-stat:hover .l{color:var(--ice);border-bottom-color:var(--ice)}
   @media(max-width:600px){
     .info-stats-bar{gap:14px 22px;padding:13px 14px;margin:20px 0 14px}
     .info-stat .n{font-size:22px}
     .info-stat .l{font-size:11px}
   }
+
+  /* 統計詳細モーダル */
+  .stat-modal-head{background:var(--ink);color:var(--snow);padding:20px 24px}
+  .stat-modal-close{
+    position:absolute;top:16px;right:18px;background:rgba(255,255,255,.18);border:none;
+    color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1;
+  }
+  .stat-modal-close:hover{background:rgba(255,255,255,.32)}
+  .stat-modal-head h2{font-size:22px;font-weight:900;margin:0;padding-right:30px}
+  .stat-modal-head .stat-modal-meta{font-size:12px;opacity:.7;margin-top:4px}
+  .stat-modal-body{padding:18px 22px}
+  .stat-list{display:flex;flex-direction:column;gap:6px}
+  .stat-list-item{
+    background:var(--paper);border:1px solid var(--line);border-radius:5px;
+    padding:11px 13px;cursor:pointer;transition:all .12s;
+    display:flex;flex-direction:column;gap:3px;text-decoration:none;
+  }
+  .stat-list-item:hover{border-color:var(--ink);background:var(--snow);transform:translateX(2px)}
+  .stat-list-title{font-size:13px;font-weight:800;color:var(--ink);line-height:1.4}
+  .stat-list-meta{font-size:11px;color:var(--slate);line-height:1.45}
+  .stat-list-parent{font-size:10px;color:var(--moss);font-weight:700;letter-spacing:.04em}
+  .stat-list-parent::before{content:"課題: ";opacity:.7}
+  .stat-list-link{font-size:10.5px;color:var(--ice);font-weight:700}
 
   /* ===== 構造マップ ===== */
   .overview{padding:30px 0 6px;position:relative;z-index:1}
@@ -791,22 +820,146 @@
 <script>
   document.getElementById('upd').textContent = META.updated;
 
-  // 情報量サマリー
+  // 情報量サマリー ( クリック可 )
   (function(){
     const sum = (arr, fn) => arr.reduce((s, x) => s + fn(x), 0);
     const stats = [
-      { n: ISSUES.length, l: '課題' },
-      { n: sum(ISSUES, it => (it.initiatives||[]).length), l: '道内取組' },
-      { n: sum(ISSUES, it => (it.externalCases||[]).length), l: '道外事例' },
-      { n: SOURCES.length, l: '出典・データ' },
-      { n: sum(ISSUES, it => (it.deep||[]).length), l: '深掘り章' }
+      { n: ISSUES.length, l: '課題', type: 'issues' },
+      { n: sum(ISSUES, it => (it.initiatives||[]).length), l: '道内取組', type: 'initiatives' },
+      { n: sum(ISSUES, it => (it.externalCases||[]).length), l: '道外事例', type: 'externals' },
+      { n: SOURCES.length, l: '出典・データ', type: 'sources' },
+      { n: sum(ISSUES, it => (it.deep||[]).length), l: '深掘り章', type: 'deep' }
     ];
     const refs = sum(ISSUES, it => (it.references||[]).length);
-    if(refs > 0) stats.push({ n: refs, l: '参考リンク' });
+    if(refs > 0) stats.push({ n: refs, l: '参考リンク', type: 'references' });
     document.getElementById('info-stats-bar').innerHTML = stats.map(s=>
-      `<span class="info-stat"><span class="n">${s.n}</span><span class="l">${s.l}</span></span>`
+      `<button class="info-stat" data-stat-type="${s.type}"><span class="n">${s.n}</span><span class="l">${s.l}</span></button>`
     ).join('');
+    document.getElementById('info-stats-bar').addEventListener('click', e=>{
+      const b = e.target.closest('[data-stat-type]'); if(!b) return;
+      openStatModal(b.dataset.statType);
+    });
   })();
+
+  // 統計詳細モーダル
+  function openStatModal(type){
+    let title = '', metaTxt = '', listHtml = '';
+    if(type === 'issues'){
+      title = '全課題一覧';
+      const items = [...ISSUES].sort((a,b)=>importanceScore(b)-importanceScore(a));
+      metaTxt = `${items.length} 件 ・ 重要度順`;
+      listHtml = items.map(it=>{
+        const c = catMap[it.cat];
+        return `<div class="stat-list-item" data-go-issue="${it.id}">
+          <div class="stat-list-title">${it.title}</div>
+          <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 重要度 ${importanceScore(it)}/10 ・ 話題度 ${heatScore(it)}/10</div>
+        </div>`;
+      }).join('');
+    }
+    else if(type === 'initiatives'){
+      title = '道内取組 一覧';
+      const items = [];
+      ISSUES.forEach(it=>{
+        (it.initiatives||[]).forEach(n=>{
+          items.push({n, issue: it, url: (n.s>=0 && SOURCES[n.s]) ? SOURCES[n.s].u : null});
+        });
+      });
+      metaTxt = `${items.length} 件 ・ 道内自治体 ・ 個人 ・ 法人の取り組み`;
+      listHtml = items.map(p=>{
+        const linkAttr = p.url ? ` data-go-url="${p.url}"` : ` data-go-issue="${p.issue.id}"`;
+        return `<div class="stat-list-item"${linkAttr}>
+          <div class="stat-list-title">${p.n.who}</div>
+          <div class="stat-list-meta">${p.n.what}</div>
+          <div class="stat-list-parent">${p.issue.title}</div>
+        </div>`;
+      }).join('');
+    }
+    else if(type === 'externals'){
+      title = '道外類似事例 一覧';
+      const items = [];
+      ISSUES.forEach(it=>{
+        (it.externalCases||[]).forEach(c=>{
+          items.push({c, issue: it});
+        });
+      });
+      metaTxt = `${items.length} 件 ・ 道外の参考事例`;
+      listHtml = items.map(p=>{
+        const url = p.c.source?.u || null;
+        const linkAttr = url ? ` data-go-url="${url}"` : ` data-go-issue="${p.issue.id}"`;
+        return `<div class="stat-list-item"${linkAttr}>
+          <div class="stat-list-title">${p.c.who}</div>
+          <div class="stat-list-meta">${p.c.what}</div>
+          <div class="stat-list-parent">${p.issue.title}</div>
+        </div>`;
+      }).join('');
+    }
+    else if(type === 'sources'){
+      title = '出典・データ 一覧';
+      metaTxt = `${SOURCES.length} 件 ・ 公式 ・ 報道 ・ 研究 ・ 業界`;
+      listHtml = SOURCES.map(src=>{
+        return `<div class="stat-list-item" data-go-url="${src.u}">
+          <div class="stat-list-title">${src.t}</div>
+          <div class="stat-list-meta">${src.o}${src.year?` ・ ${src.year}`:''}</div>
+          <div class="stat-list-link">${src.u} ↗</div>
+        </div>`;
+      }).join('');
+    }
+    else if(type === 'deep'){
+      title = '深掘り章 一覧';
+      const items = [];
+      ISSUES.forEach(it=>{
+        (it.deep||[]).forEach(d=>{
+          items.push({d, issue: it});
+        });
+      });
+      metaTxt = `${items.length} 章 ・ 構造的分析`;
+      listHtml = items.map(p=>`<div class="stat-list-item" data-go-issue="${p.issue.id}">
+        <div class="stat-list-title">${p.d.h}</div>
+        <div class="stat-list-meta">${p.d.b.substring(0,90)}...</div>
+        <div class="stat-list-parent">${p.issue.title}</div>
+      </div>`).join('');
+    }
+    else if(type === 'references'){
+      title = '参考リンク 一覧';
+      const items = [];
+      ISSUES.forEach(it=>{
+        (it.references||[]).forEach(r=>{
+          items.push({r, issue: it});
+        });
+      });
+      metaTxt = `${items.length} 件 ・ note 記事 ・ 個人発信等`;
+      listHtml = items.map(p=>`<div class="stat-list-item" data-go-url="${p.r.u}">
+        <div class="stat-list-title">${p.r.t}</div>
+        <div class="stat-list-meta">${p.r.o||''}${p.r.year?` ・ ${p.r.year}`:''}</div>
+        <div class="stat-list-parent">${p.issue.title}</div>
+      </div>`).join('');
+    }
+    inner.innerHTML = `<div class="stat-modal-head">
+      <button class="stat-modal-close" aria-label="閉じる">×</button>
+      <h2>${title}</h2>
+      <div class="stat-modal-meta">${metaTxt}</div>
+    </div>
+    <div class="stat-modal-body"><div class="stat-list">${listHtml}</div></div>`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    inner.querySelector('.stat-modal-close').addEventListener('click', closeModal);
+    inner.querySelectorAll('[data-go-issue]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        const iid = el.dataset.goIssue;
+        if(window.gtag) gtag('event','stat_drill_issue',{type, issue_id:iid});
+        openModal(iid);
+      });
+    });
+    inner.querySelectorAll('[data-go-url]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        if(e.target.closest('a, button.stat-modal-close')) return;
+        const url = el.dataset.goUrl;
+        if(window.gtag) gtag('event','stat_drill_url',{type, url});
+        window.open(url, '_blank', 'noopener');
+      });
+    });
+    if(window.gtag) gtag('event','stat_open',{type});
+  }
   const catMap = Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
   const regMap = Object.fromEntries(REGIONS.map(r=>[r.id,r]));
 
