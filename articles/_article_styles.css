@@ -5,9 +5,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",system-ui,sans-serif;
   background:var(--snow);color:var(--ink);
-  line-height:1.85;font-size:15px;-webkit-font-smoothing:antialiased;
+  line-height:1.78;font-size:15.5px;-webkit-font-smoothing:antialiased;
 }
 .article-wrap{max-width:720px;margin:0 auto;padding:50px 24px 80px}
 .back-link{
