@@ -84,6 +84,16 @@
     display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:12px;
     font-size:10.5px;color:var(--slate);align-items:center;
   }
+  .hero-articles-count{margin-top:14px}
+  .hero-articles-link{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:12px;font-weight:700;color:var(--ink);text-decoration:none;
+    padding:6px 13px;background:var(--paper);border:1px solid var(--line);
+    border-radius:30px;transition:all .12s;
+  }
+  .hero-articles-link:hover{border-color:var(--ice);background:var(--ice);color:var(--snow)}
+  .hero-articles-link b{font-size:14px;color:var(--ice);font-weight:900;font-variant-numeric:tabular-nums}
+  .hero-articles-link:hover b{color:var(--snow)}
   .meta-row b{color:var(--ink)}
   .pill{
     display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.06em;
@@ -944,6 +954,7 @@
     <div class="eyebrow">北海道・地域課題リサーチ</div>
     <h1 class="title">地域課題を知る、<span class="hl">未来と向き合う。</span></h1>
     <p class="lede">地域課題を構造から<strong>知り</strong>、長期事例から<strong>アイデアを得て</strong>、日常の<strong>行動変容</strong>につなぐ。北海道の地域変革プレイヤーのための知識基盤。</p>
+    <div class="hero-articles-count"><a href="/articles/" class="hero-articles-link">📖 <b id="hero-articles-num">0</b> 本の読み物を公開中 → すべての記事を見る</a></div>
     <div class="info-stats-bar" id="info-stats-bar"></div>
   </div>
 </header>
@@ -1494,8 +1505,10 @@
     renderLatest();
   });
 
-  // 読み物セクション ( 最新 4 本 )
+  // 読み物セクション ( 最新 4 本 ) + hero での件数表示
   (function(){
+    const heroNum = document.getElementById('hero-articles-num');
+    if(heroNum && typeof ARTICLES !== 'undefined') heroNum.textContent = ARTICLES.length;
     const grid = document.getElementById('reading-grid');
     if(!grid || typeof ARTICLES === 'undefined' || !ARTICLES.length){
       if(grid) grid.parentElement.parentElement.style.display = 'none';

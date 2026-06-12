@@ -2989,6 +2989,24 @@ const ARTICLES = [
     relatedIssues: ["infra-aging"],
     summary: "高度成長期建設のインフラが一斉に更新期。「すべて維持」と「集約 ・ 撤退」の選択を構造的に判断する視点。",
   },
+  {
+    id: "cost-of-living-hokkaido-2026-06",
+    title: "北海道の暮らしのコスト - 暖房費 ・ 物価 ・ 家計の構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["cost-of-living"],
+    summary: "暖房費は本州の数倍、食料品 ・ ガソリンも物流コスト分高い。北海道の暮らしのコスト構造と、地域経済への影響を読み解く。",
+  },
+  {
+    id: "fisheries-climate-change-2026-06",
+    title: "北海道の漁業と気候変動 - 海洋環境の変化が変える水産業",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["fisheries-climate"],
+    summary: "ホタテ ・ サンマ ・ サケの不漁 ・ 漁獲変動。海洋温暖化と漁業の構造的な対応を読み解く。",
+  },
 ];
 
 

@@ -145,4 +145,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/cost-of-living-hokkaido-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/fisheries-climate-change-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
