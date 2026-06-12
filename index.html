@@ -827,7 +827,7 @@
 <footer>
   <div class="wrap">
     <p>このページは、北海道の地域社会が向き合う構造課題を、共通課題と地域固有課題の二層で分類し、自治体・個人・法人の取り組みと公開出典を参照できるよう整理した課題地図です。事実・解釈・取り組みを分けて記載しています。</p>
-    <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。スコア（緊急度・深刻度）は相対的な目安です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
+    <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。掲載指標 ( 影響地域数 ・ 取組件数 ・ 道外事例数 ・ 構造深度 ・ 鮮度 ) は構造データから自動算出した客観値です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
     <p class="footer-contact">
       改善 ・ 提携 ・ 連携の相談窓口: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X ) ↗</a> ・ DM 歓迎
     </p>
@@ -875,13 +875,13 @@
     let title = '', metaTxt = '', listHtml = '';
     if(type === 'issues'){
       title = '全課題一覧';
-      const items = [...ISSUES].sort((a,b)=>importanceScore(b)-importanceScore(a));
-      metaTxt = `${items.length} 件 ・ 重要度順`;
+      const items = [...ISSUES].sort((a,b)=>(b.initiatives||[]).length - (a.initiatives||[]).length);
+      metaTxt = `${items.length} 件 ・ 取組件数順`;
       listHtml = items.map(it=>{
         const c = catMap[it.cat];
         return `<div class="stat-list-item" data-go-issue="${it.id}">
           <div class="stat-list-title">${it.title}</div>
-          <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 重要度 ${importanceScore(it)}/10 ・ 話題度 ${heatScore(it)}/10</div>
+          <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 取組 ${(it.initiatives||[]).length} 件 ・ 道外 ${(it.externalCases||[]).length} 件</div>
         </div>`;
       }).join('');
     }
@@ -1086,25 +1086,25 @@
 
   // 地域分布 ( B ) - 簡素化により撤去
 
-  // 構造マップ生成 ( 簡素化: 重要度バー + 取組数のみ )
+  // 構造マップ生成 ( 客観指標のみ )
   const ovGrid = document.getElementById('ov-grid');
   ovGrid.innerHTML = CATEGORIES.map(c=>{
     const issuesInCat = ISSUES.filter(it=>it.cat===c.id);
     const cnt = issuesInCat.length;
-    const avgImp = cnt ? issuesInCat.reduce((s,it)=>s+importanceScore(it),0)/cnt : 0;
     const iniCount = issuesInCat.reduce((s,it)=>s+(it.initiatives||[]).length,0);
+    const extCount = issuesInCat.reduce((s,it)=>s+(it.externalCases||[]).length,0);
     return `<button class="ov-tile" data-ov-cat="${c.id}" aria-pressed="false">
       <span class="ov-bar" style="background:${c.color}"></span>
       <div class="ov-name">${c.name}</div>
       <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
       <div class="ov-metrics">
         <div class="ov-metric">
-          <span class="ov-metric-label">重要度</span>
-          <span class="ov-metric-val">${avgImp.toFixed(1)}<span class="ov-metric-max"> / 10</span></span>
-        </div>
-        <div class="ov-metric">
           <span class="ov-metric-label">取組</span>
           <span class="ov-metric-val">${iniCount}<span class="ov-metric-max"> 件</span></span>
+        </div>
+        <div class="ov-metric">
+          <span class="ov-metric-label">道外</span>
+          <span class="ov-metric-val">${extCount}<span class="ov-metric-max"> 件</span></span>
         </div>
       </div>
       <div class="ov-desc" data-default="${c.desc}">${c.desc}</div>
@@ -1267,13 +1267,13 @@
     });
   })();
 
-  // 新着リスト生成 ( addedAt 降順、tie-break は重要度 )
+  // 新着リスト生成 ( addedAt 降順、tie-break は取組件数 )
   const LATEST_INITIAL = 7;
   const latestSorted = [...ISSUES].sort((a,b)=>{
     const aT = a.addedAt || '';
     const bT = b.addedAt || '';
     if(aT !== bT) return bT.localeCompare(aT);
-    return importanceScore(b) - importanceScore(a);
+    return (b.initiatives||[]).length - (a.initiatives||[]).length;
   });
   const latestList = document.getElementById('latest-list');
   const latestMore = document.getElementById('latest-more');
@@ -1286,7 +1286,7 @@
         <span class="latest-cat"><span class="latest-cat-dot" style="background:${c.color}"></span>${c.name}</span>
         <span class="latest-date">${it.addedAt || '日付未設定'}</span>
         <span class="latest-title-text">${it.title}</span>
-        <span class="latest-imp">重要<b>${importanceScore(it)}</b>/10</span>
+        <span class="latest-imp">取組<b>${(it.initiatives||[]).length}</b></span>
       </button>`;
     }).join('');
     const rest = latestSorted.length - LATEST_INITIAL;
@@ -1571,7 +1571,7 @@
       </div>` : '';
     const statsBlock = (it.stats && it.stats.length) ? `
       <div class="mb-section">
-        <div class="mb-label" style="color:var(--ice)">重要性を示すデータ</div>
+        <div class="mb-label" style="color:var(--ice)">数値で見る現状</div>
         <div class="stat-grid">${it.stats.map(s=>`<div class="stat-box"><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div>${renderTrend(s.trend)}</div>`).join('')}</div>
       </div>` : '';
     const measuresBlock = (it.measures && it.measures.length) ? `
