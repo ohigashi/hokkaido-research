@@ -118,20 +118,19 @@
   .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
   .cat-name{font-size:10.5px;font-weight:700;letter-spacing:.06em}
-  .scores{display:flex;gap:9px;flex-shrink:0}
-  .score{text-align:center;font-size:9px;color:var(--slate);font-weight:700;letter-spacing:.04em}
+  .scores{display:flex;gap:5px;flex-shrink:0}
+  .card-score{
+    background:var(--snow);color:var(--ink);border:1px solid var(--line);
+    padding:3px 9px;border-radius:30px;font-size:10px;font-weight:700;letter-spacing:.04em;
+    display:inline-flex;align-items:baseline;gap:3px;white-space:nowrap;
+  }
+  .card-score b{font-size:12.5px;font-weight:900;font-variant-numeric:tabular-nums}
+  .card-score .cs-unit{font-size:9px;color:var(--slate);opacity:.75}
+  /* モーダル内では dots 系を引き続き使用するため残す */
   .dots{display:flex;gap:2px;margin-top:3px;justify-content:center}
   .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);display:block}
   .dots i.on{background:var(--slate)}
-  .dots.u i.on{background:var(--ice)}
-  .dots.s i.on{background:#B5733A}
-  .card h3{font-size:18px;font-weight:800;line-height:1.32;margin-bottom:6px}
-  .card .score-sum{
-    display:flex;align-items:center;gap:8px;margin:0 0 10px;
-    font-size:10.5px;color:var(--slate);font-weight:700;letter-spacing:.04em;
-  }
-  .card .score-sum b{color:var(--ink);font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;margin-left:3px}
-  .card .score-sep{color:var(--line);font-weight:400}
+  .card h3{font-size:18px;font-weight:800;line-height:1.32;margin-bottom:10px}
   .card .summary{font-size:13px;color:var(--slate);line-height:1.6;flex:1}
   .card-foot{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;align-items:center}
   .rtag{font-size:10.5px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.09);padding:3px 8px;border-radius:3px}
@@ -667,12 +666,11 @@
           <div class="card-top">
             <span class="cat-name" style="color:${c.color}">${c.name}</span>
             <div class="scores">
-              <div class="score">緊急${dots(it.urgency,'u')}</div>
-              <div class="score">深刻${dots(it.severity,'s')}</div>
+              <div class="card-score">重要 <b>${importanceScore(it)}</b><span class="cs-unit">/10</span></div>
+              <div class="card-score">話題 <b>${heatScore(it)}</b><span class="cs-unit">/10</span></div>
             </div>
           </div>
           <h3>${it.title}</h3>
-          <div class="score-sum"><span>重要度<b>${importanceScore(it)}</b></span><span class="score-sep">｜</span><span>話題度<b>${heatScore(it)}</b></span></div>
           <p class="summary">${it.summary}</p>
           <div class="card-foot">
             ${rtags}
