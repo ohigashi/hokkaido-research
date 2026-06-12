@@ -144,12 +144,16 @@
   .dd-panel[data-active="true"] .dd-reset{display:inline-block}
   .global-reset{
     font-family:inherit;cursor:pointer;
-    font-size:11.5px;font-weight:700;color:var(--snow);background:#B5733A;
-    border:none;padding:7px 14px;border-radius:30px;
-    display:inline-flex;align-items:center;gap:5px;transition:background .12s;
+    font-size:11.5px;font-weight:700;
+    border:1px solid var(--line);padding:6px 13px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:5px;transition:all .12s;
+    color:var(--slate);background:var(--paper);
   }
-  .global-reset:hover{background:#995F30}
-  .global-reset[hidden]{display:none}
+  .global-reset:hover{border-color:var(--ink);color:var(--ink)}
+  .global-reset[data-active="true"]{
+    background:#B5733A;color:var(--snow);border-color:#B5733A;
+  }
+  .global-reset[data-active="true"]:hover{background:#995F30;border-color:#995F30}
   .sort-mini{display:inline-flex;gap:2px;align-items:center;margin-left:4px}
   .top-btn{
     margin-left:auto;font-family:inherit;cursor:pointer;
@@ -750,7 +754,7 @@
         <button class="sort-btn" data-sort="heat" aria-pressed="false">話題</button>
         <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組</button>
       </span>
-      <button id="global-reset" class="global-reset" hidden>✕ すべて表示</button>
+      <button id="global-reset" class="global-reset" data-active="false">✕ すべて表示</button>
       <span class="count"><b id="num">0</b> 件</span>
       <button class="top-btn" id="top-btn">▲ TOP</button>
     </div>
@@ -1144,7 +1148,7 @@
   }
   function syncGlobalReset(){
     const active = (state.cat !== 'all') || !!state.tag || (state.region !== 'all');
-    document.getElementById('global-reset').hidden = !active;
+    document.getElementById('global-reset').setAttribute('data-active', active ? 'true' : 'false');
   }
 
   // ドロップダウン共通制御

@@ -1551,140 +1551,168 @@ const PLAYERS = [
     role: "代表理事 / 道東の統合地域メディア",
     region: "okhotsk",
     focus: ["地域メディア", "関係人口", "若者ネットワーク"],
-    links: { web: "https://dotdoto.com/" }
+    links: { web: "https://dotdoto.com/" },
+    issues: ["migration", "new-industry", "ainu-culture"]
   },
   {
     name: "名寄新聞社",
     role: "道北の地域新聞",
     region: "dou-hoku",
     focus: ["地域新聞", "道北"],
-    links: { web: "https://nayoro-np.co.jp/" }
+    links: { web: "https://nayoro-np.co.jp/" },
+    issues: ["migration", "succession", "fisheries-climate"]
   },
   {
     name: "道北ネット",
     role: "北海道北部の統合地域メディア",
     region: "dou-hoku",
     focus: ["地域メディア", "道北", "情報統合"],
-    links: { web: "https://dohoku.net/" }
+    links: { web: "https://dohoku.net/" },
+    issues: ["migration", "depopulation", "energy-security"]
   },
   {
     name: "HOPPO journal",
     role: "北海道北部の地域コンテンツメディア",
     region: "dou-hoku",
     focus: ["地域メディア", "道北"],
-    links: { web: "https://note.com/search?q=HOPPO+journal" }
+    links: { web: "https://note.com/search?q=HOPPO+journal" },
+    issues: ["migration", "ainu-culture"]
   },
   {
     name: "北の住まいるタウン",
     role: "スマートタウン取り組みのメディア発信",
     region: "tokachi",
     focus: ["地域コンテンツ", "スマートタウン", "上士幌"],
-    links: { web: "https://kitasuma-town.com/" }
+    links: { web: "https://kitasuma-town.com/" },
+    issues: ["carbon-neutral", "smart-city-gx"]
   },
   {
     name: "下川町",
     role: "自治体 / SDGs 先進 ・ 森林循環",
     region: "dou-hoku",
     focus: ["SDGs", "森林循環", "移住定住"],
-    links: { web: "https://www.town.shimokawa.hokkaido.jp/" }
+    links: { web: "https://www.town.shimokawa.hokkaido.jp/" },
+    issues: ["forest-circulation", "migration", "decarbonization", "carbon-neutral"]
   },
   {
     name: "上士幌町",
     role: "自治体 / 脱炭素先行地域第 1 弾",
     region: "tokachi",
     focus: ["ゼロカーボン", "スマートビレッジ", "酪農"],
-    links: { web: "https://www.kamishihoro.jp/" }
+    links: { web: "https://www.kamishihoro.jp/" },
+    issues: ["carbon-neutral", "decarbonization", "smart-city-gx"]
   },
   {
     name: "ニセコ町",
     role: "自治体 / SDGs ・ 多文化共生",
     region: "dou-o",
     focus: ["SDGs", "観光持続性", "多文化共生"],
-    links: { web: "https://www.town.niseko.lg.jp/" }
+    links: { web: "https://www.town.niseko.lg.jp/" },
+    issues: ["tourism-sustainability", "multicultural", "decarbonization"]
   },
   {
     name: "更別村",
     role: "自治体 / SUPER VILLAGE 構想",
     region: "tokachi",
     focus: ["スマート農業", "デジ田", "スマートビレッジ"],
-    links: { web: "https://www.sarabetsu.jp/" }
+    links: { web: "https://www.sarabetsu.jp/" },
+    issues: ["smart-city-gx", "succession"]
   },
   {
     name: "札幌市",
     role: "政令市 / 都市政策 ・ GX",
     region: "dou-o",
     focus: ["都市政策", "ライドシェア", "ゼロカーボン"],
-    links: { web: "https://www.city.sapporo.jp/" }
+    links: { web: "https://www.city.sapporo.jp/" },
+    issues: ["depopulation", "car-less-mobility", "decarbonization"]
   },
   {
     name: "紋別市",
     role: "自治体 / ふるさと納税上位常連",
     region: "okhotsk",
     focus: ["ふるさと納税", "水産業", "ホタテ"],
-    links: { web: "https://www.city.mombetsu.lg.jp/" }
+    links: { web: "https://www.city.mombetsu.lg.jp/" },
+    issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
     name: "白糠町",
     role: "自治体 / ふるさと納税 ・ 水産",
     region: "kushiro-nemuro",
     focus: ["ふるさと納税", "水産業", "鮭"],
-    links: { web: "https://www.town.shiranuka.lg.jp/" }
+    links: { web: "https://www.town.shiranuka.lg.jp/" },
+    issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
     name: "知床財団",
     role: "知床世界自然遺産の保全 ・ 教育",
     region: "okhotsk",
     focus: ["自然保護", "エコツーリズム", "知床"],
-    links: { web: "https://www.shiretoko.or.jp/" }
+    links: { web: "https://www.shiretoko.or.jp/" },
+    issues: ["biodiversity", "tourism-sustainability"]
   },
   {
     name: "北海道大学 公共政策大学院 ( HOPS )",
     role: "教育 ・ 研究 / 地域政策",
     region: "dou-o",
     focus: ["公共政策", "地域政策", "都市計画"],
-    links: { web: "https://www.hops.hokudai.ac.jp/" }
+    links: { web: "https://www.hops.hokudai.ac.jp/" },
+    issues: ["migration", "depopulation", "regional-medical", "low-birthrate"]
   },
   {
     name: "北海道大学 水産学部 ( 函館 )",
     role: "教育 ・ 研究 / 水産 ・ 海洋",
     region: "dou-nan",
     focus: ["水産", "海洋", "気候変動"],
-    links: { web: "https://www.fish.hokudai.ac.jp/" }
+    links: { web: "https://www.fish.hokudai.ac.jp/" },
+    issues: ["fisheries-climate", "biodiversity"]
   },
   {
     name: "北見工業大学",
     role: "教育 ・ 研究 / 工学 ・ IT",
     region: "okhotsk",
     focus: ["工学", "IT", "スマートシティ"],
-    links: { web: "https://www.kitami-it.ac.jp/" }
+    links: { web: "https://www.kitami-it.ac.jp/" },
+    issues: ["smart-city-gx", "new-industry"]
   },
   {
     name: "酪農学園大学",
     role: "教育 ・ 研究 / 農業 ・ 環境",
     region: "dou-o",
     focus: ["農業", "環境", "食料システム"],
-    links: { web: "https://www.rakuno.ac.jp/" }
+    links: { web: "https://www.rakuno.ac.jp/" },
+    issues: ["succession", "soil-conservation", "primary"]
   },
   {
     name: "北海道経済連合会 ( 道経連 )",
     role: "経済団体 / 産業政策",
     region: "all",
     focus: ["経済政策", "産業集積", "課題解決先進地域"],
-    links: { web: "https://www.dokeiren.gr.jp/" }
+    links: { web: "https://www.dokeiren.gr.jp/" },
+    issues: ["semiconductor", "new-industry", "depopulation"]
   },
   {
     name: "北海道開発協会 ( HKK )",
     role: "シンクタンク / 地域開発調査",
     region: "all",
     focus: ["地域開発", "経済調査", "課題分析"],
-    links: { web: "https://www.hkk.or.jp/" }
+    links: { web: "https://www.hkk.or.jp/" },
+    issues: ["depopulation", "migration", "succession"]
   },
   {
     name: "北海道 IT 推進協会 ( HICTA )",
     role: "業界団体 / IT 産業 ・ スタートアップ",
     region: "all",
     focus: ["IT", "スタートアップ", "デジタル"],
-    links: { web: "https://www.hicta.or.jp/" }
+    links: { web: "https://www.hicta.or.jp/" },
+    issues: ["smart-city-gx", "new-industry"]
+  },
+  {
+    name: "EFC 北海道",
+    role: "エネルギー領域の地域発信 ・ 北海道のエネルギー未来",
+    region: "all",
+    focus: ["エネルギー", "GX", "カーボンニュートラル", "脱炭素"],
+    links: { web: "https://efc.hokkaido.jp/", note: "https://note.com/efc_hokkaido" },
+    issues: ["energy-security", "carbon-neutral", "decarbonization"]
   },
 ];
 
