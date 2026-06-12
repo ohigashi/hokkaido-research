@@ -269,24 +269,30 @@
     }
   }
 
-  // 4. 他の関連記事・なければ最新記事 4本を表示 ( 回遊強化 )
+  // 4. 他の関連記事・なければ高品質記事 4本を表示 ( 回遊強化 )
   var artEl = document.getElementById("rel-articles");
   if(artEl){
+    // 質重視ソート: quality 降順 → 同点は新着順
+    var byQuality = function(a,b){
+      var qd = (b.quality||0) - (a.quality||0);
+      if(qd !== 0) return qd;
+      return (b.publishedAt||"").localeCompare(a.publishedAt||"");
+    };
     var others = [];
     var allArticles = [];
     if(typeof ARTICLES !== "undefined"){
       allArticles = ARTICLES.filter(function(a){ return a.id !== ARTICLE_ID; });
-      others = allArticles.filter(function(a){
+      // 関連記事はまず quality >= 50 を優先、なければ全関連を質順
+      var relAll = allArticles.filter(function(a){
         return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
-      }).sort(function(a,b){
-        return (b.publishedAt||"").localeCompare(a.publishedAt||"");
       });
+      var relStrong = relAll.filter(function(a){ return (a.quality||0) >= 50; }).sort(byQuality);
+      var relWeak = relAll.filter(function(a){ return (a.quality||0) < 50; }).sort(byQuality);
+      others = relStrong.concat(relWeak);
     }
-    // 関連が少なければ最新記事を補完して常時4本程度を表示
+    // 関連が4本に満たないときは高品質記事で補完 ( 質重視 )
     if(others.length < 4 && allArticles.length){
-      var sortedAll = allArticles.slice().sort(function(a,b){
-        return (b.publishedAt||"").localeCompare(a.publishedAt||"");
-      });
+      var sortedAll = allArticles.slice().sort(byQuality);
       var existingIds = others.map(function(a){ return a.id; });
       for(var i=0; i<sortedAll.length && others.length<4; i++){
         if(existingIds.indexOf(sortedAll[i].id) < 0){
@@ -294,6 +300,7 @@
         }
       }
     }
+    others = others.slice(0, 4);
     if(others.length){
       artEl.innerHTML = others.map(function(a){
         var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");

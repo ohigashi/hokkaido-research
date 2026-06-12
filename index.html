@@ -1512,7 +1512,7 @@
     renderLatest();
   });
 
-  // 読み物セクション ( 最新 4本 ) + hero での件数表示
+  // 読み物セクション ( 質の高い 4本 を優先表示 ) + hero での件数表示
   (function(){
     const heroNum = document.getElementById('hero-articles-num');
     if(heroNum && typeof ARTICLES !== 'undefined') heroNum.textContent = ARTICLES.length;
@@ -1521,7 +1521,12 @@
       if(grid) grid.parentElement.parentElement.style.display = 'none';
       return;
     }
-    const sorted = [...ARTICLES].sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||''));
+    // 質重視: quality スコア降順 → 同点は新着順
+    const sorted = [...ARTICLES].sort((a,b)=>{
+      const qd = (b.quality||0) - (a.quality||0);
+      if(qd !== 0) return qd;
+      return (b.publishedAt||'').localeCompare(a.publishedAt||'');
+    });
     const items = sorted.slice(0, 4);
     grid.innerHTML = items.map(a=>{
       const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');

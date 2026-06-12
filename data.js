@@ -4093,7 +4093,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["migration"],
     summary: "「何人来たか」「何%残ったか」では地域に何が残るかを測れない。事業・関係・仕組みの 3 資産で評価する視点と、評価軸を組み替えると施策がどう変わるかを整理。",
+    quality: 85,
   },
+
   {
     id: "migration-longterm-cases-2026-06",
     title: "17年、15年継続する町に共通するもの - 海士町・神山町の長期視点",
@@ -4102,7 +4104,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["migration"],
     summary: "海士町と神山町に共通するのは「長期継続」と「仕組み化」。事例の表面ではなく、20年続いた 5 つの設計原則を読み解く。",
+    quality: 78,
   },
+
   {
     id: "furusato-nozei-asset-question-2026-06",
     title: "ふるさと納税は地方財源か、それとも関係資産か",
@@ -4111,7 +4115,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["furusato-nozei"],
     summary: "ふるさと納税を短期収入として扱うか、長期の関係資産として扱うか。評価軸の選択が、制度改正への脆弱性と長期の安定性を分ける。",
+    quality: 64,
   },
+
   {
     id: "furusato-nozei-transition-2026-06",
     title: "寄附から関係人口へ - ふるさと納税の 4 つの転換",
@@ -4120,7 +4126,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["furusato-nozei"],
     summary: "短期収入から長期関係資産への移行に必要な 4 つの具体策と、KPI の組み替えを整理。寄附者を地域のファンに育てる投資戦略。",
+    quality: 44,
   },
+
   {
     id: "vacant-houses-perspective-2026-06",
     title: "空き家を負担から資源に - 視点転換が変える施策",
@@ -4129,7 +4137,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["vacant-houses"],
     summary: "「いかに減らすか」から「誰が、何のために使うか」へ。住む・働く・集まるの 3 用途で統合的に組み立てる視点を整理。",
+    quality: 56,
   },
+
   {
     id: "vacant-houses-onomichi-2026-06",
     title: "20年継続が作る空き家再生 - 尾道に学ぶ仕組み",
@@ -4138,7 +4148,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["vacant-houses"],
     summary: "尾道空き家再生プロジェクトの 20年。設備でも補助金でもなく、組織・関わり方・循環という仕組み資産を残した 5 つの設計原則。",
+    quality: 62,
   },
+
   {
     id: "child-poverty-structure-2026-06",
     title: "子どもの貧困と教育格差 - 世代を跨ぐ連鎖を断つ視点",
@@ -4147,7 +4159,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["child-poverty"],
     summary: "北海道の子どもの貧困率 18% 、ひとり親世帯 50% 近く。経済支援を超えた仕組み転換と、わたしたちの日常でできる関わり方。",
+    quality: 71,
   },
+
   {
     id: "food-self-sufficiency-waste-2026-06",
     title: "食料自給率 220% と廃棄の同居 - 北海道のフードロス構造",
@@ -4156,7 +4170,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["food-waste-self-sufficiency"],
     summary: "北海道の自給率 220% は全国突出、一方で流通・加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。",
+    quality: 69,
   },
+
   {
     id: "succession-primary-industry-2026-06",
     title: "黒字でも廃業 - 北海道の一次産業の担い手構造",
@@ -4165,7 +4181,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["succession"],
     summary: "黒字でも廃業に至る事業者が少なくない。承継 = 人 + 価値再設計 + 販路という三層構造と、わたしたちにできる関わり方。",
+    quality: 52,
   },
+
   {
     id: "regional-recruitment-structure-2026-06",
     title: "地域企業の採用難 - なぜ給与 UP では届かないのか",
@@ -4174,7 +4192,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-business-recruitment"],
     summary: "中小企業・サービス・建設・介護・飲食・製造業のいずれも深刻な採用難。給与差・情報接点・移住障壁・ブランド力不在の 4 構造要因を読み解く。",
+    quality: 68,
   },
+
   {
     id: "regional-recruitment-transition-2026-06",
     title: "地域全体で『働く魅力』を設計する - 採用の 4 つの転換",
@@ -4183,7 +4203,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-business-recruitment"],
     summary: "個別企業の給与競争でなく、業界・主体・接点・指標を組み替える 4 つの転換で、地域全体での採用ブランディングを設計する。",
+    quality: 48,
   },
+
   {
     id: "youth-leaving-reasons-2026-06",
     title: "若者が地域を離れる - 5 つの理由と地域に残る選択肢の作り方",
@@ -4192,7 +4214,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-business-recruitment", "migration", "youth-support"],
     summary: "若者の地域離脱を「個人の選択」と諦めず、5 つの理由を構造的に読み解き、残る・戻る・関わるの 3 つの選択肢を地域に作る視点。",
+    quality: 49,
   },
+
   {
     id: "bear-conflict-structure-2026-06",
     title: "ヒグマと共存できる地域づくり - 北海道のヒグマ対応の構造",
@@ -4201,7 +4225,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["bear-conflict"],
     summary: "道内ヒグマ生息数約 1.2万頭、出没年1万件超。駆除か共存かではなく、5 つの構造要因 ( 人口減・林業衰退・緩衝帯消失・個体数増・学習 ) を統合的に扱う視点。",
+    quality: 55,
   },
+
   {
     id: "semiconductor-rapidus-economy-2026-06",
     title: "ラピダス進出が変える北海道経済 - 半導体集積の構造と影響",
@@ -4210,7 +4236,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["semiconductor"],
     summary: "ラピダス 5兆円投資、千歳・苫小牧に半導体産業集積。雇用・サプライチェーン・地域インフラへの影響を構造から読み解く。",
+    quality: 62,
   },
+
   {
     id: "jr-hokkaido-future-structure-2026-06",
     title: "JR 北海道は維持できるか - 鉄道存続と地域インフラの構造",
@@ -4219,7 +4247,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["jr-hokkaido-future"],
     summary: "13 路線で「維持困難」表明、廃線進行中。鉄道存続を「赤字 vs 黒字」ではなく、地域インフラの構造として読み解く。",
+    quality: 42,
   },
+
   {
     id: "tourism-sustainability-dual-2026-06",
     title: "北海道観光の二重構造 - オーバーツーリズムと過疎観光の同時進行",
@@ -4228,7 +4258,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["tourism-sustainability"],
     summary: "ニセコ過熱と過疎観光地の衰退が同時進行。「観光客を呼ぶ」だけでなく、観光持続性の構造を読み解く。",
+    quality: 45,
   },
+
   {
     id: "regional-medical-structure-2026-06",
     title: "北海道の地域医療 - 無医地区 137 と医師偏在の構造",
@@ -4237,7 +4269,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-medical"],
     summary: "道内無医地区 137、医師は札幌・都市部集中。地域医療を「個別の医師確保」ではなく、構造的な仕組みとして読み解く。",
+    quality: 53,
   },
+
   {
     id: "decarbonization-renewable-2026-06",
     title: "北海道の脱炭素 - 再エネ大国の実装課題と地域経済",
@@ -4246,7 +4280,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["decarbonization"],
     summary: "再エネポテンシャル日本一の北海道、だが系統制約と地域経済への波及が課題。脱炭素を地域経済の競争優位に変える構造。",
+    quality: 47,
   },
+
   {
     id: "disaster-resilience-2026-06",
     title: "北海道の防災 - 大雪・地震・津波の複合リスク",
@@ -4255,7 +4291,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["disaster"],
     summary: "北海道は大雪・地震・津波・火山の複合災害リスク。BCP と住民の備えで地域レジリエンスを構造化する視点。",
+    quality: 51,
   },
+
   {
     id: "multicultural-living-2026-06",
     title: "外国人住民との暮らし - 30年継続する地域に学ぶ多文化共生",
@@ -4264,7 +4302,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["multicultural", "foreign-resident-support"],
     summary: "道内外国人住民約 4万人。「労働力」から「生活者」への転換と、大泉町・浜松市の 30年継続事例に学ぶ多文化共生の構造。",
+    quality: 64,
   },
+
   {
     id: "aging-single-household-2026-06",
     title: "単身高齢者 30% 時代の北海道 - 地域ケアの構造的課題",
@@ -4273,7 +4313,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["aging-care"],
     summary: "道内高齢化率 33% 、単身世帯急増。介護・認知症・在宅医療を「個別ケア」ではなく地域包括ケアの構造として読み解く。",
+    quality: 57,
   },
+
   {
     id: "ainu-culture-coexistence-2026-06",
     title: "アイヌ文化と現代北海道 - 共生の歴史と未来への構造",
@@ -4282,7 +4324,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["ainu-culture"],
     summary: "アイヌ施策推進法 2019・ウポポイ開設後、アイヌ文化の継承・経済参加・偏見の解消が新たな段階に。北海道のアイデンティティとして読み解く。",
+    quality: 46,
   },
+
   {
     id: "childcare-shortage-structure-2026-06",
     title: "保育所待機児童と保育士不足 - 北海道の子育てインフラ構造",
@@ -4291,7 +4335,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["childcare-shortage"],
     summary: "札幌待機児童 100人前後、保育士有効求人倍率 2.5倍超。「施設を増やす」だけでない構造的な子育てインフラの作り方。",
+    quality: 55,
   },
+
   {
     id: "school-consolidation-structure-2026-06",
     title: "学校統合と地域 - 小規模校の存続と教育環境の構造",
@@ -4300,7 +4346,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["school-consolidation"],
     summary: "道内小規模校の統廃合が進む一方、地域から学校が消える影響は深刻。「規模の効率」と「地域の核」の両立を読み解く。",
+    quality: 48,
   },
+
   {
     id: "infra-aging-resilience-2026-06",
     title: "インフラ老朽化と維持 - 道路・橋・水道の長期戦略",
@@ -4309,7 +4357,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["infra-aging"],
     summary: "高度成長期建設のインフラが一斉に更新期。「すべて維持」と「集約・撤退」の選択を構造的に判断する視点。",
+    quality: 44,
   },
+
   {
     id: "cost-of-living-hokkaido-2026-06",
     title: "北海道の暮らしのコスト - 暖房費・物価・家計の構造",
@@ -4318,7 +4368,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["cost-of-living"],
     summary: "暖房費は本州の数倍、食料品・ガソリンも物流コスト分高い。北海道の暮らしのコスト構造と、地域経済への影響を読み解く。",
+    quality: 45,
   },
+
   {
     id: "fisheries-climate-change-2026-06",
     title: "北海道の漁業と気候変動 - 海洋環境の変化が変える水産業",
@@ -4327,7 +4379,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["fisheries-climate"],
     summary: "ホタテ・サンマ・サケの不漁・漁獲変動。海洋温暖化と漁業の構造的な対応を読み解く。",
+    quality: 41,
   },
+
   {
     id: "bear-coexistence-cases-2026-06",
     title: "ヒグマと共存する自治体の取り組み - 知床・大牟田に学ぶ長期事例",
@@ -4336,7 +4390,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["bear-conflict"],
     summary: "知床財団 30年・福岡県大牟田市 20年継続事例から、ヒグマと共存できる地域を作る 5 つの設計原則を学ぶ。",
+    quality: 39,
   },
+
   {
     id: "semiconductor-rapidus-strategy-2026-06",
     title: "ラピダスを核に北海道半導体集積を作る - 5 つの戦略",
@@ -4345,7 +4401,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["semiconductor"],
     summary: "ラピダス 1社依存から複数集積の起点へ。住宅・人材・関連産業・教育・国際性の 5 戦略で半導体クラスターを 20年で育てる。",
+    quality: 42,
   },
+
   {
     id: "elderly-care-staff-structure-2026-06",
     title: "介護人材 32万人不足時代の地域ケア - 構造的課題と長期戦略",
@@ -4354,7 +4412,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["elderly-care-staff", "aging-care"],
     summary: "全国 32万人介護人材不足 ( 2025 ) 、北海道は広域分散で特に深刻。介護を「個別職員確保」ではなく構造課題として読み解く。",
+    quality: 51,
   },
+
   {
     id: "forest-circulation-structure-2026-06",
     title: "北海道の林業と森林循環 - 木材自給率と地域経済の構造",
@@ -4363,7 +4423,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["forest-circulation"],
     summary: "道内森林面積 554万 ha、木材自給率上昇中。林業を「縮小産業」ではなく「森林循環の核」として再定義する構造。",
+    quality: 53,
   },
+
   {
     id: "snow-removal-structure-2026-06",
     title: "除雪と雪害対策の構造 - すべて維持か集約・共助か",
@@ -4372,7 +4434,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["snow-removal"],
     summary: "除雪関連予算は年数百億円規模、業者の高齢化深刻。「すべての道路を維持」から「集約・共助・IoT 効率化」への構造転換。",
+    quality: 39,
   },
+
   {
     id: "snow-removal-strategy-2026-06",
     title: "除雪を地域共助とテクノロジーで支える - 4 つの実践",
@@ -4381,7 +4445,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["snow-removal"],
     summary: "町内会の互助、IoT センサーでルート最適化、通年雇用化、コンパクトシティとの統合。4 つの転換で除雪を持続可能に。",
+    quality: 24,
   },
+
   {
     id: "local-finance-structure-2026-06",
     title: "地方銀行・地域金融の再編 - 単純統合か役割転換か",
@@ -4390,7 +4456,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-finance"],
     summary: "低金利・人口減で地銀経営困難、合併進行。単純な統合か、地方創生・事業承継のキーパートナーへ役割転換か。",
+    quality: 34,
   },
+
   {
     id: "local-finance-role-2026-06",
     title: "地域金融を地方創生のキーパートナーに - 5 つの戦略",
@@ -4399,7 +4467,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-finance"],
     summary: "事業承継・M&A 支援・スタートアップ投資・デジタル化・地域共生。5 戦略で地域金融を再定義。",
+    quality: 24,
   },
+
   {
     id: "regional-airport-structure-2026-06",
     title: "地方空港の維持と地域経済 - 旅客数か多面的価値か",
@@ -4408,7 +4478,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-airport"],
     summary: "道内 13 空港、新千歳以外は赤字運営多い。旅客数だけでなく観光・物流・防災の多面的価値で評価する視点。",
+    quality: 23,
   },
+
   {
     id: "regional-airport-strategy-2026-06",
     title: "地方空港を地域インフラとして活かす - 4 つの転換",
@@ -4417,7 +4489,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-airport"],
     summary: "多目的活用、地域ブランディング、観光連携、共同運営。4 つの転換で地方空港を維持する戦略。",
+    quality: 21,
   },
+
   {
     id: "nuclear-safety-structure-2026-06",
     title: "泊原発と北海道のエネルギー - 再稼働か脱原発か",
@@ -4426,7 +4500,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["nuclear-safety"],
     summary: "泊原発 3 基 207 万 kW、停止 12 年超。再稼働 vs 廃炉判断は経済・脱炭素・安全性の総合判断。",
+    quality: 21,
   },
+
   {
     id: "nuclear-safety-alternative-2026-06",
     title: "北海道の脱原発と再エネ転換 - 5 つの実装課題",
@@ -4435,7 +4511,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["nuclear-safety", "decarbonization"],
     summary: "再エネ拡大・系統増強・蓄電・住民理解・立地地域経済転換。脱原発時の 5 つの実装課題と長期戦略。",
+    quality: 21,
   },
+
   {
     id: "local-startup-structure-2026-06",
     title: "北海道スタートアップ生態系 - 資金・人材・拠点の構造",
@@ -4444,7 +4522,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-startup", "new-industry"],
     summary: "道内スタートアップは数百規模、首都圏依存。福岡市の 10 年継続事例に学ぶ北海道型生態系の構築論点。",
+    quality: 23,
   },
+
   {
     id: "local-startup-ecosystem-2026-06",
     title: "ラピダス・大学・一次産業を統合した北海道スタートアップ生態系 - 5 戦略",
@@ -4453,7 +4533,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-startup", "semiconductor"],
     summary: "VC・大学発・地方拠点・国際連携・規範構築。5 戦略で 10 年スパンの北海道スタートアップ生態系を作る。",
+    quality: 21,
   },
+
   {
     id: "cyber-security-local-2026-06",
     title: "地方 DX のサイバーセキュリティ - 自治体・中小企業・医療の脆弱性",
@@ -4462,7 +4544,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-cyber-security", "digital-gov"],
     summary: "ランサムウェア被害 年数百件、復旧コスト数千万 - 数億円。地方の IT 人材・予算限定下での対策構造。",
+    quality: 21,
   },
+
   {
     id: "cyber-security-shared-2026-06",
     title: "地方を守る共同セキュリティ体制 - 4 つの実装",
@@ -4471,7 +4555,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-cyber-security"],
     summary: "共同 SOC・クラウドセキュリティ・人材育成・BCP 統合。地方の限られたリソースで守る 4 つの実装。",
+    quality: 21,
   },
+
   {
     id: "hikikomori-structure-2026-06",
     title: "ひきこもり 146 万人時代の支援 - 8050 問題と長期戦略",
@@ -4480,7 +4566,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["hikikomori-support", "isolation"],
     summary: "全国ひきこもり推計 146 万人、8050 問題深刻。「就労促進」を超えた本人・家族・地域の長期支援構造。",
+    quality: 21,
   },
+
   {
     id: "hikikomori-step-support-2026-06",
     title: "ひきこもり支援の段階的アプローチ - 江戸川区・神戸モデル",
@@ -4489,7 +4577,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["hikikomori-support"],
     summary: "アウトリーチ・居場所・ピアサポート・段階的就労・福祉連携。江戸川区 7,919 人把握 + 兵庫 10 年継続から学ぶ実装。",
+    quality: 21,
   },
+
   {
     id: "disability-inclusion-structure-2026-06",
     title: "障害者 1,000 万人時代のインクルーシブ - 合理的配慮義務化の構造",
@@ -4498,7 +4588,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["disability-inclusion"],
     summary: "障害者 1,000 万人、2024 年合理的配慮義務化。個別対応を超えたインクルーシブ地域設計の構造。",
+    quality: 25,
   },
+
   {
     id: "disability-inclusive-design-2026-06",
     title: "インクルーシブな地域を設計する - 5 つの転換",
@@ -4507,7 +4599,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["disability-inclusion"],
     summary: "公共空間・教育・雇用・サービス・規範。5 つの転換でインクルーシブな地域を作る千葉県 20 年事例から学ぶ実装。",
+    quality: 23,
   },
+
   {
     id: "craft-industry-structure-2026-06",
     title: "道内工芸・伝統産業の継承 - 衰退業種か地域資産か",
@@ -4516,7 +4610,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["craft-industry"],
     summary: "アイヌ工芸・旭川家具・小樽ガラス等の継承困難。衰退業種ではなく地域アイデンティティ・ブランディングの構造。",
+    quality: 23,
   },
+
   {
     id: "craft-industry-renaissance-2026-06",
     title: "工芸産業のルネサンス - 5 つの統合戦略",
@@ -4525,7 +4621,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["craft-industry"],
     summary: "後継者育成・ブランディング・海外展開・観光連携・教育統合。5 戦略で工芸を地域資産に再定義する実装。",
+    quality: 21,
   },
+
   {
     id: "local-media-structure-2026-06",
     title: "ローカルメディアの危機 - 商業ビジネスか公共インフラか",
@@ -4534,7 +4632,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-media"],
     summary: "新聞部数 10 年で半減、北海道新聞・地方紙も同様。商業メディアではなく地方民主主義の公共インフラとして読み解く。",
+    quality: 21,
   },
+
   {
     id: "local-media-renewal-2026-06",
     title: "ローカルメディアの再生 - デジタル・読者参加・公共性の 4 戦略",
@@ -4543,7 +4643,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["local-media"],
     summary: "デジタル展開・サブスク・読者参加型・公共財化。新潟日報・西日本新聞型の事例から学ぶ 4 つの再生戦略。",
+    quality: 21,
   },
+
   {
     id: "winter-sports-structure-2026-06",
     title: "北海道冬季観光の持続性 - 気候変動 ・ 労働力 ・ 国際化の構造",
@@ -4552,7 +4654,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["winter-sports-tourism", "tourism-sustainability"],
     summary: "ニセコ ・ ルスツ等の国際リゾート化と気候変動 ・ 労働力不足 ・ 住宅高騰の同時進行。冬季観光の構造を読み解く。",
+    quality: 23,
   },
+
   {
     id: "winter-sports-strategy-2026-06",
     title: "冬季観光を通年型に進化させる - 4 つの戦略",
@@ -4561,7 +4665,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["winter-sports-tourism"],
     summary: "通年化 ・ MICE ・ ワーケーション ・ 住民共生。クイーンズタウン型 4 戦略で冬季観光を持続可能に。",
+    quality: 21,
   },
+
   {
     id: "agritech-smart-structure-2026-06",
     title: "北海道スマート農業 - 大規模化と担い手不足の構造",
@@ -4570,7 +4676,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["agritech-smart"],
     summary: "道内 1 経営体平均 34 ha 、全国 13 倍の大規模化。担い手減少下でのスマート農業による構造転換。",
+    quality: 21,
   },
+
   {
     id: "agritech-smart-strategy-2026-06",
     title: "AI ・ ロボット ・ ドローンで作る次世代農業 - 5 つの実装",
@@ -4579,7 +4687,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["agritech-smart"],
     summary: "GPS 自動操舵 ・ AI 与信 ・ ドローン散布 ・ センサー ・ データ統合。更別村事例から学ぶスマート農業の 5 つの実装。",
+    quality: 21,
   },
+
   {
     id: "urban-downtown-structure-2026-06",
     title: "地方都市中心市街地の衰退 - 商業集積か地域核か",
@@ -4588,7 +4698,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["urban-downtown-decline"],
     summary: "道内地方都市の空き店舗率 10-30% 超、シャッター街化進行。商業集積維持か地域コミュニティの核へ再定義か。",
+    quality: 24,
   },
+
   {
     id: "urban-downtown-renewal-2026-06",
     title: "中心市街地を地域の核に再生する - 富山 ・ 金沢に学ぶ",
@@ -4597,7 +4709,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["urban-downtown-decline"],
     summary: "コンパクトシティ ・ 多機能化 ・ 文化観光統合 ・ 商店街再生。富山 ・ 金沢の長期事例から学ぶ 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "north-territory-structure-2026-06",
     title: "北方領土問題と道東地域 - 元島民 ・ 経済 ・ 教育の構造",
@@ -4606,7 +4720,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["north-territory"],
     summary: "元島民約 5,000 人と高齢化、ウクライナ侵攻後の停滞。地域経済 ・ 教育 ・ 国際政治の複合構造を読み解く。",
+    quality: 21,
   },
+
   {
     id: "north-territory-continuity-2026-06",
     title: "北方領土問題を次世代へ - 教育 ・ 地域 ・ 国際協調の戦略",
@@ -4615,7 +4731,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["north-territory"],
     summary: "元島民支援 ・ 教育継承 ・ 国際発信 ・ 平和構築。返還を待つだけでない長期戦略の 4 つの柱。",
+    quality: 21,
   },
+
   {
     id: "diversity-inclusion-structure-2026-06",
     title: "性的指向 ・ 多様性と地域社会 - 制度か文化変容か",
@@ -4624,7 +4742,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["diversity-inclusion"],
     summary: "札幌市 2017 年道内初のパートナーシップ制度。制度導入を超えた地域社会の文化変容の構造。",
+    quality: 27,
   },
+
   {
     id: "diversity-inclusion-strategy-2026-06",
     title: "包摂的な地域を作る - 多様性の 5 層実装",
@@ -4633,7 +4753,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["diversity-inclusion"],
     summary: "制度 ・ 教育 ・ 雇用 ・ サービス ・ コミュニティの 5 層で包摂性を構築。渋谷 ・ デンマーク等の事例実装。",
+    quality: 21,
   },
+
   {
     id: "youth-mental-structure-2026-06",
     title: "若者のメンタルヘルス - 自殺 ・ 孤立 ・ SNS の複合構造",
@@ -4642,7 +4764,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["youth-mental-health", "isolation"],
     summary: "若年層自殺率高水準、コロナ禍以降増加傾向。SNS ・ 学校 ・ 職場 ・ 家庭 ・ オンラインの 5 場での構造課題。",
+    quality: 21,
   },
+
   {
     id: "youth-mental-support-2026-06",
     title: "若者のメンタルヘルス支援 - 5 場の統合戦略",
@@ -4651,7 +4775,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["youth-mental-health"],
     summary: "学校 ・ 職場 ・ 家庭 ・ 地域 ・ オンラインの 5 場での予防 ・ 早期発見 ・ 介入。フィンランド ・ 東京の事例実装。",
+    quality: 21,
   },
+
   {
     id: "religious-shrine-structure-2026-06",
     title: "神社仏閣 ・ 宗教施設の維持 - 個別経営か地域文化か",
@@ -4660,7 +4786,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["religious-shrine"],
     summary: "道内宗教施設数千、後継者不在 ・ 維持困難。地域コミュニティ ・ 文化 ・ 観光の核として再定義する構造。",
+    quality: 21,
   },
+
   {
     id: "religious-shrine-revival-2026-06",
     title: "神社仏閣を地域文化の核に - 4 つの統合戦略",
@@ -4669,7 +4797,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["religious-shrine"],
     summary: "文化財連動 ・ 祭り再生 ・ アイヌ祭祀 ・ 観光統合。京都 ・ 出雲事例から学ぶ宗教施設再生の 4 戦略。",
+    quality: 23,
   },
+
   {
     id: "coastal-erosion-structure-2026-06",
     title: "北海道海岸の侵食 - 気候変動と土砂供給の構造",
@@ -4678,7 +4808,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["coastal-erosion"],
     summary: "気候変動 ・ 海面上昇 ・ 河川 ・ 港湾の複合で道内海岸の砂浜消失進行。漁業 ・ 観光 ・ 集落への影響構造。",
+    quality: 21,
   },
+
   {
     id: "coastal-erosion-adaptation-2026-06",
     title: "海岸侵食への適応戦略 - オランダに学ぶ 4 つの実装",
@@ -4687,7 +4819,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["coastal-erosion"],
     summary: "サンドバイパス ・ 海岸生態系保全 ・ 集落移転計画 ・ 国際連携。オランダデルタワークス型 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "depopulation-residual-strategy-2026-06",
     title: "人口減少を「数」ではなく「資産」で見る - 残る資産戦略",
@@ -4696,7 +4830,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["depopulation", "migration"],
     summary: "「人口維持」だけでは追いつかない。人口減でも残る事業 ・ 関係 ・ 仕組み資産で地域を支える視点。",
+    quality: 21,
   },
+
   {
     id: "low-birthrate-structure-2026-06",
     title: "少子化と北海道 - 出生率 ・ 子育て ・ 暮らしの構造",
@@ -4705,7 +4841,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["low-birthrate", "childcare-shortage"],
     summary: "道内合計特殊出生率 1.0 台、全国でも低水準。経済 ・ 暮らし ・ 子育て環境の構造的課題。",
+    quality: 21,
   },
+
   {
     id: "isolation-structure-2026-06",
     title: "社会的孤立と地域コミュニティ - 8050 ・ 単身高齢 ・ ひきこもりの共通構造",
@@ -4714,7 +4852,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["isolation", "aging-care"],
     summary: "高齢者 ・ ひきこもり ・ ヤングケアラー等、社会的孤立の共通構造。地域コミュニティ再生の論点。",
+    quality: 21,
   },
+
   {
     id: "shinkansen-donan-structure-2026-06",
     title: "北海道新幹線と道南 - 延伸遅延と並行在来線の構造",
@@ -4723,7 +4863,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["shinkansen-donan", "jr-hokkaido-future"],
     summary: "新函館北斗 - 札幌延伸の遅延、並行在来線議論、道南地域の影響。鉄道 ・ 地域経済の構造を読み解く。",
+    quality: 25,
   },
+
   {
     id: "rail-transit-structure-2026-06",
     title: "道内 JR ・ 私鉄 ・ バスの統合 - 公共交通の地域インフラ化",
@@ -4732,7 +4874,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["rail-transit", "jr-hokkaido-future"],
     summary: "JR 単体ではなく、鉄道 ・ バス ・ デマンド交通の統合運営。地域公共交通の構造再設計。",
+    quality: 21,
   },
+
   {
     id: "carbon-neutral-structure-2026-06",
     title: "カーボンニュートラルと地域 - 国際目標と地域実装の構造",
@@ -4741,7 +4885,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["carbon-neutral", "decarbonization"],
     summary: "2050 カーボンニュートラル目標。脱炭素先行地域指定と地域実装の構造課題。",
+    quality: 21,
   },
+
   {
     id: "biodiversity-structure-2026-06",
     title: "北海道の生物多様性 - 自然保全と経済活動の両立",
@@ -4750,7 +4896,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["biodiversity", "env-conservation"],
     summary: "知床 ・ 阿寒 ・ 釧路湿原等の自然 ・ 生物多様性。観光 ・ 一次産業 ・ 開発との両立構造。",
+    quality: 23,
   },
+
   {
     id: "smart-city-gx-structure-2026-06",
     title: "スマートシティと GX - 札幌 ・ ニセコ ・ 上士幌の構造",
@@ -4759,7 +4907,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["smart-city-gx", "decarbonization"],
     summary: "DX × GX で都市運営 ・ 脱炭素を統合。札幌 ・ ニセコ ・ 上士幌等の道内事例構造を読み解く。",
+    quality: 27,
   },
+
   {
     id: "energy-security-structure-2026-06",
     title: "エネルギー安全保障と北海道 - 自給 ・ 脱炭素 ・ レジリエンス",
@@ -4768,7 +4918,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["energy-security", "decarbonization", "nuclear-safety"],
     summary: "ウクライナ侵攻後のエネルギー安全保障。北海道のエネルギー自給 ・ 脱炭素 ・ レジリエンスの統合構造。",
+    quality: 21,
   },
+
   {
     id: "food-security-structure-2026-06",
     title: "北海道は日本の食料安全保障の要 - 220% 自給率の構造",
@@ -4777,7 +4929,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["food-security", "food-waste-self-sufficiency"],
     summary: "北海道 カロリー自給率 220% は全国 38% の要。輸入依存 ・ 気候変動 ・ 地政学リスク下での役割構造。",
+    quality: 27,
   },
+
   {
     id: "food-security-strategy-2026-06",
     title: "北海道発の食料安全保障戦略 - 5 つの実装",
@@ -4786,7 +4940,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["food-security"],
     summary: "生産基盤 ・ 備蓄 ・ 物流 ・ 輸出 ・ 国際協調。北海道発の食料安全保障 5 戦略。",
+    quality: 21,
   },
+
   {
     id: "wildlife-management-structure-2026-06",
     title: "野生動物管理の総合戦略 - ヒグマ ・ シカ ・ アライグマの構造",
@@ -4795,7 +4951,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["wildlife-management", "bear-conflict"],
     summary: "エゾシカ 70 万頭超 ・ ヒグマ 1.2 万頭 ・ アライグマ等の複合的な野生動物管理の構造。",
+    quality: 21,
   },
+
   {
     id: "wildlife-management-strategy-2026-06",
     title: "野生動物との共生をジビエ ・ 観光に - 4 つの活用戦略",
@@ -4804,7 +4962,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["wildlife-management"],
     summary: "ハンター育成 ・ ジビエ流通 ・ 観光連携 ・ 生態系管理。兵庫モデルから学ぶ 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "climate-adaptation-structure-2026-06",
     title: "気候変動適応戦略 - 緩和と適応の両輪",
@@ -4813,7 +4973,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["climate-adaptation"],
     summary: "気温 100 年で 1.5℃ 上昇、農業 ・ 漁業 ・ 観光に影響。緩和 ( 脱炭素 ) と適応 ( 影響対応 ) の両輪戦略。",
+    quality: 21,
   },
+
   {
     id: "climate-adaptation-implementation-2026-06",
     title: "分野別 ・ 地域別の気候変動適応 - オランダ ・ デンマーク事例",
@@ -4822,7 +4984,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["climate-adaptation"],
     summary: "デルタワークス ・ コペンハーゲン豪雨計画 ・ 分野別適応。世界の長期事例から学ぶ実装。",
+    quality: 21,
   },
+
   {
     id: "community-broadcasting-structure-2026-06",
     title: "コミュニティ FM の役割 - 災害インフラと地域文化",
@@ -4831,7 +4995,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["community-broadcasting", "local-media"],
     summary: "全国 340 局のコミュニティ FM 、能登地震で災害情報源として機能。商業放送を超えた公共インフラ価値。",
+    quality: 21,
   },
+
   {
     id: "community-broadcasting-renewal-2026-06",
     title: "コミュニティ FM を災害時公共インフラに - 4 戦略",
@@ -4840,7 +5006,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["community-broadcasting"],
     summary: "公的支援 ・ デジタル展開 ・ 地域連携 ・ 災害インフラ化。コミュニティ FM 持続の 4 つの実装。",
+    quality: 21,
   },
+
   {
     id: "senior-second-career-structure-2026-06",
     title: "シニア起業 ・ セカンドキャリア - 3,600 万人の活力源",
@@ -4849,7 +5017,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["senior-second-career"],
     summary: "高齢者 3,600 万人、健康寿命延伸でシニアの社会経済参加が地域活性化の鍵。構造を読み解く。",
+    quality: 21,
   },
+
   {
     id: "senior-second-career-strategy-2026-06",
     title: "シニアの経験を地域に - 起業 ・ 学び ・ 移住の 4 戦略",
@@ -4858,7 +5028,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["senior-second-career"],
     summary: "起業塾 ・ 学び直し ・ CCRC ・ 顧問制度。AARP モデルから学ぶシニア活用 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "disaster-recovery-structure-2026-06",
     title: "胆振東部地震 ・ ブラックアウトからの復興 - 教訓と次への備え",
@@ -4867,7 +5039,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["disaster-recovery", "disaster"],
     summary: "2018 年震度 7 ・ 43 名死亡 ・ 全道ブラックアウト。復興と教訓継承 ・ 次の災害への備えの構造。",
+    quality: 23,
   },
+
   {
     id: "disaster-recovery-resilience-2026-06",
     title: "復興からレジリエンスへ - 5 つの仕組みづくり",
@@ -4876,7 +5050,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["disaster-recovery"],
     summary: "教訓体系化 ・ アーカイブ ・ 訓練 ・ コミュニティ ・ 制度。東日本 ・ クライストチャーチ事例から学ぶ実装。",
+    quality: 21,
   },
+
   {
     id: "aging-care-strategy-2026-06",
     title: "高齢化社会の地域包括ケア - 柏 ・ 大牟田に学ぶ 5 戦略",
@@ -4885,7 +5061,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["aging-care", "aging-single-household-2026-06"],
     summary: "柏プロジェクト 15 年 ・ 大牟田 20 年継続事例から、地域包括ケア構築の 5 戦略を実装。",
+    quality: 25,
   },
+
   {
     id: "childcare-shortage-strategy-2026-06",
     title: "保育不足を解決する - 流山モデルの 4 戦略",
@@ -4894,7 +5072,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["childcare-shortage"],
     summary: "送迎保育 ・ 拡充 ・ 子育てブランディング ・ 企業連携。流山市から学ぶ保育問題解決 4 戦略。",
+    quality: 23,
   },
+
   {
     id: "ainu-culture-future-2026-06",
     title: "アイヌ文化を未来へ - 5 つの統合戦略",
@@ -4903,7 +5083,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["ainu-culture"],
     summary: "言語復興 ・ 教育 ・ 経済参加 ・ ブランディング ・ 国際発信。アイヌ文化と地域アイデンティティの 5 戦略。",
+    quality: 21,
   },
+
   {
     id: "school-consolidation-attractive-2026-06",
     title: "小規模校を地域の核に - 海士町 ・ 神山町モデル",
@@ -4912,7 +5094,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["school-consolidation"],
     summary: "島留学 ・ 地域協働カリキュラム ・ サテライト ・ コミュニティ運営。長期事例から学ぶ実装。",
+    quality: 21,
   },
+
   {
     id: "infra-aging-compact-2026-06",
     title: "インフラ集約と居住誘導 - 富山モデルの実装",
@@ -4921,7 +5105,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["infra-aging"],
     summary: "コンパクトシティ ・ 公共交通軸 ・ 居住誘導 ・ 多機能化。富山市 20 年事例から学ぶ実装戦略。",
+    quality: 23,
   },
+
   {
     id: "cost-of-living-strategy-2026-06",
     title: "暮らしのコストを下げる - 道産活用と地域循環の 4 戦略",
@@ -4930,7 +5116,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["cost-of-living"],
     summary: "省エネ住宅 ・ 道産食材 ・ 地域循環 ・ 公共交通。暮らしのコスト構造改善の 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "forest-circulation-strategy-2026-06",
     title: "森林循環を地域経済の核に - 下川モデルの 5 戦略",
@@ -4939,7 +5127,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["forest-circulation"],
     summary: "下川 SDGs 未来都市 ・ 智頭杉 ・ ドイツ持続林業から学ぶ森林循環 5 戦略。",
+    quality: 23,
   },
+
   {
     id: "fisheries-climate-strategy-2026-06",
     title: "気候変動下の漁業 - 4 つの適応 ・ 転換戦略",
@@ -4948,7 +5138,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["fisheries-climate"],
     summary: "新魚種 ・ 養殖 ・ ノルウェーモデル ・ MSC 認証。気候変動下の漁業適応 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "elderly-care-staff-strategy-2026-06",
     title: "介護人材 32 万人不足の解決 - 6 つの実装",
@@ -4957,7 +5149,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["elderly-care-staff"],
     summary: "処遇改善 ・ 外国人活用 ・ DX ・ タスクシフト ・ 地域包括 ・ 評価転換。介護人材確保 6 戦略。",
+    quality: 21,
   },
+
   {
     id: "reskilling-regional-2026-06",
     title: "地域でリスキリング - 副業 ・ 学び直しの 4 戦略",
@@ -4966,7 +5160,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["reskilling"],
     summary: "HICTA ・ 大学講座 ・ 副業 ・ ふるさと副業。地方でのリスキリング 4 戦略の実装。",
+    quality: 21,
   },
+
   {
     id: "foreign-resident-strategy-2026-06",
     title: "外国人住民の生活基盤 - 大泉町 30 年に学ぶ 5 戦略",
@@ -4975,7 +5171,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["foreign-resident-support", "multicultural"],
     summary: "言語 ・ 住宅 ・ コミュニティ ・ 子ども教育 ・ 文化変容。大泉町 30 年継続事例から 5 戦略。",
+    quality: 23,
   },
+
   {
     id: "new-industry-strategy-2026-06",
     title: "新産業を北海道で育てる - 4 つの実装",
@@ -4984,7 +5182,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["new-industry"],
     summary: "宇宙 ・ 半導体 ・ 食品テック ・ クリーンテック。北海道の新産業 4 領域の実装戦略。",
+    quality: 21,
   },
+
   {
     id: "depopulation-recover-2026-06",
     title: "人口減少からの回復 - 海士町 ・ 神山町 ・ 上士幌の構造",
@@ -4993,7 +5193,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["depopulation"],
     summary: "20 年継続事例から学ぶ人口減地域の回復構造。仕組み資産による長期戦略。",
+    quality: 23,
   },
+
   {
     id: "regional-medical-strategy-2026-06",
     title: "地域医療を支える仕組み - 4 つの実装戦略",
@@ -5002,7 +5204,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["regional-medical"],
     summary: "オンライン診療 ・ タスクシフト ・ 地域包括 ・ 広域連携。地域医療維持の 4 戦略。",
+    quality: 21,
   },
+
   {
     id: "food-waste-strategy-2026-06",
     title: "サーキュラーフード北海道 - 5 つの実装",
@@ -5011,7 +5215,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["food-waste-self-sufficiency"],
     summary: "規格外加工 ・ ロス削減 ・ 飼料化 ・ 堆肥化 ・ ブランディング。サーキュラーフード 5 戦略。",
+    quality: 21,
   },
+
   {
     id: "multicultural-strategy-2026-06",
     title: "多文化共生の長期戦略 - 浜松 ・ 大泉モデル",
@@ -5020,7 +5226,9 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["multicultural"],
     summary: "HICE 30 年 ・ 大泉町 30 年。多文化共生の長期事例から学ぶ実装戦略。",
+    quality: 23,
   },
+
 ];
 
 

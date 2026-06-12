@@ -98,7 +98,12 @@
     return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];
   });}
 
-  const sorted = [...ARTICLES].sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||''));
+  // 質重視: quality スコア降順 → 同点は新着順
+  const sorted = [...ARTICLES].sort((a,b)=>{
+    const qd = (b.quality||0) - (a.quality||0);
+    if(qd !== 0) return qd;
+    return (b.publishedAt||'').localeCompare(a.publishedAt||'');
+  });
   const cats = ["すべて", ...Array.from(new Set(sorted.map(a=>a.category)))];
 
   let activeCat = "すべて";
