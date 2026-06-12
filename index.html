@@ -196,12 +196,6 @@
     display:flex;flex-direction:column;
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px var(--shadow);border-color:var(--slate)}
-  .card.imp-high{border-color:var(--ink)}
-  .card.imp-high .card-imp-badge{
-    position:absolute;top:8px;right:8px;z-index:2;
-    background:var(--ink);color:var(--snow);font-size:9.5px;font-weight:800;
-    padding:3px 8px;border-radius:30px;letter-spacing:.04em;
-  }
   .card .cat-bar{height:5px;width:100%}
   .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
@@ -777,8 +771,6 @@
       <a href="/terms.html">利用規約</a>
       <span class="sep">・</span>
       <a href="/privacy.html">プライバシーポリシー</a>
-      <span class="sep">・</span>
-      お問い合わせ: info@lrg.jp
     </p>
   </div>
 </footer>
@@ -1213,10 +1205,8 @@
       const c = catMap[it.cat];
       const rtags = it.regions.map(r=>`<span class="rtag">${regMap[r].short}</span>`).join('');
       const imp = importanceScore(it);
-      const isHighImp = imp >= 9;
       const barHeight = 4 + (imp / 2);
-      return `<article class="card ${isHighImp?'imp-high':''}" data-id="${it.id}" tabindex="0" role="button">
-        ${isHighImp ? `<span class="card-imp-badge">重要 ${imp}</span>` : ''}
+      return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
         <div class="cat-bar" style="background:${c.color};height:${barHeight}px"></div>
         <div class="card-body">
           <div class="card-top">

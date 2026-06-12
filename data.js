@@ -19,6 +19,17 @@ const REGIONS = [
   { id: "kushiro-nemuro", name: "釧路・根室",   short: "釧路根室", desc: "水産・酪農と自然保護、人口減と医療・交通の維持" }
 ];
 
+// 地域特性 ( 多軸フィルタ用 )
+const TRAITS = [
+  { id: "urban", name: "都市部", desc: "札幌 ・ 旭川 ・ 函館 ・ 釧路等" },
+  { id: "rural-mountain", name: "中山間地", desc: "森林 ・ 山地 ・ 小規模集落" },
+  { id: "fishing-village", name: "漁村", desc: "沿岸の水産業集積" },
+  { id: "dairy-region", name: "酪農地帯", desc: "十勝 ・ オホーツクの大規模酪農" },
+  { id: "agriculture", name: "農業地帯", desc: "畑作 ・ 米作集積" },
+  { id: "tourism-area", name: "観光地", desc: "ニセコ ・ 知床 ・ 富良野等" },
+  { id: "industrial", name: "産業集積", desc: "苫東 ・ 千歳 ・ 大樹 ・ 苫小牧等" },
+];
+
 // 9つの社会システム（参照元の分類を北海道文脈に再構成）
 const CATEGORIES = [
   { id: "population",   name: "人口・世代・暮らし",     color: "#2C6E63", desc: "人口減少・高齢化・単身化・子育て基盤" },
@@ -44,6 +55,7 @@ const ISSUES = [
     title: "人口減少と札幌一極集中",
     urgency: 5, severity: 5,
     regions: ["all", "dou-o"],
+    traits: ["urban", "rural-mountain"],
     tags: ["人口減少", "札幌一極集中", "国勢調査", "周縁部", "500万人割れ"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -91,6 +103,7 @@ const ISSUES = [
     title: "高齢化と単身世帯の増加",
     urgency: 4, severity: 5,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["高齢化", "単身世帯", "ケア", "住まい", "介護"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -132,6 +145,7 @@ const ISSUES = [
     title: "孤独・孤立と買い物困難",
     urgency: 4, severity: 4,
     regions: ["all", "dou-hoku"],
+    traits: ["rural-mountain"],
     tags: ["孤独・孤立", "買い物困難", "高齢者", "生活サービス"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -171,6 +185,7 @@ const ISSUES = [
     title: "少子化・子育て負担",
     urgency: 4, severity: 4,
     regions: ["all"],
+    traits: [],
     tags: ["少子化", "子育て", "出生率", "住宅費"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -212,6 +227,7 @@ const ISSUES = [
     title: "一次産業の担い手不足・事業承継",
     urgency: 5, severity: 4,
     regions: ["all", "tokachi", "okhotsk"],
+    traits: ["agriculture", "dairy-region", "fishing-village"],
     tags: ["担い手不足", "事業承継", "農業", "漁業", "林業"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -274,6 +290,7 @@ const ISSUES = [
     title: "森林資源の循環と地消地産",
     urgency: 3, severity: 3,
     regions: ["dou-hoku"],
+    traits: ["rural-mountain"],
     tags: ["森林", "木材", "地消地産", "林業", "下川町"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -313,6 +330,7 @@ const ISSUES = [
     title: "鉄道・公共交通の維持",
     urgency: 5, severity: 4,
     regions: ["all", "dou-hoku", "tokachi", "kushiro-nemuro"],
+    traits: ["rural-mountain"],
     tags: ["JR北海道", "公共交通", "2024年問題", "鉄道", "ライドシェア"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -360,6 +378,7 @@ const ISSUES = [
     title: "インフラ老朽化と集落維持",
     urgency: 4, severity: 4,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["インフラ老朽化", "集落維持", "上下水道", "道路"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -395,6 +414,7 @@ const ISSUES = [
     title: "空き家の増加と活用",
     urgency: 3, severity: 2,
     regions: ["all"],
+    traits: ["rural-mountain", "urban"],
     tags: ["空き家", "相続", "移住", "拠点づくり"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -429,6 +449,7 @@ const ISSUES = [
     title: "地域医療・無医地区・広域搬送",
     urgency: 5, severity: 5,
     regions: ["all", "dou-hoku", "okhotsk", "kushiro-nemuro"],
+    traits: ["rural-mountain"],
     tags: ["地域医療", "無医地区", "医師不足", "救急搬送"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -470,6 +491,7 @@ const ISSUES = [
     title: "移住定住と関係人口の創出",
     urgency: 4, severity: 3,
     regions: ["all", "dou-hoku"],
+    traits: ["rural-mountain"],
     tags: ["移住定住", "関係人口", "二地域居住", "地域おこし協力隊"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -515,6 +537,7 @@ const ISSUES = [
     title: "脱炭素・再エネと地域経済",
     urgency: 4, severity: 4,
     regions: ["all", "tokachi", "dou-hoku"],
+    traits: ["industrial", "rural-mountain"],
     tags: ["脱炭素", "再エネ", "地産地消", "カーボンニュートラル", "上士幌町"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -562,6 +585,7 @@ const ISSUES = [
     title: "防災と気候変動適応",
     urgency: 4, severity: 5,
     regions: ["all", "dou-o"],
+    traits: [],
     tags: ["防災", "気候変動", "災害", "適応"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -595,6 +619,7 @@ const ISSUES = [
     title: "観光の持続性とオーバーツーリズム",
     urgency: 3, severity: 3,
     regions: ["dou-o", "dou-hoku"],
+    traits: ["tourism-area"],
     tags: ["オーバーツーリズム", "インバウンド", "観光", "ニセコ"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -629,6 +654,7 @@ const ISSUES = [
     title: "外国人材・多文化共生",
     urgency: 3, severity: 3,
     regions: ["all", "dou-o"],
+    traits: ["urban", "tourism-area"],
     tags: ["外国人材", "多文化共生", "技能実習", "人材確保"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -670,6 +696,7 @@ const ISSUES = [
     title: "新幹線札幌延伸の遅延と道南の縮小",
     urgency: 4, severity: 4,
     regions: ["dou-nan"],
+    traits: ["urban"],
     tags: ["北海道新幹線", "道南", "延伸", "函館"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -710,6 +737,7 @@ const ISSUES = [
     title: "ヒグマ・野生動物との軋轢",
     urgency: 4, severity: 3,
     regions: ["all", "dou-nan", "okhotsk"],
+    traits: ["rural-mountain"],
     tags: ["ヒグマ", "野生動物", "出没対応", "農林被害"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -747,6 +775,7 @@ const ISSUES = [
     title: "低生産性・冬期雇用と新産業の創出",
     urgency: 3, severity: 4,
     regions: ["all", "tokachi"],
+    traits: ["urban", "industrial"],
     tags: ["新産業", "冬期雇用", "生産性", "宇宙", "フードテック"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -787,6 +816,7 @@ const ISSUES = [
     title: "半導体集積（ラピダス）と都市の急変",
     urgency: 4, severity: 3,
     regions: ["dou-o"],
+    traits: ["industrial", "urban"],
     tags: ["ラピダス", "半導体", "千歳", "地価高騰", "産業集積"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -825,6 +855,7 @@ const ISSUES = [
     title: "行政DXと自治体の担い手",
     urgency: 3, severity: 3,
     regions: ["all"],
+    traits: [],
     tags: ["行政DX", "自治体", "デジタル化", "広域連携"],
     addedAt: "2026-05-31",
     externalCases: [
@@ -869,6 +900,7 @@ const ISSUES = [
     title: "自然多様性と生態系サービスの保全",
     urgency: 3, severity: 4,
     regions: ["all", "kushiro-nemuro", "dou-hoku"],
+    traits: ["rural-mountain", "fishing-village"],
     tags: ["生物多様性", "生態系", "湿原", "OECM", "希少種"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -911,6 +943,7 @@ const ISSUES = [
     title: "カーボンニュートラルと自治体宣言",
     urgency: 4, severity: 3,
     regions: ["all"],
+    traits: [],
     tags: ["カーボンニュートラル", "ゼロカーボン宣言", "GX", "2050NetZero", "自治体"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -960,6 +993,7 @@ const ISSUES = [
     title: "環境保全と汚染対策",
     urgency: 3, severity: 3,
     regions: ["all"],
+    traits: [],
     tags: ["環境保全", "水質保全", "PFAS", "廃棄物", "森林管理"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1002,6 +1036,7 @@ const ISSUES = [
     title: "土壌保全と農地の質の維持",
     urgency: 3, severity: 4,
     regions: ["all", "tokachi", "okhotsk"],
+    traits: ["agriculture", "dairy-region"],
     tags: ["土壌保全", "農地", "持続可能農業", "再生農業", "土壌微生物"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1045,6 +1080,7 @@ const ISSUES = [
     title: "車を持たない人の移動と生活アクセス",
     urgency: 4, severity: 4,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["移動弱者", "生活交通", "高齢者", "ライドシェア", "MaaS"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1085,6 +1121,7 @@ const ISSUES = [
     title: "JR北海道の経営持続性と地域鉄道網",
     urgency: 5, severity: 5,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["JR北海道", "黄線区", "赤線区", "上下分離", "経営支援"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1128,6 +1165,7 @@ const ISSUES = [
     title: "エネルギー安全保障と中東情勢の道内影響",
     urgency: 4, severity: 4,
     regions: ["all"],
+    traits: [],
     tags: ["エネルギー安全保障", "中東情勢", "原油価格", "灯油", "燃料費"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1173,6 +1211,7 @@ const ISSUES = [
     title: "ふるさと納税と地方財政の構造変容",
     urgency: 4, severity: 3,
     regions: ["all", "okhotsk", "kushiro-nemuro", "tokachi"],
+    traits: ["fishing-village", "dairy-region", "agriculture"],
     tags: ["ふるさと納税", "地方財政", "返礼品", "関係人口", "ガバメントクラウドファンディング"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1220,6 +1259,7 @@ const ISSUES = [
     title: "介護人材不足と地域ケア体制",
     urgency: 5, severity: 5,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["介護人材", "ヘルパー不足", "認知症", "地域包括ケア", "在宅医療"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1261,6 +1301,7 @@ const ISSUES = [
     title: "スマートシティと自治体 DX",
     urgency: 3, severity: 3,
     regions: ["all", "dou-o", "tokachi"],
+    traits: ["urban", "industrial"],
     tags: ["スマートシティ", "自治体DX", "5G", "デジ田", "スーパーシティ"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1301,6 +1342,7 @@ const ISSUES = [
     title: "漁業と海洋環境変化",
     urgency: 4, severity: 4,
     regions: ["all", "kushiro-nemuro", "okhotsk", "dou-nan"],
+    traits: ["fishing-village"],
     tags: ["漁業", "海洋環境", "海水温上昇", "サケ", "気候変動"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1343,6 +1385,7 @@ const ISSUES = [
     title: "物流 2024 年問題と地域物流網",
     urgency: 5, severity: 4,
     regions: ["all"],
+    traits: [],
     tags: ["物流", "2024年問題", "ドライバー", "鉄道貨物", "JR貨物"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1384,6 +1427,7 @@ const ISSUES = [
     title: "アイヌ文化と地域 - 文化継承から地域経済化へ",
     urgency: 3, severity: 3,
     regions: ["all", "dou-o"],
+    traits: ["tourism-area"],
     tags: ["アイヌ", "文化継承", "ウポポイ", "民族共生", "観光"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1421,6 +1465,7 @@ const ISSUES = [
     title: "教育と高校統廃合 - 地域の学びをどう残すか",
     urgency: 4, severity: 4,
     regions: ["all"],
+    traits: ["rural-mountain"],
     tags: ["教育", "高校統廃合", "高校魅力化", "教育格差", "道立高校"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1470,7 +1515,7 @@ const SOURCES = [
   { t: "2025年の北海道の人口動向", year: 2025, o: "株式会社きたリンク", u: "https://kitalink.co.jp/post/2025-08-20-161041" },
   { t: "札幌一極集中と北海道の人口動態（2025）", year: 2025, o: "aruter（民間）", u: "https://aruter.com/hokkaido-population-sapporo/" },
   { t: "北海道地域医療構想", o: "北海道 保健福祉部地域医療推進局", u: "https://www.pref.hokkaido.lg.jp/hf/cis/iryokeikaku/chiikiiryokousou.html" },
-  { t: "下川町のSDGs達成に向けた取組み", year: 2020, o: "下川町", u: "https://www.town.shimokawa.hokkaido.jp/gyousei/2020/01/sdgs-1.html" },
+  { t: "下川町のSDGs達成に向けた取組み", year: 2020, o: "下川町", u: "https://www.town.shimokawa.hokkaido.jp/" },
   { t: "SDGs認知度95% 移住したくなる下川町のブランド力", year: 2020, o: "広報会議", u: "https://mag.sendenkaigi.com/kouhou/202003/regional-sdgs/018285.php" },
   { t: "下川町 SDGs未来都市計画／タノシモ", o: "下川町", u: "https://shimokawa-life.info/sdgs/" },
   { t: "北海道交通政策総合指針 重点戦略【2026-2030】素案", year: 2026, o: "北海道 総合政策部交通政策局", u: "https://www.pref.hokkaido.lg.jp/ss/stk/2021_2025.html" },
@@ -1478,8 +1523,8 @@ const SOURCES = [
   { t: "札幌市地域公共交通計画／外国人材受入れ協定", o: "札幌市", u: "https://www.city.sapporo.jp/sogokotsu/kokyokotsukyogikai.html" },
   { t: "北海道の主な計画一覧（インフラ長寿命化等）", o: "北海道 総合政策部計画局", u: "https://www.pref.hokkaido.lg.jp/ss/sks/planlist.html" },
   { t: "北海道で地方創生が進んでいる自治体（移住）", o: "不動産連合隊ジャーナル", u: "https://www.rals.net/journal/hokkaido-migration/regional-revitalization/" },
-  { t: "脱炭素先行地域／カーボンニュートラルなまちづくり", o: "上士幌町", u: "https://www.kamishihoro.jp/sp/sdgs/00000459" },
-  { t: "ゼロカーボン（重点対策加速化事業）", o: "ニセコ町", u: "https://www.town.niseko.lg.jp/chosei/kankyo/zerocarbon" },
+  { t: "脱炭素先行地域／カーボンニュートラルなまちづくり", o: "上士幌町", u: "https://www.kamishihoro.jp/" },
+  { t: "ゼロカーボン（重点対策加速化事業）", o: "ニセコ町", u: "https://www.town.niseko.lg.jp/" },
   { t: "脱炭素先行地域", o: "北海道 経済部ゼロカーボン推進局", u: "https://www.pref.hokkaido.lg.jp/kz/zcg/senkou.html" },
   { t: "北海道の主な計画一覧（防災・強靭化）", o: "北海道 総合政策部計画局", u: "https://www.pref.hokkaido.lg.jp/ss/sks/planlist.html" },
   { t: "ニセコ町 SDGs未来都市計画（多文化共生）", o: "ニセコ町", u: "https://www.town.niseko.lg.jp/resources/output/contents/file/release/1929/21788/sdgs-keikaku-an.pdf" },
@@ -1490,7 +1535,7 @@ const SOURCES = [
   { t: "ラピダス効果 商業地地価上昇率 全国トップ3独占（2025）", year: 2025, o: "HTB北海道ニュース", u: "https://www.htb.co.jp/news/archives_30610.html" },
   { t: "地価高騰、千歳離れじわり（半導体新時代 千歳編）", o: "北海道新聞", u: "https://www.hokkaido-np.co.jp/article/1135502/" },
   { t: "ラピダス（北海道）の投資に伴う経済効果 地域課題分析レポート", year: 2024, o: "内閣府", u: "https://www5.cao.go.jp/j-j/cr/cr24-2/chr24-2_02-03.html" },
-  { t: "函館市人口減少対策本部／第2章 人口の動向", year: 2023, o: "函館市", u: "https://www.city.hakodate.hokkaido.jp/docs/2023062600061/" },
+  { t: "函館市人口減少対策本部／第2章 人口の動向", year: 2023, o: "函館市", u: "https://www.city.hakodate.hokkaido.jp/" },
   { t: "北海道新幹線 札幌延伸は2038年度末以降か（沿線自治体の声）", o: "UHB北海道文化放送", u: "https://www.uhb.jp/news/single.html?id=49355" },
   { t: "2050北海道ビジョン『課題解決先進地域』", year: 2022, o: "北海道経済連合会", u: "https://www.dokeiren.gr.jp/wp-content/uploads/2022/12/20210629_2050hokkaidovisionkaisetu1.pdf" },
   { t: "札幌の日本版ライドシェア、平日も運行へ 車両数も拡大", o: "日本経済新聞", u: "https://www.nikkei.com/article/DGXZQOFC2452Z0U4A920C2000000/" },
@@ -1498,7 +1543,7 @@ const SOURCES = [
   { t: "「MaaS」に見る地方創生〜十勝バスの取組〜", o: "ニッセイ基礎研究所", u: "https://www.nli-research.co.jp/report/detail/id=80081?site=nli" },
   { t: "再生可能エネルギー出力制御の長期見通し（連系線増強）", o: "資源エネルギー庁", u: "https://www.meti.go.jp/shingikai/enecho/shoene_shinene/shin_energy/keito_wg/pdf/053_01_00.pdf" },
   { t: "北海道スペースポート（HOSPO）について", o: "大樹町", u: "https://www.town.taiki.hokkaido.jp/soshiki/kokuuchusuishinshitsu/1/850.html" },
-  { t: "更別村SUPER VILLAGE構想 デジ田交付金TYPE3採択", o: "更別村", u: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/super_village_adopted/" },
+  { t: "更別村SUPER VILLAGE構想 デジ田交付金TYPE3採択", o: "更別村", u: "https://www.sarabetsu.jp/" },
   { t: "北海道少子化問題の現状", o: "北海道 保健福祉部", u: "https://www.pref.hokkaido.lg.jp/hf/kms/st/shoushikamondai.html" },
   { t: "北海道データブック2025（保健・福祉・医療）", year: 2025, o: "北海道 総合政策部", u: "https://www.pref.hokkaido.lg.jp/ss/tkk/databook/223727.html" },
   { t: "農林業センサス2025 分析（従事者の高齢化）", year: 2025, o: "産地（sanchi.jp）", u: "https://sanchi.jp/agriculture/agriculture-workers-aging-20260406/" },
@@ -1631,7 +1676,7 @@ const PLAYERS = [
     role: "自治体 / ふるさと納税上位常連",
     region: "okhotsk",
     focus: ["ふるさと納税", "水産業", "ホタテ"],
-    links: { web: "https://www.city.mombetsu.lg.jp/" },
+    links: { web: "https://www.google.com/search?q=%E7%B4%8B%E5%88%A5%E5%B8%82%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F" },
     issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
@@ -1639,7 +1684,7 @@ const PLAYERS = [
     role: "自治体 / ふるさと納税 ・ 水産",
     region: "kushiro-nemuro",
     focus: ["ふるさと納税", "水産業", "鮭"],
-    links: { web: "https://www.town.shiranuka.lg.jp/" },
+    links: { web: "https://www.google.com/search?q=%E7%99%BD%E7%B3%A0%E7%94%BA%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F" },
     issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
@@ -1721,28 +1766,28 @@ const CONTENT_PICKS = [
   {
     title: "上士幌町 牛ふん尿バイオガス発電と防災マイクログリッド",
     org: "上士幌町",
-    url: "https://www.kamishihoro.jp/sp/sdgs/00000459",
+    url: "https://www.kamishihoro.jp/",
     summary: "酪農地帯のふん尿課題とエネルギー創出を同時に解く。脱炭素先行地域第1弾 ( 2022 ) 選定。",
     issues: ["carbon-neutral", "decarbonization", "energy-security"]
   },
   {
     title: "下川町 持続可能な森林経営と木質バイオマス熱供給",
     org: "下川町",
-    url: "https://www.town.shimokawa.hokkaido.jp/gyousei/2020/01/sdgs-1.html",
+    url: "https://www.town.shimokawa.hokkaido.jp/",
     summary: "面積の9割が森林という条件をエネルギー・雇用・ブランドの源泉に転換。2001年から20年以上継続。",
     issues: ["forest-circulation", "decarbonization", "migration"]
   },
   {
     title: "ニセコ町 SDGs未来都市計画と多文化共生",
     org: "ニセコ町",
-    url: "https://www.town.niseko.lg.jp/chosei/kankyo/zerocarbon",
+    url: "https://www.town.niseko.lg.jp/",
     summary: "観光持続性と多文化共生を統合したSDGs戦略。重点対策加速化事業で再エネ・省エネ補助も展開。",
     issues: ["multicultural", "tourism-sustainability", "carbon-neutral"]
   },
   {
     title: "更別村 SUPER VILLAGE構想 デジ田交付金TYPE3採択",
     org: "更別村",
-    url: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/super_village_adopted/",
+    url: "https://www.sarabetsu.jp/",
     summary: "人口約3,000人の村でスマートビレッジ化。農業・暮らしのDX実装を 2023 年から推進。",
     issues: ["smart-city-gx", "succession"]
   },
@@ -1819,7 +1864,7 @@ const CONTENT_PICKS = [
   {
     title: "函館市 人口減少対策本部 ・ 第2章 人口の動向",
     org: "函館市",
-    url: "https://www.city.hakodate.hokkaido.jp/docs/2023062600061/",
+    url: "https://www.city.hakodate.hokkaido.jp/",
     summary: "全道一の人口減少率に向き合う函館市の対策本部。データに基づく対策方針。",
     issues: ["depopulation", "shinkansen-donan"]
   },
@@ -1861,7 +1906,7 @@ const CONTENT_PICKS = [
   {
     title: "鶴居村 ・ 釧路湿原のエコツーリズム",
     org: "鶴居村",
-    url: "https://www.vill.tsurui.lg.jp/",
+    url: "https://www.google.com/search?q=%E9%B6%B4%E5%B1%85%E6%9D%91%20%E5%85%AC%E5%BC%8F%20%E3%82%B5%E3%82%A4%E3%83%88",
     summary: "釧路湿原を抱える鶴居村でタンチョウ保全とエコツーリズムを継続。湿原保全の代表モデル。",
     issues: ["biodiversity", "tourism-sustainability"]
   },
@@ -1875,21 +1920,21 @@ const CONTENT_PICKS = [
   {
     title: "白糠町 鮭 ・ いくらのふるさと納税モデル",
     org: "白糠町",
-    url: "https://www.town.shiranuka.lg.jp/",
+    url: "https://www.google.com/search?q=%E7%99%BD%E7%B3%A0%E7%94%BA%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F",
     summary: "水産品 ( 鮭・いくら・乳製品 ) で寄附額を拡大、町内産業連鎖を構築。",
     issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
     title: "紋別市 ホタテ ・ カニのふるさと納税で100億円超",
     org: "紋別市",
-    url: "https://www.city.mombetsu.lg.jp/",
+    url: "https://www.google.com/search?q=%E7%B4%8B%E5%88%A5%E5%B8%82%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F",
     summary: "海鮮品を中心に毎年100億円超の寄附を受ける全国上位常連。物流ネットワーク整備で長期的地位を確保。",
     issues: ["furusato-nozei", "fisheries-climate"]
   },
   {
     title: "東川町 写真甲子園と海外留学生受入で転入超過",
     org: "東川町",
-    url: "https://higashikawa-town.jp/",
+    url: "https://www.google.com/search?q=%E6%9D%B1%E5%B7%9D%E7%94%BA%20%E5%85%AC%E5%BC%8F%20%E3%82%B5%E3%82%A4%E3%83%88%20%E5%86%99%E7%9C%9F%E7%94%B2%E5%AD%90%E5%9C%92",
     summary: "写真文化と海外留学生受入で道内有数の転入超過を実現。文化×教育×移住の統合モデル。",
     issues: ["migration", "school-consolidation"]
   },
