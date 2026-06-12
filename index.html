@@ -1261,7 +1261,6 @@
 
   function selectCat(newCat){
     state.cat = (state.cat===newCat) ? 'all' : newCat;
-    if(state.cat !== 'all'){ state.tag = null; state.region = 'all'; }
     syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
     render();
   }
@@ -1330,7 +1329,6 @@
 
   function selectTag(newTag){
     state.tag = (state.tag===newTag) ? null : newTag;
-    if(state.tag){ state.cat = 'all'; state.region = 'all'; }
     syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
     render();
   }
@@ -1531,7 +1529,6 @@
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
-    if(state.region !== 'all'){ state.cat = 'all'; state.tag = null; }
     regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region===state.region));
     syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
     if(window.gtag) gtag('event','region_filter_click',{region:state.region});
