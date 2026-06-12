@@ -6,9 +6,9 @@
 <title>北海道・地域課題リサーチ｜知る、考える、向き合う</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="description" content="北海道の地域課題を 8 つの社会システムで分類、構造分析と道内 / 道外の取り組み事例を信頼できる出典付きで整理。地域プレイヤー・行政・起業家・地域おこし協力隊の「知る → 着想 → 実行」を支援するリサーチプラットフォーム。">
+<meta name="description" content="北海道の地域課題を 8 つの課題分類で分類、構造分析と道内 / 道外の取り組み事例を信頼できる出典付きで整理。地域プレイヤー・行政・起業家・地域おこし協力隊の「知る → 着想 → 実行」を支援するリサーチプラットフォーム。">
 <meta property="og:title" content="北海道の地域課題を知る、北海道の未来と向き合う。">
-<meta property="og:description" content="8 つの社会システムで分類した 20 課題、構造分析と道内 / 道外の取り組み事例を出典付きで整理。地域プレイヤーの「知る → 着想 → 実行」を支援。">
+<meta property="og:description" content="8 つの課題分類で分類した 20 課題、構造分析と道内 / 道外の取り組み事例を出典付きで整理。地域プレイヤーの「知る → 着想 → 実行」を支援。">
 <meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/">
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="北海道の地域課題を知る、北海道の未来と向き合う。">
-<meta name="twitter:description" content="8 つの社会システム × 20 課題の構造分析と道内 / 道外の取り組み事例。">
+<meta name="twitter:description" content="8 つの課題分類 × 20 課題の構造分析と道内 / 道外の取り組み事例。">
 <meta name="twitter:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
 <script>
@@ -928,7 +928,7 @@
       <span class="sec-icon" aria-hidden="true">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
       </span>
-      <h2 class="sec-title">社会システム</h2>
+      <h2 class="sec-title">課題分類</h2>
       <button id="ov-reset" class="ov-reset" hidden>✕ 解除</button>
     </div>
     <div class="ov-grid" id="ov-grid"></div>
@@ -966,7 +966,7 @@
   <div class="wrap">
     <div class="ctrl-bar">
       <div class="dd" data-dd="cat">
-        <button class="dd-btn" id="dd-cat-btn" aria-expanded="false">社会システム<span class="dd-arrow">▼</span></button>
+        <button class="dd-btn" id="dd-cat-btn" aria-expanded="false">課題分類<span class="dd-arrow">▼</span></button>
         <div class="dd-panel" id="dd-cat-panel">
           <div class="dd-cat-grid" id="dd-cat-grid"></div>
         </div>
@@ -1350,7 +1350,7 @@
     ovReset.hidden = (state.cat==='all');
     const cName = catMap[state.cat] ? catMap[state.cat].name : null;
     ddCatBtn.classList.toggle('active', state.cat!=='all');
-    ddCatBtn.firstChild.textContent = cName ? `社会システム: ${cName}` : '社会システム';
+    ddCatBtn.firstChild.textContent = cName ? `課題分類: ${cName}` : '課題分類';
     ddCatPanel.setAttribute('data-active', state.cat!=='all');
   }
 
@@ -1689,7 +1689,7 @@
     const chips = [];
     if(state.cat !== 'all'){
       const c = catMap[state.cat];
-      if(c) chips.push({ label: `社会システム: ${c.name}`, type: 'cat' });
+      if(c) chips.push({ label: `課題分類: ${c.name}`, type: 'cat' });
     }
     if(state.tag){
       chips.push({ label: `キーワード: ${state.tag}`, type: 'tag' });
