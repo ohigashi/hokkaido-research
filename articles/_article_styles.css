@@ -84,6 +84,15 @@ article.body h3{
 }
 article.body p{margin-bottom:16px}
 article.body strong{font-weight:800;color:var(--ink)}
+.glossary-term-link{
+  color:var(--ink);text-decoration:none;
+  border-bottom:1px dotted var(--moss);
+  transition:color .12s, border-color .12s;
+}
+.glossary-term-link:hover{color:var(--moss);border-bottom-style:solid}
+.glossary-term-link::after{
+  content:"📖";font-size:9px;margin-left:2px;opacity:.55;vertical-align:super;
+}
 article.body ul, article.body ol{margin:0 0 18px;padding-left:24px}
 article.body li{margin-bottom:7px;line-height:1.8}
 article.body li > strong{color:var(--ink)}

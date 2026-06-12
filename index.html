@@ -977,7 +977,7 @@
     <div class="ctrl-label-row">
       <span class="ctrl-label-text">課題一覧</span>
       <span class="ctrl-label-count"><b id="num">0</b> 件</span>
-      <p class="ctrl-label-lede">地域課題を分類 ・ 地域 ・ 特性で立体的に整理した一覧。フィルタで絞り込める。</p>
+      <p class="ctrl-label-lede">地域課題を分類・地域・特性で立体的に整理した一覧。フィルタで絞り込める。</p>
     </div>
     <div class="ctrl-bar">
       <button id="latest-view-btn" class="bookmark-view-btn" type="button">📅 新着</button>
@@ -1019,10 +1019,10 @@
 
 <footer>
   <div class="wrap">
-    <p>このサイトは、北海道の地域課題を <strong>構造から知り</strong>、長期事例から <strong>アイデアを得て</strong>、日常の <strong>行動変容と課題解決</strong> につなぐことを目指す、地域変革プレイヤー ( 民間 ・ 行政 ・ 地域おこし ) のための知識基盤です。事実 ・ 解釈 ・ 取り組み ・ 道外事例 ・ わたしたちにできることまで含め、公開出典付きで整理しています。</p>
-    <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。掲載指標 ( 影響地域数 ・ 取組件数 ・ 道外事例数 ・ 構造深度 ・ 鮮度 ) は構造データから自動算出した客観値です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
+    <p>このサイトは、北海道の地域課題を <strong>構造から知り</strong>、長期事例から <strong>アイデアを得て</strong>、日常の <strong>行動変容と課題解決</strong> につなぐことを目指す、地域変革プレイヤー ( 民間・行政・地域おこし ) のための知識基盤です。事実・解釈・取り組み・道外事例・わたしたちにできることまで含め、公開出典付きで整理しています。</p>
+    <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。掲載指標 ( 影響地域数・取組件数・道外事例数・構造深度・鮮度 ) は構造データから自動算出した客観値です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
     <p class="footer-contact">
-      改善 ・ 提携 ・ 連携の相談窓口: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X ) ↗</a> ・ DM 歓迎
+      改善・提携・連携の相談窓口: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X ) ↗</a>・DM 歓迎
     </p>
     <p class="footer-links">
       運営: <a href="https://lrg.jp" target="_blank" rel="noopener">Largo 株式会社</a>
@@ -1078,12 +1078,12 @@
     if(type === 'issues'){
       title = '全課題一覧';
       const items = [...ISSUES].sort((a,b)=>(b.initiatives||[]).length - (a.initiatives||[]).length);
-      metaTxt = `${items.length} 件 ・ 取組件数順`;
+      metaTxt = `${items.length} 件・取組件数順`;
       listHtml = items.map(it=>{
         const c = catMap[it.cat];
         return `<div class="stat-list-item" data-go-issue="${it.id}">
           <div class="stat-list-title">${it.title}</div>
-          <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 取組 ${(it.initiatives||[]).length} 件 ・ 道外 ${(it.externalCases||[]).length} 件</div>
+          <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span>・取組 ${(it.initiatives||[]).length} 件・道外 ${(it.externalCases||[]).length} 件</div>
         </div>`;
       }).join('');
     }
@@ -1095,7 +1095,7 @@
           items.push({n, issue: it, url: (n.s>=0 && SOURCES[n.s]) ? SOURCES[n.s].u : null});
         });
       });
-      metaTxt = `${items.length} 件 ・ 道内自治体 ・ 個人 ・ 法人の取り組み`;
+      metaTxt = `${items.length} 件・道内自治体・個人・法人の取り組み`;
       listHtml = items.map(p=>{
         const linkAttr = p.url ? ` data-go-url="${p.url}"` : ` data-go-issue="${p.issue.id}"`;
         return `<div class="stat-list-item"${linkAttr}>
@@ -1113,7 +1113,7 @@
           items.push({c, issue: it});
         });
       });
-      metaTxt = `${items.length} 件 ・ 道外の参考事例`;
+      metaTxt = `${items.length} 件・道外の参考事例`;
       listHtml = items.map(p=>{
         const url = p.c.source?.u || null;
         const linkAttr = url ? ` data-go-url="${url}"` : ` data-go-issue="${p.issue.id}"`;
@@ -1126,11 +1126,11 @@
     }
     else if(type === 'sources'){
       title = '出典・データ 一覧';
-      metaTxt = `${SOURCES.length} 件 ・ 公式 ・ 報道 ・ 研究 ・ 業界`;
+      metaTxt = `${SOURCES.length} 件・公式・報道・研究・業界`;
       listHtml = SOURCES.map(src=>{
         return `<div class="stat-list-item" data-go-url="${src.u}">
           <div class="stat-list-title">${src.t}</div>
-          <div class="stat-list-meta">${src.o}${src.year?` ・ ${src.year}`:''}</div>
+          <div class="stat-list-meta">${src.o}${src.year?`・${src.year}`:''}</div>
           <div class="stat-list-link">${src.u} ↗</div>
         </div>`;
       }).join('');
@@ -1143,7 +1143,7 @@
           items.push({d, issue: it});
         });
       });
-      metaTxt = `${items.length} 章 ・ 構造的分析`;
+      metaTxt = `${items.length} 章・構造的分析`;
       listHtml = items.map(p=>`<div class="stat-list-item" data-go-issue="${p.issue.id}">
         <div class="stat-list-parent">${p.issue.title}</div>
         <div class="stat-list-title">${p.d.h}</div>
@@ -1158,11 +1158,11 @@
           items.push({r, issue: it});
         });
       });
-      metaTxt = `${items.length} 件 ・ note 記事 ・ 個人発信等`;
+      metaTxt = `${items.length} 件・note 記事・個人発信等`;
       listHtml = items.map(p=>`<div class="stat-list-item" data-go-url="${p.r.u}">
         <div class="stat-list-parent">${p.issue.title}</div>
         <div class="stat-list-title">${p.r.t}</div>
-        <div class="stat-list-meta">${p.r.o||''}${p.r.year?` ・ ${p.r.year}`:''}</div>
+        <div class="stat-list-meta">${p.r.o||''}${p.r.year?`・${p.r.year}`:''}</div>
       </div>`).join('');
     }
     inner.innerHTML = `<div class="stat-modal-head">
@@ -1319,7 +1319,7 @@
 
   // 地域分布 ( B ) - 簡素化により撤去
 
-  // 構造マップ生成 ( 客観指標のみ ) ・ トップから撤去済 ・ ov-grid 不在で no-op
+  // 構造マップ生成 ( 客観指標のみ )・トップから撤去済・ov-grid 不在で no-op
   const ovGrid = document.getElementById('ov-grid');
   if(ovGrid){
     ovGrid.innerHTML = CATEGORIES.map(c=>{
@@ -1512,7 +1512,7 @@
     renderLatest();
   });
 
-  // 読み物セクション ( 最新 4 本 ) + hero での件数表示
+  // 読み物セクション ( 最新 4本 ) + hero での件数表示
   (function(){
     const heroNum = document.getElementById('hero-articles-num');
     if(heroNum && typeof ARTICLES !== 'undefined') heroNum.textContent = ARTICLES.length;
@@ -1528,7 +1528,7 @@
       return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
         <div class="reading-row-top">
           <span class="reading-cat ${catCls}">${a.category}</span>
-          <span class="reading-meta-inline">${a.readMinutes || 2} 分 ・ ${a.publishedAt || ''}</span>
+          <span class="reading-meta-inline">${a.readMinutes || 2} 分・${a.publishedAt || ''}</span>
         </div>
         <div class="reading-title-text">${a.title}</div>
         ${a.summary ? `<div class="reading-summary">${a.summary}</div>` : ''}
@@ -1615,14 +1615,14 @@
     const listHtml = items.map(it=>{
       const c = catMap[it.cat];
       return `<div class="stat-list-item" data-go-issue="${it.id}">
-        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ ${it.addedAt || '日付未設定'}</div>
+        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span>・${it.addedAt || '日付未設定'}</div>
         <div class="stat-list-title">${it.title}</div>
       </div>`;
     }).join('');
     inner.innerHTML = `<div class="stat-modal-head">
       <button class="stat-modal-close" aria-label="閉じる">×</button>
       <h2>新着の課題</h2>
-      <div class="stat-modal-meta">${items.length} 件 ・ 追加日降順</div>
+      <div class="stat-modal-meta">${items.length} 件・追加日降順</div>
     </div>
     <div class="stat-modal-body"><div class="stat-list">${listHtml}</div></div>`;
     modal.classList.add('open');
@@ -1645,13 +1645,13 @@
       const c = catMap[it.cat];
       return `<div class="stat-list-item" data-go-issue="${it.id}">
         <div class="stat-list-title">${it.title}</div>
-        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 取組 ${(it.initiatives||[]).length} 件</div>
+        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span>・取組 ${(it.initiatives||[]).length} 件</div>
       </div>`;
     }).join('') : '<p style="color:var(--slate);text-align:center;padding:40px 20px">気になる課題はまだありません。各カードのハート ♡ で追加できます。</p>';
     inner.innerHTML = `<div class="stat-modal-head">
       <button class="stat-modal-close" aria-label="閉じる">×</button>
       <h2>気になる課題</h2>
-      <div class="stat-modal-meta">${items.length} 件 ・ ブラウザに保存 ( 端末ごと )</div>
+      <div class="stat-modal-meta">${items.length} 件・ブラウザに保存 ( 端末ごと )</div>
     </div>
     <div class="stat-modal-body"><div class="stat-list">${listHtml}</div></div>`;
     modal.classList.add('open');
@@ -1850,7 +1850,7 @@
       <div class="mb-section">
         <div class="mb-label" style="color:var(--slate)">参考リンク・関連記事</div>
         <div class="refs-list">${it.references.map(r=>{
-          const meta = [r.o, r.year].filter(Boolean).join(' ・ ');
+          const meta = [r.o, r.year].filter(Boolean).join('・');
           return `<div class="refs-item" data-card-url="${r.u}"><a href="${r.u}" target="_blank" rel="noopener">${r.t} ↗</a>${meta?` <span class="refs-from">/ ${meta}</span>`:''}</div>`;
         }).join('')}</div>
         <div class="search-note" style="margin-top:8px">参考レベルのリンクです。note 記事 / 個人ブログ / SNS 投稿などを含む場合があり、ファクトとしての引用ではなく着想のヒントとして参照ください。</div>
@@ -1868,7 +1868,7 @@
           <a class="share-btn share-line" href="${lineShareUrl}" target="_blank" rel="noopener">LINE</a>
           <a class="share-btn share-mail" href="${mailShareUrl}">✉ メール</a>
           <button class="share-btn" id="share-card">🔗 リンクをコピー</button>
-          <a class="share-btn share-consult" href="${dmUrl}" target="_blank" rel="noopener">💬 DM で相談 ・ 情報を寄せる ・ 訂正</a>
+          <a class="share-btn share-consult" href="${dmUrl}" target="_blank" rel="noopener">💬 DM で相談・情報を寄せる・訂正</a>
         </div>
       </div>`;
     const filteredList = filtered();
@@ -1895,7 +1895,7 @@
         <div class="mb-label" style="color:var(--ice)">数値で見る現状</div>
         <div class="stat-grid">${it.stats.map(s=>{
           const src = s.source;
-          const srcHtml = src ? `<div class="stat-source">出典: <a href="${src.u}" target="_blank" rel="noopener">${src.o || src.t} ↗</a>${src.year?` ・ ${src.year}`:''}</div>` : '';
+          const srcHtml = src ? `<div class="stat-source">出典: <a href="${src.u}" target="_blank" rel="noopener">${src.o || src.t} ↗</a>${src.year?`・${src.year}`:''}</div>` : '';
           return `<div class="stat-box"${src?` data-card-url="${src.u}"`:''}><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div>${renderTrend(s.trend)}${srcHtml}</div>`;
         }).join('')}</div>
       </div>` : '';
