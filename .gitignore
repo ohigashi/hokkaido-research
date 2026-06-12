@@ -1,5 +1,3 @@
+_articles_data_snippet.js
+*.bak
 .DS_Store
-*.log
-.vscode/
-.idea/
-node_modules/
