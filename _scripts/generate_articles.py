@@ -1788,8 +1788,8 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
 <div class="article-wrap">
 <div class="back-links">
-<a class="back-link" href="/">← トップへ戻る</a>
 <a class="back-link" href="/articles/">← 読み物一覧へ戻る</a>
+<a class="back-link" href="/">← トップへ戻る</a>
 </div>
 
 <header class="article-head">
@@ -1827,9 +1827,9 @@ TEMPLATE = """<!DOCTYPE html>
   <div id="rel-articles" class="rel-articles"></div>
 </section>
 
-<div class="back-cta-row">
-<a class="back-cta" href="/articles/">← 読み物一覧へ</a>
-<a class="back-cta back-cta-alt" href="/">トップへ戻る</a>
+<div class="back-links back-links-bottom">
+<a class="back-link" href="/articles/">← 読み物一覧へ戻る</a>
+<a class="back-link" href="/">← トップへ戻る</a>
 </div>
 
 <footer>
