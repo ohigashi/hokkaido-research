@@ -310,6 +310,25 @@
   .share-btn.share-mail{background:var(--slate)}
   .share-btn.share-consult{background:var(--ice);color:var(--snow)}
   .share-btn.share-consult:hover{background:var(--moss)}
+  .share-btn.share-contrib{background:#6B5B95;color:var(--snow)}
+  .share-btn.share-contrib:hover{background:#534577}
+  .modal-nav-bar{
+    display:flex;justify-content:space-between;gap:10px;
+    padding:16px 0 0;margin-top:22px;
+    border-top:1px dashed var(--line);
+  }
+  .modal-nav-btn{
+    font-family:inherit;cursor:pointer;
+    font-size:11px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);padding:9px 14px;border-radius:5px;
+    text-align:left;max-width:48%;line-height:1.4;
+    display:flex;flex-direction:column;gap:3px;
+    transition:all .12s;
+  }
+  .modal-nav-btn:hover{border-color:var(--ink);background:var(--snow);transform:translateY(-1px)}
+  .modal-nav-btn.nav-next{text-align:right}
+  .modal-nav-btn .nav-dir{font-size:10px;font-weight:700;color:var(--moss);letter-spacing:.05em}
+  .modal-nav-btn .nav-title{font-size:12.5px;font-weight:800;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
   .search-note{font-size:10.5px;color:var(--slate);margin-top:8px}
 
   /* 深掘り */
@@ -809,7 +828,7 @@
     <p>このページは、北海道の地域社会が向き合う構造課題を、共通課題と地域固有課題の二層で分類し、自治体・個人・法人の取り組みと公開出典を参照できるよう整理した課題地図です。事実・解釈・取り組みを分けて記載しています。</p>
     <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。スコア（緊急度・深刻度）は相対的な目安です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
     <p class="footer-contact">
-      改善 ・ 提携 ・ 連携の相談窓口: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">大東 ( @h_ohigashi ) ↗</a> ・ DM 歓迎
+      改善 ・ 提携 ・ 連携の相談窓口: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X ) ↗</a> ・ DM 歓迎
     </p>
     <p class="footer-links">
       運営: <a href="https://lrg.jp" target="_blank" rel="noopener">Largo 株式会社</a>
@@ -1017,6 +1036,15 @@
 
   // 重要度 / 話題度 スコア
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
+  function readingMinutes(it){
+    let chars = 0;
+    if(it.fact) chars += it.fact.length;
+    if(it.interp) chars += it.interp.length;
+    (it.deep||[]).forEach(d => chars += (d.b||'').length);
+    (it.initiatives||[]).forEach(n => chars += (n.what||'').length);
+    (it.externalCases||[]).forEach(c => chars += (c.what||'').length);
+    return Math.max(1, Math.round(chars / 600));
+  }
   function heatRaw(it){
     const nSrc = (it.sources||[]).length;
     const nRes = (it.research||[]).length;
@@ -1418,6 +1446,7 @@
           <div class="card-foot">
             ${rtags}
             <span class="ini-count">取組 <b>${it.initiatives.length}</b></span>
+            <span class="ini-count">読了 約<b>${readingMinutes(it)}</b>分</span>
             ${it.deep ? `<button class="dig-btn" data-dig="${it.id}">⛏ 深掘り</button>` : ''}
           </div>
         </div>
@@ -1490,6 +1519,7 @@
     const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${encShare(pageURL)}`;
     const mailShareUrl = `mailto:?subject=${encShare('北海道・地域課題リサーチ: ' + it.title)}&body=${encShare(it.title + '\n\n' + (it.summary||'') + '\n\n' + pageURL)}`;
     const consultUrl = `https://x.com/intent/tweet?text=${encShare('@h_ohigashi 「' + it.title + '」について相談したいです')}&url=${encShare(pageURL)}`;
+    const contribUrl = `https://x.com/intent/tweet?text=${encShare('@h_ohigashi 「' + it.title + '」に追加情報 / 訂正提案があります:')}&url=${encShare(pageURL)}`;
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
         <div class="share-actions">
@@ -1497,9 +1527,19 @@
           <a class="share-btn share-line" href="${lineShareUrl}" target="_blank" rel="noopener">LINE</a>
           <a class="share-btn share-mail" href="${mailShareUrl}">✉ メール</a>
           <button class="share-btn" id="share-card">🔗 リンクをコピー</button>
-          <a class="share-btn share-consult" href="${consultUrl}" target="_blank" rel="noopener">💬 大東に相談 ( X )</a>
+          <a class="share-btn share-consult" href="${consultUrl}" target="_blank" rel="noopener">💬 運営者に相談 ( X )</a>
+          <a class="share-btn share-contrib" href="${contribUrl}" target="_blank" rel="noopener">✉ 情報を寄せる ・ 訂正 ( X )</a>
         </div>
       </div>`;
+    const filteredList = filtered();
+    const currentIdx = filteredList.findIndex(x => x.id === it.id);
+    const prevIssue = currentIdx > 0 ? filteredList[currentIdx - 1] : null;
+    const nextIssue = (currentIdx >= 0 && currentIdx < filteredList.length - 1) ? filteredList[currentIdx + 1] : null;
+    const navBlock = (prevIssue || nextIssue) ? `
+      <div class="modal-nav-bar">
+        ${prevIssue ? `<button class="modal-nav-btn" data-nav-issue="${prevIssue.id}"><span class="nav-dir">← 前</span><span class="nav-title">${prevIssue.title}</span></button>` : '<span></span>'}
+        ${nextIssue ? `<button class="modal-nav-btn nav-next" data-nav-issue="${nextIssue.id}"><span class="nav-dir">次 →</span><span class="nav-title">${nextIssue.title}</span></button>` : '<span></span>'}
+      </div>` : '';
     const deepBlock = (it.deep && it.deep.length) ? `
       <div class="mb-section">
         <button class="deep-toggle" id="deep-toggle" aria-expanded="false">
@@ -1581,6 +1621,7 @@
         ${srcList}
         ${refsBlock}
         ${shareBlock}
+        ${navBlock}
       </div>`;
     modal.classList.add('open');
     document.body.style.overflow='hidden';
@@ -1596,6 +1637,14 @@
       b.addEventListener('click',()=>{
         const to=b.dataset.relId;
         if(window.gtag) gtag('event','related_issue_click',{from_id:it.id,to_id:to});
+        openModal(to, true);
+        modal.scrollTop=0;
+      });
+    });
+    inner.querySelectorAll('[data-nav-issue]').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const to = b.dataset.navIssue;
+        if(window.gtag) gtag('event','modal_nav',{from_id:it.id, to_id:to});
         openModal(to, true);
         modal.scrollTop=0;
       });
