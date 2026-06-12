@@ -286,6 +286,14 @@
   .ov-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
   .ov-title{font-size:17px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
   .ov-lede{font-size:12px;color:var(--slate);margin:0;line-height:1.55;max-width:60ch}
+  .ov-reset{
+    font-family:inherit;cursor:pointer;margin-left:auto;
+    font-size:12px;font-weight:700;color:var(--snow);background:var(--ink);
+    border:none;padding:6px 13px;border-radius:30px;transition:background .15s;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .ov-reset:hover{background:var(--moss)}
+  .ov-reset[hidden]{display:none}
   .ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
   .ov-tile{
     font-family:inherit;text-align:left;cursor:pointer;
@@ -361,6 +369,7 @@
     <div class="ov-head">
       <h2 class="ov-title">社会システムで見る</h2>
       <p class="ov-lede">北海道の地域課題を 8 つの社会システムで分類しています。タイルを押すと、そのテーマの課題に絞り込めます。</p>
+      <button id="ov-reset" class="ov-reset" hidden>✕ すべて表示</button>
     </div>
     <div class="ov-grid" id="ov-grid"></div>
   </div>
@@ -437,6 +446,7 @@
     </button>`;
   }).join('');
 
+  const ovReset = document.getElementById('ov-reset');
   function syncCatUI(){
     ovGrid.querySelectorAll('.ov-tile').forEach(t=>{
       const on = t.dataset.ovCat===state.cat;
@@ -444,6 +454,7 @@
       const d = t.querySelector('.ov-desc');
       d.textContent = on ? 'もう一度押すと解除' : d.dataset.default;
     });
+    ovReset.hidden = (state.cat==='all');
   }
 
   ovGrid.addEventListener('click',e=>{
@@ -457,6 +468,13 @@
       const g=document.getElementById('grid');
       if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
     }
+  });
+
+  ovReset.addEventListener('click',()=>{
+    state.cat='all';
+    syncCatUI();
+    if(window.gtag) gtag('event','structure_map_reset',{});
+    render();
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
