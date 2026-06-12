@@ -107,35 +107,32 @@
   }
   .sec-link-all:hover{color:var(--ink);border-bottom-color:var(--ink)}
 
-  /* ===== 読み物セクション ( 編集リスト型 ) ===== */
-  .reading-section{padding:20px 0 8px;position:relative;z-index:1}
+  /* ===== 読み物セクション ( 編集リスト型 コンパクト ) ===== */
+  .reading-section{padding:16px 0 4px;position:relative;z-index:1}
   .reading-grid{display:flex;flex-direction:column}
   .reading-card{
     background:transparent;border:none;border-radius:0;
-    padding:16px 0;border-top:1px solid var(--line);
-    display:flex;flex-direction:column;gap:6px;
+    padding:9px 0;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:3px;
     text-decoration:none;color:inherit;transition:opacity .12s;
   }
-  .reading-card:first-child{border-top:none;padding-top:4px}
-  .reading-card:hover{opacity:.68}
+  .reading-card:first-child{border-top:none;padding-top:2px}
+  .reading-card:hover{opacity:.65}
   .reading-card:hover .reading-title-text{color:var(--moss)}
+  .reading-row-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .reading-cat{
-    font-size:9.5px;font-weight:800;color:#6B5B95;background:transparent;
-    padding:0;letter-spacing:.1em;text-transform:uppercase;
-    display:inline-block;width:fit-content;
+    font-size:9px;font-weight:800;color:#6B5B95;background:transparent;
+    padding:0;letter-spacing:.12em;text-transform:uppercase;
+    display:inline-block;
   }
   .reading-cat.discovery{color:#B5733A}
   .reading-cat.idea{color:var(--ice)}
+  .reading-meta-inline{
+    font-size:9.5px;color:var(--slate);font-weight:600;letter-spacing:.04em;
+  }
   .reading-title-text{
-    font-size:16px;font-weight:800;color:var(--ink);
-    line-height:1.4;letter-spacing:-.005em;transition:color .12s;
-  }
-  .reading-summary{
-    font-size:12.5px;color:var(--slate);line-height:1.65;
-  }
-  .reading-meta{
-    font-size:10px;color:var(--slate);display:flex;gap:14px;
-    font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    font-size:13.5px;font-weight:800;color:var(--ink);
+    line-height:1.45;letter-spacing:-.003em;transition:color .12s;
   }
 
   /* ===== モーダル 関連する読み物 ===== */
@@ -237,8 +234,16 @@
   }
   .top-btn:hover{background:var(--moss)}
   @media(max-width:700px){
-    .ctrl-bar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
-    .top-btn{margin-left:8px}
+    .ctrl-bar{flex-wrap:wrap;padding:0 0 4px;gap:6px;overflow-x:visible}
+    .controls{padding:8px 0}
+    .top-btn{margin-left:auto}
+    .dd-btn{font-size:11.5px;padding:6px 11px}
+    .bookmark-view-btn{font-size:11.5px;padding:6px 11px}
+    .dd-panel{left:0;right:auto;max-width:calc(100vw - 32px);width:340px}
+    .dd-cat-grid{width:340px;max-width:calc(100vw - 64px);grid-template-columns:1fr 1fr}
+    .dd-row{width:340px;max-width:calc(100vw - 64px)}
+    .dd-latest-list{width:340px;max-width:calc(100vw - 64px)}
+    .count{font-size:11px;margin-left:auto;order:99}
   }
   .chip-row{display:flex;flex-wrap:wrap;gap:7px}
   .chip{
@@ -785,25 +790,21 @@
   }
   .ov-reset:hover{background:var(--moss)}
   .ov-reset[hidden]{display:none}
-  .ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
   .ov-tile{
     font-family:inherit;text-align:left;cursor:pointer;
     background:var(--paper);border:1px solid var(--line);border-radius:4px;
-    padding:10px 12px;position:relative;overflow:hidden;
+    padding:8px 10px 9px;position:relative;overflow:hidden;
     transition:border-color .12s, background .12s;
-    display:flex;flex-direction:column;gap:5px;
+    display:flex;flex-direction:column;gap:3px;
   }
   .ov-tile:hover{border-color:var(--ink);background:#fff}
-  .ov-tile .ov-bar{display:block;height:3px;margin:-10px -12px 6px;border-radius:0}
-  .ov-tile .ov-name{font-size:12px;font-weight:800;color:var(--ink);line-height:1.35}
-  .ov-tile .ov-count{font-size:18px;font-weight:900;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-  .ov-tile .ov-count .ov-unit{font-size:11px;font-weight:700;color:var(--slate);margin-left:3px}
-  .ov-tile .ov-metrics{display:flex;flex-direction:column;gap:2px;margin:6px 0 4px}
-  .ov-tile .ov-metric{display:flex;align-items:baseline;gap:6px;font-size:10px;color:var(--slate)}
-  .ov-tile .ov-metric-label{font-weight:700;min-width:36px}
-  .ov-tile .ov-metric-val{font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink);font-size:13px}
-  .ov-tile .ov-metric-max{font-size:9.5px;color:var(--slate);font-weight:600;opacity:.7}
-  .ov-tile .ov-desc{font-size:10.5px;color:var(--slate);line-height:1.5;margin-top:2px}
+  .ov-tile .ov-bar{display:block;height:2px;margin:-8px -10px 5px;border-radius:0}
+  .ov-tile .ov-name{font-size:11.5px;font-weight:800;color:var(--ink);line-height:1.3}
+  .ov-tile .ov-count{font-size:15px;font-weight:900;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .ov-tile .ov-count .ov-unit{font-size:10px;font-weight:700;color:var(--slate);margin-left:2px}
+  .ov-tile .ov-metrics{display:none}
+  .ov-tile .ov-desc{display:none}
 
   /* ===== 地域分布 ( B ) ===== */
   .region-dist{padding:6px 0 22px;position:relative;z-index:1}
@@ -1477,7 +1478,7 @@
     renderLatest();
   });
 
-  // 読み物セクション ( 最新 7 本 )
+  // 読み物セクション ( 最新 4 本 )
   (function(){
     const grid = document.getElementById('reading-grid');
     if(!grid || typeof ARTICLES === 'undefined' || !ARTICLES.length){
@@ -1485,14 +1486,15 @@
       return;
     }
     const sorted = [...ARTICLES].sort((a,b)=>(b.publishedAt||'').localeCompare(a.publishedAt||''));
-    const items = sorted.slice(0, 7);
+    const items = sorted.slice(0, 4);
     grid.innerHTML = items.map(a=>{
       const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
       return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
-        <span class="reading-cat ${catCls}">${a.category}</span>
+        <div class="reading-row-top">
+          <span class="reading-cat ${catCls}">${a.category}</span>
+          <span class="reading-meta-inline">${a.readMinutes || 2} 分 ・ ${a.publishedAt || ''}</span>
+        </div>
         <div class="reading-title-text">${a.title}</div>
-        <div class="reading-summary">${a.summary}</div>
-        <div class="reading-meta"><span>${a.readMinutes || 2} 分で読める</span><span>${a.publishedAt || ''}</span></div>
       </a>`;
     }).join('');
     grid.addEventListener('click', e=>{

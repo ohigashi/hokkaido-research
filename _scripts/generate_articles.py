@@ -301,7 +301,7 @@ def render_body(blocks):
                 for x in items
             )
             parts.append(
-                f'<div class="article-toc"><div class="article-toc-h">目次</div><ol>{li}</ol></div>'
+                f'<div class="article-toc"><div class="article-toc-h">目次</div><ul>{li}</ul></div>'
             )
         elif tag == "sources":
             _, items = block
