@@ -2151,5 +2151,62 @@ const OPPORTUNITIES = [
   },
 ];
 
+const ARTICLES = [
+  {
+    id: "migration-residual-assets-2026-06",
+    title: "定着率では測れない - 移住定住で「残る資産」を見る",
+    category: "課題発見",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["migration"],
+    summary: "「何人来たか」では地域に何が残るかを測れない。事業・関係・仕組みの 3 資産で評価する視点を提案。",
+  },
+  {
+    id: "migration-longterm-cases-2026-06",
+    title: "17 年、15 年継続する町に共通するもの - 海士町・神山町の長期視点",
+    category: "アイデア",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["migration"],
+    summary: "海士町と神山町に共通するのは「長期継続」と「仕組み化」。設備でなく、組織・関係・運用の積み上げ。",
+  },
+  {
+    id: "furusato-nozei-asset-question-2026-06",
+    title: "ふるさと納税は地方財源か、それとも関係資産か",
+    category: "課題発見",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["furusato-nozei"],
+    summary: "ふるさと納税を短期収入として扱うか、長期の関係資産として扱うか。評価軸の選択が施策を分ける。",
+  },
+  {
+    id: "furusato-nozei-transition-2026-06",
+    title: "寄附から関係人口へ - ふるさと納税の 4 つの転換",
+    category: "アイデア",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["furusato-nozei"],
+    summary: "短期収入から長期関係資産への移行に必要な 4 つの具体的なステップを整理。",
+  },
+  {
+    id: "vacant-houses-perspective-2026-06",
+    title: "空き家を負担から資源に - 視点転換が変える施策",
+    category: "課題発見",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["vacant-houses"],
+    summary: "「いかに減らすか」から「誰が、何のために使うか」へ。視点転換で空き家施策の全体像が変わる。",
+  },
+  {
+    id: "vacant-houses-onomichi-2026-06",
+    title: "25 年の継続が作る空き家再生 - 尾道に学ぶ仕組み",
+    category: "アイデア",
+    publishedAt: "2026-06-12",
+    readMinutes: 2,
+    relatedIssues: ["vacant-houses"],
+    summary: "尾道空き家再生プロジェクト 20 年。設備でも補助金でもなく、組織・関わり方・循環を残した。",
+  },
+];
+
 
 
