@@ -108,7 +108,15 @@
   .sec-link-all:hover{color:var(--ink);border-bottom-color:var(--ink)}
 
   /* ===== 読み物セクション ( 編集リスト型 コンパクト ) ===== */
-  .reading-section{padding:16px 0 4px;position:relative;z-index:1}
+  .reading-section{
+    padding:22px 0 18px;position:relative;z-index:1;
+    background:rgba(46,124,168,.04);
+    border-bottom:1px solid var(--line);
+    margin-bottom:0;
+  }
+  .reading-section .wrap{padding-top:4px}
+  .reading-section .sec-icon{background:rgba(46,124,168,.14);color:var(--ice)}
+  .reading-section .sec-title{color:var(--ice)}
   .reading-grid{display:flex;flex-direction:column}
   .reading-card{
     background:transparent;border:none;border-radius:0;
@@ -168,9 +176,12 @@
     padding:10px 0 8px;margin-bottom:6px;
   }
   .controls .wrap{display:flex;flex-direction:column;gap:0}
-  .ctrl-label-row{display:flex;align-items:baseline;gap:10px;margin-bottom:7px;flex-wrap:wrap}
-  .ctrl-label-text{font-size:13px;font-weight:900;color:var(--ink);letter-spacing:.02em}
-  .ctrl-label-sub{font-size:10.5px;color:var(--slate);font-weight:600;letter-spacing:.02em}
+  .ctrl-label-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap;padding-left:2px}
+  .ctrl-label-text{font-size:15px;font-weight:900;color:var(--ink);letter-spacing:.01em;display:inline-flex;align-items:center;gap:7px}
+  .ctrl-label-text::before{
+    content:"";width:6px;height:18px;background:var(--moss);border-radius:1px;display:inline-block;
+  }
+  .ctrl-label-sub{font-size:11px;color:var(--slate);font-weight:600;letter-spacing:.02em}
   .ctrl-label{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:var(--slate);text-transform:uppercase;margin-bottom:7px}
   .ctrl-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
   .dd{position:relative}
