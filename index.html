@@ -1066,8 +1066,9 @@
   function renderTrend(trend){
     if(!trend || !trend.length) return '';
     const maxVal = Math.max(...trend.map(t=>t.value));
-    return `<div class="stat-trend">${trend.map((t,i)=>{
-      const isNow = i === trend.length - 1;
+    const sorted = [...trend].sort((a,b) => (b.year || 0) - (a.year || 0));
+    return `<div class="stat-trend">${sorted.map((t,i)=>{
+      const isNow = i === 0;
       const pct = maxVal > 0 ? (t.value / maxVal * 100).toFixed(0) : 0;
       return `<div class="stat-trend-row${isNow?' now':''}">
         <span class="stat-trend-year">${t.year}</span>
