@@ -268,6 +268,19 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== 出典の鮮度バッジ ===== */
+  .src-year{
+    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.02em;
+    padding:1px 6px;border-radius:3px;margin-left:6px;line-height:1.5;
+    border:1px solid transparent;font-variant-numeric:tabular-nums;
+    vertical-align:baseline;white-space:nowrap;
+  }
+  .src-year-fresh{background:rgba(46,124,168,.10);color:var(--ice);border-color:rgba(46,124,168,.25)}
+  .src-year-mid{background:rgba(58,74,82,.07);color:var(--slate);border-color:rgba(58,74,82,.18)}
+  .src-year-stale{background:rgba(58,74,82,.05);color:var(--slate);border-color:rgba(58,74,82,.13);opacity:.78}
+  .src-year-stale::after{content:" 古め";font-weight:600;font-size:9.5px;opacity:.85}
+  .src-year-unknown{background:transparent;color:var(--slate);border:1px dashed rgba(58,74,82,.25);opacity:.7;font-weight:600}
+
   /* ===== 構造マップ ===== */
   .overview{padding:30px 0 6px;position:relative;z-index:1}
   .ov-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
@@ -392,6 +405,20 @@
   const catMap = Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
   const regMap = Object.fromEntries(REGIONS.map(r=>[r.id,r]));
 
+  // 鮮度バッジ
+  const CURRENT_YEAR = 2026;
+  function freshClass(y){
+    if(!y) return 'unknown';
+    if(y >= CURRENT_YEAR-1) return 'fresh';
+    if(y >= CURRENT_YEAR-4) return 'mid';
+    return 'stale';
+  }
+  function yearBadge(y, showUnknown){
+    if(y) return `<span class="src-year src-year-${freshClass(y)}">${y}</span>`;
+    if(showUnknown) return `<span class="src-year src-year-unknown">公表年不明</span>`;
+    return '';
+  }
+
   let state = { cat:'all', region:'all', sort:'urgency' };
 
   // チップ生成（地域のみ）
@@ -507,14 +534,14 @@
     const enc = encodeURIComponent;
     const newsQ = it.q || (it.title + ' 北海道');
     const inis = it.initiatives.map(n=>{
-      const src = (n.s>=0 && SOURCES[n.s]) ? `<div class="ini-src"><a href="${SOURCES[n.s].u}" target="_blank" rel="noopener">出典：${SOURCES[n.s].o} ↗</a></div>` : '';
+      const src = (n.s>=0 && SOURCES[n.s]) ? `<div class="ini-src"><a href="${SOURCES[n.s].u}" target="_blank" rel="noopener">出典：${SOURCES[n.s].o} ↗</a>${yearBadge(SOURCES[n.s].year,false)}</div>` : '';
       const rt = n.region ? `<span class="ini-region-tag">${regMap[n.region]?regMap[n.region].short:n.region}</span>` : '';
       const topicWords = (it.q||it.title).split(' ').filter(w=>w!=='北海道').slice(0,2).join(' ');
       const iniSearch = `<a class="ini-search" href="https://news.google.com/search?q=${enc(n.who.replace(/（.*?）/g,'')+' '+topicWords)}&hl=ja&gl=JP&ceid=JP:ja" target="_blank" rel="noopener">記事を検索 ↗</a>`;
       return `<div class="ini-item"><div class="ini-who">${n.who}${rt}${iniSearch}</div><div class="ini-what">${n.what}</div>${src}</div>`;
     }).join('');
     const srcList = (it.sources&&it.sources.length)
-      ? `<div class="mb-sources"><div class="mb-label">出典・データ</div><ul>${it.sources.map(si=>{const s=SOURCES[si];return s?`<li><a href="${s.u}" target="_blank" rel="noopener">${s.t}</a> <span class="src-org">／ ${s.o}</span></li>`:'';}).join('')}</ul></div>`
+      ? `<div class="mb-sources"><div class="mb-label">出典・データ</div><ul>${it.sources.map(si=>{const s=SOURCES[si];return s?`<li><a href="${s.u}" target="_blank" rel="noopener">${s.t}</a> <span class="src-org">／ ${s.o}</span>${yearBadge(s.year,true)}</li>`:'';}).join('')}</ul></div>`
       : '';
     const searchBlock = `
       <div class="mb-section">
@@ -556,7 +583,7 @@
       <div class="mb-section">
         <div class="mb-label" style="color:#6B5B95">調査研究・レポート（深く学ぶ）</div>
         <div class="mb-sources" style="border-top:none;padding-top:0;margin-top:0"><ul>
-          ${it.research.map(r=>`<li><a href="${r.u}" target="_blank" rel="noopener">${r.t}</a> <span class="src-org">／ ${r.o}</span></li>`).join('')}
+          ${it.research.map(r=>`<li><a href="${r.u}" target="_blank" rel="noopener">${r.t}</a> <span class="src-org">／ ${r.o}</span>${yearBadge(r.year,false)}</li>`).join('')}
         </ul></div>
       </div>` : '';
     inner.innerHTML = `
