@@ -1535,12 +1535,7 @@
     render();
     closeAllDD();
   });
-  document.querySelector('.sort-mini').addEventListener('click',e=>{
-    const b=e.target.closest('[data-sort]'); if(!b)return;
-    state.sort=b.dataset.sort;
-    document.querySelectorAll('.sort-btn').forEach(s=>s.setAttribute('aria-pressed', s===b));
-    render();
-  });
+  // sort UI 撤去、ソートは取組数固定 ( デフォルト )
 
   function dots(n,cls){let h=`<div class="dots ${cls}">`;for(let i=1;i<=5;i++)h+=`<i class="${i<=n?'on':''}"></i>`;h+='</div>';return h;}
 
