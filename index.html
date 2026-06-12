@@ -184,6 +184,35 @@
   .count{margin-left:auto;font-size:12px;color:var(--slate)}
   .count b{color:var(--ink);font-size:15px}
 
+  /* ===== フィルタ状態バー ===== */
+  .filter-status{
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+    padding:14px 16px;margin:0 0 18px;
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+  }
+  .filter-status-shown{font-size:13px;font-weight:800;color:var(--ink)}
+  .filter-status-shown .num{font-size:18px;letter-spacing:-.01em}
+  .filter-status-label{font-size:11px;font-weight:700;color:var(--slate)}
+  .filter-chip{
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:11.5px;font-weight:700;
+    background:rgba(46,124,168,.10);color:var(--ice);
+    padding:5px 4px 5px 11px;border-radius:30px;
+  }
+  .filter-chip-x{
+    background:none;border:none;cursor:pointer;color:var(--ice);
+    font-size:15px;line-height:1;padding:0 7px;margin-left:0;font-weight:900;
+  }
+  .filter-chip-x:hover{opacity:.6}
+  .filter-status-clear{
+    font-family:inherit;cursor:pointer;
+    font-size:11px;font-weight:700;color:var(--snow);background:#B5733A;
+    border:none;padding:6px 13px;border-radius:30px;margin-left:auto;
+  }
+  .filter-status-clear:hover{background:#995F30}
+  .filter-status.all-state{background:rgba(31,42,40,.03);border-color:var(--line)}
+  .filter-status.all-state .filter-status-shown{color:var(--slate);font-weight:700}
+
   /* ===== 課題グリッド ===== */
   main{padding:30px 0 60px}
   .grid{
@@ -876,6 +905,7 @@
 
 <main>
   <div class="wrap">
+    <div id="filter-status"></div>
     <div class="grid" id="grid"></div>
   </div>
 </main>
@@ -1535,9 +1565,63 @@
     return list;
   }
 
+  function renderFilterStatus(shownCount){
+    const fs = document.getElementById('filter-status');
+    if(!fs) return;
+    const chips = [];
+    if(state.cat !== 'all'){
+      const c = catMap[state.cat];
+      if(c) chips.push({ label: `社会システム: ${c.name}`, type: 'cat' });
+    }
+    if(state.tag){
+      chips.push({ label: `キーワード: ${state.tag}`, type: 'tag' });
+    }
+    if(state.region !== 'all'){
+      const r = REGIONS.find(x => x.id === state.region);
+      if(r) chips.push({ label: `地域: ${r.name}`, type: 'region' });
+    }
+    if(state.trait){
+      const t = (typeof TRAITS !== 'undefined') ? TRAITS.find(x => x.id === state.trait) : null;
+      if(t) chips.push({ label: `特性: ${t.name}`, type: 'trait' });
+    }
+    if(chips.length === 0){
+      fs.className = 'filter-status all-state';
+      fs.innerHTML = `<span class="filter-status-shown">全 <span class="num">${ISSUES.length}</span> 件を表示中</span><span class="filter-status-label">・ フィルタなし</span>`;
+      return;
+    }
+    fs.className = 'filter-status';
+    fs.innerHTML = `<span class="filter-status-shown"><span class="num">${shownCount}</span> 件 / 全 ${ISSUES.length} 件</span><span class="filter-status-label">フィルタ:</span>${chips.map(c=>`<span class="filter-chip">${c.label}<button class="filter-chip-x" data-clear-filter="${c.type}" aria-label="${c.label}を解除">×</button></span>`).join('')}<button class="filter-status-clear" data-clear-all>✕ すべて解除</button>`;
+  }
+
+  document.addEventListener('click', e=>{
+    const x = e.target.closest('[data-clear-filter]');
+    if(x){
+      const t = x.dataset.clearFilter;
+      if(t==='cat'){ state.cat='all'; }
+      else if(t==='tag'){ state.tag=null; }
+      else if(t==='region'){
+        state.region='all';
+        const rc = document.getElementById('region-chips');
+        if(rc) rc.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region==='all'));
+      }
+      else if(t==='trait'){ state.trait=null; }
+      syncCatUI(); syncTagUI(); syncRegionUI(); if(typeof syncTraitUI==='function') syncTraitUI(); syncGlobalReset();
+      render();
+      return;
+    }
+    if(e.target.closest('[data-clear-all]')){
+      state.cat='all'; state.tag=null; state.region='all'; state.trait=null;
+      const rc = document.getElementById('region-chips');
+      if(rc) rc.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region==='all'));
+      syncCatUI(); syncTagUI(); syncRegionUI(); if(typeof syncTraitUI==='function') syncTraitUI(); syncGlobalReset();
+      render();
+    }
+  });
+
   function render(){
     const list = filtered();
     document.getElementById('num').textContent = list.length;
+    renderFilterStatus(list.length);
     const grid = document.getElementById('grid');
     if(!list.length){grid.innerHTML=`<div class="empty">条件に合う課題はありません。フィルタを調整してください。</div>`;return;}
     grid.innerHTML = list.map(it=>{
