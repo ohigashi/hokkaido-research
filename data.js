@@ -507,6 +507,11 @@ const ISSUES = [
       { who: "北海道", what: "ふるさと移住定住推進センター・移住定住ポータル・関係人口HP「DOORS」を運営", region: "all", s: 6 }
     ],
     sources: [4, 6, 11, 12],
+    references: [
+      { t: "ドット道東 ( .doto / DOTO-NET )", u: "https://dotdoto.com/", o: "一般社団法人ドット道東" }
+    ,
+      { t: "道北ネット 道北統合地域メディア", u: "https://dohoku.net/", o: "道北ネット" }
+    ],
     deep: [
       { h: "数値で見る現状", b: "北海道の人口は 2025 年国勢調査で約 500 万人を割った。社会動態では転入超過の自治体は東川町・倶知安町・赤井川村・南幌町・ニセコ町・恵庭市など一部に限られ、多くの市町村が転出超過。一方で関係人口 ( 居住せずに地域に関与する人 ) は国土交通省推計で全国 2 千万人規模、若年層を中心に拡大基調にある。協力隊の任期終了後の定着率は全国平均 65-70% に対し、北海道は 60% 前後で やや低い水準。" },
       { h: "移住者の動機 × 帰結 マトリクス", b: "移住希望者が持つジョブには大きく 4 つある。都市脱出 ( 都市生活から降りたい ) 、やりたいことがある ( 起業・就農・特定の挑戦の実験場 ) 、居場所が欲しい ( 役割と関係性 ) 、キャリア形成 ( 地域実績を次に使う ) 。それぞれが地域に残るかどうかの傾向は異なる。都市脱出は即離脱が起きやすく、地域がこの町でなければならない理由を本人が持たない。やりたいことがある人は事業化できれば残りやすい。居場所を求める人は関係構築ができれば残るが、コミュニティの受け入れに左右される。キャリア形成は踏み台前提で 一定期間で離れる傾向が強いが、その間に何を残せるかで評価が変わる。" },
@@ -789,6 +794,15 @@ const ISSUES = [
       { who: "大樹町・SPACE COTAN", what: "HOSPOを核に宇宙関連の実験・打上げ・企業集積を推進。世界の商業宇宙港と国際協力MOUを締結し射場の国際標準化を検討", region: "tokachi", s: 37 }
     ],
     sources: [37],
+    references: [
+      { t: "ドット道東 ( .doto / DOTO-NET )", u: "https://dotdoto.com/", o: "一般社団法人ドット道東" }
+    ,
+      { t: "知床財団 知床世界自然遺産の管理", u: "https://www.shiretoko.or.jp/", o: "公益財団法人 知床財団" }
+    ,
+      { t: "ひぐまっぷ ICTを活用したヒグマ出没情報", u: "https://higumap.info/", o: "ひぐまっぷ / 道内市町村" }
+    ,
+      { t: "EFC 北海道 エネルギー領域の地域発信", u: "https://efc.hokkaido.jp/", o: "EFC 北海道" }
+    ],
     deep: [
       { h: "なぜ十勝に宇宙港か（構造）", b: "大樹町は1985年から「宇宙のまちづくり」を掲げて誘致を続けてきた。射点の東と南に海が開け、広大な土地で射場を拡張できる地理的優位性は、人口や経済規模と無関係に成立する競争力で、2021年にアジア初の民間に開かれた商業宇宙港HOSPOが本格稼働した。" },
       { h: "論点", b: "地域の新産業は短期の誘致施策では生まれない。大樹は40年がかりで実験実績を積み、「ここなら飛ばせる」という信頼を蓄積した。2024年には世界5大陸8宇宙港と国際協力MOUを締結、2025年に宇宙戦略基金に採択され、ローカルの仕込みがグローバルの座席に繋がった。" },
@@ -916,6 +930,11 @@ const ISSUES = [
       { who: "鶴居村", what: "釧路湿原の保全とエコツーリズム、タンチョウ生息地の維持", region: "kushiro-nemuro", s: -1 },
     ],
     sources: [59, 60, 61],
+    references: [
+      { t: "知床財団 知床世界自然遺産の管理", u: "https://www.shiretoko.or.jp/", o: "公益財団法人 知床財団" }
+    ,
+      { t: "ひぐまっぷ ICTを活用したヒグマ出没情報", u: "https://higumap.info/", o: "ひぐまっぷ / 道内市町村" }
+    ],
     deep: [
       { h: "数値で見る現状", b: "北海道の湿原面積は明治期から大幅に減少し、釧路湿原はピーク時の約 6 割が農地・市街地等に転換。環境省レッドリストで道内の絶滅危惧種は 1,000 種を超える。シマフクロウは野生個体数 約 200 羽、タンチョウは約 2,000 羽と国内最大の生息地でありながら、生息地の分断と餌不足が継続的な課題。" },
       { h: "自然資本 × 経済価値 マトリクス", b: "生態系サービスは 4 種に分類される。供給サービス ( 水・食料・木材 ) 、調整サービス ( 気候緩和・洪水抑制・受粉 ) 、文化サービス ( 観光・教育・精神的価値 ) 、基盤サービス ( 土壌形成・栄養循環 ) 。多くは「タダ」と見なされ経済的価値が見えにくい。OECM やネイチャーポジティブ評価で、これらを定量化し政策や企業会計に組み込む動きが進む。" },
@@ -1182,6 +1201,13 @@ const ISSUES = [
       { who: "ニセコ町", what: "重点対策加速化事業で再エネ・省エネ設備の導入補助、暖房の再エネ転換", region: "dou-o", s: 19 },
     ],
     sources: [18, 19, 12, 36, 47, 56, 77],
+    references: [
+      { t: "EFC 北海道 エネルギー領域の地域発信", u: "https://efc.hokkaido.jp/", o: "EFC 北海道" }
+    ,
+      { t: "EFC 北海道 note 個別発信", u: "https://note.com/efc_hokkaido", o: "EFC 北海道" }
+    ,
+      { t: "道北ネット 道北統合地域メディア", u: "https://dohoku.net/", o: "道北ネット" }
+    ],
     deep: [
       { h: "数値で見る現状", b: "日本の原油輸入の約 9 割は中東 ( サウジアラビア、UAE、カタール、クウェート、イラン等 ) に依存。北海道の家庭用エネルギーは灯油暖房比率が高く、家計支出に占める燃料費の割合は 全国平均より大きい。2022 〜 2024 年の原油高騰時、灯油価格は前年比 30 〜 50% 上昇し、家計負担が顕在化。電気料金も化石燃料発電の比率が高いため、原油・LNG 価格に連動して上昇する。" },
       { h: "リスクの伝達経路", b: "中東情勢 ( 紛争・航行リスク・産油国の政治 ) → 国際原油・LNG 市況上昇 → 国内卸価格上昇 → 道内のガソリン・灯油・電気代に転嫁、という伝達経路が短期間 ( 数週間 〜 数ヶ月 ) で起きる。北海道は寒冷気候で消費量が多いため、価格変動の絶対的影響が他県より大きい。為替 ( 円安 ) との同時進行で増幅される。" },
@@ -1758,185 +1784,6 @@ const PLAYERS = [
     focus: ["エネルギー", "GX", "カーボンニュートラル", "脱炭素"],
     links: { web: "https://efc.hokkaido.jp/", note: "https://note.com/efc_hokkaido" },
     issues: ["energy-security", "carbon-neutral", "decarbonization"]
-  },
-];
-
-// 注目の取り組み・記事 ( 課題紐付け、叩き台 v1 )
-const CONTENT_PICKS = [
-  {
-    title: "上士幌町 牛ふん尿バイオガス発電と防災マイクログリッド",
-    org: "上士幌町",
-    url: "https://www.kamishihoro.jp/",
-    summary: "酪農地帯のふん尿課題とエネルギー創出を同時に解く。脱炭素先行地域第1弾 ( 2022 ) 選定。",
-    issues: ["carbon-neutral", "decarbonization", "energy-security"]
-  },
-  {
-    title: "下川町 持続可能な森林経営と木質バイオマス熱供給",
-    org: "下川町",
-    url: "https://www.town.shimokawa.hokkaido.jp/",
-    summary: "面積の9割が森林という条件をエネルギー・雇用・ブランドの源泉に転換。2001年から20年以上継続。",
-    issues: ["forest-circulation", "decarbonization", "migration"]
-  },
-  {
-    title: "ニセコ町 SDGs未来都市計画と多文化共生",
-    org: "ニセコ町",
-    url: "https://www.town.niseko.lg.jp/",
-    summary: "観光持続性と多文化共生を統合したSDGs戦略。重点対策加速化事業で再エネ・省エネ補助も展開。",
-    issues: ["multicultural", "tourism-sustainability", "carbon-neutral"]
-  },
-  {
-    title: "更別村 SUPER VILLAGE構想 デジ田交付金TYPE3採択",
-    org: "更別村",
-    url: "https://www.sarabetsu.jp/",
-    summary: "人口約3,000人の村でスマートビレッジ化。農業・暮らしのDX実装を 2023 年から推進。",
-    issues: ["smart-city-gx", "succession"]
-  },
-  {
-    title: "札幌市 日本版ライドシェアの平日運行と車両拡大",
-    org: "札幌市・日本経済新聞",
-    url: "https://www.nikkei.com/article/DGXZQOFC2452Z0U4A920C2000000/",
-    summary: "札幌で日本版ライドシェアが運行開始、平日運行と車両数の拡大が進む。移動弱者の選択肢拡大。",
-    issues: ["car-less-mobility", "rail-transit"]
-  },
-  {
-    title: "上士幌町 公共ライドシェアによる貨客混載の実証運行",
-    org: "上士幌町 ・ PR TIMES",
-    url: "https://prtimes.jp/main/html/rd/p/000000015.000083668.html",
-    summary: "公共ライドシェアで人と荷物を同時に運ぶ実証運行。過疎地の配送と移動を統合する設計。",
-    issues: ["car-less-mobility", "logistics-2024"]
-  },
-  {
-    title: "ドット道東 .doto ガイドブック / DOTO-NET 若者コミュニティ",
-    org: "一般社団法人ドット道東",
-    url: "https://dotdoto.com/",
-    summary: "道東を主軸に情報発信→仕事→コミュニティの3層構造で関係人口とUIターンを創出。1万部超の道東ガイドブック発行。",
-    issues: ["migration", "new-industry", "ainu-culture"]
-  },
-  {
-    title: "知床財団 知床世界自然遺産の管理と訪問者教育",
-    org: "公益財団法人 知床財団",
-    url: "https://www.shiretoko.or.jp/",
-    summary: "世界自然遺産・知床の保全と訪問者教育を担う。長期モニタリングで生態系の変化を観測。",
-    issues: ["biodiversity", "tourism-sustainability"]
-  },
-  {
-    title: "苫東 GX HUB構想 ・ カーボンニュートラル産業地域",
-    org: "経済産業省 北海道経済産業局",
-    url: "https://www.hkd.meti.go.jp/hokpp/20260403/data02.pdf",
-    summary: "再エネ・水素・グリーン産業を集積する苫東 GX HUB。国がGX拠点として位置づける。",
-    issues: ["carbon-neutral", "new-industry", "decarbonization"]
-  },
-  {
-    title: "帯広畜産大学 × 自然電力 営農型太陽光発電 連携協定",
-    org: "自然電力 株式会社 / 帯広畜産大学",
-    url: "https://www.shizenenergy.net/2024/08/20/hse_obihirouniv_agreement/",
-    summary: "農地で営農と発電を両立するソーラーシェアリングの実証研究。農業収入と再エネ収入の二本柱モデル。",
-    issues: ["soil-conservation", "decarbonization", "succession"]
-  },
-  {
-    title: "JR北海道 アクションプラン ( 黄線区収支改善 )",
-    org: "JR北海道",
-    url: "https://www.jrhokkaido.co.jp/corporate/mi/vision/20240329-01.pdf",
-    summary: "単独維持困難線区への対応プラン。線区別の段階的判断と国の支援活用の戦略。",
-    issues: ["jr-hokkaido-future", "rail-transit"]
-  },
-  {
-    title: "十勝バス MaaSによる需要起点の路線再設計",
-    org: "ニッセイ基礎研究所",
-    url: "https://www.nli-research.co.jp/report/detail/id=80081?site=nli",
-    summary: "「MaaS」で地方創生を試みる十勝バスの取組。需要起点の路線再設計とアプリ活用。",
-    issues: ["car-less-mobility", "rail-transit"]
-  },
-  {
-    title: "2050北海道ビジョン 課題解決先進地域",
-    org: "北海道経済連合会",
-    url: "https://www.dokeiren.gr.jp/wp-content/uploads/2022/12/20210629_2050hokkaidovisionkaisetu1.pdf",
-    summary: "北海道を「課題解決先進地域」と位置づける長期ビジョン。経済界からの構造的提言。",
-    issues: ["depopulation", "semiconductor", "new-industry"]
-  },
-  {
-    title: "北海道スペースポート ( HOSPO ) 大樹町",
-    org: "大樹町",
-    url: "https://www.town.taiki.hokkaido.jp/soshiki/kokuuchusuishinshitsu/1/850.html",
-    summary: "民間ロケット打上げ拠点として開発が進む大樹町。宇宙産業の地域集積モデル。",
-    issues: ["new-industry", "semiconductor"]
-  },
-  {
-    title: "函館市 人口減少対策本部 ・ 第2章 人口の動向",
-    org: "函館市",
-    url: "https://www.city.hakodate.hokkaido.jp/",
-    summary: "全道一の人口減少率に向き合う函館市の対策本部。データに基づく対策方針。",
-    issues: ["depopulation", "shinkansen-donan"]
-  },
-  {
-    title: "宗谷地域 孤独 ・ 孤立対策官民連携プラットフォーム",
-    org: "宗谷総合振興局",
-    url: "https://www.souya.pref.hokkaido.lg.jp/hk/syf/souyakodokukoritu.html",
-    summary: "道北宗谷で孤独・孤立対策を官民連携で進めるプラットフォーム。地域包括ケアの先行モデル。",
-    issues: ["isolation", "elderly-care-staff"]
-  },
-  {
-    title: "ひぐまっぷ ICTを活用したヒグマ出没情報の収集と共有",
-    org: "ひぐまっぷ / 道内市町村",
-    url: "https://higumap.info/",
-    summary: "ICTでヒグマ出没情報を市町村横断で集約・共有。住民参加型の見守り基盤。",
-    issues: ["bear-conflict", "biodiversity"]
-  },
-  {
-    title: "EFC 北海道 エネルギー領域の地域発信",
-    org: "EFC 北海道",
-    url: "https://efc.hokkaido.jp/",
-    summary: "北海道のエネルギー未来を地域目線で発信。note でも個別記事を発信し、現場の文脈を伝える。",
-    issues: ["energy-security", "carbon-neutral", "decarbonization"]
-  },
-  {
-    title: "EFC 北海道 note 個別発信",
-    org: "EFC 北海道",
-    url: "https://note.com/efc_hokkaido",
-    summary: "エネルギー政策・地域取り組みの個別記事を note で発信。現場の声と分析。",
-    issues: ["energy-security", "carbon-neutral"]
-  },
-  {
-    title: "ドット道東 #道東ではたらく 仕事メディア",
-    org: "一般社団法人ドット道東",
-    url: "https://dotdoto.com/",
-    summary: "「#道東ではたらく」で道東での仕事・キャリアを可視化。関係人口から定住への導線設計。",
-    issues: ["migration", "new-industry"]
-  },
-  {
-    title: "鶴居村 ・ 釧路湿原のエコツーリズム",
-    org: "鶴居村",
-    url: "https://www.google.com/search?q=%E9%B6%B4%E5%B1%85%E6%9D%91%20%E5%85%AC%E5%BC%8F%20%E3%82%B5%E3%82%A4%E3%83%88",
-    summary: "釧路湿原を抱える鶴居村でタンチョウ保全とエコツーリズムを継続。湿原保全の代表モデル。",
-    issues: ["biodiversity", "tourism-sustainability"]
-  },
-  {
-    title: "道北ネット 道北統合地域メディア",
-    org: "道北ネット",
-    url: "https://dohoku.net/",
-    summary: "道北の自治体・産業・暮らしを横断的に発信。地域メディアの統合モデル。",
-    issues: ["migration", "depopulation", "energy-security"]
-  },
-  {
-    title: "白糠町 鮭 ・ いくらのふるさと納税モデル",
-    org: "白糠町",
-    url: "https://www.google.com/search?q=%E7%99%BD%E7%B3%A0%E7%94%BA%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F",
-    summary: "水産品 ( 鮭・いくら・乳製品 ) で寄附額を拡大、町内産業連鎖を構築。",
-    issues: ["furusato-nozei", "fisheries-climate"]
-  },
-  {
-    title: "紋別市 ホタテ ・ カニのふるさと納税で100億円超",
-    org: "紋別市",
-    url: "https://www.google.com/search?q=%E7%B4%8B%E5%88%A5%E5%B8%82%20%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E7%B4%8D%E7%A8%8E%20%E5%85%AC%E5%BC%8F",
-    summary: "海鮮品を中心に毎年100億円超の寄附を受ける全国上位常連。物流ネットワーク整備で長期的地位を確保。",
-    issues: ["furusato-nozei", "fisheries-climate"]
-  },
-  {
-    title: "東川町 写真甲子園と海外留学生受入で転入超過",
-    org: "東川町",
-    url: "https://www.google.com/search?q=%E6%9D%B1%E5%B7%9D%E7%94%BA%20%E5%85%AC%E5%BC%8F%20%E3%82%B5%E3%82%A4%E3%83%88%20%E5%86%99%E7%9C%9F%E7%94%B2%E5%AD%90%E5%9C%92",
-    summary: "写真文化と海外留学生受入で道内有数の転入超過を実現。文化×教育×移住の統合モデル。",
-    issues: ["migration", "school-consolidation"]
   },
 ];
 

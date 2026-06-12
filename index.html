@@ -481,7 +481,8 @@
 
   /* ===== 参考リンク ===== */
   .refs-list{display:flex;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:10px}
-  .refs-item{display:flex;flex-wrap:wrap;gap:6px;font-size:11.5px;line-height:1.55;align-items:baseline}
+  .refs-item{display:flex;flex-wrap:wrap;gap:6px;font-size:11.5px;line-height:1.55;align-items:baseline;cursor:pointer;padding:3px 4px;border-radius:3px;transition:background .12s}
+  .refs-item:hover{background:rgba(46,124,168,.05)}
   .refs-item a{color:var(--slate);text-decoration:none;border-bottom:1px dotted var(--slate);transition:color .12s}
   .refs-item a:hover{color:var(--ice);border-bottom-color:var(--ice)}
   .refs-from{color:var(--slate);opacity:.65;font-size:10.5px}
@@ -491,7 +492,9 @@
   .ext-item{
     background:rgba(107,91,149,.05);border:1px solid var(--line);
     border-left:3px solid #6B5B95;border-radius:5px;padding:11px 14px;
+    cursor:pointer;transition:background .12s,transform .12s;
   }
+  .ext-item:hover{background:rgba(107,91,149,.10);transform:translateX(2px)}
   .ext-who{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:4px}
   .ext-what{font-size:12.5px;color:var(--slate);line-height:1.65}
   .ext-src{font-size:11px;margin-top:6px}
@@ -1313,7 +1316,7 @@
         <div class="mb-label" style="color:var(--slate)">参考リンク・関連記事</div>
         <div class="refs-list">${it.references.map(r=>{
           const meta = [r.o, r.year].filter(Boolean).join(' ・ ');
-          return `<div class="refs-item"><a href="${r.u}" target="_blank" rel="noopener">${r.t} ↗</a>${meta?` <span class="refs-from">/ ${meta}</span>`:''}</div>`;
+          return `<div class="refs-item" data-card-url="${r.u}"><a href="${r.u}" target="_blank" rel="noopener">${r.t} ↗</a>${meta?` <span class="refs-from">/ ${meta}</span>`:''}</div>`;
         }).join('')}</div>
         <div class="search-note" style="margin-top:8px">参考レベルのリンクです。note 記事 / 個人ブログ / SNS 投稿などを含む場合があり、ファクトとしての引用ではなく着想のヒントとして参照ください。</div>
       </div>` : '';
@@ -1354,7 +1357,8 @@
         <div class="mb-label" style="color:#6B5B95">他地域の類似事例 ( 道外 )</div>
         <div class="ext-list">${it.externalCases.map(c=>{
           const src = (c.source && c.source.u) ? `<div class="ext-src"><a href="${c.source.u}" target="_blank" rel="noopener">${c.source.t || c.source.o || '参照'} ↗</a>${yearBadge(c.year,false)}</div>` : '';
-          return `<div class="ext-item"><div class="ext-who">${c.who}</div><div class="ext-what">${c.what}</div>${src}</div>`;
+          const cu = (c.source && c.source.u) ? c.source.u : '';
+          return `<div class="ext-item"${cu?` data-card-url="${cu}"`:''}><div class="ext-who">${c.who}</div><div class="ext-what">${c.what}</div>${src}</div>`;
         }).join('')}</div>
       </div>` : '';
     const related = relatedIssues(it);
@@ -1405,6 +1409,13 @@
     modal.classList.add('open');
     document.body.style.overflow='hidden';
     inner.querySelector('.modal-close').addEventListener('click',closeModal);
+    inner.querySelectorAll('[data-card-url]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        if(e.target.closest('a, button')) return;
+        const url = el.dataset.cardUrl;
+        if(url) window.open(url, '_blank', 'noopener');
+      });
+    });
     inner.querySelectorAll('[data-rel-id]').forEach(b=>{
       b.addEventListener('click',()=>{
         const to=b.dataset.relId;
