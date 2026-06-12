@@ -2872,6 +2872,42 @@ const ARTICLES = [
     relatedIssues: ["regional-business-recruitment", "migration", "youth-support"],
     summary: "若者の地域離脱を「個人の選択」と諦めず、5 つの理由を構造的に読み解き、残る ・ 戻る ・ 関わるの 3 つの選択肢を地域に作る視点。",
   },
+  {
+    id: "bear-conflict-structure-2026-06",
+    title: "ヒグマと共存できる地域づくり - 北海道のヒグマ対応の構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["bear-conflict"],
+    summary: "道内ヒグマ生息数約 1.2 万頭、出没年 1 万件超。駆除か共存かではなく、5 つの構造要因 ( 人口減 ・ 林業衰退 ・ 緩衝帯消失 ・ 個体数増 ・ 学習 ) を統合的に扱う視点。",
+  },
+  {
+    id: "semiconductor-rapidus-economy-2026-06",
+    title: "ラピダス進出が変える北海道経済 - 半導体集積の構造と影響",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["semiconductor"],
+    summary: "ラピダス 5 兆円投資、千歳 ・ 苫小牧に半導体産業集積。雇用 ・ サプライチェーン ・ 地域インフラへの影響を構造から読み解く。",
+  },
+  {
+    id: "jr-hokkaido-future-structure-2026-06",
+    title: "JR 北海道は維持できるか - 鉄道存続と地域インフラの構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["jr-hokkaido-future"],
+    summary: "13 路線で「維持困難」表明、廃線進行中。鉄道存続を「赤字 vs 黒字」ではなく、地域インフラの構造として読み解く。",
+  },
+  {
+    id: "tourism-sustainability-dual-2026-06",
+    title: "北海道観光の二重構造 - オーバーツーリズムと過疎観光の同時進行",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["tourism-sustainability"],
+    summary: "ニセコ過熱と過疎観光地の衰退が同時進行。「観光客を呼ぶ」だけでなく、観光持続性の構造を読み解く。",
+  },
 ];
 
 
