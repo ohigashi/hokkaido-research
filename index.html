@@ -294,13 +294,22 @@
   .search-link .ic{font-size:13px}
   .ini-search{font-size:11px;margin-left:8px;text-decoration:none;color:var(--slate);border-bottom:1px dotted var(--slate);white-space:nowrap}
   .ini-search:hover{color:var(--ice);border-bottom-color:var(--ice)}
+  .share-actions{display:flex;flex-wrap:wrap;gap:6px}
   .share-btn{
-    font-family:inherit;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    font-family:inherit;display:inline-flex;align-items:center;gap:5px;cursor:pointer;
     font-size:12px;font-weight:700;color:var(--snow);background:var(--slate);
-    border:none;padding:8px 16px;border-radius:30px;transition:background .15s;
+    border:none;padding:8px 14px;border-radius:30px;transition:background .15s;
+    text-decoration:none;
   }
   .share-btn:hover{background:var(--ink)}
   .share-btn.copied{background:var(--moss)}
+  .share-btn.share-x{background:#000}
+  .share-btn.share-x:hover{background:#222}
+  .share-btn.share-line{background:#06C755}
+  .share-btn.share-line:hover{background:#05A045}
+  .share-btn.share-mail{background:var(--slate)}
+  .share-btn.share-consult{background:var(--ice);color:var(--snow)}
+  .share-btn.share-consult:hover{background:var(--moss)}
   .search-note{font-size:10.5px;color:var(--slate);margin-top:8px}
 
   /* 深掘り */
@@ -1475,9 +1484,21 @@
         }).join('')}</div>
         <div class="search-note" style="margin-top:8px">参考レベルのリンクです。note 記事 / 個人ブログ / SNS 投稿などを含む場合があり、ファクトとしての引用ではなく着想のヒントとして参照ください。</div>
       </div>` : '';
+    const pageURL = location.href.split('#')[0] + '#' + it.id;
+    const encShare = encodeURIComponent;
+    const xShareUrl = `https://x.com/intent/tweet?text=${encShare(it.title + ' / 北海道・地域課題リサーチ')}&url=${encShare(pageURL)}`;
+    const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${encShare(pageURL)}`;
+    const mailShareUrl = `mailto:?subject=${encShare('北海道・地域課題リサーチ: ' + it.title)}&body=${encShare(it.title + '\n\n' + (it.summary||'') + '\n\n' + pageURL)}`;
+    const consultUrl = `https://x.com/intent/tweet?text=${encShare('@h_ohigashi 「' + it.title + '」について相談したいです')}&url=${encShare(pageURL)}`;
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
-        <button class="share-btn" id="share-card">🔗 このカードのリンクをコピー</button>
+        <div class="share-actions">
+          <a class="share-btn share-x" href="${xShareUrl}" target="_blank" rel="noopener">𝕏 で共有</a>
+          <a class="share-btn share-line" href="${lineShareUrl}" target="_blank" rel="noopener">LINE</a>
+          <a class="share-btn share-mail" href="${mailShareUrl}">✉ メール</a>
+          <button class="share-btn" id="share-card">🔗 リンクをコピー</button>
+          <a class="share-btn share-consult" href="${consultUrl}" target="_blank" rel="noopener">💬 大東に相談 ( X )</a>
+        </div>
       </div>`;
     const deepBlock = (it.deep && it.deep.length) ? `
       <div class="mb-section">
