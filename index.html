@@ -417,6 +417,13 @@
   .tag-reset:hover{background:var(--moss)}
   .tag-reset[hidden]{display:none}
 
+  /* ===== 参考リンク ===== */
+  .refs-list{display:flex;flex-direction:column;gap:5px;border-top:1px dashed var(--line);padding-top:10px}
+  .refs-item{display:flex;flex-wrap:wrap;gap:6px;font-size:11.5px;line-height:1.55;align-items:baseline}
+  .refs-item a{color:var(--slate);text-decoration:none;border-bottom:1px dotted var(--slate);transition:color .12s}
+  .refs-item a:hover{color:var(--ice);border-bottom-color:var(--ice)}
+  .refs-from{color:var(--slate);opacity:.65;font-size:10.5px}
+
   /* ===== 他地域の類似事例 ===== */
   .ext-list{display:flex;flex-direction:column;gap:9px}
   .ext-item{
@@ -1069,6 +1076,15 @@
         </div>
         <div class="search-note">CF / note / イベント / 自治体プロジェクトを横断検索。プロジェクト・記事・開催イベントから「いま現場で動いている」テーマを探せます。検索語は最重要タグ +「北海道」で広く取り、結果から絞り込めるようにしています。</div>
       </div>`;
+    const refsBlock = (it.references && it.references.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:var(--slate)">参考リンク・関連記事</div>
+        <div class="refs-list">${it.references.map(r=>{
+          const meta = [r.o, r.year].filter(Boolean).join(' ・ ');
+          return `<div class="refs-item"><a href="${r.u}" target="_blank" rel="noopener">${r.t} ↗</a>${meta?` <span class="refs-from">/ ${meta}</span>`:''}</div>`;
+        }).join('')}</div>
+        <div class="search-note" style="margin-top:8px">参考レベルのリンクです。note 記事 / 個人ブログ / SNS 投稿などを含む場合があり、ファクトとしての引用ではなく着想のヒントとして参照ください。</div>
+      </div>` : '';
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
         <button class="share-btn" id="share-card">🔗 このカードのリンクをコピー</button>
@@ -1151,6 +1167,7 @@
         ${searchBlock}
         ${cfBlock}
         ${srcList}
+        ${refsBlock}
         ${shareBlock}
       </div>`;
     modal.classList.add('open');
