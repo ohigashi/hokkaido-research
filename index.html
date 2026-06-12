@@ -239,14 +239,14 @@
   .modal-close:hover{background:rgba(255,255,255,.32)}
   .modal-cat{font-size:11px;font-weight:700;letter-spacing:.08em;opacity:.9;margin-bottom:8px}
   .modal-head h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:14px;padding-right:30px}
-  .modal-scores{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-  .modal-score{
+  .modal-scores{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .modal-meta-label{
     background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.25);
-    padding:5px 11px;border-radius:30px;font-size:11.5px;font-weight:700;letter-spacing:.04em;
-    display:inline-flex;align-items:baseline;gap:4px;
+    padding:4px 10px;border-radius:30px;font-size:11px;font-weight:800;letter-spacing:.04em;
   }
-  .modal-score b{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
-  .modal-score .ms-unit{font-size:10px;opacity:.85}
+  /* 意味的ラベル ( カード内 ) */
+  .meta-labels{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+  .meta-label{font-size:10px;font-weight:800;color:var(--moss);background:rgba(44,110,99,.10);padding:2px 8px;border-radius:3px;letter-spacing:.02em}
   .modal-body{padding:24px 26px 28px}
   .mb-section{margin-bottom:22px}
   .mb-label{
@@ -806,9 +806,10 @@
         </div>
       </div>
       <span class="sort-mini">
-        <button class="sort-btn" data-sort="importance" aria-pressed="true">重要</button>
-        <button class="sort-btn" data-sort="heat" aria-pressed="false">話題</button>
-        <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組</button>
+        <button class="sort-btn" data-sort="initiatives" aria-pressed="true">取組数</button>
+        <button class="sort-btn" data-sort="externals" aria-pressed="false">道外</button>
+        <button class="sort-btn" data-sort="deep" aria-pressed="false">構造深度</button>
+        <button class="sort-btn" data-sort="fresh" aria-pressed="false">鮮度</button>
       </span>
       <button id="global-reset" class="global-reset" data-active="false">✕ すべて表示</button>
       <span class="count"><b id="num">0</b> 件</span>
@@ -1032,10 +1033,31 @@
     return scored.slice(0,3).map(p=>p.x);
   }
 
-  let state = { cat:'all', region:'all', sort:'importance', tag:null, trait:null };
+  let state = { cat:'all', region:'all', sort:'initiatives', tag:null, trait:null };
 
   // 重要度 / 話題度 スコア
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
+  // 意味的ラベル ( データから自動算出 )
+  function metaLabels(it){
+    const labels = [];
+    if(it.regions && it.regions.includes('all')) labels.push('全道影響');
+    else if(it.regions && it.regions.length <= 2) labels.push('特定地域');
+    if((it.deep||[]).length >= 6) labels.push('構造分析厚');
+    if((it.initiatives||[]).length >= 5) labels.push('事例豊富');
+    if((it.externalCases||[]).length >= 2) labels.push('道外参照多');
+    const hasFresh = (it.sources||[]).some(idx => {
+      const s = SOURCES[idx];
+      return s && s.year && s.year >= 2024;
+    });
+    if(hasFresh) labels.push('鮮度高');
+    return labels;
+  }
+  function freshSourcesCount(it){
+    return (it.sources||[]).filter(idx => {
+      const s = SOURCES[idx];
+      return s && s.year && s.year >= 2024;
+    }).length;
+  }
   function readingMinutes(it){
     let chars = 0;
     if(it.fact) chars += it.fact.length;
@@ -1412,11 +1434,11 @@
       return okCat && okReg && okTag && okTrait;
     });
     list.sort((a,b)=>{
-      if(state.sort==='initiatives') return b.initiatives.length - a.initiatives.length;
-      if(state.sort==='importance') return importanceScore(b) - importanceScore(a) || (b.urgency - a.urgency);
-      if(state.sort==='heat') return heatScore(b) - heatScore(a) || importanceScore(b) - importanceScore(a);
-      const s = state.sort;
-      return (b[s]-a[s]) || (b.severity-a.severity);
+      if(state.sort==='initiatives') return (b.initiatives||[]).length - (a.initiatives||[]).length;
+      if(state.sort==='externals') return (b.externalCases||[]).length - (a.externalCases||[]).length;
+      if(state.sort==='deep') return (b.deep||[]).length - (a.deep||[]).length;
+      if(state.sort==='fresh') return freshSourcesCount(b) - freshSourcesCount(a);
+      return (b.initiatives||[]).length - (a.initiatives||[]).length;
     });
     return list;
   }
@@ -1429,23 +1451,20 @@
     grid.innerHTML = list.map(it=>{
       const c = catMap[it.cat];
       const rtags = it.regions.map(r=>`<span class="rtag">${regMap[r].short}</span>`).join('');
-      const imp = importanceScore(it);
-      const barHeight = 4 + (imp / 2);
+      const labels = metaLabels(it);
       return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
-        <div class="cat-bar" style="background:${c.color};height:${barHeight}px"></div>
+        <div class="cat-bar" style="background:${c.color};height:5px"></div>
         <div class="card-body">
           <div class="card-top">
             <span class="cat-name" style="color:${c.color}">${c.name}</span>
-            <div class="scores">
-              <div class="card-score">重要 <b>${imp}</b><span class="cs-unit">/10</span></div>
-              <div class="card-score">話題 <b>${heatScore(it)}</b><span class="cs-unit">/10</span></div>
-            </div>
           </div>
           <h3>${it.title}</h3>
+          ${labels.length ? `<div class="meta-labels">${labels.map(l=>`<span class="meta-label">${l}</span>`).join('')}</div>` : ''}
           <p class="summary">${it.summary}</p>
           <div class="card-foot">
             ${rtags}
             <span class="ini-count">取組 <b>${it.initiatives.length}</b></span>
+            <span class="ini-count">道外 <b>${(it.externalCases||[]).length}</b></span>
             <span class="ini-count">読了 約<b>${readingMinutes(it)}</b>分</span>
             ${it.deep ? `<button class="dig-btn" data-dig="${it.id}">⛏ 深掘り</button>` : ''}
           </div>
@@ -1598,10 +1617,7 @@
         <div class="modal-cat">${c.name}</div>
         <h2>${it.title}</h2>
         <div class="modal-scores">
-          <div class="modal-score">緊急度 <b>${it.urgency}</b><span class="ms-unit">/5</span></div>
-          <div class="modal-score">深刻度 <b>${it.severity}</b><span class="ms-unit">/5</span></div>
-          <div class="modal-score">重要度 <b>${importanceScore(it)}</b><span class="ms-unit">/10</span></div>
-          <div class="modal-score">話題度 <b>${heatScore(it)}</b><span class="ms-unit">/10</span></div>
+          ${metaLabels(it).map(l=>`<span class="modal-meta-label">${l}</span>`).join('')}
         </div>
       </div>
       <div class="modal-body">
