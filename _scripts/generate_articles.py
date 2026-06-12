@@ -4017,7 +4017,7 @@ TEMPLATE = """<!DOCTYPE html>
 <footer>
 <p>運営: Largo 株式会社 ( <a href="https://lrg.jp" target="_blank" rel="noopener">lrg.jp</a> )</p>
 <p>お問い合わせ ・ 提携 ・ 連携: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
-<p><a href="/terms.html">利用規約</a> ・ <a href="/privacy.html">プライバシーポリシー</a></p>
+<p><a href="/glossary.html">用語集</a> ・ <a href="/terms.html">利用規約</a> ・ <a href="/privacy.html">プライバシーポリシー</a></p>
 </footer>
 </div>
 {related_js}
@@ -4031,6 +4031,7 @@ def generate_sitemap():
     urls = [
         ("https://hokkaido-research.lrg.jp/", "daily", "1.0"),
         ("https://hokkaido-research.lrg.jp/articles/", "weekly", "0.9"),
+        ("https://hokkaido-research.lrg.jp/glossary.html", "monthly", "0.7"),
         ("https://hokkaido-research.lrg.jp/terms.html", "monthly", "0.3"),
         ("https://hokkaido-research.lrg.jp/privacy.html", "monthly", "0.3"),
     ]
