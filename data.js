@@ -1520,3 +1520,148 @@ const SOURCES = [
   { t: "北海道過疎地域持続的発展方針", o: "北海道", u: "https://www.town.mashike.hokkaido.jp/documents/m_files/1624430167.pdf" },
   { t: "夕張市 鉄道廃線後の地域交通の取り組み", o: "夕張市", u: "https://www.city.yubari.lg.jp/uploaded/life/5999_9386_misc.pdf" }
 ];
+
+// 注目地域プレイヤー ( 叩き台 v1 )
+const PLAYERS = [
+  {
+    name: "ドット道東 ( 中西拓郎 )",
+    role: "代表理事 / 道東の統合地域メディア",
+    region: "okhotsk",
+    focus: ["地域メディア", "関係人口", "若者ネットワーク"],
+    links: { web: "https://dotdoto.com/" }
+  },
+  {
+    name: "名寄新聞社",
+    role: "道北の地域新聞",
+    region: "dou-hoku",
+    focus: ["地域新聞", "道北"],
+    links: { web: "https://nayoro-np.co.jp/" }
+  },
+  {
+    name: "道北ネット",
+    role: "北海道北部の統合地域メディア",
+    region: "dou-hoku",
+    focus: ["地域メディア", "道北", "情報統合"],
+    links: { web: "https://dohoku.net/" }
+  },
+  {
+    name: "HOPPO journal",
+    role: "北海道北部の地域コンテンツメディア",
+    region: "dou-hoku",
+    focus: ["地域メディア", "道北"],
+    links: { web: "https://note.com/search?q=HOPPO+journal" }
+  },
+  {
+    name: "北の住まいるタウン",
+    role: "スマートタウン取り組みのメディア発信",
+    region: "tokachi",
+    focus: ["地域コンテンツ", "スマートタウン", "上士幌"],
+    links: { web: "https://kitasuma-town.com/" }
+  },
+  {
+    name: "下川町",
+    role: "自治体 / SDGs 先進 ・ 森林循環",
+    region: "dou-hoku",
+    focus: ["SDGs", "森林循環", "移住定住"],
+    links: { web: "https://www.town.shimokawa.hokkaido.jp/" }
+  },
+  {
+    name: "上士幌町",
+    role: "自治体 / 脱炭素先行地域第 1 弾",
+    region: "tokachi",
+    focus: ["ゼロカーボン", "スマートビレッジ", "酪農"],
+    links: { web: "https://www.kamishihoro.jp/" }
+  },
+  {
+    name: "ニセコ町",
+    role: "自治体 / SDGs ・ 多文化共生",
+    region: "dou-o",
+    focus: ["SDGs", "観光持続性", "多文化共生"],
+    links: { web: "https://www.town.niseko.lg.jp/" }
+  },
+  {
+    name: "更別村",
+    role: "自治体 / SUPER VILLAGE 構想",
+    region: "tokachi",
+    focus: ["スマート農業", "デジ田", "スマートビレッジ"],
+    links: { web: "https://www.sarabetsu.jp/" }
+  },
+  {
+    name: "札幌市",
+    role: "政令市 / 都市政策 ・ GX",
+    region: "dou-o",
+    focus: ["都市政策", "ライドシェア", "ゼロカーボン"],
+    links: { web: "https://www.city.sapporo.jp/" }
+  },
+  {
+    name: "紋別市",
+    role: "自治体 / ふるさと納税上位常連",
+    region: "okhotsk",
+    focus: ["ふるさと納税", "水産業", "ホタテ"],
+    links: { web: "https://www.city.mombetsu.lg.jp/" }
+  },
+  {
+    name: "白糠町",
+    role: "自治体 / ふるさと納税 ・ 水産",
+    region: "kushiro-nemuro",
+    focus: ["ふるさと納税", "水産業", "鮭"],
+    links: { web: "https://www.town.shiranuka.lg.jp/" }
+  },
+  {
+    name: "知床財団",
+    role: "知床世界自然遺産の保全 ・ 教育",
+    region: "okhotsk",
+    focus: ["自然保護", "エコツーリズム", "知床"],
+    links: { web: "https://www.shiretoko.or.jp/" }
+  },
+  {
+    name: "北海道大学 公共政策大学院 ( HOPS )",
+    role: "教育 ・ 研究 / 地域政策",
+    region: "dou-o",
+    focus: ["公共政策", "地域政策", "都市計画"],
+    links: { web: "https://www.hops.hokudai.ac.jp/" }
+  },
+  {
+    name: "北海道大学 水産学部 ( 函館 )",
+    role: "教育 ・ 研究 / 水産 ・ 海洋",
+    region: "dou-nan",
+    focus: ["水産", "海洋", "気候変動"],
+    links: { web: "https://www.fish.hokudai.ac.jp/" }
+  },
+  {
+    name: "北見工業大学",
+    role: "教育 ・ 研究 / 工学 ・ IT",
+    region: "okhotsk",
+    focus: ["工学", "IT", "スマートシティ"],
+    links: { web: "https://www.kitami-it.ac.jp/" }
+  },
+  {
+    name: "酪農学園大学",
+    role: "教育 ・ 研究 / 農業 ・ 環境",
+    region: "dou-o",
+    focus: ["農業", "環境", "食料システム"],
+    links: { web: "https://www.rakuno.ac.jp/" }
+  },
+  {
+    name: "北海道経済連合会 ( 道経連 )",
+    role: "経済団体 / 産業政策",
+    region: "all",
+    focus: ["経済政策", "産業集積", "課題解決先進地域"],
+    links: { web: "https://www.dokeiren.gr.jp/" }
+  },
+  {
+    name: "北海道開発協会 ( HKK )",
+    role: "シンクタンク / 地域開発調査",
+    region: "all",
+    focus: ["地域開発", "経済調査", "課題分析"],
+    links: { web: "https://www.hkk.or.jp/" }
+  },
+  {
+    name: "北海道 IT 推進協会 ( HICTA )",
+    role: "業界団体 / IT 産業 ・ スタートアップ",
+    region: "all",
+    focus: ["IT", "スタートアップ", "デジタル"],
+    links: { web: "https://www.hicta.or.jp/" }
+  },
+];
+

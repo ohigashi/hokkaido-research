@@ -368,6 +368,41 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== 地域プレイヤー動向 ===== */
+  .players-section{padding:6px 0 20px;position:relative;z-index:1}
+  .players-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .players-title{font-size:14px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
+  .players-lede{font-size:11.5px;color:var(--slate);margin:0;line-height:1.55}
+  .players-links{display:flex;flex-wrap:wrap;gap:7px}
+  .players-link{
+    font-family:inherit;cursor:pointer;text-decoration:none;
+    font-size:12px;font-weight:700;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);padding:7px 13px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:6px;
+    transition:all .12s;white-space:nowrap;
+  }
+  .players-link:hover{border-color:var(--ice);color:var(--ice);background:#fff}
+  .players-link .ic{font-size:13px}
+  .players-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:9px;margin-bottom:18px}
+  .player-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:11px 13px;display:flex;flex-direction:column;gap:5px;
+    transition:border-color .12s,transform .12s,box-shadow .12s;
+  }
+  .player-card:hover{border-color:var(--slate);transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.04)}
+  .player-name{font-size:13px;font-weight:800;color:var(--ink);line-height:1.35}
+  .player-role{font-size:11px;color:var(--slate);font-weight:600;line-height:1.45}
+  .player-focus{display:flex;flex-wrap:wrap;gap:3px;margin-top:2px}
+  .player-focus-tag{font-size:9.5px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.08);padding:2px 6px;border-radius:3px;letter-spacing:.02em}
+  .player-links{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+  .player-link-btn{
+    font-size:10.5px;color:var(--slate);text-decoration:none;font-weight:700;
+    border:1px solid var(--line);padding:3px 9px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:3px;transition:all .12s;
+  }
+  .player-link-btn:hover{color:var(--ice);border-color:var(--ice)}
+  .players-note{font-size:10.5px;color:var(--slate);margin-top:6px;font-style:italic}
+
   /* ===== 新着リスト ===== */
   .latest{padding:6px 0 20px;position:relative;z-index:1}
   .latest-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
@@ -649,6 +684,30 @@
     </div>
     <div class="latest-list" id="latest-list"></div>
     <button id="latest-more" class="latest-more" hidden></button>
+  </div>
+</section>
+
+<section class="players-section">
+  <div class="wrap">
+    <div class="players-head">
+      <h3 class="players-title">注目地域プレイヤー ( 叩き台 v1 )</h3>
+      <p class="players-lede">いま北海道で動いている主な地域プレイヤー / 組織。タップで発信先へ。編集 ・ 追加歓迎。</p>
+    </div>
+    <div class="players-grid" id="players-grid"></div>
+    <div class="players-head" style="margin-top:6px">
+      <h3 class="players-title">地域プレイヤーの動向を探す</h3>
+      <p class="players-lede">地域で動いている人 ・ 組織の発信を、地域メディア ・ note ・ X ・ 協力隊ネットワークから直接たどる。</p>
+    </div>
+    <div class="players-links">
+      <a class="players-link" href="https://dotdoto.com/" target="_blank" rel="noopener"><span class="ic">🌐</span>ドット道東</a>
+      <a class="players-link" href="https://dohoku.net/" target="_blank" rel="noopener"><span class="ic">📍</span>道北ネット</a>
+      <a class="players-link" href="https://note.com/search?q=%E5%8C%97%E6%B5%B7%E9%81%93&context=note" target="_blank" rel="noopener"><span class="ic">✍</span>note ( 北海道 検索 )</a>
+      <a class="players-link" href="https://note.com/search?q=%E5%9C%B0%E5%9F%9F%E3%81%8A%E3%81%93%E3%81%97%E5%8D%94%E5%8A%9B%E9%9A%8A&context=note" target="_blank" rel="noopener"><span class="ic">✍</span>note ( 協力隊 検索 )</a>
+      <a class="players-link" href="https://x.com/search?q=%23%E5%8C%97%E6%B5%B7%E9%81%93%E5%9C%B0%E5%9F%9F&f=live" target="_blank" rel="noopener"><span class="ic">🐦</span>X ( #北海道地域 )</a>
+      <a class="players-link" href="https://www.iju-join.jp/feature/file/000236.html" target="_blank" rel="noopener"><span class="ic">🤝</span>地域おこし協力隊</a>
+      <a class="players-link" href="https://nayoro-np.co.jp/" target="_blank" rel="noopener"><span class="ic">📰</span>名寄新聞</a>
+      <a class="players-link" href="https://www.tokachi.co.jp/" target="_blank" rel="noopener"><span class="ic">📰</span>十勝毎日新聞</a>
+    </div>
   </div>
 </section>
 
@@ -988,6 +1047,25 @@
     if(window.gtag) gtag('event','keyword_reset',{});
     render();
   });
+
+  // 注目地域プレイヤー描画
+  (function(){
+    const grid = document.getElementById('players-grid');
+    if(!grid || typeof PLAYERS === 'undefined') return;
+    grid.innerHTML = PLAYERS.map(p=>{
+      const focusTags = (p.focus||[]).map(f=>`<span class="player-focus-tag">${f}</span>`).join('');
+      const linkBtns = Object.entries(p.links||{}).map(([type, url])=>{
+        const label = type==='web'?'Web':type==='note'?'note':type==='x'?'X':type;
+        return `<a class="player-link-btn" href="${url}" target="_blank" rel="noopener">${label} ↗</a>`;
+      }).join('');
+      return `<div class="player-card">
+        <div class="player-name">${p.name}</div>
+        <div class="player-role">${p.role}</div>
+        <div class="player-focus">${focusTags}</div>
+        <div class="player-links">${linkBtns}</div>
+      </div>`;
+    }).join('');
+  })();
 
   // 新着リスト生成 ( addedAt 降順、tie-break は重要度 )
   const LATEST_INITIAL = 7;
