@@ -108,17 +108,23 @@
           '<div class="rel-card-sum">' + esc(i.summary||"") + '</div>' +
           '</a>';
       }).join("");
+    } else {
+      issuesEl.parentElement.style.display = "none";
     }
+  } else if(issuesEl){
+    issuesEl.parentElement.style.display = "none";
   }
 
   // 2. 関連する取り組み (initiatives in matched issues)
   var initEl = document.getElementById("rel-initiatives");
-  if(initEl && typeof ISSUES !== "undefined"){
+  if(initEl){
     var inits = [];
-    ISSUES.forEach(function(i){
-      if(RELATED_IDS.indexOf(i.id) < 0) return;
-      (i.initiatives||[]).forEach(function(it){ inits.push(it); });
-    });
+    if(typeof ISSUES !== "undefined"){
+      ISSUES.forEach(function(i){
+        if(RELATED_IDS.indexOf(i.id) < 0) return;
+        (i.initiatives||[]).forEach(function(it){ inits.push(it); });
+      });
+    }
     inits = inits.slice(0, 5);
     if(inits.length){
       initEl.innerHTML = inits.map(function(it){
@@ -135,12 +141,14 @@
 
   // 3. 関連するデータ (stats)
   var statsEl = document.getElementById("rel-stats");
-  if(statsEl && typeof ISSUES !== "undefined"){
+  if(statsEl){
     var stats = [];
-    ISSUES.forEach(function(i){
-      if(RELATED_IDS.indexOf(i.id) < 0) return;
-      (i.stats||[]).forEach(function(s){ stats.push(s); });
-    });
+    if(typeof ISSUES !== "undefined"){
+      ISSUES.forEach(function(i){
+        if(RELATED_IDS.indexOf(i.id) < 0) return;
+        (i.stats||[]).forEach(function(s){ stats.push(s); });
+      });
+    }
     stats = stats.slice(0, 4);
     if(stats.length){
       statsEl.innerHTML = stats.map(function(s){
@@ -158,13 +166,16 @@
 
   // 4. 他の関連記事
   var artEl = document.getElementById("rel-articles");
-  if(artEl && typeof ARTICLES !== "undefined"){
-    var others = ARTICLES.filter(function(a){
-      if(a.id === ARTICLE_ID) return false;
-      return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
-    }).sort(function(a,b){
-      return (b.publishedAt||"").localeCompare(a.publishedAt||"");
-    });
+  if(artEl){
+    var others = [];
+    if(typeof ARTICLES !== "undefined"){
+      others = ARTICLES.filter(function(a){
+        if(a.id === ARTICLE_ID) return false;
+        return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
+      }).sort(function(a,b){
+        return (b.publishedAt||"").localeCompare(a.publishedAt||"");
+      });
+    }
     if(others.length){
       artEl.innerHTML = others.map(function(a){
         var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");
