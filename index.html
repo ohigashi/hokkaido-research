@@ -922,46 +922,6 @@
   </div>
 </section>
 
-<section class="overview">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-icon" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
-      </span>
-      <h2 class="sec-title">課題分類</h2>
-      <button id="ov-reset" class="ov-reset" hidden>✕ 解除</button>
-    </div>
-    <div class="ov-grid" id="ov-grid"></div>
-  </div>
-</section>
-
-<section class="trends">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-icon" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2.5" y1="6" x2="13.5" y2="6"/><line x1="2.5" y1="10" x2="13.5" y2="10"/><line x1="6.5" y1="2" x2="5.5" y2="14"/><line x1="10.5" y1="2" x2="9.5" y2="14"/></svg>
-      </span>
-      <h2 class="sec-title">キーワード</h2>
-      <button id="tag-reset" class="tag-reset" hidden>✕ 解除</button>
-    </div>
-    <div class="tag-row" id="tag-row"></div>
-  </div>
-</section>
-
-<section class="latest">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-icon" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><polyline points="8,4.5 8,8 10.5,9.5"/></svg>
-      </span>
-      <h2 class="sec-title">新着</h2>
-    </div>
-    <div class="latest-list" id="latest-list"></div>
-    <button id="latest-more" class="latest-more" hidden></button>
-  </div>
-</section>
-
-
 <div class="controls">
   <div class="wrap">
     <div class="ctrl-bar">
@@ -1215,7 +1175,7 @@
     return scored.slice(0,3).map(p=>p.x);
   }
 
-  let state = { cat:'all', region:'all', sort:'initiatives', tag:null, trait:null };
+  let state = { cat:'all', region:'all', sort:'added', tag:null, trait:null };
 
   // 重要度 / 話題度 スコア
   // 気になる ( ブックマーク ) 管理 localStorage
@@ -1298,30 +1258,22 @@
 
   // 地域分布 ( B ) - 簡素化により撤去
 
-  // 構造マップ生成 ( 客観指標のみ )
+  // 構造マップ生成 ( 客観指標のみ ) ・ トップから撤去済 ・ ov-grid 不在で no-op
   const ovGrid = document.getElementById('ov-grid');
-  ovGrid.innerHTML = CATEGORIES.map(c=>{
-    const issuesInCat = ISSUES.filter(it=>it.cat===c.id);
-    const cnt = issuesInCat.length;
-    const iniCount = issuesInCat.reduce((s,it)=>s+(it.initiatives||[]).length,0);
-    const extCount = issuesInCat.reduce((s,it)=>s+(it.externalCases||[]).length,0);
-    return `<button class="ov-tile" data-ov-cat="${c.id}" aria-pressed="false">
-      <span class="ov-bar" style="background:${c.color}"></span>
-      <div class="ov-name">${c.name}</div>
-      <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
-      <div class="ov-metrics">
-        <div class="ov-metric">
-          <span class="ov-metric-label">取組</span>
-          <span class="ov-metric-val">${iniCount}<span class="ov-metric-max"> 件</span></span>
-        </div>
-        <div class="ov-metric">
-          <span class="ov-metric-label">道外</span>
-          <span class="ov-metric-val">${extCount}<span class="ov-metric-max"> 件</span></span>
-        </div>
-      </div>
-      <div class="ov-desc" data-default="${c.desc}">${c.desc}</div>
-    </button>`;
-  }).join('');
+  if(ovGrid){
+    ovGrid.innerHTML = CATEGORIES.map(c=>{
+      const issuesInCat = ISSUES.filter(it=>it.cat===c.id);
+      const cnt = issuesInCat.length;
+      const iniCount = issuesInCat.reduce((s,it)=>s+(it.initiatives||[]).length,0);
+      const extCount = issuesInCat.reduce((s,it)=>s+(it.externalCases||[]).length,0);
+      return `<button class="ov-tile" data-ov-cat="${c.id}" aria-pressed="false">
+        <span class="ov-bar" style="background:${c.color}"></span>
+        <div class="ov-name">${c.name}</div>
+        <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
+        <div class="ov-desc" data-default="${c.desc}">${c.desc}</div>
+      </button>`;
+    }).join('');
+  }
 
   // sticky ヘッダ用カテゴリタイル ( 簡易版 )
   const ddCatGrid = document.getElementById('dd-cat-grid');
@@ -1338,16 +1290,18 @@
   const ddCatBtn = document.getElementById('dd-cat-btn');
   const ddCatPanel = document.getElementById('dd-cat-panel');
   function syncCatUI(){
-    ovGrid.querySelectorAll('.ov-tile').forEach(t=>{
-      const on = t.dataset.ovCat===state.cat;
-      t.setAttribute('aria-pressed', on);
-      const d = t.querySelector('.ov-desc');
-      d.textContent = on ? 'もう一度押すと解除' : d.dataset.default;
-    });
+    if(ovGrid){
+      ovGrid.querySelectorAll('.ov-tile').forEach(t=>{
+        const on = t.dataset.ovCat===state.cat;
+        t.setAttribute('aria-pressed', on);
+        const d = t.querySelector('.ov-desc');
+        if(d) d.textContent = on ? 'もう一度押すと解除' : d.dataset.default;
+      });
+    }
     ddCatGrid.querySelectorAll('.dd-cat-tile').forEach(t=>{
       t.setAttribute('aria-pressed', t.dataset.ddCat===state.cat);
     });
-    ovReset.hidden = (state.cat==='all');
+    if(ovReset) ovReset.hidden = (state.cat==='all');
     const cName = catMap[state.cat] ? catMap[state.cat].name : null;
     ddCatBtn.classList.toggle('active', state.cat!=='all');
     ddCatBtn.firstChild.textContent = cName ? `課題分類: ${cName}` : '課題分類';
@@ -1360,7 +1314,7 @@
     render();
   }
 
-  ovGrid.addEventListener('click',e=>{
+  if(ovGrid) ovGrid.addEventListener('click',e=>{
     const t=e.target.closest('[data-ov-cat]'); if(!t)return;
     selectCat(t.dataset.ovCat);
     if(window.gtag) gtag('event','structure_map_click',{category:state.cat});
@@ -1403,7 +1357,7 @@
   });
   const topTags = Object.entries(tagScore).sort((a,b)=>b[1]-a[1]).slice(0,12).map(e=>e[0]);
   const tagRow = document.getElementById('tag-row');
-  tagRow.innerHTML = topTags.map(t=>`<button class="tag-btn" data-tag="${t}" aria-pressed="false">${t}<span class="tag-cnt">${tagCount[t]}</span></button>`).join('');
+  if(tagRow) tagRow.innerHTML = topTags.map(t=>`<button class="tag-btn" data-tag="${t}" aria-pressed="false">${t}<span class="tag-cnt">${tagCount[t]}</span></button>`).join('');
 
   // sticky ヘッダ用タグ
   const ddTagRow = document.getElementById('dd-tag-row');
@@ -1414,9 +1368,9 @@
 
   const tagReset = document.getElementById('tag-reset');
   function syncTagUI(){
-    tagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.tag===state.tag));
+    if(tagRow) tagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.tag===state.tag));
     ddTagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.ddTag===state.tag));
-    tagReset.hidden = !state.tag;
+    if(tagReset) tagReset.hidden = !state.tag;
     ddTagBtn.classList.toggle('active', !!state.tag);
     ddTagBtn.firstChild.textContent = state.tag ? `キーワード: ${state.tag}` : 'キーワード';
     ddTagPanel.setAttribute('data-active', !!state.tag);
@@ -1428,7 +1382,7 @@
     render();
   }
 
-  tagRow.addEventListener('click',e=>{
+  if(tagRow) tagRow.addEventListener('click',e=>{
     const b=e.target.closest('[data-tag]'); if(!b)return;
     selectTag(b.dataset.tag);
     if(window.gtag) gtag('event','keyword_click',{tag:state.tag||'cleared'});
@@ -1445,7 +1399,7 @@
     closeAllDD();
   });
 
-  tagReset.addEventListener('click',()=>{
+  if(tagReset) tagReset.addEventListener('click',()=>{
     state.tag=null;
     syncTagUI();
     if(window.gtag) gtag('event','keyword_reset',{});
@@ -1464,6 +1418,7 @@
   const latestMore = document.getElementById('latest-more');
   let latestExpanded = false;
   function renderLatest(){
+    if(!latestList) return;
     const items = latestExpanded ? latestSorted : latestSorted.slice(0, LATEST_INITIAL);
     latestList.innerHTML = items.map(it=>{
       const c = catMap[it.cat];
@@ -1475,20 +1430,22 @@
       </button>`;
     }).join('');
     const rest = latestSorted.length - LATEST_INITIAL;
-    if(rest > 0){
-      latestMore.hidden = false;
-      latestMore.innerHTML = latestExpanded ? '閉じる ▲' : `もっと見る ▼ ( 残り ${rest} 件 )`;
-    } else {
-      latestMore.hidden = true;
+    if(latestMore){
+      if(rest > 0){
+        latestMore.hidden = false;
+        latestMore.innerHTML = latestExpanded ? '閉じる ▲' : `もっと見る ▼ ( 残り ${rest} 件 )`;
+      } else {
+        latestMore.hidden = true;
+      }
     }
   }
   renderLatest();
-  latestList.addEventListener('click',e=>{
+  if(latestList) latestList.addEventListener('click',e=>{
     const b = e.target.closest('[data-id]'); if(!b) return;
     if(window.gtag) gtag('event','latest_item_click',{issue_id:b.dataset.id});
     openModal(b.dataset.id);
   });
-  latestMore.addEventListener('click',()=>{
+  if(latestMore) latestMore.addEventListener('click',()=>{
     latestExpanded = !latestExpanded;
     if(window.gtag) gtag('event','latest_expand',{expanded:latestExpanded});
     renderLatest();
@@ -1674,11 +1631,19 @@
       return okCat && okReg && okTag && okTrait;
     });
     list.sort((a,b)=>{
+      if(state.sort==='added'){
+        const aT = a.addedAt || '';
+        const bT = b.addedAt || '';
+        if(aT !== bT) return bT.localeCompare(aT);
+        return (b.initiatives||[]).length - (a.initiatives||[]).length;
+      }
       if(state.sort==='initiatives') return (b.initiatives||[]).length - (a.initiatives||[]).length;
       if(state.sort==='externals') return (b.externalCases||[]).length - (a.externalCases||[]).length;
       if(state.sort==='deep') return (b.deep||[]).length - (a.deep||[]).length;
       if(state.sort==='fresh') return freshSourcesCount(b) - freshSourcesCount(a);
-      return (b.initiatives||[]).length - (a.initiatives||[]).length;
+      const aT = a.addedAt || '';
+      const bT = b.addedAt || '';
+      return bT.localeCompare(aT);
     });
     return list;
   }

@@ -157,10 +157,13 @@
     inits = inits.slice(0, 5);
     if(inits.length){
       initEl.innerHTML = inits.map(function(it){
+        var who = it.who || it.name || "";
+        var what = it.what || it.desc || it.summary || "";
+        var where = it.where || it.region || "";
         return '<div class="rel-init">' +
-          '<div class="rel-init-where">' + esc(it.where||"") + '</div>' +
-          '<div class="rel-init-name">' + esc(it.name||"") + '</div>' +
-          '<div class="rel-init-desc">' + esc(it.desc||it.summary||"") + '</div>' +
+          (where ? '<div class="rel-init-where">' + esc(where) + '</div>' : '') +
+          '<div class="rel-init-name">' + esc(who) + '</div>' +
+          '<div class="rel-init-desc">' + esc(what) + '</div>' +
           '</div>';
       }).join("");
     } else {
