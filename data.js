@@ -1716,3 +1716,183 @@ const PLAYERS = [
   },
 ];
 
+// 注目の取り組み・記事 ( 課題紐付け、叩き台 v1 )
+const CONTENT_PICKS = [
+  {
+    title: "上士幌町 牛ふん尿バイオガス発電と防災マイクログリッド",
+    org: "上士幌町",
+    url: "https://www.kamishihoro.jp/sp/sdgs/00000459",
+    summary: "酪農地帯のふん尿課題とエネルギー創出を同時に解く。脱炭素先行地域第1弾 ( 2022 ) 選定。",
+    issues: ["carbon-neutral", "decarbonization", "energy-security"]
+  },
+  {
+    title: "下川町 持続可能な森林経営と木質バイオマス熱供給",
+    org: "下川町",
+    url: "https://www.town.shimokawa.hokkaido.jp/gyousei/2020/01/sdgs-1.html",
+    summary: "面積の9割が森林という条件をエネルギー・雇用・ブランドの源泉に転換。2001年から20年以上継続。",
+    issues: ["forest-circulation", "decarbonization", "migration"]
+  },
+  {
+    title: "ニセコ町 SDGs未来都市計画と多文化共生",
+    org: "ニセコ町",
+    url: "https://www.town.niseko.lg.jp/chosei/kankyo/zerocarbon",
+    summary: "観光持続性と多文化共生を統合したSDGs戦略。重点対策加速化事業で再エネ・省エネ補助も展開。",
+    issues: ["multicultural", "tourism-sustainability", "carbon-neutral"]
+  },
+  {
+    title: "更別村 SUPER VILLAGE構想 デジ田交付金TYPE3採択",
+    org: "更別村",
+    url: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/super_village_adopted/",
+    summary: "人口約3,000人の村でスマートビレッジ化。農業・暮らしのDX実装を 2023 年から推進。",
+    issues: ["smart-city-gx", "succession"]
+  },
+  {
+    title: "札幌市 日本版ライドシェアの平日運行と車両拡大",
+    org: "札幌市・日本経済新聞",
+    url: "https://www.nikkei.com/article/DGXZQOFC2452Z0U4A920C2000000/",
+    summary: "札幌で日本版ライドシェアが運行開始、平日運行と車両数の拡大が進む。移動弱者の選択肢拡大。",
+    issues: ["car-less-mobility", "rail-transit"]
+  },
+  {
+    title: "上士幌町 公共ライドシェアによる貨客混載の実証運行",
+    org: "上士幌町 ・ PR TIMES",
+    url: "https://prtimes.jp/main/html/rd/p/000000015.000083668.html",
+    summary: "公共ライドシェアで人と荷物を同時に運ぶ実証運行。過疎地の配送と移動を統合する設計。",
+    issues: ["car-less-mobility", "logistics-2024"]
+  },
+  {
+    title: "ドット道東 .doto ガイドブック / DOTO-NET 若者コミュニティ",
+    org: "一般社団法人ドット道東",
+    url: "https://dotdoto.com/",
+    summary: "道東を主軸に情報発信→仕事→コミュニティの3層構造で関係人口とUIターンを創出。1万部超の道東ガイドブック発行。",
+    issues: ["migration", "new-industry", "ainu-culture"]
+  },
+  {
+    title: "知床財団 知床世界自然遺産の管理と訪問者教育",
+    org: "公益財団法人 知床財団",
+    url: "https://www.shiretoko.or.jp/",
+    summary: "世界自然遺産・知床の保全と訪問者教育を担う。長期モニタリングで生態系の変化を観測。",
+    issues: ["biodiversity", "tourism-sustainability"]
+  },
+  {
+    title: "苫東 GX HUB構想 ・ カーボンニュートラル産業地域",
+    org: "経済産業省 北海道経済産業局",
+    url: "https://www.hkd.meti.go.jp/hokpp/20260403/data02.pdf",
+    summary: "再エネ・水素・グリーン産業を集積する苫東 GX HUB。国がGX拠点として位置づける。",
+    issues: ["carbon-neutral", "new-industry", "decarbonization"]
+  },
+  {
+    title: "帯広畜産大学 × 自然電力 営農型太陽光発電 連携協定",
+    org: "自然電力 株式会社 / 帯広畜産大学",
+    url: "https://www.shizenenergy.net/2024/08/20/hse_obihirouniv_agreement/",
+    summary: "農地で営農と発電を両立するソーラーシェアリングの実証研究。農業収入と再エネ収入の二本柱モデル。",
+    issues: ["soil-conservation", "decarbonization", "succession"]
+  },
+  {
+    title: "JR北海道 アクションプラン ( 黄線区収支改善 )",
+    org: "JR北海道",
+    url: "https://www.jrhokkaido.co.jp/corporate/mi/vision/20240329-01.pdf",
+    summary: "単独維持困難線区への対応プラン。線区別の段階的判断と国の支援活用の戦略。",
+    issues: ["jr-hokkaido-future", "rail-transit"]
+  },
+  {
+    title: "十勝バス MaaSによる需要起点の路線再設計",
+    org: "ニッセイ基礎研究所",
+    url: "https://www.nli-research.co.jp/report/detail/id=80081?site=nli",
+    summary: "「MaaS」で地方創生を試みる十勝バスの取組。需要起点の路線再設計とアプリ活用。",
+    issues: ["car-less-mobility", "rail-transit"]
+  },
+  {
+    title: "2050北海道ビジョン 課題解決先進地域",
+    org: "北海道経済連合会",
+    url: "https://www.dokeiren.gr.jp/wp-content/uploads/2022/12/20210629_2050hokkaidovisionkaisetu1.pdf",
+    summary: "北海道を「課題解決先進地域」と位置づける長期ビジョン。経済界からの構造的提言。",
+    issues: ["depopulation", "semiconductor", "new-industry"]
+  },
+  {
+    title: "北海道スペースポート ( HOSPO ) 大樹町",
+    org: "大樹町",
+    url: "https://www.town.taiki.hokkaido.jp/soshiki/kokuuchusuishinshitsu/1/850.html",
+    summary: "民間ロケット打上げ拠点として開発が進む大樹町。宇宙産業の地域集積モデル。",
+    issues: ["new-industry", "semiconductor"]
+  },
+  {
+    title: "函館市 人口減少対策本部 ・ 第2章 人口の動向",
+    org: "函館市",
+    url: "https://www.city.hakodate.hokkaido.jp/docs/2023062600061/",
+    summary: "全道一の人口減少率に向き合う函館市の対策本部。データに基づく対策方針。",
+    issues: ["depopulation", "shinkansen-donan"]
+  },
+  {
+    title: "宗谷地域 孤独 ・ 孤立対策官民連携プラットフォーム",
+    org: "宗谷総合振興局",
+    url: "https://www.souya.pref.hokkaido.lg.jp/hk/syf/souyakodokukoritu.html",
+    summary: "道北宗谷で孤独・孤立対策を官民連携で進めるプラットフォーム。地域包括ケアの先行モデル。",
+    issues: ["isolation", "elderly-care-staff"]
+  },
+  {
+    title: "ひぐまっぷ ICTを活用したヒグマ出没情報の収集と共有",
+    org: "ひぐまっぷ / 道内市町村",
+    url: "https://higumap.info/",
+    summary: "ICTでヒグマ出没情報を市町村横断で集約・共有。住民参加型の見守り基盤。",
+    issues: ["bear-conflict", "biodiversity"]
+  },
+  {
+    title: "EFC 北海道 エネルギー領域の地域発信",
+    org: "EFC 北海道",
+    url: "https://efc.hokkaido.jp/",
+    summary: "北海道のエネルギー未来を地域目線で発信。note でも個別記事を発信し、現場の文脈を伝える。",
+    issues: ["energy-security", "carbon-neutral", "decarbonization"]
+  },
+  {
+    title: "EFC 北海道 note 個別発信",
+    org: "EFC 北海道",
+    url: "https://note.com/efc_hokkaido",
+    summary: "エネルギー政策・地域取り組みの個別記事を note で発信。現場の声と分析。",
+    issues: ["energy-security", "carbon-neutral"]
+  },
+  {
+    title: "ドット道東 #道東ではたらく 仕事メディア",
+    org: "一般社団法人ドット道東",
+    url: "https://dotdoto.com/",
+    summary: "「#道東ではたらく」で道東での仕事・キャリアを可視化。関係人口から定住への導線設計。",
+    issues: ["migration", "new-industry"]
+  },
+  {
+    title: "鶴居村 ・ 釧路湿原のエコツーリズム",
+    org: "鶴居村",
+    url: "https://www.vill.tsurui.lg.jp/",
+    summary: "釧路湿原を抱える鶴居村でタンチョウ保全とエコツーリズムを継続。湿原保全の代表モデル。",
+    issues: ["biodiversity", "tourism-sustainability"]
+  },
+  {
+    title: "道北ネット 道北統合地域メディア",
+    org: "道北ネット",
+    url: "https://dohoku.net/",
+    summary: "道北の自治体・産業・暮らしを横断的に発信。地域メディアの統合モデル。",
+    issues: ["migration", "depopulation", "energy-security"]
+  },
+  {
+    title: "白糠町 鮭 ・ いくらのふるさと納税モデル",
+    org: "白糠町",
+    url: "https://www.town.shiranuka.lg.jp/",
+    summary: "水産品 ( 鮭・いくら・乳製品 ) で寄附額を拡大、町内産業連鎖を構築。",
+    issues: ["furusato-nozei", "fisheries-climate"]
+  },
+  {
+    title: "紋別市 ホタテ ・ カニのふるさと納税で100億円超",
+    org: "紋別市",
+    url: "https://www.city.mombetsu.lg.jp/",
+    summary: "海鮮品を中心に毎年100億円超の寄附を受ける全国上位常連。物流ネットワーク整備で長期的地位を確保。",
+    issues: ["furusato-nozei", "fisheries-climate"]
+  },
+  {
+    title: "東川町 写真甲子園と海外留学生受入で転入超過",
+    org: "東川町",
+    url: "https://higashikawa-town.jp/",
+    summary: "写真文化と海外留学生受入で道内有数の転入超過を実現。文化×教育×移住の統合モデル。",
+    issues: ["migration", "school-consolidation"]
+  },
+];
+
+
