@@ -268,6 +268,33 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== 構造マップ ===== */
+  .overview{padding:30px 0 6px;position:relative;z-index:1}
+  .ov-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .ov-title{font-size:17px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
+  .ov-lede{font-size:12px;color:var(--slate);margin:0;line-height:1.55;max-width:60ch}
+  .ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+  .ov-tile{
+    font-family:inherit;text-align:left;cursor:pointer;
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:12px 13px 11px;position:relative;
+    transition:transform .12s,box-shadow .12s,border-color .12s;
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .ov-tile:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.06);border-color:var(--slate)}
+  .ov-tile .ov-bar{display:block;width:32px;height:3px;border-radius:2px}
+  .ov-tile .ov-name{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.35}
+  .ov-tile .ov-count{font-size:24px;font-weight:900;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+  .ov-tile .ov-count .ov-unit{font-size:11px;font-weight:700;color:var(--slate);margin-left:3px}
+  .ov-tile .ov-desc{font-size:10.5px;color:var(--slate);line-height:1.5}
+  .ov-tile[aria-pressed="true"]{background:var(--snow);border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  @media(max-width:900px){.ov-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:600px){
+    .ov-grid{grid-template-columns:repeat(2,1fr);gap:7px}
+    .ov-tile{padding:10px 11px 9px}
+    .ov-tile .ov-count{font-size:20px}
+  }
+
   /* ===== フッター ===== */
   footer{border-top:2px solid var(--ink);padding:32px 0 50px;font-size:12.5px;color:var(--slate)}
   footer .wrap{display:flex;flex-direction:column;gap:14px}
@@ -315,6 +342,16 @@
     </div>
   </div>
 </header>
+
+<section class="overview">
+  <div class="wrap">
+    <div class="ov-head">
+      <h2 class="ov-title">社会システムで見る</h2>
+      <p class="ov-lede">北海道の地域課題を 8 つの社会システムで分類しています。タイルを押すと、そのテーマの課題に絞り込めます。</p>
+    </div>
+    <div class="ov-grid" id="ov-grid"></div>
+  </div>
+</section>
 
 <div class="controls">
   <div class="wrap">
@@ -368,12 +405,39 @@
   const regChips = document.getElementById('region-chips');
   regChips.innerHTML = REGIONS.map(r=>`<button class="chip" data-region="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('');
 
+  // 構造マップ生成
+  const ovGrid = document.getElementById('ov-grid');
+  ovGrid.innerHTML = CATEGORIES.map(c=>{
+    const cnt = ISSUES.filter(it=>it.cat===c.id).length;
+    return `<button class="ov-tile" data-ov-cat="${c.id}" aria-pressed="false">
+      <span class="ov-bar" style="background:${c.color}"></span>
+      <div class="ov-name">${c.name}</div>
+      <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
+      <div class="ov-desc">${c.desc}</div>
+    </button>`;
+  }).join('');
+
+  function syncCatUI(){
+    catChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.cat===state.cat));
+    ovGrid.querySelectorAll('.ov-tile').forEach(t=>t.setAttribute('aria-pressed', t.dataset.ovCat===state.cat));
+  }
+
   catChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-cat]'); if(!b)return;
     state.cat=b.dataset.cat;
-    catChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    syncCatUI();
     if(window.gtag) gtag('event','category_filter_click',{category:state.cat});
     render();
+  });
+
+  ovGrid.addEventListener('click',e=>{
+    const t=e.target.closest('[data-ov-cat]'); if(!t)return;
+    state.cat=t.dataset.ovCat;
+    syncCatUI();
+    if(window.gtag) gtag('event','structure_map_click',{category:state.cat});
+    render();
+    const g=document.getElementById('grid');
+    if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
