@@ -2154,12 +2154,12 @@ const OPPORTUNITIES = [
 const ARTICLES = [
   {
     id: "migration-residual-assets-2026-06",
-    title: "定着率では測れない - 移住定住で「残る資産」を見る",
+    title: "定着率では測れない - 移住定住で「残る資産」を見る視点",
     category: "課題発見",
     publishedAt: "2026-06-12",
-    readMinutes: 2,
+    readMinutes: 4,
     relatedIssues: ["migration"],
-    summary: "「何人来たか」では地域に何が残るかを測れない。事業・関係・仕組みの 3 資産で評価する視点を提案。",
+    summary: "「何人来たか」「何%残ったか」では地域に何が残るかを測れない。事業・関係・仕組みの 3 資産で評価する視点と、評価軸を組み替えると施策がどう変わるかを整理。",
   },
   {
     id: "migration-longterm-cases-2026-06",
