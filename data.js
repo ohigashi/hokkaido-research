@@ -1113,8 +1113,8 @@ const ISSUES = [
     cat: "primary",
     title: "食料自給率 200% と食品廃棄の同居",
     urgency: 3, severity: 4,
-    regions: ["all", "tokachi", "okhotsk", "doto"],
-    traits: ["agriculture", "fisheries", "dairy-region"],
+    regions: ["all", "tokachi", "okhotsk", "kushiro-nemuro"],
+    traits: ["agriculture", "fishing-village", "dairy-region"],
     tags: ["食料自給率", "フードロス", "食品廃棄", "規格外野菜", "もったいない", "サーキュラーフード"],
     addedAt: "2026-06-12",
     externalCases: [
@@ -1843,6 +1843,51 @@ const ISSUES = [
     ]
   },
   {
+    id: "regional-business-recruitment",
+    q: "北海道 地域企業 採用難 人材不足 中小企業 人手不足 新卒",
+    cat: "industry",
+    title: "地域企業の採用難 ・ 人材確保",
+    urgency: 5, severity: 5,
+    regions: ["all"],
+    traits: ["urban", "rural-mountain", "fishing-village", "agriculture"],
+    tags: ["採用難", "人材不足", "地域企業", "中小企業", "人手不足", "新卒採用", "若手流出"],
+    addedAt: "2026-06-12",
+    externalCases: [
+      { who: "福井県鯖江市 ( メガネ産業の地域採用 )", what: "メガネ産業集積地として、業界横断の採用ブランディング ・ 地域内インターン ・ 工場見学を組織化。「鯖江で働く」価値を地域全体で発信。", year: 2010, source: { t: "鯖江市", o: "福井県鯖江市", u: "https://www.city.sabae.fukui.jp/" } },
+      { who: "岡山県西粟倉村 ( ローカルベンチャー )", what: "森林産業集積と西粟倉ローカルベンチャー育成。村営の事業創出プログラムで新規参入者と人材を同時育成。15 年継続。", year: 2010, source: { t: "西粟倉村", o: "岡山県西粟倉村", u: "https://www.vill.nishiawakura.okayama.jp/" } },
+    ],
+    summary: "中小企業 ・ サービス業 ・ 建設 ・ 介護 ・ 飲食等、地域企業全般で採用難が深刻化。給与差 ・ 情報接点不足 ・ 移住障壁 ・ ブランド力不在の 4 つの構造要因。",
+    fact: "全国の中小企業人手不足感は高水準で推移 ( 日銀短観 ・ 帝国データバンク 等 ) 。北海道は道内有効求人倍率約 1.0-1.3 ( 月により変動 ・ 厚労省 ) 、業種別では宿泊 ・ 飲食 ・ 介護 ・ 建設 ・ 運輸が特に深刻。新卒採用の道外流出が常態化、道内中小企業の採用充足率は業種によっては 50-70%。",
+    interp: "個別企業の給与 UP ・ 福利厚生競争では限界。求職者から見ると「地域企業」が個別に見えず、業界 ・ 地域全体としての魅力が伝わらない。地域全体での「働く魅力」設計 ( 採用ブランディング ・ 移住連動 ・ 業界横断 ・ 関係人口 ) が必要。",
+    initiatives: [
+      { who: "北海道 / 道経連", what: "道内企業の採用支援 ・ UIJ ターン促進、合同企業説明会等", region: "all", s: -1 },
+      { who: "札幌商工会議所", what: "地域企業との連携採用支援 ・ インターンシップ", region: "dou-o", s: -1 },
+      { who: "道内 NPO ・ 地域商社", what: "地域企業の採用ブランディング支援、移住相談との連動", region: "all", s: -1 },
+    ],
+    sources: [],
+    deep: [
+      { h: "数値で見る現状", b: "全国中小企業の人手不足感は高水準で推移 ( 日銀短観 ) 。北海道の有効求人倍率は約 1.0-1.3 ( 月変動 ) 、業種別では宿泊 ・ 飲食 ・ 介護 ・ 建設 ・ 運輸で特に深刻。中小企業の採用充足率は 50-70% 程度の業種も多い。新卒採用は道外流出が常態化、特に大卒は首都圏志向が強い。" },
+      { h: "4 つの構造要因", b: "1. 給与差 ( 道内中小 vs 都市圏大企業で月収 5-10 万円差 ) 、2. 情報接点不足 ( 大手サイトに地域中小は載りにくい、検索でも届かない ) 、3. 移住障壁 ( 住居 ・ 通勤 ・ 配偶者の仕事 ・ 子育て ) 、4. ブランド力不在 ( 個別企業が孤立、地域全体としての魅力が伝わらない ) 。4 つは複合構造、給与だけ上げても解決しない。" },
+      { h: "中心問い", b: "「個別企業の努力 ( 給与 UP ・ 福利厚生 ・ 求人広告 ) 」か、「地域全体での『働く魅力』設計」か。前者は短期的、後者は 5-10 年で効く長期戦略。両方が必要だが、評価軸が後者を許容できないと、現場は短期競争に縛られ続ける。" },
+      { h: "残る資産で評価する", b: "採用施策で残る資産は 4 種。事業資産 ( 採用ブランド ・ 業界連携プラットフォーム ) 、関係資産 ( 都市 - 地方の人材ネットワーク、関係人口 ) 、仕組み資産 ( 共同採用 ・ 移住支援 ・ インターン体制 ) 、規範資産 ( 「地方で働く」が選択肢として根付く文化 ) 。個別企業の中途採用数より、これら 4 資産の蓄積が長期競争力。" },
+      { h: "アクター別の手段", b: "国 ( UIJ ターン助成 ・ 中小企業庁 ) 、道 ( 雇用支援 ・ 移住交流ポータル ) 、市町村 ( 採用 ・ 移住相談の窓口統合 ) 、商工会議所 ( 業界横断採用 ) 、地域商社 ( ブランディング ・ 関係人口設計 ) 、企業 ( 個別努力 + 共同体制への参加 ) 、教育機関 ( キャリア教育 ・ インターン ) 、地域住民 ( 移住者受け入れ ) 。多主体連動が前提。" },
+    ],
+    stats: [
+      { v: "約 1.0-1.3", l: "道内有効求人倍率 ( 月により変動 )", source: { t: "一般職業紹介状況", o: "厚生労働省", u: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/jakunensha/index.html", year: 2024 } },
+      { v: "50-70%", l: "道内中小企業の採用充足率 ( 業種により異なる )" },
+    ],
+    measures: [
+      { t: "業界横断の合同採用ブランディング", d: "個別企業でなく業種 ・ 地域単位で共同採用、認知 ・ 移住支援 ・ 体験を統合運営" },
+      { t: "移住相談と就業支援の窓口統合", d: "住居 ・ 配偶者 ・ 子育て ・ 仕事をワンストップで支援、移住障壁を地域全体で下げる" },
+      { t: "関係人口からの就業誘導", d: "観光 ・ 体験 ・ ふるさと納税の寄附者を、段階的に就業者 ・ 移住者へ誘導する動線設計" },
+    ],
+    research: [
+      { t: "厚生労働省 一般職業紹介状況", o: "厚生労働省", u: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/jakunensha/index.html" },
+      { t: "日本銀行 全国企業短期経済観測調査 ( 短観 )", o: "日本銀行", u: "https://www.boj.or.jp/statistics/tk/" },
+      { t: "北海道 移住交流ポータル", o: "北海道", u: "https://www.pref.hokkaido.lg.jp/ss/tkr/" },
+    ]
+  },
+  {
     id: "foreign-resident-support",
     q: "北海道 外国人 住民 受け入れ 言語 コミュニケーション コミュニティ 住宅",
     cat: "tourism",
@@ -2278,6 +2323,33 @@ const ARTICLES = [
     readMinutes: 4,
     relatedIssues: ["succession"],
     summary: "黒字でも廃業に至る事業者が少なくない。承継 = 人 + 価値再設計 + 販路という三層構造と、わたしたちにできる関わり方。",
+  },
+  {
+    id: "regional-recruitment-structure-2026-06",
+    title: "地域企業の採用難 - なぜ給与 UP では届かないのか",
+    category: "課題発見",
+    publishedAt: "2026-06-12",
+    readMinutes: 4,
+    relatedIssues: ["regional-business-recruitment"],
+    summary: "中小企業 ・ サービス ・ 建設 ・ 介護 ・ 飲食 ・ 製造業のいずれも深刻な採用難。給与差 ・ 情報接点 ・ 移住障壁 ・ ブランド力不在の 4 構造要因を読み解く。",
+  },
+  {
+    id: "regional-recruitment-transition-2026-06",
+    title: "地域全体で『働く魅力』を設計する - 採用の 4 つの転換",
+    category: "アイデア",
+    publishedAt: "2026-06-12",
+    readMinutes: 4,
+    relatedIssues: ["regional-business-recruitment"],
+    summary: "個別企業の給与競争でなく、業界 ・ 主体 ・ 接点 ・ 指標を組み替える 4 つの転換で、地域全体での採用ブランディングを設計する。",
+  },
+  {
+    id: "youth-leaving-reasons-2026-06",
+    title: "若者が地域を離れる - 5 つの理由と地域に残る選択肢の作り方",
+    category: "課題発見",
+    publishedAt: "2026-06-12",
+    readMinutes: 4,
+    relatedIssues: ["regional-business-recruitment", "migration", "youth-support"],
+    summary: "若者の地域離脱を「個人の選択」と諦めず、5 つの理由を構造的に読み解き、残る ・ 戻る ・ 関わるの 3 つの選択肢を地域に作る視点。",
   },
 ];
 
