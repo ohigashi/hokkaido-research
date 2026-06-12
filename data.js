@@ -1787,4 +1787,49 @@ const PLAYERS = [
   },
 ];
 
+// 参加できる機会 ・ プロジェクト ・ ネットワーク
+const OPPORTUNITIES = [
+  {
+    type: "募集 ・ 協力隊",
+    title: "地域おこし協力隊 全国募集ポータル",
+    org: "総務省 ・ 移住交流推進機構",
+    url: "https://www.iju-join.jp/",
+    summary: "全国の協力隊募集を横断検索。北海道内の自治体募集もここから探せる。",
+    issues: ["migration", "school-consolidation"]
+  },
+  {
+    type: "プロジェクト ・ 寄附",
+    title: "ふるさとチョイス ガバメント CF ( 北海道 )",
+    org: "ふるさとチョイス",
+    url: "https://www.furusato-tax.jp/gcf?pref=hokkaido",
+    summary: "北海道内の自治体が進める課題解決プロジェクトに寄附で参加 ・ 応援。",
+    issues: ["furusato-nozei", "biodiversity", "bear-conflict"]
+  },
+  {
+    type: "イベント検索",
+    title: "Peatix 北海道 ・ 地域系イベント",
+    org: "Peatix",
+    url: "https://peatix.com/search?country=JP&q=%E5%8C%97%E6%B5%B7%E9%81%93",
+    summary: "北海道で開催される地域 ・ 移住 ・ 起業関連の勉強会 ・ 交流会を一覧。",
+    issues: ["migration", "new-industry"]
+  },
+  {
+    type: "発信 ・ 取材",
+    title: "道北ネット 取材 ・ 寄稿受付",
+    org: "道北ネット",
+    url: "https://dohoku.net/",
+    summary: "道北エリアの取り組みを取り上げてほしい場合は道北ネット経由で発信できる。",
+    issues: ["migration", "depopulation"]
+  },
+  {
+    type: "ネットワーク",
+    title: "ドット道東 DOTO-NET ( 道東若者ネットワーク )",
+    org: "ドット道東",
+    url: "https://dotdoto.com/",
+    summary: "道東を中心とした若者プレイヤーのネットワーク。仲間づくりや関係人口の入口。",
+    issues: ["migration", "new-industry"]
+  },
+];
+
+
 
