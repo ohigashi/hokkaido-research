@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>北海道・地域課題リサーチ</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-45HHCDR0LB');
+</script>
 <style>
   /* ===== 北海道「地形メモ」デザイン =====
      パレット: 残雪のオフホワイト × 針葉樹の深緑 × 凍土のスレート × 流氷ブルーのアクセント
@@ -365,12 +372,14 @@
     const b=e.target.closest('[data-cat]'); if(!b)return;
     state.cat=b.dataset.cat;
     catChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    if(window.gtag) gtag('event','category_filter_click',{category:state.cat});
     render();
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
     regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    if(window.gtag) gtag('event','region_filter_click',{region:state.region});
     render();
   });
   document.querySelector('.sort-row').addEventListener('click',e=>{
@@ -435,6 +444,7 @@
 
   function openModal(id, pushHash=true, expandDeep=false){
     const it = ISSUES.find(x=>x.id===id); if(!it)return;
+    if(window.gtag) gtag('event','issue_card_open',{issue_id:it.id,issue_title:it.title,issue_cat:it.cat});
     if(pushHash){ setHash(id); }
     const c = catMap[it.cat];
     const rtags = it.regions.map(r=>`<span class="rtag" title="${regMap[r].desc}">${regMap[r].name}</span>`).join('');
@@ -556,6 +566,10 @@
   }
   modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[target="_blank"]'); if(!a)return;
+    if(window.gtag) gtag('event','external_source_click',{link_url:a.href,link_text:(a.textContent||'').trim().slice(0,80)});
+  });
   document.getElementById('grid').addEventListener('click',e=>{
     const dig=e.target.closest('[data-dig]');
     if(dig){ e.stopPropagation(); openModal(dig.dataset.dig, true, true); return; }
