@@ -890,6 +890,7 @@
         <button class="sort-btn" data-sort="fresh" aria-pressed="false">鮮度</button>
       </span>
       <button id="global-reset" class="global-reset" data-active="false">✕ すべて表示</button>
+      <button id="latest-view-btn" class="bookmark-view-btn" type="button">📅 新着</button>
       <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">♥ <span class="bookmark-count">0</span> 気になる</button>
       <span class="count"><b id="num">0</b> 件</span>
       <button class="top-btn" id="top-btn">▲ TOP</button>
@@ -1462,6 +1463,36 @@
     syncCatUI(); syncTagUI(); syncRegionUI(); syncTraitUI(); syncGlobalReset();
     if(window.gtag) gtag('event','global_reset',{});
     render();
+  });
+
+  // 新着モーダル
+  document.getElementById('latest-view-btn').addEventListener('click', ()=>{
+    if(window.gtag) gtag('event','latest_view_open',{});
+    const items = [...ISSUES].sort((a,b)=>{
+      const aT = a.addedAt || '';
+      const bT = b.addedAt || '';
+      if(aT !== bT) return bT.localeCompare(aT);
+      return (b.initiatives||[]).length - (a.initiatives||[]).length;
+    });
+    const listHtml = items.map(it=>{
+      const c = catMap[it.cat];
+      return `<div class="stat-list-item" data-go-issue="${it.id}">
+        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ ${it.addedAt || '日付未設定'}</div>
+        <div class="stat-list-title">${it.title}</div>
+      </div>`;
+    }).join('');
+    inner.innerHTML = `<div class="stat-modal-head">
+      <button class="stat-modal-close" aria-label="閉じる">×</button>
+      <h2>新着の課題</h2>
+      <div class="stat-modal-meta">${items.length} 件 ・ 追加日降順</div>
+    </div>
+    <div class="stat-modal-body"><div class="stat-list">${listHtml}</div></div>`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    inner.querySelector('.stat-modal-close').addEventListener('click', closeModal);
+    inner.querySelectorAll('[data-go-issue]').forEach(el=>{
+      el.addEventListener('click', ()=>openModal(el.dataset.goIssue));
+    });
   });
 
   // 気になるリストモーダル
