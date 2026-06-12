@@ -356,10 +356,6 @@
 <div class="controls">
   <div class="wrap">
     <div>
-      <div class="ctrl-label">社会システムで絞る</div>
-      <div class="chip-row" id="cat-chips"></div>
-    </div>
-    <div>
       <div class="ctrl-label">地域で絞る</div>
       <div class="chip-row" id="region-chips"></div>
     </div>
@@ -398,10 +394,7 @@
 
   let state = { cat:'all', region:'all', sort:'urgency' };
 
-  // チップ生成
-  const catChips = document.getElementById('cat-chips');
-  catChips.innerHTML = `<button class="chip" data-cat="all" aria-pressed="true">すべて</button>` +
-    CATEGORIES.map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="false"><span class="dot" style="background:${c.color}"></span>${c.name}</button>`).join('');
+  // チップ生成（地域のみ）
   const regChips = document.getElementById('region-chips');
   regChips.innerHTML = REGIONS.map(r=>`<button class="chip" data-region="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('');
 
@@ -413,31 +406,30 @@
       <span class="ov-bar" style="background:${c.color}"></span>
       <div class="ov-name">${c.name}</div>
       <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
-      <div class="ov-desc">${c.desc}</div>
+      <div class="ov-desc" data-default="${c.desc}">${c.desc}</div>
     </button>`;
   }).join('');
 
   function syncCatUI(){
-    catChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.cat===state.cat));
-    ovGrid.querySelectorAll('.ov-tile').forEach(t=>t.setAttribute('aria-pressed', t.dataset.ovCat===state.cat));
+    ovGrid.querySelectorAll('.ov-tile').forEach(t=>{
+      const on = t.dataset.ovCat===state.cat;
+      t.setAttribute('aria-pressed', on);
+      const d = t.querySelector('.ov-desc');
+      d.textContent = on ? 'もう一度押すと解除' : d.dataset.default;
+    });
   }
-
-  catChips.addEventListener('click',e=>{
-    const b=e.target.closest('[data-cat]'); if(!b)return;
-    state.cat=b.dataset.cat;
-    syncCatUI();
-    if(window.gtag) gtag('event','category_filter_click',{category:state.cat});
-    render();
-  });
 
   ovGrid.addEventListener('click',e=>{
     const t=e.target.closest('[data-ov-cat]'); if(!t)return;
-    state.cat=t.dataset.ovCat;
+    const clicked = t.dataset.ovCat;
+    state.cat = (state.cat===clicked) ? 'all' : clicked;
     syncCatUI();
     if(window.gtag) gtag('event','structure_map_click',{category:state.cat});
     render();
-    const g=document.getElementById('grid');
-    if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
+    if(state.cat!=='all'){
+      const g=document.getElementById('grid');
+      if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
+    }
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
