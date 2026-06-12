@@ -282,6 +282,13 @@
   .latest-title{font-size:14px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
   .latest-lede{font-size:11.5px;color:var(--slate);margin:0;line-height:1.55}
   .latest-list{display:flex;flex-direction:column;gap:5px}
+  .latest-more{
+    font-family:inherit;cursor:pointer;margin-top:8px;align-self:flex-start;
+    font-size:11.5px;font-weight:700;color:var(--ink);background:transparent;
+    border:1px solid var(--line);padding:6px 14px;border-radius:30px;
+    transition:all .12s;display:inline-flex;align-items:center;gap:6px;
+  }
+  .latest-more:hover{border-color:var(--ink);background:var(--snow)}
   .latest-item{
     font-family:inherit;text-align:left;cursor:pointer;width:100%;
     background:var(--paper);border:1px solid var(--line);border-radius:5px;
@@ -474,9 +481,10 @@
   <div class="wrap">
     <div class="latest-head">
       <h3 class="latest-title">新着の課題</h3>
-      <p class="latest-lede">直近で追加・更新された 10 件。</p>
+      <p class="latest-lede">直近で追加・更新された課題。</p>
     </div>
     <div class="latest-list" id="latest-list"></div>
+    <button id="latest-more" class="latest-more" hidden></button>
   </div>
 </section>
 
@@ -657,26 +665,45 @@
   });
 
   // 新着リスト生成 ( addedAt 降順、tie-break は重要度 )
-  const latestItems = [...ISSUES].sort((a,b)=>{
+  const LATEST_INITIAL = 7;
+  const latestSorted = [...ISSUES].sort((a,b)=>{
     const aT = a.addedAt || '';
     const bT = b.addedAt || '';
     if(aT !== bT) return bT.localeCompare(aT);
     return importanceScore(b) - importanceScore(a);
-  }).slice(0, 10);
+  });
   const latestList = document.getElementById('latest-list');
-  latestList.innerHTML = latestItems.map(it=>{
-    const c = catMap[it.cat];
-    return `<button class="latest-item" data-id="${it.id}">
-      <span class="latest-cat"><span class="latest-cat-dot" style="background:${c.color}"></span>${c.name}</span>
-      <span class="latest-date">${it.addedAt || '日付未設定'}</span>
-      <span class="latest-title-text">${it.title}</span>
-      <span class="latest-imp">重要<b>${importanceScore(it)}</b>/10</span>
-    </button>`;
-  }).join('');
+  const latestMore = document.getElementById('latest-more');
+  let latestExpanded = false;
+  function renderLatest(){
+    const items = latestExpanded ? latestSorted : latestSorted.slice(0, LATEST_INITIAL);
+    latestList.innerHTML = items.map(it=>{
+      const c = catMap[it.cat];
+      return `<button class="latest-item" data-id="${it.id}">
+        <span class="latest-cat"><span class="latest-cat-dot" style="background:${c.color}"></span>${c.name}</span>
+        <span class="latest-date">${it.addedAt || '日付未設定'}</span>
+        <span class="latest-title-text">${it.title}</span>
+        <span class="latest-imp">重要<b>${importanceScore(it)}</b>/10</span>
+      </button>`;
+    }).join('');
+    const rest = latestSorted.length - LATEST_INITIAL;
+    if(rest > 0){
+      latestMore.hidden = false;
+      latestMore.innerHTML = latestExpanded ? '閉じる ▲' : `もっと見る ▼ ( 残り ${rest} 件 )`;
+    } else {
+      latestMore.hidden = true;
+    }
+  }
+  renderLatest();
   latestList.addEventListener('click',e=>{
     const b = e.target.closest('[data-id]'); if(!b) return;
     if(window.gtag) gtag('event','latest_item_click',{issue_id:b.dataset.id});
     openModal(b.dataset.id);
+  });
+  latestMore.addEventListener('click',()=>{
+    latestExpanded = !latestExpanded;
+    if(window.gtag) gtag('event','latest_expand',{expanded:latestExpanded});
+    renderLatest();
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
