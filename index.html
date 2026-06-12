@@ -564,12 +564,12 @@
   .ov-tile{
     font-family:inherit;text-align:left;cursor:pointer;
     background:var(--paper);border:1px solid var(--line);border-radius:6px;
-    padding:12px 13px 11px;position:relative;
+    padding:11px 13px;position:relative;overflow:hidden;
     transition:transform .12s,box-shadow .12s,border-color .12s;
     display:flex;flex-direction:column;gap:6px;
   }
   .ov-tile:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.06);border-color:var(--slate)}
-  .ov-tile .ov-bar{display:block;width:32px;height:3px;border-radius:2px}
+  .ov-tile .ov-bar{display:block;height:5px;margin:-11px -13px 8px;border-radius:0}
   .ov-tile .ov-name{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.35}
   .ov-tile .ov-count{font-size:24px;font-weight:900;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
   .ov-tile .ov-count .ov-unit{font-size:11px;font-weight:700;color:var(--slate);margin-left:3px}
@@ -677,7 +677,6 @@
   <div class="wrap">
     <div class="ov-head">
       <h2 class="ov-title">社会システムで見る</h2>
-      <p class="ov-lede">北海道の地域課題を 8 つの社会システムで分類しています。タイルを押すと、そのテーマの課題に絞り込めます。</p>
       <button id="ov-reset" class="ov-reset" hidden>✕ すべて表示</button>
     </div>
     <div class="ov-grid" id="ov-grid"></div>
