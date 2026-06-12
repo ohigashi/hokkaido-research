@@ -740,6 +740,12 @@
           <div class="dd-row" id="region-chips"></div>
         </div>
       </div>
+      <div class="dd" data-dd="trait">
+        <button class="dd-btn" id="dd-trait-btn" aria-expanded="false">地域特性<span class="dd-arrow">▼</span></button>
+        <div class="dd-panel" id="dd-trait-panel">
+          <div class="dd-row" id="trait-chips"></div>
+        </div>
+      </div>
       <span class="sort-mini">
         <button class="sort-btn" data-sort="importance" aria-pressed="true">重要</button>
         <button class="sort-btn" data-sort="heat" aria-pressed="false">話題</button>
@@ -843,7 +849,7 @@
     return scored.slice(0,3).map(p=>p.x);
   }
 
-  let state = { cat:'all', region:'all', sort:'importance', tag:null };
+  let state = { cat:'all', region:'all', sort:'importance', tag:null, trait:null };
 
   // 重要度 / 話題度 スコア
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
@@ -1111,9 +1117,32 @@
     ddRegionBtn.firstChild.textContent = (r && r.id!=='all') ? `地域: ${r.name}` : '地域';
   }
   function syncGlobalReset(){
-    const active = (state.cat !== 'all') || !!state.tag || (state.region !== 'all');
+    const active = (state.cat !== 'all') || !!state.tag || (state.region !== 'all') || !!state.trait;
     document.getElementById('global-reset').setAttribute('data-active', active ? 'true' : 'false');
   }
+
+  // 地域特性チップ + ドロップダウン
+  const traitChips = document.getElementById('trait-chips');
+  if(typeof TRAITS !== 'undefined'){
+    traitChips.innerHTML = '<button class="chip" data-trait="all" aria-pressed="true">すべて</button>' +
+      TRAITS.map(t=>`<button class="chip" data-trait="${t.id}" aria-pressed="false" title="${t.desc}">${t.name}</button>`).join('');
+  }
+  const ddTraitBtn = document.getElementById('dd-trait-btn');
+  function syncTraitUI(){
+    traitChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.trait===(state.trait||'all')));
+    const activeTrait = state.trait && state.trait!=='all';
+    ddTraitBtn.classList.toggle('active', activeTrait);
+    const tName = activeTrait ? (TRAITS.find(t=>t.id===state.trait)||{}).name : null;
+    ddTraitBtn.firstChild.textContent = tName ? `地域特性: ${tName}` : '地域特性';
+  }
+  traitChips.addEventListener('click', e=>{
+    const b = e.target.closest('[data-trait]'); if(!b) return;
+    state.trait = (b.dataset.trait === 'all') ? null : b.dataset.trait;
+    syncTraitUI(); syncGlobalReset();
+    if(window.gtag) gtag('event','trait_click',{trait:state.trait||'all'});
+    render();
+    closeAllDD();
+  });
 
   // ドロップダウン共通制御
   function closeAllDD(){
@@ -1144,9 +1173,9 @@
 
   // グローバルリセット ( すべて表示 )
   document.getElementById('global-reset').addEventListener('click', ()=>{
-    state.cat = 'all'; state.tag = null; state.region = 'all';
+    state.cat = 'all'; state.tag = null; state.region = 'all'; state.trait = null;
     regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region==='all'));
-    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncTraitUI(); syncGlobalReset();
     if(window.gtag) gtag('event','global_reset',{});
     render();
   });
@@ -1159,6 +1188,7 @@
 
   // 初期状態同期
   syncRegionUI();
+  syncTraitUI();
   syncGlobalReset();
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
@@ -1184,7 +1214,8 @@
       const okCat = state.cat==='all' || it.cat===state.cat;
       const okReg = state.region==='all' || it.regions.includes(state.region);
       const okTag = !state.tag || (it.tags||[]).includes(state.tag);
-      return okCat && okReg && okTag;
+      const okTrait = !state.trait || (it.traits||[]).includes(state.trait);
+      return okCat && okReg && okTag && okTrait;
     });
     list.sort((a,b)=>{
       if(state.sort==='initiatives') return b.initiatives.length - a.initiatives.length;
