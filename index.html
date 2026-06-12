@@ -1005,7 +1005,7 @@
           <div class="dd-row" id="trait-chips"></div>
         </div>
       </div>
-      <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">♥ <span class="bookmark-count">0</span> 気になる</button>
+      <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">📎 <span class="bookmark-count">0</span> 気になる</button>
     </div>
   </div>
 </div>
@@ -1266,7 +1266,7 @@
     document.querySelectorAll('[data-bookmark-id]').forEach(b=>{
       const on = isBookmarked(b.dataset.bookmarkId);
       b.classList.toggle('is-bookmarked', on);
-      b.textContent = on ? '♥' : '♡';
+      b.textContent = on ? '📎' : '📎';
     });
   }
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
@@ -1647,7 +1647,7 @@
         <div class="stat-list-title">${it.title}</div>
         <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span>・取組 ${(it.initiatives||[]).length} 件</div>
       </div>`;
-    }).join('') : '<p style="color:var(--slate);text-align:center;padding:40px 20px">気になる課題はまだありません。各カードのハート ♡ で追加できます。</p>';
+    }).join('') : '<p style="color:var(--slate);text-align:center;padding:40px 20px">気になる課題はまだありません。各カードのクリップ 📎 で追加できます。</p>';
     inner.innerHTML = `<div class="stat-modal-head">
       <button class="stat-modal-close" aria-label="閉じる">×</button>
       <h2>気になる課題</h2>
@@ -1774,7 +1774,7 @@
       const articleCount = (typeof ARTICLES !== 'undefined')
         ? ARTICLES.filter(a => (a.relatedIssues||[]).includes(it.id)).length : 0;
       return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
-        <button class="card-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加">${isBookmarked(it.id)?'♥':'♡'}</button>
+        <button class="card-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加 ・ クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
         <div class="cat-bar" style="background:${c.color};height:5px"></div>
         <div class="card-body">
           <div class="card-top">
@@ -2000,7 +2000,7 @@
     inner.innerHTML = `
       <div class="modal-head" style="background:${c.color}">
         <button class="modal-close" aria-label="閉じる">×</button>
-        <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加">${isBookmarked(it.id)?'♥':'♡'}</button>
+        <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加 ・ クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
         <div class="modal-cat">${c.name}</div>
         <h2>${it.title}</h2>
         <div class="modal-scores">
