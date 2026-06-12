@@ -264,7 +264,10 @@
   .ini-item{
     border:1px solid var(--line);border-left:3px solid #B5733A;border-radius:4px;
     padding:12px 14px;background:var(--snow);
+    transition:background .12s;
   }
+  .ini-item[data-card-url]{cursor:pointer}
+  .ini-item[data-card-url]:hover{background:#EBEAE0}
   .ini-who{font-size:13px;font-weight:800;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .ini-region-tag{font-size:10px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.1);padding:2px 7px;border-radius:3px}
   .ini-what{font-size:12.5px;color:var(--slate);line-height:1.6}
@@ -1282,7 +1285,8 @@
       const rt = n.region ? `<span class="ini-region-tag">${regMap[n.region]?regMap[n.region].short:n.region}</span>` : '';
       const topicWords = (it.q||it.title).split(' ').filter(w=>w!=='北海道').slice(0,2).join(' ');
       const iniSearch = `<a class="ini-search" href="https://news.google.com/search?q=${enc(n.who.replace(/（.*?）/g,'')+' '+topicWords)}&hl=ja&gl=JP&ceid=JP:ja" target="_blank" rel="noopener">記事を検索 ↗</a>`;
-      return `<div class="ini-item"><div class="ini-who">${n.who}${rt}${iniSearch}</div><div class="ini-what">${n.what}</div>${src}</div>`;
+      const iniUrl = (n.s>=0 && SOURCES[n.s]) ? SOURCES[n.s].u : '';
+      return `<div class="ini-item"${iniUrl?` data-card-url="${iniUrl}"`:''}><div class="ini-who">${n.who}${rt}${iniSearch}</div><div class="ini-what">${n.what}</div>${src}</div>`;
     }).join('');
     const srcList = (it.sources&&it.sources.length)
       ? `<div class="mb-sources"><div class="mb-label">出典・データ</div><ul>${it.sources.map(si=>{const s=SOURCES[si];return s?`<li><a href="${s.u}" target="_blank" rel="noopener">${s.t}</a> <span class="src-org">／ ${s.o}</span>${yearBadge(s.year,true)}</li>`:'';}).join('')}</ul></div>`
