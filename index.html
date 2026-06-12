@@ -259,6 +259,14 @@
   .stat-box::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--ice)}
   .stat-v{font-size:21px;font-weight:900;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
   .stat-l{font-size:10.5px;color:var(--slate);line-height:1.45;margin-top:4px}
+  .stat-trend{margin-top:9px;display:flex;flex-direction:column;gap:3px;border-top:1px dashed var(--line);padding-top:8px}
+  .stat-trend-row{display:flex;align-items:center;gap:7px;font-size:9.5px;color:var(--slate)}
+  .stat-trend-year{font-weight:700;min-width:30px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .stat-trend-bar-wrap{flex:1;height:5px;background:rgba(46,124,168,.08);border-radius:2px;overflow:hidden}
+  .stat-trend-bar{height:100%;background:var(--ice);border-radius:2px}
+  .stat-trend-val{font-weight:700;font-variant-numeric:tabular-nums;min-width:46px;text-align:right}
+  .stat-trend-row.now .stat-trend-val,.stat-trend-row.now .stat-trend-year{color:var(--ink);font-weight:900}
+  .stat-trend-row.now .stat-trend-bar{background:var(--ink)}
 
   /* 施策の例 */
   .measure-list{display:flex;flex-direction:column;gap:10px;counter-reset:msr}
@@ -541,6 +549,21 @@
     return '';
   }
 
+  // stat trend 描画
+  function renderTrend(trend){
+    if(!trend || !trend.length) return '';
+    const maxVal = Math.max(...trend.map(t=>t.value));
+    return `<div class="stat-trend">${trend.map((t,i)=>{
+      const isNow = i === trend.length - 1;
+      const pct = maxVal > 0 ? (t.value / maxVal * 100).toFixed(0) : 0;
+      return `<div class="stat-trend-row${isNow?' now':''}">
+        <span class="stat-trend-year">${t.year}</span>
+        <span class="stat-trend-bar-wrap"><span class="stat-trend-bar" style="width:${pct}%"></span></span>
+        <span class="stat-trend-val">${t.label || t.value}</span>
+      </div>`;
+    }).join('')}</div>`;
+  }
+
   // 関連課題のスコアリング
   function relatedIssues(it){
     const scored = ISSUES.filter(x=>x.id!==it.id).map(x=>{
@@ -821,7 +844,7 @@
     const statsBlock = (it.stats && it.stats.length) ? `
       <div class="mb-section">
         <div class="mb-label" style="color:var(--ice)">重要性を示すデータ</div>
-        <div class="stat-grid">${it.stats.map(s=>`<div class="stat-box"><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div></div>`).join('')}</div>
+        <div class="stat-grid">${it.stats.map(s=>`<div class="stat-box"><div class="stat-v">${s.v}</div><div class="stat-l">${s.l}</div>${renderTrend(s.trend)}</div>`).join('')}</div>
       </div>` : '';
     const measuresBlock = (it.measures && it.measures.length) ? `
       <div class="mb-section">
