@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#F2F0E9"/>
+  <g fill="none" stroke="#2C6E63" stroke-width="1.5" opacity="0.13">
+    <path d="M-50,460 Q330,360 600,460 T1250,460"/>
+    <path d="M-50,520 Q310,420 620,520 T1250,520"/>
+    <path d="M-50,580 Q320,480 600,580 T1250,580"/>
+  </g>
+  <g fill="none" stroke="#2E7CA8" stroke-width="1" opacity="0.10">
+    <path d="M-50,120 Q310,40 600,140 T1250,120"/>
+    <path d="M-50,200 Q300,110 620,210 T1250,200"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif">
+    <text x="100" y="90" font-size="20" font-weight="700" fill="#2C6E63" letter-spacing="3">HOKKAIDO RESEARCH</text>
+    <line x1="100" y1="105" x2="180" y2="105" stroke="#1F2A28" stroke-width="3"/>
+
+    <text x="100" y="240" font-size="58" font-weight="800" fill="#1F2A28">北海道の地域課題を知る、</text>
+    <text x="100" y="320" font-size="58" font-weight="800" fill="#2C6E63">北海道の未来と向き合う。</text>
+
+    <text x="100" y="395" font-size="22" font-weight="500" fill="#3A4A52">8 つの社会システムで分類、20 課題の構造分析と取り組み事例</text>
+    <text x="100" y="430" font-size="20" font-weight="500" fill="#3A4A52">道内 / 道外の事例を横断、信頼できる出典で「知る → 着想 → 実行」を支援</text>
+
+    <text x="100" y="555" font-size="18" font-weight="700" fill="#1F2A28" letter-spacing="1">hokkaido-research.lrg.jp</text>
+    <text x="1100" y="555" font-size="15" font-weight="600" fill="#3A4A52" text-anchor="end">Largo Media</text>
+  </g>
+</svg>
