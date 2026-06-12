@@ -192,6 +192,12 @@
     display:flex;flex-direction:column;
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px var(--shadow);border-color:var(--slate)}
+  .card.imp-high{border-color:var(--ink)}
+  .card.imp-high .card-imp-badge{
+    position:absolute;top:8px;right:8px;z-index:2;
+    background:var(--ink);color:var(--snow);font-size:9.5px;font-weight:800;
+    padding:3px 8px;border-radius:30px;letter-spacing:.04em;
+  }
   .card .cat-bar{height:5px;width:100%}
   .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
@@ -507,7 +513,38 @@
   .ov-tile .ov-name{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.35}
   .ov-tile .ov-count{font-size:24px;font-weight:900;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
   .ov-tile .ov-count .ov-unit{font-size:11px;font-weight:700;color:var(--slate);margin-left:3px}
-  .ov-tile .ov-desc{font-size:10.5px;color:var(--slate);line-height:1.5}
+  .ov-tile .ov-metrics{display:flex;flex-direction:column;gap:3px;margin:6px 0 4px}
+  .ov-tile .ov-metric{display:flex;align-items:center;gap:5px;font-size:9.5px;color:var(--slate)}
+  .ov-tile .ov-metric-label{font-weight:700;min-width:26px}
+  .ov-tile .ov-metric-bar{flex:1;height:4px;background:rgba(31,42,40,.08);border-radius:2px;overflow:hidden}
+  .ov-tile .ov-metric-fill{height:100%;border-radius:2px}
+  .ov-tile .ov-metric-val{font-weight:800;font-variant-numeric:tabular-nums;min-width:22px;text-align:right;color:var(--ink);font-size:10px}
+  .ov-tile .ov-ini{font-size:10px;color:var(--slate);font-weight:700;margin-top:1px}
+  .ov-tile .ov-ini b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .ov-tile .ov-desc{font-size:10.5px;color:var(--slate);line-height:1.5;margin-top:2px}
+
+  /* ===== 地域分布 ( B ) ===== */
+  .region-dist{padding:6px 0 22px;position:relative;z-index:1}
+  .region-dist-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .region-dist-title{font-size:14px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
+  .region-dist-lede{font-size:11.5px;color:var(--slate);margin:0;line-height:1.55}
+  .region-dist-bars{display:flex;flex-direction:column;gap:5px}
+  .region-dist-row{
+    font-family:inherit;text-align:left;cursor:pointer;width:100%;
+    background:var(--paper);border:1px solid var(--line);border-radius:5px;
+    padding:8px 12px;display:flex;align-items:center;gap:11px;
+    transition:all .12s;
+  }
+  .region-dist-row:hover{border-color:var(--slate);background:var(--snow)}
+  .region-dist-name{font-size:12px;font-weight:800;color:var(--ink);min-width:100px}
+  .region-dist-bar-wrap{flex:1;height:8px;background:rgba(31,42,40,.06);border-radius:4px;overflow:hidden}
+  .region-dist-bar-fill{height:100%;background:var(--moss);border-radius:4px}
+  .region-dist-cnt{font-size:12px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;min-width:36px;text-align:right}
+  .region-dist-cnt-unit{font-size:9.5px;color:var(--slate);font-weight:700;margin-left:1px}
+  @media(max-width:600px){
+    .region-dist-name{min-width:78px;font-size:11.5px}
+    .region-dist-cnt{font-size:11px}
+  }
   .ov-tile[aria-pressed="true"]{background:var(--snow);border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
   @media(max-width:900px){.ov-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:600px){
@@ -580,6 +617,16 @@
       <button id="ov-reset" class="ov-reset" hidden>✕ すべて表示</button>
     </div>
     <div class="ov-grid" id="ov-grid"></div>
+  </div>
+</section>
+
+<section class="region-dist">
+  <div class="wrap">
+    <div class="region-dist-head">
+      <h3 class="region-dist-title">地域別の課題密度</h3>
+      <p class="region-dist-lede">どの地域に課題が集中しているか。クリックで該当地域に絞り込めます。</p>
+    </div>
+    <div class="region-dist-bars" id="region-dist-bars"></div>
   </div>
 </section>
 
@@ -755,14 +802,58 @@
   const regChips = document.getElementById('region-chips');
   regChips.innerHTML = REGIONS.map(r=>`<button class="chip" data-region="${r.id}" aria-pressed="${r.id==='all'}">${r.name}</button>`).join('');
 
-  // 構造マップ生成
+  // 地域分布 ( B )
+  const regionDistBars = document.getElementById('region-dist-bars');
+  const regionStats = REGIONS.map(r=>({
+    id: r.id, name: r.name,
+    cnt: ISSUES.filter(it=>it.regions.includes(r.id)).length
+  }));
+  const maxRegCnt = Math.max(1, ...regionStats.map(r=>r.cnt));
+  regionDistBars.innerHTML = regionStats.map(r=>{
+    const pct = (r.cnt / maxRegCnt * 100).toFixed(0);
+    return `<button class="region-dist-row" data-region-dist="${r.id}">
+      <span class="region-dist-name">${r.name}</span>
+      <span class="region-dist-bar-wrap"><span class="region-dist-bar-fill" style="width:${pct}%"></span></span>
+      <span class="region-dist-cnt">${r.cnt}<span class="region-dist-cnt-unit"> 件</span></span>
+    </button>`;
+  }).join('');
+  regionDistBars.addEventListener('click',e=>{
+    const b = e.target.closest('[data-region-dist]'); if(!b) return;
+    state.region = b.dataset.regionDist;
+    if(state.region !== 'all'){ state.cat = 'all'; state.tag = null; }
+    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region===state.region));
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
+    if(window.gtag) gtag('event','region_dist_click',{region:state.region});
+    render();
+    const g = document.getElementById('grid');
+    if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  // 構造マップ生成 ( A: 強化版 )
   const ovGrid = document.getElementById('ov-grid');
   ovGrid.innerHTML = CATEGORIES.map(c=>{
-    const cnt = ISSUES.filter(it=>it.cat===c.id).length;
+    const issuesInCat = ISSUES.filter(it=>it.cat===c.id);
+    const cnt = issuesInCat.length;
+    const avgImp = cnt ? issuesInCat.reduce((s,it)=>s+importanceScore(it),0)/cnt : 0;
+    const avgHeat = cnt ? issuesInCat.reduce((s,it)=>s+heatScore(it),0)/cnt : 0;
+    const iniCount = issuesInCat.reduce((s,it)=>s+(it.initiatives||[]).length,0);
     return `<button class="ov-tile" data-ov-cat="${c.id}" aria-pressed="false">
       <span class="ov-bar" style="background:${c.color}"></span>
       <div class="ov-name">${c.name}</div>
       <div class="ov-count">${cnt}<span class="ov-unit">件</span></div>
+      <div class="ov-metrics">
+        <div class="ov-metric">
+          <span class="ov-metric-label">重要</span>
+          <span class="ov-metric-bar"><span class="ov-metric-fill" style="width:${avgImp*10}%;background:${c.color}"></span></span>
+          <span class="ov-metric-val">${avgImp.toFixed(1)}</span>
+        </div>
+        <div class="ov-metric">
+          <span class="ov-metric-label">話題</span>
+          <span class="ov-metric-bar"><span class="ov-metric-fill" style="width:${avgHeat*10}%;background:${c.color};opacity:.7"></span></span>
+          <span class="ov-metric-val">${avgHeat.toFixed(1)}</span>
+        </div>
+      </div>
+      <div class="ov-ini">取組 <b>${iniCount}</b> 件</div>
       <div class="ov-desc" data-default="${c.desc}">${c.desc}</div>
     </button>`;
   }).join('');
@@ -1057,13 +1148,17 @@
     grid.innerHTML = list.map(it=>{
       const c = catMap[it.cat];
       const rtags = it.regions.map(r=>`<span class="rtag">${regMap[r].short}</span>`).join('');
-      return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
-        <div class="cat-bar" style="background:${c.color}"></div>
+      const imp = importanceScore(it);
+      const isHighImp = imp >= 9;
+      const barHeight = 4 + (imp / 2);
+      return `<article class="card ${isHighImp?'imp-high':''}" data-id="${it.id}" tabindex="0" role="button">
+        ${isHighImp ? `<span class="card-imp-badge">重要 ${imp}</span>` : ''}
+        <div class="cat-bar" style="background:${c.color};height:${barHeight}px"></div>
         <div class="card-body">
           <div class="card-top">
             <span class="cat-name" style="color:${c.color}">${c.name}</span>
             <div class="scores">
-              <div class="card-score">重要 <b>${importanceScore(it)}</b><span class="cs-unit">/10</span></div>
+              <div class="card-score">重要 <b>${imp}</b><span class="cs-unit">/10</span></div>
               <div class="card-score">話題 <b>${heatScore(it)}</b><span class="cs-unit">/10</span></div>
             </div>
           </div>
