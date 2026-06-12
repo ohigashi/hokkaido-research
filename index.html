@@ -276,6 +276,32 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== 新着リスト ===== */
+  .latest{padding:6px 0 20px;position:relative;z-index:1}
+  .latest-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .latest-title{font-size:14px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
+  .latest-lede{font-size:11.5px;color:var(--slate);margin:0;line-height:1.55}
+  .latest-list{display:flex;flex-direction:column;gap:5px}
+  .latest-item{
+    font-family:inherit;text-align:left;cursor:pointer;width:100%;
+    background:var(--paper);border:1px solid var(--line);border-radius:5px;
+    padding:9px 13px;display:flex;align-items:center;gap:11px;
+    transition:border-color .12s,background .12s,transform .12s;
+  }
+  .latest-item:hover{border-color:var(--slate);background:var(--snow);transform:translateX(2px)}
+  .latest-cat{font-size:10.5px;font-weight:800;letter-spacing:.04em;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;min-width:115px}
+  .latest-cat-dot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .latest-date{font-size:10px;color:var(--slate);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:80px}
+  .latest-title-text{font-size:13px;font-weight:700;color:var(--ink);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .latest-imp{font-size:10px;color:var(--slate);font-weight:700;white-space:nowrap}
+  .latest-imp b{color:var(--ink);font-size:12px;margin:0 2px;font-variant-numeric:tabular-nums}
+  @media(max-width:600px){
+    .latest-item{flex-wrap:wrap;gap:6px}
+    .latest-date{min-width:0}
+    .latest-cat{min-width:0}
+    .latest-title-text{flex-basis:100%;white-space:normal;font-size:13px}
+  }
+
   /* ===== トレンドキーワード ===== */
   .trends{padding:6px 0 20px;position:relative;z-index:1}
   .trends-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
@@ -411,7 +437,7 @@
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">北海道・地域課題リサーチ</div>
-    <h1 class="title">北海道の地域課題を知る、<br><span class="hl">北海道の未来に向き合う。</span></h1>
+    <h1 class="title">北海道の地域課題を知る、<br><span class="hl">北海道の未来と向き合う。</span></h1>
     <p class="lede">道内に共通する<strong>課題</strong>と、ブロックごとの<strong>地域固有</strong>の課題を二層で整理した課題マッピング。各カードに、自治体・個人・法人の<strong>取り組み事例</strong>と公開出典を添えています。</p>
     <div class="meta-row">
       <span class="pill">2025国勢調査 反映</span>
@@ -441,6 +467,16 @@
       <button id="tag-reset" class="tag-reset" hidden>✕ キーワード解除</button>
     </div>
     <div class="tag-row" id="tag-row"></div>
+  </div>
+</section>
+
+<section class="latest">
+  <div class="wrap">
+    <div class="latest-head">
+      <h3 class="latest-title">新着の課題</h3>
+      <p class="latest-lede">直近で追加・更新された 10 件。</p>
+    </div>
+    <div class="latest-list" id="latest-list"></div>
   </div>
 </section>
 
@@ -618,6 +654,29 @@
     syncTagUI();
     if(window.gtag) gtag('event','keyword_reset',{});
     render();
+  });
+
+  // 新着リスト生成 ( addedAt 降順、tie-break は重要度 )
+  const latestItems = [...ISSUES].sort((a,b)=>{
+    const aT = a.addedAt || '';
+    const bT = b.addedAt || '';
+    if(aT !== bT) return bT.localeCompare(aT);
+    return importanceScore(b) - importanceScore(a);
+  }).slice(0, 10);
+  const latestList = document.getElementById('latest-list');
+  latestList.innerHTML = latestItems.map(it=>{
+    const c = catMap[it.cat];
+    return `<button class="latest-item" data-id="${it.id}">
+      <span class="latest-cat"><span class="latest-cat-dot" style="background:${c.color}"></span>${c.name}</span>
+      <span class="latest-date">${it.addedAt || '日付未設定'}</span>
+      <span class="latest-title-text">${it.title}</span>
+      <span class="latest-imp">重要<b>${importanceScore(it)}</b>/10</span>
+    </button>`;
+  }).join('');
+  latestList.addEventListener('click',e=>{
+    const b = e.target.closest('[data-id]'); if(!b) return;
+    if(window.gtag) gtag('event','latest_item_click',{issue_id:b.dataset.id});
+    openModal(b.dataset.id);
   });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
