@@ -871,12 +871,6 @@
           <div class="dd-row" id="dd-tag-row"></div>
         </div>
       </div>
-      <div class="dd" data-dd="latest">
-        <button class="dd-btn" id="dd-latest-btn" aria-expanded="false">新着<span class="dd-arrow">▼</span></button>
-        <div class="dd-panel" id="dd-latest-panel">
-          <div class="dd-latest-list" id="dd-latest-mini"></div>
-        </div>
-      </div>
       <div class="dd" data-dd="region">
         <button class="dd-btn" id="dd-region-btn" aria-expanded="false">地域<span class="dd-arrow">▼</span></button>
         <div class="dd-panel" id="dd-region-panel">
@@ -1397,22 +1391,6 @@
     latestExpanded = !latestExpanded;
     if(window.gtag) gtag('event','latest_expand',{expanded:latestExpanded});
     renderLatest();
-  });
-
-  // sticky ヘッダ用新着 ( 7 件固定 )
-  const ddLatestMini = document.getElementById('dd-latest-mini');
-  ddLatestMini.innerHTML = latestSorted.slice(0, 7).map(it=>{
-    const c = catMap[it.cat];
-    return `<button class="dd-latest-item" data-id="${it.id}">
-      <span class="dd-latest-dot" style="background:${c.color}"></span>
-      <span class="dd-latest-title">${it.title}</span>
-    </button>`;
-  }).join('');
-  ddLatestMini.addEventListener('click',e=>{
-    const b = e.target.closest('[data-id]'); if(!b) return;
-    if(window.gtag) gtag('event','dd_latest_click',{issue_id:b.dataset.id});
-    openModal(b.dataset.id);
-    closeAllDD();
   });
 
   // 地域ボタン状態同期
