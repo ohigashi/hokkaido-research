@@ -889,7 +889,6 @@
         <button class="sort-btn" data-sort="deep" aria-pressed="false">構造深度</button>
         <button class="sort-btn" data-sort="fresh" aria-pressed="false">鮮度</button>
       </span>
-      <button id="global-reset" class="global-reset" data-active="false">✕ すべて表示</button>
       <button id="latest-view-btn" class="bookmark-view-btn" type="button">📅 新着</button>
       <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">♥ <span class="bookmark-count">0</span> 気になる</button>
       <span class="count"><b id="num">0</b> 件</span>
@@ -1402,8 +1401,7 @@
     ddRegionBtn.firstChild.textContent = (r && r.id!=='all') ? `地域: ${r.name}` : '地域';
   }
   function syncGlobalReset(){
-    const active = (state.cat !== 'all') || !!state.tag || (state.region !== 'all') || !!state.trait;
-    document.getElementById('global-reset').setAttribute('data-active', active ? 'true' : 'false');
+    // sticky の global-reset は撤去、フィルタバーの ✕ すべて解除に統合
   }
 
   // 地域特性チップ + ドロップダウン
@@ -1456,14 +1454,7 @@
     if(e.key === 'Escape') closeAllDD();
   });
 
-  // グローバルリセット ( すべて表示 )
-  document.getElementById('global-reset').addEventListener('click', ()=>{
-    state.cat = 'all'; state.tag = null; state.region = 'all'; state.trait = null;
-    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region==='all'));
-    syncCatUI(); syncTagUI(); syncRegionUI(); syncTraitUI(); syncGlobalReset();
-    if(window.gtag) gtag('event','global_reset',{});
-    render();
-  });
+  // グローバルリセットボタンは フィルタ状態バーに統合 ( data-clear-all ハンドラー側で対応 )
 
   // 新着モーダル
   document.getElementById('latest-view-btn').addEventListener('click', ()=>{
