@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hokkaido-research.lrg.jp/sitemap.xml

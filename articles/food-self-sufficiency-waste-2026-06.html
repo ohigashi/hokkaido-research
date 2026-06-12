@@ -4,16 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>食料自給率 220% と廃棄の同居 - 北海道のフードロス構造｜北海道・地域課題リサーチ</title>
+<link rel="canonical" href="https://hokkaido-research.lrg.jp/articles/food-self-sufficiency-waste-2026-06.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <meta name="description" content="北海道の自給率 220% は全国突出、一方で流通 ・ 加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。">
+<meta name="keywords" content="北海道,地域課題,課題発見,食料自給率 220% と廃棄の同居 - 北海道のフードロス構造">
 <meta property="og:title" content="食料自給率 220% と廃棄の同居 - 北海道のフードロス構造｜北海道・地域課題リサーチ">
 <meta property="og:description" content="北海道の自給率 220% は全国突出、一方で流通 ・ 加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="北海道・地域課題リサーチ">
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/articles/food-self-sufficiency-waste-2026-06.html">
 <meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
+<meta property="article:published_time" content="2026-06-12">
+<meta property="article:author" content="hokkaido-research 編集部">
+<meta property="article:section" content="課題発見">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="食料自給率 220% と廃棄の同居 - 北海道のフードロス構造">
+<meta name="twitter:description" content="北海道の自給率 220% は全国突出、一方で流通 ・ 加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。">
 <link rel="stylesheet" href="/articles/_article_styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "食料自給率 220% と廃棄の同居 - 北海道のフードロス構造",
+  "description": "北海道の自給率 220% は全国突出、一方で流通 ・ 加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "author": {"@type": "Organization", "name": "hokkaido-research 編集部"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Largo 株式会社",
+    "url": "https://lrg.jp",
+    "logo": {"@type": "ImageObject", "url": "https://hokkaido-research.lrg.jp/favicon.svg"}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hokkaido-research.lrg.jp/articles/food-self-sufficiency-waste-2026-06.html"
+  },
+  "articleSection": "課題発見",
+  "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hokkaido-research.lrg.jp/"},
+    {"@type": "ListItem", "position": 2, "name": "読み物", "item": "https://hokkaido-research.lrg.jp/articles/"},
+    {"@type": "ListItem", "position": 3, "name": "食料自給率 220% と廃棄の同居 - 北海道のフードロス構造"}
+  ]
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FN8N9DLPP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -101,6 +143,23 @@
 <section class="rel-section">
   <h3 class="rel-h">他の関連記事</h3>
   <div id="rel-articles" class="rel-articles"></div>
+</section>
+
+<section class="explore-more">
+  <h3 class="explore-h">次の課題を探る</h3>
+  <p class="explore-desc">読んでみてどう感じましたか? アイデアや行動につなげるには、<strong>関連する他の地域課題</strong>も見ておくと役立ちます。</p>
+  <div class="explore-grid">
+    <a class="explore-card" href="/">
+      <div class="explore-icon">▦</div>
+      <div class="explore-card-title">課題一覧を見る</div>
+      <div class="explore-card-desc">42 の地域課題を分類 ・ 地域 ・ 特性で立体的に整理</div>
+    </a>
+    <a class="explore-card" href="/articles/">
+      <div class="explore-icon">❒</div>
+      <div class="explore-card-title">すべての読み物</div>
+      <div class="explore-card-desc">構造分析と長期事例から学ぶ深掘り記事</div>
+    </a>
+  </div>
 </section>
 
 <div class="back-links back-links-bottom">
@@ -214,25 +273,41 @@
     }
   }
 
-  // 4. 他の関連記事
+  // 4. 他の関連記事 ・ なければ最新記事 4 本を表示 ( 回遊強化 )
   var artEl = document.getElementById("rel-articles");
   if(artEl){
     var others = [];
+    var allArticles = [];
     if(typeof ARTICLES !== "undefined"){
-      others = ARTICLES.filter(function(a){
-        if(a.id === ARTICLE_ID) return false;
+      allArticles = ARTICLES.filter(function(a){ return a.id !== ARTICLE_ID; });
+      others = allArticles.filter(function(a){
         return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
       }).sort(function(a,b){
         return (b.publishedAt||"").localeCompare(a.publishedAt||"");
       });
     }
+    // 関連が少なければ最新記事を補完して常時 4 本程度を表示
+    if(others.length < 4 && allArticles.length){
+      var sortedAll = allArticles.slice().sort(function(a,b){
+        return (b.publishedAt||"").localeCompare(a.publishedAt||"");
+      });
+      var existingIds = others.map(function(a){ return a.id; });
+      for(var i=0; i<sortedAll.length && others.length<4; i++){
+        if(existingIds.indexOf(sortedAll[i].id) < 0){
+          others.push(sortedAll[i]);
+        }
+      }
+    }
     if(others.length){
       artEl.innerHTML = others.map(function(a){
         var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");
         return '<a class="rel-art" href="/articles/' + a.id + '.html">' +
-          '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +
+          '<div class="rel-art-meta-row">' +
+            '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +
+            '<span class="rel-art-meta">' + esc(a.publishedAt) + ' ・ ' + (a.readMinutes||2) + ' 分</span>' +
+          '</div>' +
           '<div class="rel-art-title">' + esc(a.title) + '</div>' +
-          '<div class="rel-art-meta">' + esc(a.publishedAt) + ' ・ ' + (a.readMinutes||2) + ' 分</div>' +
+          (a.summary ? '<div class="rel-art-summary">' + esc(a.summary) + '</div>' : '') +
           '</a>';
       }).join("");
     } else {

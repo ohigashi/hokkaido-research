@@ -2908,6 +2908,33 @@ const ARTICLES = [
     relatedIssues: ["tourism-sustainability"],
     summary: "ニセコ過熱と過疎観光地の衰退が同時進行。「観光客を呼ぶ」だけでなく、観光持続性の構造を読み解く。",
   },
+  {
+    id: "regional-medical-structure-2026-06",
+    title: "北海道の地域医療 - 無医地区 137 と医師偏在の構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["regional-medical"],
+    summary: "道内無医地区 137、医師は札幌 ・ 都市部集中。地域医療を「個別の医師確保」ではなく、構造的な仕組みとして読み解く。",
+  },
+  {
+    id: "decarbonization-renewable-2026-06",
+    title: "北海道の脱炭素 - 再エネ大国の実装課題と地域経済",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["decarbonization"],
+    summary: "再エネポテンシャル日本一の北海道、だが系統制約と地域経済への波及が課題。脱炭素を地域経済の競争優位に変える構造。",
+  },
+  {
+    id: "disaster-resilience-2026-06",
+    title: "北海道の防災 - 大雪 ・ 地震 ・ 津波の複合リスク",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["disaster"],
+    summary: "北海道は大雪 ・ 地震 ・ 津波 ・ 火山の複合災害リスク。BCP と住民の備えで地域レジリエンスを構造化する視点。",
+  },
 ];
 
 

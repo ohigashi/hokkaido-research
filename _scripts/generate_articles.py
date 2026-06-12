@@ -2015,6 +2015,341 @@ ARTICLES = [
             ]),
         ],
     },
+    {
+        "id": "regional-medical-structure-2026-06",
+        "title": "北海道の地域医療 - 無医地区 137 と医師偏在の構造",
+        "category": "課題発見",
+        "publishedAt": "2026-06-13",
+        "readMinutes": 4,
+        "relatedIssueIds": ["regional-medical"],
+        "summary": "道内無医地区 137、医師は札幌 ・ 都市部集中。地域医療を「個別の医師確保」ではなく、構造的な仕組みとして読み解く。",
+        "body": [
+            ("p", "北海道には <strong>無医地区が約 137 ヶ所</strong>存在し、医師の都市部集中が深刻だ ( 厚労省 ・ 2020 年代調査 ) 。広域分散の地理と人口減で、地域医療の維持は構造的に難しくなっている。"),
+            ("p", "「医師を呼ぶ」だけでは追いつかない。地域医療の構造的な仕組みづくりを読み解く。"),
+            ("toc", [
+                "1. 数値で見る現状",
+                "2. なぜ医師は地方に行かないのか",
+                "3. 中心問い - 個別医師確保か仕組みづくりか",
+                "4. 5 つの構造課題",
+                "5. 道外 ・ 海外の参考事例",
+                "6. 取り得る打ち手",
+                "7. わたしたちにできること",
+            ]),
+            ("h2", "1. 数値で見る現状"),
+            ("table",
+                ["指標", "数値", "備考"],
+                [
+                    ["道内無医地区", "約 137 ヶ所", "厚労省 2020 年代"],
+                    ["医師の札幌集中", "約 50% が札幌圏", "全国でも顕著な偏在"],
+                    ["産婦人科 ・ 小児科の閉鎖", "増加傾向", "地方都市での影響大"],
+                    ["医師の平均年齢 ( 地方 )", "60 歳超の地域も", "後継者不在"],
+                ],
+            ),
+            ("p", "医師数の総数は増えているが、地方 ・ 専門科の偏在は深刻化。"),
+            ("h2", "2. なぜ医師は地方に行かないのか"),
+            ("ul", [
+                "<strong>キャリア形成</strong>: 都市部の大病院で専門性を磨きたい",
+                "<strong>子育て ・ 配偶者の仕事</strong>: 地方では選択肢が狭い",
+                "<strong>労働負荷</strong>: 地方 1 人医師は当直 ・ 救急 ・ 24 時間対応",
+                "<strong>医療設備</strong>: 高度医療機器 ・ 専門科連携が困難",
+                "<strong>住居 ・ 生活</strong>: 地方の住宅 ・ 生活サービス",
+            ]),
+            ("p", "個別の要因ではなく、複合構造。給与だけ上げても解決しない。"),
+            ("h2", "3. 中心問い - 個別医師確保か仕組みづくりか"),
+            ("callout", "<strong>中心問い</strong>: 「個別医師の確保」を最優先するか、「地域医療の仕組み」を作るか。"),
+            ("table",
+                ["観点", "個別医師確保", "仕組みづくり"],
+                [
+                    ["手段", "給与 ・ 住宅 ・ 子育て支援", "オンライン診療 ・ 役割分担 ・ 広域連携"],
+                    ["時間軸", "短期で効くが個人依存", "長期で構造的に機能"],
+                    ["持続性", "1 人離脱で崩壊", "仕組みが回り続ける"],
+                    ["コスト", "報酬競争で高コスト化", "初期投資後は効率的"],
+                ],
+            ),
+            ("p", "個別確保と仕組みづくりは両輪。但し、現状は個別確保に偏りすぎている。"),
+            ("h2", "4. 5 つの構造課題"),
+            ("ol", [
+                "<strong>専門医偏在</strong>: 産婦人科 ・ 小児科 ・ 外科の地方撤退",
+                "<strong>救急医療の崩壊</strong>: 当直医不足で受け入れ困難",
+                "<strong>広域搬送</strong>: 重症患者の長距離搬送リスク",
+                "<strong>在宅医療</strong>: 高齢者ケアと医師訪問の組み合わせ",
+                "<strong>医師の高齢化</strong>: 地方の医師後継者不在",
+            ]),
+            ("p", "5 つは相互に絡み合う。1 つの解決策では全体は動かない。"),
+            ("h2", "5. 道外 ・ 海外の参考事例"),
+            ("h3", "島根県 ・ オンライン診療の先進地"),
+            ("p", "離島 ・ 過疎地でオンライン診療を 20 年以上継続。専門医との連携 ・ 在宅医療と組み合わせ。"),
+            ("h3", "千葉県柏市 ・ 柏プロジェクト"),
+            ("p", "UR ・ 東京大学 ・ 柏市の連携で在宅医療 ・ 介護多職種連携モデル ( 15 年継続 ) 。地域包括ケアの先行事例。"),
+            ("h3", "オーストラリア ・ 北米の遠隔医療"),
+            ("p", "広大な国土での医療提供にオンライン ・ ヘリ搬送 ・ 巡回医療を組み合わせ。北海道との地理的類似性。"),
+            ("h2", "6. 取り得る打ち手"),
+            ("h3", "短期 ( 1-3 年 )"),
+            ("ul", [
+                "オンライン診療 ・ 遠隔医療の制度拡充",
+                "看護師 ・ 薬剤師等の役割拡大 ( タスクシフト )",
+                "地域医療を担う医師への複合支援 ( 給与 + 子育て + キャリア )",
+            ]),
+            ("h3", "中期 ( 3-10 年 )"),
+            ("ul", [
+                "地域包括ケアの仕組み定着 ( 医療 + 介護 + 福祉 )",
+                "広域連携 ・ ハブ病院 ・ サテライト構造",
+                "AI ・ DX を活用した医療効率化",
+            ]),
+            ("h3", "長期 ( 10 年以上 )"),
+            ("ul", [
+                "「広域 ・ 過疎地でも医療アクセス保証」を制度的に定着",
+                "次世代医療技術 ( AI 診断 ・ ロボット ) の地域導入",
+                "医師 ・ 看護師 ・ 介護士の世代継承の仕組み",
+            ]),
+            ("h2", "7. わたしたちにできること"),
+            ("p", "地域医療は「医師 ・ 自治体」だけの仕事ではない。日常の関わり方や予防医療で支えられる部分が多い。"),
+            ("h3", "個人として"),
+            ("ul", [
+                "かかりつけ医を持つ ・ 不要不急の救急利用を控える",
+                "予防医療 ・ 健康診断を継続的に受ける",
+                "地域医療従事者への感謝 ・ 応援を伝える",
+                "オンライン診療 ・ 健康アプリの活用",
+            ]),
+            ("h3", "企業 ・ 組織として"),
+            ("ul", [
+                "従業員の健康診断 ・ 予防医療の促進",
+                "地域医療プロジェクト ・ NPO への寄附",
+                "医療人材の育成 ・ 雇用支援への協力",
+            ]),
+            ("callout", "<strong>まとめ</strong>: 地域医療の維持は個別医師の確保では追いつかない。オンライン診療 ・ 役割分担 ・ 広域連携 ・ 多職種協働を組み合わせた仕組みづくり、そしてわたしたちの予防医療 ・ 関わり方が、長期的に支える基盤を作る。"),
+            ("sources", [
+                {"name": "厚生労働省 地域医療構想", "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000080850.html"},
+                {"name": "北海道 保健福祉部地域医療推進局", "url": "https://www.pref.hokkaido.lg.jp/hf/cis/"},
+                {"name": "北海道地域医療振興財団", "url": "https://www.hmsf.or.jp/"},
+                {"name": "全国自治体病院協議会", "url": "https://www.jmha.or.jp/"},
+            ]),
+        ],
+    },
+    {
+        "id": "decarbonization-renewable-2026-06",
+        "title": "北海道の脱炭素 - 再エネ大国の実装課題と地域経済",
+        "category": "課題発見",
+        "publishedAt": "2026-06-13",
+        "readMinutes": 4,
+        "relatedIssueIds": ["decarbonization"],
+        "summary": "再エネポテンシャル日本一の北海道、だが系統制約と地域経済への波及が課題。脱炭素を地域経済の競争優位に変える構造。",
+        "body": [
+            ("p", "北海道は <strong>再生可能エネルギーのポテンシャルが日本一</strong>と言われる。風力 ・ 太陽光 ・ バイオマス ・ 地熱の全てに恵まれ、農地 ・ 森林も多い。"),
+            ("p", "だが、ポテンシャルと実装には大きなギャップがある。脱炭素を地域経済の競争優位に変えるための構造を読み解く。"),
+            ("toc", [
+                "1. 数値で見る現状",
+                "2. ポテンシャルと実装のギャップ",
+                "3. 中心問い - 域外送電か域内活用か",
+                "4. 地域経済との接続",
+                "5. 道内 ・ 道外の先行事例",
+                "6. 取り得る打ち手",
+                "7. わたしたちにできること",
+            ]),
+            ("h2", "1. 数値で見る現状"),
+            ("table",
+                ["指標", "数値", "備考"],
+                [
+                    ["北海道の再エネ導入量", "GW 級", "陸上風力 ・ 太陽光中心"],
+                    ["再エネポテンシャル ( 風力 )", "日本一", "環境省 調査"],
+                    ["系統制約 ( 出力制御 )", "頻発化", "需要 < 供給時に発電抑制"],
+                    ["脱炭素先行地域 ( 北海道 )", "数自治体指定", "環境省 ・ ニセコ ・ 上士幌等"],
+                ],
+            ),
+            ("p", "ポテンシャルは大きいが、系統 ( 電力網 ) の制約で実装が追いつかない。"),
+            ("h2", "2. ポテンシャルと実装のギャップ"),
+            ("ul", [
+                "<strong>系統制約</strong>: 道内の電力消費は限定的、本州との連系線も細い → 発電しても捌けない",
+                "<strong>初期投資</strong>: 風力 ・ 太陽光 ・ 地熱は高コスト、回収に時間がかかる",
+                "<strong>住民理解</strong>: 風力発電 ・ メガソーラーへの景観 ・ 自然影響への懸念",
+                "<strong>事業者の偏り</strong>: 大手 ・ 外資中心、地元への経済波及が限定的",
+            ]),
+            ("p", "技術的 ・ 経済的 ・ 社会的な複合課題。"),
+            ("h2", "3. 中心問い - 域外送電か域内活用か"),
+            ("callout", "<strong>中心問い</strong>: 再エネを「本州へ送る商品」とするか、「道内で活用する地域経済の基盤」とするか。"),
+            ("table",
+                ["観点", "域外送電", "域内活用"],
+                [
+                    ["手段", "連系線増強 ・ 大規模再エネ", "地域分散電源 ・ 地産地消"],
+                    ["効果", "本州の脱炭素貢献", "道内の電力コスト ・ 産業競争力"],
+                    ["波及", "限定的 ( 売電収入のみ )", "雇用 ・ 産業 ・ 暮らしへの波及大"],
+                    ["時間軸", "10-20 年でインフラ整備", "5-10 年で地域単位"],
+                ],
+            ),
+            ("p", "両者は対立しないが、政策の比重をどう置くかが論点。"),
+            ("h2", "4. 地域経済との接続"),
+            ("p", "再エネの地域経済への波及は、事業構造で大きく異なる。"),
+            ("ul", [
+                "<strong>大手 ・ 外資型</strong>: 売電収入は地域外、地元雇用は限定的",
+                "<strong>地域主導型</strong>: 地元出資 ・ 地域企業の参加で経済が地域に残る",
+                "<strong>自家消費型</strong>: 工場 ・ 住宅で消費、電力コスト削減",
+                "<strong>地域内シェアリング</strong>: 余剰電力を近隣で融通",
+            ]),
+            ("p", "「再エネ事業」と「地域経済」が連動して初めて、長期的な脱炭素は地域に定着する。"),
+            ("h2", "5. 道内 ・ 道外の先行事例"),
+            ("h3", "上士幌町 ・ 脱炭素先行地域"),
+            ("p", "町主導で再エネ ・ 蓄電 ・ EV を統合、脱炭素先行地域として全国注目。観光 ・ 教育 ・ 移住と統合した戦略。"),
+            ("h3", "ニセコ町 ・ ゼロカーボン"),
+            ("p", "観光と脱炭素を両立する自治体モデル。住民 ・ 観光客 ・ 行政の協働。"),
+            ("h3", "ドイツ ・ デンマーク ・ 市民風力"),
+            ("p", "市民出資 ・ 自治体主導の風力発電。利益が地域に残る構造で 30 年以上継続。"),
+            ("h2", "6. 取り得る打ち手"),
+            ("h3", "短期 ( 1-3 年 )"),
+            ("ul", [
+                "系統制約 ( 出力制御 ) の緩和 ・ 連系線増強",
+                "地域主導型再エネ事業への支援",
+                "自家消費 ・ 蓄電池の導入支援",
+            ]),
+            ("h3", "中期 ( 3-10 年 )"),
+            ("ul", [
+                "地産地消エネルギーシステムの全道展開",
+                "再エネと産業 ( 食 ・ 観光 ・ 半導体 ) の統合",
+                "市民出資 ・ 地域ファンドの活用",
+            ]),
+            ("h3", "長期 ( 10 年以上 )"),
+            ("ul", [
+                "「再エネ大国 ・ 北海道」を地域経済の競争優位に",
+                "次世代エネルギー ( 水素 ・ 蓄電 ) との統合",
+                "脱炭素を地域文化として定着",
+            ]),
+            ("h2", "7. わたしたちにできること"),
+            ("p", "脱炭素は「電力会社 ・ 政府」の仕事ではない。日常の選択と継続的な取り組みが基盤になる。"),
+            ("h3", "個人として"),
+            ("ul", [
+                "再エネ電力プランへの切替",
+                "省エネ ・ 節電を日常化 ( 暖房 ・ 電気 ・ 移動 )",
+                "公共交通 ・ 自転車の利用",
+                "脱炭素事業 ・ 地域ファンドへの参加",
+            ]),
+            ("h3", "企業 ・ 組織として"),
+            ("ul", [
+                "再エネ電力切替 ・ 自家発電",
+                "カーボンニュートラル目標の自社設定",
+                "サプライチェーンとの連携した脱炭素",
+                "地域再エネ事業への協賛 ・ 出資",
+            ]),
+            ("callout", "<strong>まとめ</strong>: 北海道の再エネはポテンシャルだけでは終わらない。系統 ・ 地域経済 ・ 住民参加を組み合わせた地産地消型の脱炭素、そしてわたしたちの日常の選択が、長期的な地域競争力を作る。"),
+            ("sources", [
+                {"name": "経済産業省 資源エネルギー庁", "url": "https://www.enecho.meti.go.jp/"},
+                {"name": "環境省 脱炭素先行地域", "url": "https://www.env.go.jp/policy/policy.html"},
+                {"name": "北海道 環境生活部", "url": "https://www.pref.hokkaido.lg.jp/ks/"},
+                {"name": "上士幌町 脱炭素", "url": "https://www.kamishihoro.jp/"},
+            ]),
+        ],
+    },
+    {
+        "id": "disaster-resilience-2026-06",
+        "title": "北海道の防災 - 大雪 ・ 地震 ・ 津波の複合リスク",
+        "category": "課題発見",
+        "publishedAt": "2026-06-13",
+        "readMinutes": 4,
+        "relatedIssueIds": ["disaster"],
+        "summary": "北海道は大雪 ・ 地震 ・ 津波 ・ 火山の複合災害リスク。BCP と住民の備えで地域レジリエンスを構造化する視点。",
+        "body": [
+            ("p", "北海道は <strong>大雪 ・ 地震 ・ 津波 ・ 火山</strong>の複合災害リスクを抱える。2018 年の胆振東部地震 ・ ブラックアウト、近年の千島海溝地震想定等、想定外の規模が想定内になりつつある。"),
+            ("p", "防災は災害発生時の対応ではなく、平時から作る地域レジリエンスの問題。構造的に読み解く。"),
+            ("toc", [
+                "1. 数値で見る現状",
+                "2. 4 種類の複合災害",
+                "3. 中心問い - 緊急対応か平時の備えか",
+                "4. ブラックアウトの教訓",
+                "5. 地域レジリエンスの 5 つの柱",
+                "6. 取り得る打ち手",
+                "7. わたしたちにできること",
+            ]),
+            ("h2", "1. 数値で見る現状"),
+            ("table",
+                ["指標", "数値", "備考"],
+                [
+                    ["想定大規模災害", "胆振東部 ・ 千島海溝 ・ 日本海溝", "震度 6-7 想定"],
+                    ["想定津波 ( 道東 )", "10-20m 級", "千島海溝地震時"],
+                    ["年間積雪量 ( 道内 )", "数 m - 10m 超", "豪雪地帯"],
+                    ["過去の主要災害", "胆振東部地震 (2018)", "ブラックアウト含む"],
+                ],
+            ),
+            ("p", "災害規模の想定は年々大きくなっている。"),
+            ("h2", "2. 4 種類の複合災害"),
+            ("ul", [
+                "<strong>大雪 ・ 寒波</strong>: 毎年の豪雪、停電 ・ 凍死 ・ 物流停止リスク",
+                "<strong>地震</strong>: 千島海溝 ・ 日本海溝 ・ 内陸活断層 ・ 火山性",
+                "<strong>津波</strong>: 太平洋側 ・ 道東で 10-20m 級想定",
+                "<strong>火山</strong>: 有珠山 ・ 樽前山 ・ 雌阿寒岳等、噴火リスク常時",
+            ]),
+            ("p", "これらは単独でなく、複合 ・ 連鎖して発生しうる ( 地震 + 津波 + 停電等 ) 。"),
+            ("h2", "3. 中心問い - 緊急対応か平時の備えか"),
+            ("callout", "<strong>中心問い</strong>: 防災を「緊急時の対応」に絞るか、「平時に作る地域レジリエンス」とするか。"),
+            ("table",
+                ["観点", "緊急対応中心", "地域レジリエンス重視"],
+                [
+                    ["手段", "避難計画 ・ 救援物資 ・ 訓練", "インフラ多重化 ・ コミュニティ強化 ・ 知識継承"],
+                    ["効果", "災害時の即応", "災害前後を通じた持続性"],
+                    ["時間軸", "災害想定ベース", "10 年単位の継続"],
+                    ["費用", "災害時に集中", "平時から継続的"],
+                ],
+            ),
+            ("p", "緊急対応は必須だが、平時の備えなしには機能しない。両輪が必要。"),
+            ("h2", "4. ブラックアウトの教訓"),
+            ("p", "2018 年 9 月の胆振東部地震では、道内全域でブラックアウト ( 全道停電 ) が発生。約 295 万戸が停電、復旧に最大数日要した。"),
+            ("ul", [
+                "1 つの大規模発電所への依存リスク",
+                "電力系統の脆弱性",
+                "情報通信 ・ 物流 ・ 医療 ・ 食料供給への連鎖影響",
+                "復旧時間の予測困難",
+            ]),
+            ("p", "「電気は当然」前提の社会構造がいかに脆弱か、初めて広く認識された。"),
+            ("h2", "5. 地域レジリエンスの 5 つの柱"),
+            ("ol", [
+                "<strong>インフラ多重化</strong>: 電力 ・ 通信 ・ 物流 ・ 水を複数経路で",
+                "<strong>分散型エネルギー</strong>: 大規模集中から地域分散 ・ 蓄電池",
+                "<strong>コミュニティの繋がり</strong>: 自治会 ・ 隣人ネットワーク",
+                "<strong>知識 ・ 訓練の継承</strong>: 世代を跨ぐ防災教育",
+                "<strong>BCP ( 事業継続計画 )</strong>: 企業 ・ 自治体の継続性確保",
+            ]),
+            ("p", "5 つを統合的に整備することで、災害時の被害を最小化し、復旧を早める。"),
+            ("h2", "6. 取り得る打ち手"),
+            ("h3", "短期 ( 1-3 年 )"),
+            ("ul", [
+                "家庭 ・ 企業の防災備蓄 ・ 訓練の徹底",
+                "ハザードマップ ・ 避難計画の地域別整備",
+                "災害時用の通信 ・ 電源確保",
+            ]),
+            ("h3", "中期 ( 3-10 年 )"),
+            ("ul", [
+                "分散型エネルギーシステムの普及",
+                "インフラの多重化 ・ 強靭化",
+                "地域コミュニティの結束強化 ・ 自治会再生",
+            ]),
+            ("h3", "長期 ( 10 年以上 )"),
+            ("ul", [
+                "「防災が日常化した地域文化」の定着",
+                "次世代防災技術 ( AI ・ IoT ) の活用",
+                "防災を起点とした地域経済 ・ 観光",
+            ]),
+            ("h2", "7. わたしたちにできること"),
+            ("p", "防災は行政だけの仕事ではない。家庭 ・ 個人 ・ 企業の平時の備えが、災害時の被害を大きく左右する。"),
+            ("h3", "個人 ・ 家庭として"),
+            ("ul", [
+                "1 週間分の備蓄 ( 水 ・ 食料 ・ 暖房 ) を維持",
+                "家庭の防災計画 ・ 避難場所の家族共有",
+                "地域の防災訓練 ・ 自治会活動への参加",
+                "近所付き合い ・ 互助の関係作り",
+            ]),
+            ("h3", "企業 ・ 組織として"),
+            ("ul", [
+                "BCP ( 事業継続計画 ) の作成 ・ 更新",
+                "従業員 ・ 家族の防災教育 ・ 訓練",
+                "災害時の地域貢献体制 ( 物資 ・ 場所 ・ 人手 )",
+                "サプライチェーン全体の災害対応",
+            ]),
+            ("callout", "<strong>まとめ</strong>: 北海道は大雪 ・ 地震 ・ 津波 ・ 火山の複合災害リスクを抱える。緊急対応だけでなく、インフラ多重化 ・ コミュニティ ・ 知識継承を含む地域レジリエンスの構築、そしてわたしたちの平時の備えが、長期的な被害最小化につながる。"),
+            ("sources", [
+                {"name": "内閣府 防災情報", "url": "https://www.bousai.go.jp/"},
+                {"name": "気象庁", "url": "https://www.jma.go.jp/"},
+                {"name": "北海道 危機対策局", "url": "https://www.pref.hokkaido.lg.jp/sm/ktk/"},
+                {"name": "国土交通省 国土地理院", "url": "https://www.gsi.go.jp/"},
+            ]),
+        ],
+    },
 ]
 
 
@@ -2191,25 +2526,41 @@ RELATED_JS = """
     }
   }
 
-  // 4. 他の関連記事
+  // 4. 他の関連記事 ・ なければ最新記事 4 本を表示 ( 回遊強化 )
   var artEl = document.getElementById("rel-articles");
   if(artEl){
     var others = [];
+    var allArticles = [];
     if(typeof ARTICLES !== "undefined"){
-      others = ARTICLES.filter(function(a){
-        if(a.id === ARTICLE_ID) return false;
+      allArticles = ARTICLES.filter(function(a){ return a.id !== ARTICLE_ID; });
+      others = allArticles.filter(function(a){
         return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
       }).sort(function(a,b){
         return (b.publishedAt||"").localeCompare(a.publishedAt||"");
       });
     }
+    // 関連が少なければ最新記事を補完して常時 4 本程度を表示
+    if(others.length < 4 && allArticles.length){
+      var sortedAll = allArticles.slice().sort(function(a,b){
+        return (b.publishedAt||"").localeCompare(a.publishedAt||"");
+      });
+      var existingIds = others.map(function(a){ return a.id; });
+      for(var i=0; i<sortedAll.length && others.length<4; i++){
+        if(existingIds.indexOf(sortedAll[i].id) < 0){
+          others.push(sortedAll[i]);
+        }
+      }
+    }
     if(others.length){
       artEl.innerHTML = others.map(function(a){
         var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");
         return '<a class="rel-art" href="/articles/' + a.id + '.html">' +
-          '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +
+          '<div class="rel-art-meta-row">' +
+            '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +
+            '<span class="rel-art-meta">' + esc(a.publishedAt) + ' ・ ' + (a.readMinutes||2) + ' 分</span>' +
+          '</div>' +
           '<div class="rel-art-title">' + esc(a.title) + '</div>' +
-          '<div class="rel-art-meta">' + esc(a.publishedAt) + ' ・ ' + (a.readMinutes||2) + ' 分</div>' +
+          (a.summary ? '<div class="rel-art-summary">' + esc(a.summary) + '</div>' : '') +
           '</a>';
       }).join("");
     } else {
@@ -2227,16 +2578,58 @@ TEMPLATE = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}｜北海道・地域課題リサーチ</title>
+<link rel="canonical" href="https://hokkaido-research.lrg.jp/articles/{id}.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <meta name="description" content="{summary}">
+<meta name="keywords" content="北海道,地域課題,{category},{title}">
 <meta property="og:title" content="{title}｜北海道・地域課題リサーチ">
 <meta property="og:description" content="{summary}">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="北海道・地域課題リサーチ">
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/articles/{id}.html">
 <meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
+<meta property="article:published_time" content="{publishedAt}">
+<meta property="article:author" content="hokkaido-research 編集部">
+<meta property="article:section" content="{category}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{summary}">
 <link rel="stylesheet" href="/articles/_article_styles.css">
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{title}",
+  "description": "{summary}",
+  "datePublished": "{publishedAt}",
+  "dateModified": "{publishedAt}",
+  "author": {{"@type": "Organization", "name": "hokkaido-research 編集部"}},
+  "publisher": {{
+    "@type": "Organization",
+    "name": "Largo 株式会社",
+    "url": "https://lrg.jp",
+    "logo": {{"@type": "ImageObject", "url": "https://hokkaido-research.lrg.jp/favicon.svg"}}
+  }},
+  "mainEntityOfPage": {{
+    "@type": "WebPage",
+    "@id": "https://hokkaido-research.lrg.jp/articles/{id}.html"
+  }},
+  "articleSection": "{category}",
+  "inLanguage": "ja"
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hokkaido-research.lrg.jp/"}},
+    {{"@type": "ListItem", "position": 2, "name": "読み物", "item": "https://hokkaido-research.lrg.jp/articles/"}},
+    {{"@type": "ListItem", "position": 3, "name": "{title}"}}
+  ]
+}}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FN8N9DLPP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -2287,6 +2680,23 @@ TEMPLATE = """<!DOCTYPE html>
   <div id="rel-articles" class="rel-articles"></div>
 </section>
 
+<section class="explore-more">
+  <h3 class="explore-h">次の課題を探る</h3>
+  <p class="explore-desc">読んでみてどう感じましたか? アイデアや行動につなげるには、<strong>関連する他の地域課題</strong>も見ておくと役立ちます。</p>
+  <div class="explore-grid">
+    <a class="explore-card" href="/">
+      <div class="explore-icon">▦</div>
+      <div class="explore-card-title">課題一覧を見る</div>
+      <div class="explore-card-desc">42 の地域課題を分類 ・ 地域 ・ 特性で立体的に整理</div>
+    </a>
+    <a class="explore-card" href="/articles/">
+      <div class="explore-icon">❒</div>
+      <div class="explore-card-title">すべての読み物</div>
+      <div class="explore-card-desc">構造分析と長期事例から学ぶ深掘り記事</div>
+    </a>
+  </div>
+</section>
+
 <div class="back-links back-links-bottom">
 <a class="back-link" href="/articles/">← 読み物一覧へ戻る</a>
 <a class="back-link" href="/">← トップへ戻る</a>
@@ -2302,6 +2712,32 @@ TEMPLATE = """<!DOCTYPE html>
 </body>
 </html>
 """
+
+
+def generate_sitemap():
+    """Generate sitemap.xml for SEO."""
+    urls = [
+        ("https://hokkaido-research.lrg.jp/", "daily", "1.0"),
+        ("https://hokkaido-research.lrg.jp/articles/", "weekly", "0.9"),
+        ("https://hokkaido-research.lrg.jp/terms.html", "monthly", "0.3"),
+        ("https://hokkaido-research.lrg.jp/privacy.html", "monthly", "0.3"),
+    ]
+    for a in ARTICLES:
+        url = f"https://hokkaido-research.lrg.jp/articles/{a['id']}.html"
+        urls.append((url, "monthly", "0.8"))
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for loc, freq, prio in urls:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{loc}</loc>")
+        lines.append(f"    <changefreq>{freq}</changefreq>")
+        lines.append(f"    <priority>{prio}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    sitemap_path = ROOT / "sitemap.xml"
+    sitemap_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"wrote sitemap.xml ({len(urls)} URLs)")
 
 
 def main():
@@ -2322,6 +2758,7 @@ def main():
             cat_class=CAT_CLASS.get(a["category"], ""),
             category=a["category"],
             date_jp=format_date_jp(a["publishedAt"]),
+            publishedAt=a["publishedAt"],
             minutes=a["readMinutes"],
             body_html=body_html,
             related_js=related_js,
@@ -2350,3 +2787,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    generate_sitemap()
