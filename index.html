@@ -140,6 +140,14 @@
     margin-top:10px;display:none;}
   .dd-reset:hover{color:var(--ink);border-color:var(--ink)}
   .dd-panel[data-active="true"] .dd-reset{display:inline-block}
+  .global-reset{
+    font-family:inherit;cursor:pointer;
+    font-size:11.5px;font-weight:700;color:var(--snow);background:#B5733A;
+    border:none;padding:7px 14px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:5px;transition:background .12s;
+  }
+  .global-reset:hover{background:#995F30}
+  .global-reset[hidden]{display:none}
   .sort-mini{display:inline-flex;gap:2px;align-items:center;margin-left:4px}
   .top-btn{
     margin-left:auto;font-family:inherit;cursor:pointer;
@@ -571,14 +579,12 @@
         <button class="dd-btn" id="dd-cat-btn" aria-expanded="false">社会システム<span class="dd-arrow">▼</span></button>
         <div class="dd-panel" id="dd-cat-panel">
           <div class="dd-cat-grid" id="dd-cat-grid"></div>
-          <button class="dd-reset" data-reset="cat">✕ すべて表示</button>
         </div>
       </div>
       <div class="dd" data-dd="tag">
         <button class="dd-btn" id="dd-tag-btn" aria-expanded="false">キーワード<span class="dd-arrow">▼</span></button>
         <div class="dd-panel" id="dd-tag-panel">
           <div class="dd-row" id="dd-tag-row"></div>
-          <button class="dd-reset" data-reset="tag">✕ キーワード解除</button>
         </div>
       </div>
       <div class="dd" data-dd="latest">
@@ -598,6 +604,7 @@
         <button class="sort-btn" data-sort="heat" aria-pressed="false">話題</button>
         <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組</button>
       </span>
+      <button id="global-reset" class="global-reset" hidden>✕ すべて表示</button>
       <span class="count"><b id="num">0</b> 件</span>
       <button class="top-btn" id="top-btn">▲ TOP</button>
     </div>
@@ -732,13 +739,17 @@
     ddCatPanel.setAttribute('data-active', state.cat!=='all');
   }
 
+  function selectCat(newCat){
+    state.cat = (state.cat===newCat) ? 'all' : newCat;
+    if(state.cat !== 'all'){ state.tag = null; state.region = 'all'; }
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
+    render();
+  }
+
   ovGrid.addEventListener('click',e=>{
     const t=e.target.closest('[data-ov-cat]'); if(!t)return;
-    const clicked = t.dataset.ovCat;
-    state.cat = (state.cat===clicked) ? 'all' : clicked;
-    syncCatUI();
+    selectCat(t.dataset.ovCat);
     if(window.gtag) gtag('event','structure_map_click',{category:state.cat});
-    render();
     if(state.cat!=='all'){
       const g=document.getElementById('grid');
       if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
@@ -747,11 +758,8 @@
 
   ddCatGrid.addEventListener('click',e=>{
     const t=e.target.closest('[data-dd-cat]'); if(!t)return;
-    const clicked = t.dataset.ddCat;
-    state.cat = (state.cat===clicked) ? 'all' : clicked;
-    syncCatUI();
+    selectCat(t.dataset.ddCat);
     if(window.gtag) gtag('event','dd_cat_click',{category:state.cat});
-    render();
     closeAllDD();
   });
 
@@ -800,13 +808,17 @@
     ddTagPanel.setAttribute('data-active', !!state.tag);
   }
 
+  function selectTag(newTag){
+    state.tag = (state.tag===newTag) ? null : newTag;
+    if(state.tag){ state.cat = 'all'; state.region = 'all'; }
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
+    render();
+  }
+
   tagRow.addEventListener('click',e=>{
     const b=e.target.closest('[data-tag]'); if(!b)return;
-    const t=b.dataset.tag;
-    state.tag = (state.tag===t) ? null : t;
-    syncTagUI();
+    selectTag(b.dataset.tag);
     if(window.gtag) gtag('event','keyword_click',{tag:state.tag||'cleared'});
-    render();
     if(state.tag){
       const g=document.getElementById('grid');
       if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
@@ -815,11 +827,8 @@
 
   ddTagRow.addEventListener('click',e=>{
     const b=e.target.closest('[data-dd-tag]'); if(!b)return;
-    const t=b.dataset.ddTag;
-    state.tag = (state.tag===t) ? null : t;
-    syncTagUI();
+    selectTag(b.dataset.ddTag);
     if(window.gtag) gtag('event','dd_keyword_click',{tag:state.tag||'cleared'});
-    render();
     closeAllDD();
   });
 
@@ -895,10 +904,10 @@
     ddRegionBtn.classList.toggle('active', state.region !== 'all');
     ddRegionBtn.firstChild.textContent = (r && r.id!=='all') ? `地域: ${r.name}` : '地域';
   }
-  document.getElementById('region-chips').addEventListener('click', ()=>{
-    setTimeout(syncRegionUI, 0);
-    setTimeout(closeAllDD, 100);
-  });
+  function syncGlobalReset(){
+    const active = (state.cat !== 'all') || !!state.tag || (state.region !== 'all');
+    document.getElementById('global-reset').hidden = !active;
+  }
 
   // ドロップダウン共通制御
   function closeAllDD(){
@@ -927,16 +936,13 @@
     if(e.key === 'Escape') closeAllDD();
   });
 
-  // ドロップダウン内リセットボタン
-  document.querySelectorAll('[data-reset]').forEach(b=>{
-    b.addEventListener('click', e=>{
-      e.stopPropagation();
-      const which = b.dataset.reset;
-      if(which === 'cat'){ state.cat = 'all'; syncCatUI(); }
-      else if(which === 'tag'){ state.tag = null; syncTagUI(); }
-      render();
-      closeAllDD();
-    });
+  // グローバルリセット ( すべて表示 )
+  document.getElementById('global-reset').addEventListener('click', ()=>{
+    state.cat = 'all'; state.tag = null; state.region = 'all';
+    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region==='all'));
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
+    if(window.gtag) gtag('event','global_reset',{});
+    render();
   });
 
   // TOP ボタン
@@ -947,14 +953,18 @@
 
   // 初期状態同期
   syncRegionUI();
+  syncGlobalReset();
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
-    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===b));
+    if(state.region !== 'all'){ state.cat = 'all'; state.tag = null; }
+    regChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.region===state.region));
+    syncCatUI(); syncTagUI(); syncRegionUI(); syncGlobalReset();
     if(window.gtag) gtag('event','region_filter_click',{region:state.region});
     render();
+    closeAllDD();
   });
-  document.querySelector('.sort-row').addEventListener('click',e=>{
+  document.querySelector('.sort-mini').addEventListener('click',e=>{
     const b=e.target.closest('[data-sort]'); if(!b)return;
     state.sort=b.dataset.sort;
     document.querySelectorAll('.sort-btn').forEach(s=>s.setAttribute('aria-pressed', s===b));
