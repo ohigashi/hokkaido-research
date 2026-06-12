@@ -954,7 +954,6 @@
     <div class="eyebrow">北海道・地域課題リサーチ</div>
     <h1 class="title">地域課題を知る、<span class="hl">未来と向き合う。</span></h1>
     <p class="lede">地域課題を構造から<strong>知り</strong>、長期事例から<strong>アイデアを得て</strong>、日常の<strong>行動変容</strong>につなぐ。北海道の地域変革プレイヤーのための知識基盤。</p>
-    <div class="hero-articles-count"><a href="/articles/" class="hero-articles-link">📖 <b id="hero-articles-num">0</b> 本の読み物を公開中 → すべての記事を見る</a></div>
     <div class="info-stats-bar" id="info-stats-bar"></div>
   </div>
 </header>
@@ -1047,7 +1046,9 @@
   // 情報量サマリー ( クリック可 )
   (function(){
     const sum = (arr, fn) => arr.reduce((s, x) => s + fn(x), 0);
+    const articleCount = (typeof ARTICLES !== 'undefined') ? ARTICLES.length : 0;
     const stats = [
+      { n: articleCount, l: '読み物', type: 'articles' },
       { n: ISSUES.length, l: '課題', type: 'issues' },
       { n: sum(ISSUES, it => (it.initiatives||[]).length), l: '道内取組', type: 'initiatives' },
       { n: sum(ISSUES, it => (it.externalCases||[]).length), l: '道外事例', type: 'externals' },
@@ -1067,6 +1068,10 @@
 
   // 統計詳細モーダル
   function openStatModal(type){
+    if(type === 'articles'){
+      window.location.href = '/articles/';
+      return;
+    }
     let title = '', metaTxt = '', listHtml = '';
     if(type === 'issues'){
       title = '全課題一覧';

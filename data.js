@@ -3007,6 +3007,24 @@ const ARTICLES = [
     relatedIssues: ["fisheries-climate"],
     summary: "ホタテ ・ サンマ ・ サケの不漁 ・ 漁獲変動。海洋温暖化と漁業の構造的な対応を読み解く。",
   },
+  {
+    id: "bear-coexistence-cases-2026-06",
+    title: "ヒグマと共存する自治体の取り組み - 知床 ・ 大牟田に学ぶ長期事例",
+    category: "アイデア",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["bear-conflict"],
+    summary: "知床財団 30 年 ・ 福岡県大牟田市 20 年継続事例から、ヒグマと共存できる地域を作る 5 つの設計原則を学ぶ。",
+  },
+  {
+    id: "semiconductor-rapidus-strategy-2026-06",
+    title: "ラピダスを核に北海道半導体集積を作る - 5 つの戦略",
+    category: "アイデア",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["semiconductor"],
+    summary: "ラピダス 1 社依存から複数集積の起点へ。住宅 ・ 人材 ・ 関連産業 ・ 教育 ・ 国際性の 5 戦略で半導体クラスターを 20 年で育てる。",
+  },
 ];
 
 
