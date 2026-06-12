@@ -91,56 +91,57 @@
   }
 
   /* ===== 統一セクション ヘッダー ===== */
-  .sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .sec-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:14px;padding-left:2px}
   .sec-icon{
-    color:var(--moss);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
-    width:16px;height:16px;
+    flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+    width:6px;height:18px;background:var(--moss);border-radius:1px;
   }
+  .sec-icon svg{display:none}
   .sec-title{
-    font-size:13px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.04em;line-height:1.3;
+    font-size:11.5px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.14em;line-height:1.3;
     text-transform:uppercase;
   }
   .sec-lede{font-size:11px;color:var(--slate);margin:0 0 0 4px;line-height:1.5;flex:1;min-width:160px;font-weight:500}
   .sec-link-all{
     margin-left:auto;font-size:11px;font-weight:700;color:var(--moss);text-decoration:none;
-    padding:3px 0;transition:color .12s;white-space:nowrap;border-bottom:1px solid transparent;
+    padding:5px 12px;transition:all .12s;white-space:nowrap;
+    border:1px solid var(--line);border-radius:30px;background:var(--paper);
   }
-  .sec-link-all:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .sec-link-all:hover{border-color:var(--moss);background:var(--moss);color:var(--snow)}
 
-  /* ===== 読み物セクション ( 編集リスト型 コンパクト ) ===== */
+  /* ===== 読み物セクション ( 編集リスト型 ) ===== */
   .reading-section{
-    padding:22px 0 18px;position:relative;z-index:1;
-    background:rgba(46,124,168,.04);
+    padding:26px 0 24px;position:relative;z-index:1;
+    background:rgba(46,124,168,.045);
     border-bottom:1px solid var(--line);
     margin-bottom:0;
   }
-  .reading-section .wrap{padding-top:4px}
-  .reading-section .sec-icon{background:rgba(46,124,168,.14);color:var(--ice)}
+  .reading-section .sec-icon{background:var(--ice)}
   .reading-section .sec-title{color:var(--ice)}
   .reading-grid{display:flex;flex-direction:column}
   .reading-card{
     background:transparent;border:none;border-radius:0;
-    padding:9px 0;border-top:1px solid var(--line);
-    display:flex;flex-direction:column;gap:3px;
+    padding:13px 0;border-top:1px solid rgba(46,124,168,.18);
+    display:flex;flex-direction:column;gap:5px;
     text-decoration:none;color:inherit;transition:opacity .12s;
   }
   .reading-card:first-child{border-top:none;padding-top:2px}
   .reading-card:hover{opacity:.65}
-  .reading-card:hover .reading-title-text{color:var(--moss)}
+  .reading-card:hover .reading-title-text{color:var(--ice)}
   .reading-row-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .reading-cat{
-    font-size:9px;font-weight:800;color:#6B5B95;background:transparent;
+    font-size:9.5px;font-weight:800;color:#6B5B95;background:transparent;
     padding:0;letter-spacing:.12em;text-transform:uppercase;
     display:inline-block;
   }
   .reading-cat.discovery{color:#B5733A}
   .reading-cat.idea{color:var(--ice)}
   .reading-meta-inline{
-    font-size:9.5px;color:var(--slate);font-weight:600;letter-spacing:.04em;
+    font-size:10px;color:var(--slate);font-weight:600;letter-spacing:.02em;
   }
   .reading-title-text{
-    font-size:13.5px;font-weight:800;color:var(--ink);
-    line-height:1.45;letter-spacing:-.003em;transition:color .12s;
+    font-size:15px;font-weight:800;color:var(--ink);
+    line-height:1.45;letter-spacing:-.005em;transition:color .12s;
   }
 
   /* ===== モーダル 関連する読み物 ===== */
@@ -176,12 +177,19 @@
     padding:10px 0 8px;margin-bottom:6px;
   }
   .controls .wrap{display:flex;flex-direction:column;gap:0}
-  .ctrl-label-row{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap;padding-left:2px}
-  .ctrl-label-text{font-size:15px;font-weight:900;color:var(--ink);letter-spacing:.01em;display:inline-flex;align-items:center;gap:7px}
+  .ctrl-label-row{display:flex;align-items:center;gap:9px;margin-bottom:11px;flex-wrap:wrap;padding-left:2px}
+  .ctrl-label-text{
+    font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.14em;line-height:1.3;
+    text-transform:uppercase;display:inline-flex;align-items:center;gap:9px;
+  }
   .ctrl-label-text::before{
     content:"";width:6px;height:18px;background:var(--moss);border-radius:1px;display:inline-block;
   }
-  .ctrl-label-sub{font-size:11px;color:var(--slate);font-weight:600;letter-spacing:.02em}
+  .ctrl-label-count{
+    font-size:11.5px;color:var(--slate);font-weight:700;letter-spacing:.02em;
+  }
+  .ctrl-label-count b{font-size:14px;color:var(--ink);font-weight:900;font-variant-numeric:tabular-nums;margin-right:1px}
+  .ctrl-label-sub{font-size:10.5px;color:var(--slate);font-weight:500;letter-spacing:.02em;margin-left:auto}
   .ctrl-label{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:var(--slate);text-transform:uppercase;margin-bottom:7px}
   .ctrl-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
   .dd{position:relative}
@@ -958,6 +966,7 @@
   <div class="wrap">
     <div class="ctrl-label-row">
       <span class="ctrl-label-text">課題一覧</span>
+      <span class="ctrl-label-count"><b id="num">0</b> 件</span>
       <span class="ctrl-label-sub">フィルタで絞り込み可能</span>
     </div>
     <div class="ctrl-bar">
@@ -987,8 +996,6 @@
         </div>
       </div>
       <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">♥ <span class="bookmark-count">0</span> 気になる</button>
-      <span class="count"><b id="num">0</b> 件</span>
-      <button class="top-btn" id="top-btn">▲ TOP</button>
     </div>
   </div>
 </div>
@@ -1634,8 +1641,9 @@
     });
   }
 
-  // TOP ボタン
-  document.getElementById('top-btn').addEventListener('click', ()=>{
+  // TOP ボタン ( フィルタ行から撤去済 )
+  const topBtnEl = document.getElementById('top-btn');
+  if(topBtnEl) topBtnEl.addEventListener('click', ()=>{
     if(window.gtag) gtag('event','top_button_click',{});
     window.scrollTo({top:0, behavior:'smooth'});
   });
