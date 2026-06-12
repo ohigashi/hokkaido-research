@@ -92,10 +92,66 @@
   .controls{
     position:sticky;top:0;z-index:20;background:var(--snow);
     border-bottom:1px solid var(--line);
-    padding:14px 0;margin-bottom:8px;
+    padding:10px 0;margin-bottom:8px;
   }
-  .controls .wrap{display:flex;flex-direction:column;gap:12px}
+  .controls .wrap{display:flex;flex-direction:column;gap:0}
   .ctrl-label{font-size:10.5px;font-weight:700;letter-spacing:.18em;color:var(--slate);text-transform:uppercase;margin-bottom:7px}
+  .ctrl-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .dd{position:relative}
+  .dd-btn{
+    font-family:inherit;cursor:pointer;font-size:12px;font-weight:700;
+    background:var(--paper);border:1px solid var(--line);color:var(--ink);
+    padding:7px 13px;border-radius:30px;display:inline-flex;align-items:center;gap:5px;
+    transition:all .12s;white-space:nowrap;
+  }
+  .dd-btn:hover{border-color:var(--ink)}
+  .dd-btn .dd-arrow{font-size:8px;opacity:.6;transition:transform .15s}
+  .dd-btn[aria-expanded="true"]{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+  .dd-btn[aria-expanded="true"] .dd-arrow{transform:rotate(180deg);opacity:1}
+  .dd-btn.active{background:var(--ice);color:var(--snow);border-color:var(--ice)}
+  .dd-btn.active[aria-expanded="true"]{background:var(--ink);border-color:var(--ink)}
+  .dd-panel{
+    position:absolute;top:calc(100% + 6px);left:0;z-index:50;
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:13px;
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+    display:none;
+  }
+  .dd[data-open="true"] .dd-panel{display:block}
+  .dd-cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;width:380px;max-width:80vw}
+  .dd-cat-tile{font-family:inherit;text-align:left;cursor:pointer;background:var(--paper);
+    border:1px solid var(--line);border-radius:5px;padding:8px 11px;
+    display:flex;align-items:center;gap:8px;transition:all .12s;}
+  .dd-cat-tile:hover{border-color:var(--slate)}
+  .dd-cat-tile[aria-pressed="true"]{background:var(--snow);border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .dd-cat-bar{display:inline-block;width:18px;height:3px;border-radius:2px;flex-shrink:0}
+  .dd-cat-name{font-size:11.5px;font-weight:800;color:var(--ink);flex:1}
+  .dd-cat-cnt{font-size:10px;color:var(--slate);font-weight:700;font-variant-numeric:tabular-nums}
+  .dd-row{display:flex;flex-wrap:wrap;gap:5px;max-width:80vw;width:420px}
+  .dd-latest-list{display:flex;flex-direction:column;gap:4px;width:380px;max-width:80vw}
+  .dd-latest-item{font-family:inherit;text-align:left;cursor:pointer;background:var(--paper);
+    border:1px solid var(--line);border-radius:4px;padding:7px 10px;
+    display:flex;gap:7px;align-items:center;transition:all .12s;}
+  .dd-latest-item:hover{border-color:var(--slate);background:var(--snow)}
+  .dd-latest-dot{display:inline-block;width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  .dd-latest-title{font-size:12px;font-weight:700;color:var(--ink);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dd-reset{font-family:inherit;cursor:pointer;font-size:11px;font-weight:700;color:var(--slate);
+    background:transparent;border:1px dashed var(--line);padding:5px 11px;border-radius:30px;
+    margin-top:10px;display:none;}
+  .dd-reset:hover{color:var(--ink);border-color:var(--ink)}
+  .dd-panel[data-active="true"] .dd-reset{display:inline-block}
+  .sort-mini{display:inline-flex;gap:2px;align-items:center;margin-left:4px}
+  .top-btn{
+    margin-left:auto;font-family:inherit;cursor:pointer;
+    font-size:11.5px;font-weight:700;color:var(--snow);background:var(--ink);
+    border:none;padding:7px 14px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:4px;transition:background .15s;
+  }
+  .top-btn:hover{background:var(--moss)}
+  @media(max-width:700px){
+    .ctrl-bar{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+    .top-btn{margin-left:8px}
+  }
   .chip-row{display:flex;flex-wrap:wrap;gap:7px}
   .chip{
     font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
@@ -510,16 +566,40 @@
 
 <div class="controls">
   <div class="wrap">
-    <div>
-      <div class="ctrl-label">地域で絞る</div>
-      <div class="chip-row" id="region-chips"></div>
-    </div>
-    <div class="sort-row">
-      <span class="ctrl-label" style="margin:0">並び替え</span>
-      <button class="sort-btn" data-sort="importance" aria-pressed="true">重要度</button>
-      <button class="sort-btn" data-sort="heat" aria-pressed="false">話題度</button>
-      <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組数</button>
-      <span class="count"><b id="num">0</b> 件の課題</span>
+    <div class="ctrl-bar">
+      <div class="dd" data-dd="cat">
+        <button class="dd-btn" id="dd-cat-btn" aria-expanded="false">社会システム<span class="dd-arrow">▼</span></button>
+        <div class="dd-panel" id="dd-cat-panel">
+          <div class="dd-cat-grid" id="dd-cat-grid"></div>
+          <button class="dd-reset" data-reset="cat">✕ すべて表示</button>
+        </div>
+      </div>
+      <div class="dd" data-dd="tag">
+        <button class="dd-btn" id="dd-tag-btn" aria-expanded="false">キーワード<span class="dd-arrow">▼</span></button>
+        <div class="dd-panel" id="dd-tag-panel">
+          <div class="dd-row" id="dd-tag-row"></div>
+          <button class="dd-reset" data-reset="tag">✕ キーワード解除</button>
+        </div>
+      </div>
+      <div class="dd" data-dd="latest">
+        <button class="dd-btn" id="dd-latest-btn" aria-expanded="false">新着<span class="dd-arrow">▼</span></button>
+        <div class="dd-panel" id="dd-latest-panel">
+          <div class="dd-latest-list" id="dd-latest-mini"></div>
+        </div>
+      </div>
+      <div class="dd" data-dd="region">
+        <button class="dd-btn" id="dd-region-btn" aria-expanded="false">地域<span class="dd-arrow">▼</span></button>
+        <div class="dd-panel" id="dd-region-panel">
+          <div class="dd-row" id="region-chips"></div>
+        </div>
+      </div>
+      <span class="sort-mini">
+        <button class="sort-btn" data-sort="importance" aria-pressed="true">重要</button>
+        <button class="sort-btn" data-sort="heat" aria-pressed="false">話題</button>
+        <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組</button>
+      </span>
+      <span class="count"><b id="num">0</b> 件</span>
+      <button class="top-btn" id="top-btn">▲ TOP</button>
     </div>
   </div>
 </div>
@@ -621,7 +701,20 @@
     </button>`;
   }).join('');
 
+  // sticky ヘッダ用カテゴリタイル ( 簡易版 )
+  const ddCatGrid = document.getElementById('dd-cat-grid');
+  ddCatGrid.innerHTML = CATEGORIES.map(c=>{
+    const cnt = ISSUES.filter(it=>it.cat===c.id).length;
+    return `<button class="dd-cat-tile" data-dd-cat="${c.id}" aria-pressed="false">
+      <span class="dd-cat-bar" style="background:${c.color}"></span>
+      <span class="dd-cat-name">${c.name}</span>
+      <span class="dd-cat-cnt">${cnt}</span>
+    </button>`;
+  }).join('');
+
   const ovReset = document.getElementById('ov-reset');
+  const ddCatBtn = document.getElementById('dd-cat-btn');
+  const ddCatPanel = document.getElementById('dd-cat-panel');
   function syncCatUI(){
     ovGrid.querySelectorAll('.ov-tile').forEach(t=>{
       const on = t.dataset.ovCat===state.cat;
@@ -629,7 +722,14 @@
       const d = t.querySelector('.ov-desc');
       d.textContent = on ? 'もう一度押すと解除' : d.dataset.default;
     });
+    ddCatGrid.querySelectorAll('.dd-cat-tile').forEach(t=>{
+      t.setAttribute('aria-pressed', t.dataset.ddCat===state.cat);
+    });
     ovReset.hidden = (state.cat==='all');
+    const cName = catMap[state.cat] ? catMap[state.cat].name : null;
+    ddCatBtn.classList.toggle('active', state.cat!=='all');
+    ddCatBtn.firstChild.textContent = cName ? `社会システム: ${cName}` : '社会システム';
+    ddCatPanel.setAttribute('data-active', state.cat!=='all');
   }
 
   ovGrid.addEventListener('click',e=>{
@@ -643,6 +743,16 @@
       const g=document.getElementById('grid');
       if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
     }
+  });
+
+  ddCatGrid.addEventListener('click',e=>{
+    const t=e.target.closest('[data-dd-cat]'); if(!t)return;
+    const clicked = t.dataset.ddCat;
+    state.cat = (state.cat===clicked) ? 'all' : clicked;
+    syncCatUI();
+    if(window.gtag) gtag('event','dd_cat_click',{category:state.cat});
+    render();
+    closeAllDD();
   });
 
   ovReset.addEventListener('click',()=>{
@@ -673,10 +783,21 @@
   const tagRow = document.getElementById('tag-row');
   tagRow.innerHTML = topTags.map(t=>`<button class="tag-btn" data-tag="${t}" aria-pressed="false">${t}<span class="tag-cnt">${tagCount[t]}</span></button>`).join('');
 
+  // sticky ヘッダ用タグ
+  const ddTagRow = document.getElementById('dd-tag-row');
+  ddTagRow.innerHTML = topTags.map(t=>`<button class="tag-btn" data-dd-tag="${t}" aria-pressed="false">${t}<span class="tag-cnt">${tagCount[t]}</span></button>`).join('');
+
+  const ddTagBtn = document.getElementById('dd-tag-btn');
+  const ddTagPanel = document.getElementById('dd-tag-panel');
+
   const tagReset = document.getElementById('tag-reset');
   function syncTagUI(){
     tagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.tag===state.tag));
+    ddTagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.ddTag===state.tag));
     tagReset.hidden = !state.tag;
+    ddTagBtn.classList.toggle('active', !!state.tag);
+    ddTagBtn.firstChild.textContent = state.tag ? `キーワード: ${state.tag}` : 'キーワード';
+    ddTagPanel.setAttribute('data-active', !!state.tag);
   }
 
   tagRow.addEventListener('click',e=>{
@@ -690,6 +811,16 @@
       const g=document.getElementById('grid');
       if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
     }
+  });
+
+  ddTagRow.addEventListener('click',e=>{
+    const b=e.target.closest('[data-dd-tag]'); if(!b)return;
+    const t=b.dataset.ddTag;
+    state.tag = (state.tag===t) ? null : t;
+    syncTagUI();
+    if(window.gtag) gtag('event','dd_keyword_click',{tag:state.tag||'cleared'});
+    render();
+    closeAllDD();
   });
 
   tagReset.addEventListener('click',()=>{
@@ -740,6 +871,82 @@
     if(window.gtag) gtag('event','latest_expand',{expanded:latestExpanded});
     renderLatest();
   });
+
+  // sticky ヘッダ用新着 ( 7 件固定 )
+  const ddLatestMini = document.getElementById('dd-latest-mini');
+  ddLatestMini.innerHTML = latestSorted.slice(0, 7).map(it=>{
+    const c = catMap[it.cat];
+    return `<button class="dd-latest-item" data-id="${it.id}">
+      <span class="dd-latest-dot" style="background:${c.color}"></span>
+      <span class="dd-latest-title">${it.title}</span>
+    </button>`;
+  }).join('');
+  ddLatestMini.addEventListener('click',e=>{
+    const b = e.target.closest('[data-id]'); if(!b) return;
+    if(window.gtag) gtag('event','dd_latest_click',{issue_id:b.dataset.id});
+    openModal(b.dataset.id);
+    closeAllDD();
+  });
+
+  // 地域ボタン状態同期
+  const ddRegionBtn = document.getElementById('dd-region-btn');
+  function syncRegionUI(){
+    const r = REGIONS.find(x=>x.id===state.region);
+    ddRegionBtn.classList.toggle('active', state.region !== 'all');
+    ddRegionBtn.firstChild.textContent = (r && r.id!=='all') ? `地域: ${r.name}` : '地域';
+  }
+  document.getElementById('region-chips').addEventListener('click', ()=>{
+    setTimeout(syncRegionUI, 0);
+    setTimeout(closeAllDD, 100);
+  });
+
+  // ドロップダウン共通制御
+  function closeAllDD(){
+    document.querySelectorAll('.dd').forEach(dd=>{
+      dd.removeAttribute('data-open');
+      const btn = dd.querySelector('.dd-btn');
+      if(btn) btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.dd-btn').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      const dd = btn.closest('.dd');
+      const isOpen = dd.getAttribute('data-open') === 'true';
+      closeAllDD();
+      if(!isOpen){
+        dd.setAttribute('data-open','true');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  document.addEventListener('click', e=>{
+    if(!e.target.closest('.dd')) closeAllDD();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape') closeAllDD();
+  });
+
+  // ドロップダウン内リセットボタン
+  document.querySelectorAll('[data-reset]').forEach(b=>{
+    b.addEventListener('click', e=>{
+      e.stopPropagation();
+      const which = b.dataset.reset;
+      if(which === 'cat'){ state.cat = 'all'; syncCatUI(); }
+      else if(which === 'tag'){ state.tag = null; syncTagUI(); }
+      render();
+      closeAllDD();
+    });
+  });
+
+  // TOP ボタン
+  document.getElementById('top-btn').addEventListener('click', ()=>{
+    if(window.gtag) gtag('event','top_button_click',{});
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 初期状態同期
+  syncRegionUI();
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
