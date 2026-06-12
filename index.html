@@ -248,17 +248,9 @@
   }
   .global-reset[data-active="true"]:hover{background:#995F30;border-color:#995F30}
   .sort-mini{display:inline-flex;gap:2px;align-items:center;margin-left:4px}
-  .top-btn{
-    margin-left:auto;font-family:inherit;cursor:pointer;
-    font-size:11.5px;font-weight:700;color:var(--snow);background:var(--ink);
-    border:none;padding:7px 14px;border-radius:30px;
-    display:inline-flex;align-items:center;gap:4px;transition:background .15s;
-  }
-  .top-btn:hover{background:var(--moss)}
   @media(max-width:700px){
     .ctrl-bar{flex-wrap:wrap;padding:0 0 4px;gap:6px;overflow-x:visible}
     .controls{padding:8px 0}
-    .top-btn{margin-left:auto}
     .dd-btn{font-size:11.5px;padding:6px 11px}
     .bookmark-view-btn{font-size:11.5px;padding:6px 11px}
     .dd-panel{left:0;right:auto;max-width:calc(100vw - 32px);width:340px}
@@ -967,7 +959,6 @@
     <div class="ctrl-label-row">
       <span class="ctrl-label-text">課題一覧</span>
       <span class="ctrl-label-count"><b id="num">0</b> 件</span>
-      <span class="ctrl-label-sub">フィルタで絞り込み可能</span>
     </div>
     <div class="ctrl-bar">
       <button id="latest-view-btn" class="bookmark-view-btn" type="button">📅 新着</button>
@@ -1641,12 +1632,7 @@
     });
   }
 
-  // TOP ボタン ( フィルタ行から撤去済 )
-  const topBtnEl = document.getElementById('top-btn');
-  if(topBtnEl) topBtnEl.addEventListener('click', ()=>{
-    if(window.gtag) gtag('event','top_button_click',{});
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
+  // TOP ボタンは撤去済 ( ブラウザ標準スクロールで代替 )
 
   // 初期状態同期
   syncRegionUI();
