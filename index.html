@@ -1056,6 +1056,19 @@
         </div>
         <div class="search-note">検索リンクは課題ごとのキーワードで外部検索を開きます。掲載時点の出典と違い、常に最新の記事・公開資料にあたれます。</div>
       </div>`;
+    const cfQ = (it.q || (it.title + ' 北海道')).replace(/北海道\s+/, '北海道 ');
+    const cfBlock = `
+      <div class="mb-section">
+        <div class="mb-label" style="color:#B5733A">関連クラウドファンディング</div>
+        <div class="search-row">
+          <a class="search-link" href="https://readyfor.jp/search?query=${enc(cfQ)}" target="_blank" rel="noopener"><span class="ic">🌱</span>READYFOR</a>
+          <a class="search-link" href="https://camp-fire.jp/search?type=projects&keyword=${enc(cfQ)}" target="_blank" rel="noopener"><span class="ic">🔥</span>CAMPFIRE</a>
+          <a class="search-link" href="https://www.makuake.com/search?keyword=${enc(cfQ)}" target="_blank" rel="noopener"><span class="ic">🎯</span>Makuake</a>
+          <a class="search-link" href="https://camp-fire.jp/goodmorning/search?type=projects&keyword=${enc(cfQ)}" target="_blank" rel="noopener"><span class="ic">☀</span>GoodMorning</a>
+          <a class="search-link" href="https://www.furusato-tax.jp/gcf?keyword=${enc(cfQ)}" target="_blank" rel="noopener"><span class="ic">🎁</span>ふるさとチョイス GCF</a>
+        </div>
+        <div class="search-note">クラウドファンディング各社で同種テーマの「いま動いているプロジェクト」を検索できます。CF はテーマの「現場の熱量」を捉える先行指標として、報道や公的資料では拾えない動きが見える場合があります。</div>
+      </div>`;
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
         <button class="share-btn" id="share-card">🔗 このカードのリンクをコピー</button>
@@ -1136,6 +1149,7 @@
         ${researchBlock}
         ${relatedBlock}
         ${searchBlock}
+        ${cfBlock}
         ${srcList}
         ${shareBlock}
       </div>`;
