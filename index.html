@@ -158,18 +158,14 @@
   .modal-close:hover{background:rgba(255,255,255,.32)}
   .modal-cat{font-size:11px;font-weight:700;letter-spacing:.08em;opacity:.9;margin-bottom:8px}
   .modal-head h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:14px;padding-right:30px}
-  .modal-scores{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-  .modal-score{font-size:11px;font-weight:700;letter-spacing:.04em;opacity:.95}
-  .modal-score .dots{margin-top:5px}
-  .modal-score .dots i{background:rgba(255,255,255,.3)}
-  .modal-score .dots i.on{background:#fff}
-  .modal-score-num{
+  .modal-scores{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .modal-score{
     background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.25);
     padding:5px 11px;border-radius:30px;font-size:11.5px;font-weight:700;letter-spacing:.04em;
     display:inline-flex;align-items:baseline;gap:4px;
   }
-  .modal-score-num b{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
-  .modal-score-num .ms-unit{font-size:10px;opacity:.85}
+  .modal-score b{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
+  .modal-score .ms-unit{font-size:10px;opacity:.85}
   .modal-body{padding:24px 26px 28px}
   .mb-section{margin-bottom:22px}
   .mb-label{
@@ -304,6 +300,18 @@
   }
   .tag-reset:hover{background:var(--moss)}
   .tag-reset[hidden]{display:none}
+
+  /* ===== 他地域の類似事例 ===== */
+  .ext-list{display:flex;flex-direction:column;gap:9px}
+  .ext-item{
+    background:rgba(107,91,149,.05);border:1px solid var(--line);
+    border-left:3px solid #6B5B95;border-radius:5px;padding:11px 14px;
+  }
+  .ext-who{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:4px}
+  .ext-what{font-size:12.5px;color:var(--slate);line-height:1.65}
+  .ext-src{font-size:11px;margin-top:6px}
+  .ext-src a{color:var(--slate);text-decoration:none;border-bottom:1px dotted var(--slate)}
+  .ext-src a:hover{color:var(--ice);border-bottom-color:var(--ice)}
 
   /* ===== 関連する課題 ===== */
   .rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px}
@@ -744,6 +752,14 @@
           ${it.research.map(r=>`<li><a href="${r.u}" target="_blank" rel="noopener">${r.t}</a> <span class="src-org">／ ${r.o}</span>${yearBadge(r.year,false)}</li>`).join('')}
         </ul></div>
       </div>` : '';
+    const externalBlock = (it.externalCases && it.externalCases.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:#6B5B95">他地域の類似事例 ( 道外 )</div>
+        <div class="ext-list">${it.externalCases.map(c=>{
+          const src = (c.source && c.source.u) ? `<div class="ext-src"><a href="${c.source.u}" target="_blank" rel="noopener">${c.source.t || c.source.o || '参照'} ↗</a>${yearBadge(c.year,false)}</div>` : '';
+          return `<div class="ext-item"><div class="ext-who">${c.who}</div><div class="ext-what">${c.what}</div>${src}</div>`;
+        }).join('')}</div>
+      </div>` : '';
     const related = relatedIssues(it);
     const relatedBlock = related.length ? `
       <div class="mb-section">
@@ -765,10 +781,10 @@
         <div class="modal-cat">${c.name}</div>
         <h2>${it.title}</h2>
         <div class="modal-scores">
-          <div class="modal-score">緊急度 ${dots(it.urgency,'')}</div>
-          <div class="modal-score">深刻度 ${dots(it.severity,'')}</div>
-          <div class="modal-score-num">重要度 <b>${importanceScore(it)}</b><span class="ms-unit">/10</span></div>
-          <div class="modal-score-num">話題度 <b>${heatScore(it)}</b><span class="ms-unit">/10</span></div>
+          <div class="modal-score">緊急度 <b>${it.urgency}</b><span class="ms-unit">/5</span></div>
+          <div class="modal-score">深刻度 <b>${it.severity}</b><span class="ms-unit">/5</span></div>
+          <div class="modal-score">重要度 <b>${importanceScore(it)}</b><span class="ms-unit">/10</span></div>
+          <div class="modal-score">話題度 <b>${heatScore(it)}</b><span class="ms-unit">/10</span></div>
         </div>
       </div>
       <div class="modal-body">
@@ -779,6 +795,7 @@
         <div class="mb-section"><div class="mb-label interp">解釈・見立て</div><div class="mb-text">${it.interp}</div></div>
         ${deepBlock}
         <div class="mb-section"><div class="mb-label ini">取り組み事例（${it.initiatives.length}）</div><div class="ini-list">${inis||'<div class="mb-text" style="color:var(--slate)">公開された具体事例は整理中。</div>'}</div></div>
+        ${externalBlock}
         ${measuresBlock}
         ${researchBlock}
         ${relatedBlock}
