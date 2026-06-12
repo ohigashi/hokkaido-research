@@ -170,17 +170,34 @@
     if(typeof ISSUES !== "undefined"){
       ISSUES.forEach(function(i){
         if(RELATED_IDS.indexOf(i.id) < 0) return;
-        (i.stats||[]).forEach(function(s){ stats.push(s); });
+        (i.stats||[]).forEach(function(s){
+          stats.push({stat: s, issueTitle: i.title});
+        });
       });
     }
     stats = stats.slice(0, 4);
     if(stats.length){
-      statsEl.innerHTML = stats.map(function(s){
+      statsEl.innerHTML = stats.map(function(x){
+        var s = x.stat;
         var v = s.value || s.v || "";
-        var l = s.label || s.k || "";
+        var l = s.label || s.k || s.l || "";
+        var src = s.source || s.src || null;
+        var srcLine = "";
+        if(src){
+          var srcText = src.o || src.t || src.name || "";
+          var srcYear = src.year ? " ・ " + esc(String(src.year)) : "";
+          if(src.u){
+            srcLine = '<div class="rel-stat-src">出典: <a href="' + src.u + '" target="_blank" rel="noopener">' + esc(srcText) + ' ↗</a>' + srcYear + '</div>';
+          } else if(srcText){
+            srcLine = '<div class="rel-stat-src">出典: ' + esc(srcText) + srcYear + '</div>';
+          }
+        }
+        var fromLine = x.issueTitle ? '<div class="rel-stat-from">関連課題: ' + esc(x.issueTitle) + '</div>' : "";
         return '<div class="rel-stat">' +
           '<div class="rel-stat-v">' + esc(v) + '</div>' +
           '<div class="rel-stat-l">' + esc(l) + '</div>' +
+          srcLine +
+          fromLine +
           '</div>';
       }).join("");
     } else {
