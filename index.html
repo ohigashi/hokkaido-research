@@ -197,6 +197,34 @@
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px var(--shadow);border-color:var(--slate)}
   .card .cat-bar{height:5px;width:100%}
+  .card-bookmark-btn{
+    position:absolute;top:9px;right:9px;z-index:2;
+    background:rgba(255,255,255,.7);border:none;cursor:pointer;
+    width:30px;height:30px;border-radius:50%;
+    font-size:16px;line-height:1;color:#CCC;
+    display:flex;align-items:center;justify-content:center;
+    transition:color .15s, transform .15s, background .15s;
+  }
+  .card-bookmark-btn:hover{transform:scale(1.15);background:#fff;color:#B5733A}
+  .card-bookmark-btn.is-bookmarked{color:#B5733A}
+  .modal-bookmark-btn{
+    font-family:inherit;cursor:pointer;font-size:12px;font-weight:700;
+    background:transparent;border:1px solid rgba(255,255,255,.4);
+    color:#fff;padding:6px 13px;border-radius:30px;
+    transition:all .15s;
+  }
+  .modal-bookmark-btn:hover{background:rgba(255,255,255,.15)}
+  .modal-bookmark-btn.is-bookmarked{background:#B5733A;border-color:#B5733A}
+  .bookmark-view-btn{
+    font-family:inherit;cursor:pointer;
+    font-size:11.5px;font-weight:700;
+    background:transparent;border:1px solid var(--line);
+    color:var(--slate);padding:6px 13px;border-radius:30px;
+    display:inline-flex;align-items:center;gap:5px;transition:all .12s;
+  }
+  .bookmark-view-btn:hover{border-color:var(--ink);color:var(--ink)}
+  .bookmark-view-btn.has-bookmarks{background:#B5733A;color:var(--snow);border-color:#B5733A}
+  .bookmark-view-btn.has-bookmarks:hover{background:#995F30;border-color:#995F30}
   .card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
   .cat-name{font-size:10.5px;font-weight:700;letter-spacing:.06em}
@@ -812,6 +840,7 @@
         <button class="sort-btn" data-sort="fresh" aria-pressed="false">鮮度</button>
       </span>
       <button id="global-reset" class="global-reset" data-active="false">✕ すべて表示</button>
+      <button id="bookmark-view-btn" class="bookmark-view-btn" type="button">♥ <span class="bookmark-count">0</span> 気になる</button>
       <span class="count"><b id="num">0</b> 件</span>
       <button class="top-btn" id="top-btn">▲ TOP</button>
     </div>
@@ -1036,6 +1065,43 @@
   let state = { cat:'all', region:'all', sort:'initiatives', tag:null, trait:null };
 
   // 重要度 / 話題度 スコア
+  // 気になる ( ブックマーク ) 管理 localStorage
+  const BOOKMARK_KEY = 'hokkaido-research-bookmarks';
+  function getBookmarks(){
+    try { return new Set(JSON.parse(localStorage.getItem(BOOKMARK_KEY) || '[]')); }
+    catch(e){ return new Set(); }
+  }
+  function setBookmarks(set){
+    localStorage.setItem(BOOKMARK_KEY, JSON.stringify([...set]));
+  }
+  function isBookmarked(id){ return getBookmarks().has(id); }
+  function toggleBookmark(id){
+    const set = getBookmarks();
+    if(set.has(id)) set.delete(id); else set.add(id);
+    setBookmarks(set);
+    updateBookmarkUI();
+    return set.has(id);
+  }
+  function updateBookmarkUI(){
+    const count = getBookmarks().size;
+    const btn = document.getElementById('bookmark-view-btn');
+    if(btn){
+      btn.querySelector('.bookmark-count').textContent = count;
+      btn.classList.toggle('has-bookmarks', count > 0);
+    }
+    document.querySelectorAll('[data-bookmark-id]').forEach(b=>{
+      const on = isBookmarked(b.dataset.bookmarkId);
+      b.classList.toggle('is-bookmarked', on);
+      b.textContent = on ? '♥' : '♡';
+    });
+    const modalBookmark = document.getElementById('modal-bookmark-btn');
+    if(modalBookmark){
+      const id = modalBookmark.dataset.bookmarkId;
+      const on = isBookmarked(id);
+      modalBookmark.classList.toggle('is-bookmarked', on);
+      modalBookmark.innerHTML = on ? '♥ 気になる解除' : '♡ 気になるに追加';
+    }
+  }
   function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
   // 意味的ラベル ( データから自動算出 )
   function metaLabels(it){
@@ -1396,6 +1462,35 @@
     render();
   });
 
+  // 気になるリストモーダル
+  document.getElementById('bookmark-view-btn').addEventListener('click', ()=>{
+    if(window.gtag) gtag('event','bookmark_view_open',{});
+    openBookmarksModal();
+  });
+  function openBookmarksModal(){
+    const ids = [...getBookmarks()];
+    const items = ids.map(id => ISSUES.find(it => it.id === id)).filter(Boolean);
+    const listHtml = items.length ? items.map(it=>{
+      const c = catMap[it.cat];
+      return `<div class="stat-list-item" data-go-issue="${it.id}">
+        <div class="stat-list-title">${it.title}</div>
+        <div class="stat-list-meta"><span style="color:${c.color};font-weight:700">${c.name}</span> ・ 取組 ${(it.initiatives||[]).length} 件</div>
+      </div>`;
+    }).join('') : '<p style="color:var(--slate);text-align:center;padding:40px 20px">気になる課題はまだありません。各カードのハート ♡ で追加できます。</p>';
+    inner.innerHTML = `<div class="stat-modal-head">
+      <button class="stat-modal-close" aria-label="閉じる">×</button>
+      <h2>気になる課題</h2>
+      <div class="stat-modal-meta">${items.length} 件 ・ ブラウザに保存 ( 端末ごと )</div>
+    </div>
+    <div class="stat-modal-body"><div class="stat-list">${listHtml}</div></div>`;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    inner.querySelector('.stat-modal-close').addEventListener('click', closeModal);
+    inner.querySelectorAll('[data-go-issue]').forEach(el=>{
+      el.addEventListener('click', ()=>openModal(el.dataset.goIssue));
+    });
+  }
+
   // TOP ボタン
   document.getElementById('top-btn').addEventListener('click', ()=>{
     if(window.gtag) gtag('event','top_button_click',{});
@@ -1406,6 +1501,7 @@
   syncRegionUI();
   syncTraitUI();
   syncGlobalReset();
+  updateBookmarkUI();
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
@@ -1453,6 +1549,7 @@
       const rtags = it.regions.map(r=>`<span class="rtag">${regMap[r].short}</span>`).join('');
       const labels = metaLabels(it);
       return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
+        <button class="card-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加">${isBookmarked(it.id)?'♥':'♡'}</button>
         <div class="cat-bar" style="background:${c.color};height:5px"></div>
         <div class="card-body">
           <div class="card-top">
@@ -1618,6 +1715,7 @@
         <h2>${it.title}</h2>
         <div class="modal-scores">
           ${metaLabels(it).map(l=>`<span class="modal-meta-label">${l}</span>`).join('')}
+          <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}">${isBookmarked(it.id)?'♥ 気になる解除':'♡ 気になるに追加'}</button>
         </div>
       </div>
       <div class="modal-body">
@@ -1642,6 +1740,14 @@
     modal.classList.add('open');
     document.body.style.overflow='hidden';
     inner.querySelector('.modal-close').addEventListener('click',closeModal);
+    const mBookmark = inner.querySelector('#modal-bookmark-btn');
+    if(mBookmark){
+      mBookmark.addEventListener('click', e=>{
+        e.stopPropagation();
+        toggleBookmark(mBookmark.dataset.bookmarkId);
+        if(window.gtag) gtag('event','bookmark_toggle_modal',{id:mBookmark.dataset.bookmarkId});
+      });
+    }
     inner.querySelectorAll('[data-card-url]').forEach(el=>{
       el.addEventListener('click', e=>{
         if(e.target.closest('a, button')) return;
@@ -1706,6 +1812,8 @@
     if(window.gtag) gtag('event','external_source_click',{link_url:a.href,link_text:(a.textContent||'').trim().slice(0,80)});
   });
   document.getElementById('grid').addEventListener('click',e=>{
+    const bm=e.target.closest('.card-bookmark-btn');
+    if(bm){ e.stopPropagation(); toggleBookmark(bm.dataset.bookmarkId); if(window.gtag) gtag('event','bookmark_toggle',{id:bm.dataset.bookmarkId}); return; }
     const dig=e.target.closest('[data-dig]');
     if(dig){ e.stopPropagation(); openModal(dig.dataset.dig, true, true); return; }
     const card=e.target.closest('[data-id]');
