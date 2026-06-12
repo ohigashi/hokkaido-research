@@ -2935,6 +2935,33 @@ const ARTICLES = [
     relatedIssues: ["disaster"],
     summary: "北海道は大雪 ・ 地震 ・ 津波 ・ 火山の複合災害リスク。BCP と住民の備えで地域レジリエンスを構造化する視点。",
   },
+  {
+    id: "multicultural-living-2026-06",
+    title: "外国人住民との暮らし - 30 年継続する地域に学ぶ多文化共生",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["multicultural", "foreign-resident-support"],
+    summary: "道内外国人住民約 4 万人。「労働力」から「生活者」への転換と、大泉町 ・ 浜松市の 30 年継続事例に学ぶ多文化共生の構造。",
+  },
+  {
+    id: "aging-single-household-2026-06",
+    title: "単身高齢者 30% 時代の北海道 - 地域ケアの構造的課題",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["aging-care"],
+    summary: "道内高齢化率 33% 、単身世帯急増。介護 ・ 認知症 ・ 在宅医療を「個別ケア」ではなく地域包括ケアの構造として読み解く。",
+  },
+  {
+    id: "ainu-culture-coexistence-2026-06",
+    title: "アイヌ文化と現代北海道 - 共生の歴史と未来への構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["ainu-culture"],
+    summary: "アイヌ施策推進法 2019 ・ ウポポイ開設後、アイヌ文化の継承 ・ 経済参加 ・ 偏見の解消が新たな段階に。北海道のアイデンティティとして読み解く。",
+  },
 ];
 
 

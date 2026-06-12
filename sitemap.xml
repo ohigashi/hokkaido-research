@@ -115,4 +115,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/multicultural-living-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/aging-single-household-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/ainu-culture-coexistence-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
