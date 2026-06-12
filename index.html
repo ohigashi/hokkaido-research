@@ -1687,7 +1687,7 @@
       : [];
     const playersInModal = relPlayers.length ? `
       <div class="mb-section">
-        <div class="mb-label" style="color:#6B5B95">関連する地域プレイヤー ・ 先輩</div>
+        <div class="mb-label" style="color:#6B5B95">関連する地域プレイヤー</div>
         <div class="players-in-modal">${relPlayers.map(p=>{
           const linkBtns = Object.entries(p.links||{}).map(([type, url])=>{
             const label = type==='web'?'Web':type==='note'?'note':type==='x'?'X':type;
