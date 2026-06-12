@@ -465,20 +465,20 @@
   .src-year-stale::after{content:" 古め";font-weight:600;font-size:9.5px;opacity:.85}
   .src-year-unknown{background:transparent;color:var(--slate);border:1px dashed rgba(58,74,82,.25);opacity:.7;font-weight:600}
 
-  /* ===== 情報量サマリー ===== */
-  .info-stats{padding:24px 0 6px;position:relative;z-index:1}
+  /* ===== 情報量サマリー (ヘッダー内) ===== */
   .info-stats-bar{
-    display:flex;flex-wrap:wrap;gap:18px 32px;align-items:baseline;
-    padding:14px 18px;background:var(--paper);
-    border:1px solid var(--line);border-radius:6px;
+    display:flex;flex-wrap:wrap;gap:20px 38px;align-items:baseline;
+    margin:24px 0 18px;padding:16px 20px;
+    background:rgba(31,42,40,.04);border:1px solid rgba(31,42,40,.12);
+    border-radius:7px;
   }
-  .info-stat{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap}
-  .info-stat .n{font-size:22px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.02em}
-  .info-stat .l{font-size:11px;font-weight:700;color:var(--slate);letter-spacing:.04em}
-  .info-stat .u{font-size:10px;font-weight:600;color:var(--slate);opacity:.7;margin-left:1px}
+  .info-stat{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .info-stat .n{font-size:28px;font-weight:900;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.02em}
+  .info-stat .l{font-size:12px;font-weight:700;color:var(--slate);letter-spacing:.04em}
   @media(max-width:600px){
-    .info-stats-bar{gap:12px 20px;padding:12px 14px}
-    .info-stat .n{font-size:18px}
+    .info-stats-bar{gap:14px 22px;padding:13px 14px;margin:20px 0 14px}
+    .info-stat .n{font-size:22px}
+    .info-stat .l{font-size:11px}
   }
 
   /* ===== 構造マップ ===== */
@@ -562,6 +562,7 @@
     <div class="eyebrow">北海道・地域課題リサーチ</div>
     <h1 class="title">北海道の地域課題を知る、<br><span class="hl">北海道の未来と向き合う。</span></h1>
     <p class="lede">道内に共通する<strong>課題</strong>と、ブロックごとの<strong>地域固有</strong>の課題を二層で整理した課題マッピング。各カードに、自治体・個人・法人の<strong>取り組み事例</strong>と公開出典を添えています。</p>
+    <div class="info-stats-bar" id="info-stats-bar"></div>
     <div class="meta-row">
       <span class="pill">2025国勢調査 反映</span>
       <span><b>500万人割れ</b>（戦後初・2020→25で約4.2%減）</span>
@@ -570,12 +571,6 @@
     </div>
   </div>
 </header>
-
-<section class="info-stats">
-  <div class="wrap">
-    <div class="info-stats-bar" id="info-stats-bar"></div>
-  </div>
-</section>
 
 <section class="overview">
   <div class="wrap">
