@@ -503,6 +503,13 @@
   footer .wrap{display:flex;flex-direction:column;gap:14px}
   footer p{max-width:70ch;line-height:1.7}
   footer .disc{font-size:11.5px;background:var(--snow2);border-radius:5px;padding:14px 16px}
+  footer .footer-links{
+    font-size:11.5px;color:var(--slate);padding-top:14px;
+    border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:7px;
+  }
+  footer .footer-links a{color:var(--slate);text-decoration:none;border-bottom:1px dotted var(--slate)}
+  footer .footer-links a:hover{color:var(--ice);border-bottom-color:var(--ice)}
+  footer .footer-links .sep{opacity:.5}
   .empty{text-align:center;padding:60px 20px;color:var(--slate);font-size:14px;grid-column:1/-1}
 
   @media(max-width:560px){
@@ -628,6 +635,15 @@
   <div class="wrap">
     <p>このページは、北海道の地域社会が向き合う構造課題を、共通課題と地域固有課題の二層で分類し、自治体・個人・法人の取り組みと公開出典を参照できるよう整理した課題地図です。事実・解釈・取り組みを分けて記載しています。</p>
     <p class="disc">「解釈」欄は編集上の見立てであり、出典元の公式見解ではありません。スコア（緊急度・深刻度）は相対的な目安です。取り組み事例は各主体の公開情報にもとづき要約しており、網羅的ではありません。誤りや追加すべき事例があれば更新していく前提のオープンなメモです。</p>
+    <p class="footer-links">
+      運営: <a href="https://lrg.jp" target="_blank" rel="noopener">Largo 株式会社</a>
+      <span class="sep">・</span>
+      <a href="/terms.html">利用規約</a>
+      <span class="sep">・</span>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <span class="sep">・</span>
+      お問い合わせ: info@lrg.jp
+    </p>
   </div>
 </footer>
 
