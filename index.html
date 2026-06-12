@@ -172,7 +172,7 @@
   /* ===== コントロール ===== */
   .controls{
     position:sticky;top:0;z-index:20;background:var(--snow);
-    padding:22px 0 16px;margin-bottom:0;
+    padding:22px 0 10px;margin-bottom:0;
   }
   .controls .wrap{display:flex;flex-direction:column;gap:0}
   .ctrl-label-row{display:flex;align-items:center;gap:11px;margin-bottom:14px;flex-wrap:wrap;padding-left:2px}
@@ -281,12 +281,13 @@
 
   /* ===== フィルタ状態バー ===== */
   .filter-status{
-    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
-    padding:14px 16px;margin:0 0 18px;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    padding:9px 12px;margin:0 0 12px;
     background:var(--paper);border:1px solid var(--line);border-radius:6px;
   }
-  .filter-status-shown{font-size:13px;font-weight:800;color:var(--ink)}
-  .filter-status-shown .num{font-size:18px;letter-spacing:-.01em}
+  .filter-status.all-state{display:none}
+  .filter-status-shown{font-size:12px;font-weight:800;color:var(--ink)}
+  .filter-status-shown .num{font-size:14px;letter-spacing:-.01em}
   .filter-status-label{font-size:11px;font-weight:700;color:var(--slate)}
   .filter-chip{
     display:inline-flex;align-items:center;gap:4px;
@@ -1703,7 +1704,7 @@
     }
     if(chips.length === 0){
       fs.className = 'filter-status all-state';
-      fs.innerHTML = `<span class="filter-status-shown">全 <span class="num">${ISSUES.length}</span> 件を表示中</span><span class="filter-status-label">・ フィルタなし</span>`;
+      fs.innerHTML = '';
       return;
     }
     fs.className = 'filter-status';
