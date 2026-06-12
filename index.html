@@ -868,9 +868,9 @@
       listHtml = items.map(p=>{
         const linkAttr = p.url ? ` data-go-url="${p.url}"` : ` data-go-issue="${p.issue.id}"`;
         return `<div class="stat-list-item"${linkAttr}>
+          <div class="stat-list-parent">${p.issue.title}</div>
           <div class="stat-list-title">${p.n.who}</div>
           <div class="stat-list-meta">${p.n.what}</div>
-          <div class="stat-list-parent">${p.issue.title}</div>
         </div>`;
       }).join('');
     }
@@ -887,9 +887,9 @@
         const url = p.c.source?.u || null;
         const linkAttr = url ? ` data-go-url="${url}"` : ` data-go-issue="${p.issue.id}"`;
         return `<div class="stat-list-item"${linkAttr}>
+          <div class="stat-list-parent">${p.issue.title}</div>
           <div class="stat-list-title">${p.c.who}</div>
           <div class="stat-list-meta">${p.c.what}</div>
-          <div class="stat-list-parent">${p.issue.title}</div>
         </div>`;
       }).join('');
     }
@@ -914,9 +914,9 @@
       });
       metaTxt = `${items.length} 章 ・ 構造的分析`;
       listHtml = items.map(p=>`<div class="stat-list-item" data-go-issue="${p.issue.id}">
+        <div class="stat-list-parent">${p.issue.title}</div>
         <div class="stat-list-title">${p.d.h}</div>
         <div class="stat-list-meta">${p.d.b.substring(0,90)}...</div>
-        <div class="stat-list-parent">${p.issue.title}</div>
       </div>`).join('');
     }
     else if(type === 'references'){
@@ -929,9 +929,9 @@
       });
       metaTxt = `${items.length} 件 ・ note 記事 ・ 個人発信等`;
       listHtml = items.map(p=>`<div class="stat-list-item" data-go-url="${p.r.u}">
+        <div class="stat-list-parent">${p.issue.title}</div>
         <div class="stat-list-title">${p.r.t}</div>
         <div class="stat-list-meta">${p.r.o||''}${p.r.year?` ・ ${p.r.year}`:''}</div>
-        <div class="stat-list-parent">${p.issue.title}</div>
       </div>`).join('');
     }
     inner.innerHTML = `<div class="stat-modal-head">
