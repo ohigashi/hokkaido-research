@@ -268,6 +268,20 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== 関連する課題 ===== */
+  .rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px}
+  .rel-card{
+    font-family:inherit;text-align:left;cursor:pointer;
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:11px 13px;display:flex;flex-direction:column;gap:6px;
+    transition:transform .12s,box-shadow .12s,border-color .12s;
+  }
+  .rel-card:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.06);border-color:var(--slate)}
+  .rel-card .rel-bar{display:block;width:26px;height:3px;border-radius:2px}
+  .rel-card .rel-cat{font-size:10.5px;font-weight:800;letter-spacing:.02em}
+  .rel-card .rel-title{font-size:13px;font-weight:800;color:var(--ink);line-height:1.4}
+  .rel-card .rel-meta{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto;padding-top:2px}
+
   /* ===== 出典の鮮度バッジ ===== */
   .src-year{
     display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.02em;
@@ -426,6 +440,18 @@
     if(y) return `<span class="src-year src-year-${freshClass(y)}">${y}</span>`;
     if(showUnknown) return `<span class="src-year src-year-unknown">公表年不明</span>`;
     return '';
+  }
+
+  // 関連課題のスコアリング
+  function relatedIssues(it){
+    const scored = ISSUES.filter(x=>x.id!==it.id).map(x=>{
+      let s=0;
+      if(x.cat===it.cat) s+=3;
+      const shared=x.regions.filter(r=>it.regions.includes(r));
+      s+=shared.length*2;
+      return {x,s};
+    }).filter(p=>p.s>0).sort((a,b)=>b.s-a.s);
+    return scored.slice(0,3).map(p=>p.x);
   }
 
   let state = { cat:'all', region:'all', sort:'urgency' };
@@ -604,6 +630,21 @@
           ${it.research.map(r=>`<li><a href="${r.u}" target="_blank" rel="noopener">${r.t}</a> <span class="src-org">／ ${r.o}</span>${yearBadge(r.year,false)}</li>`).join('')}
         </ul></div>
       </div>` : '';
+    const related = relatedIssues(it);
+    const relatedBlock = related.length ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:var(--ice)">関連する課題</div>
+        <div class="rel-grid">${related.map(r=>{
+          const rc = catMap[r.cat];
+          const rrt = r.regions.map(rg=>`<span class="rtag">${regMap[rg].short}</span>`).join('');
+          return `<button class="rel-card" data-rel-id="${r.id}">
+            <span class="rel-bar" style="background:${rc.color}"></span>
+            <div class="rel-cat" style="color:${rc.color}">${rc.name}</div>
+            <div class="rel-title">${r.title}</div>
+            <div class="rel-meta">${rrt}</div>
+          </button>`;
+        }).join('')}</div>
+      </div>` : '';
     inner.innerHTML = `
       <div class="modal-head" style="background:${c.color}">
         <button class="modal-close" aria-label="閉じる">×</button>
@@ -624,6 +665,7 @@
         <div class="mb-section"><div class="mb-label ini">取り組み事例（${it.initiatives.length}）</div><div class="ini-list">${inis||'<div class="mb-text" style="color:var(--slate)">公開された具体事例は整理中。</div>'}</div></div>
         ${measuresBlock}
         ${researchBlock}
+        ${relatedBlock}
         ${searchBlock}
         ${srcList}
         ${shareBlock}
@@ -631,6 +673,14 @@
     modal.classList.add('open');
     document.body.style.overflow='hidden';
     inner.querySelector('.modal-close').addEventListener('click',closeModal);
+    inner.querySelectorAll('[data-rel-id]').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const to=b.dataset.relId;
+        if(window.gtag) gtag('event','related_issue_click',{from_id:it.id,to_id:to});
+        openModal(to, true);
+        modal.scrollTop=0;
+      });
+    });
     const dt = inner.querySelector('#deep-toggle');
     if(dt){
       const db = inner.querySelector('#deep-body');
