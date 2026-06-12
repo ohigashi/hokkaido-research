@@ -268,6 +268,30 @@
   .measure p{font-size:12px;color:var(--slate);line-height:1.65}
   .measure-note{font-size:10.5px;color:var(--slate);margin-top:9px}
 
+  /* ===== トレンドキーワード ===== */
+  .trends{padding:6px 0 20px;position:relative;z-index:1}
+  .trends-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .trends-title{font-size:14px;font-weight:800;color:var(--ink);margin:0;letter-spacing:.02em}
+  .trends-lede{font-size:11.5px;color:var(--slate);margin:0;line-height:1.55}
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px}
+  .tag-btn{
+    font-family:inherit;cursor:pointer;
+    font-size:12px;font-weight:700;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:30px;padding:5px 12px;
+    display:inline-flex;align-items:center;gap:6px;
+    transition:all .12s;
+  }
+  .tag-btn:hover{border-color:var(--ice);color:var(--ice)}
+  .tag-btn[aria-pressed="true"]{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+  .tag-btn .tag-cnt{font-size:10px;font-weight:700;opacity:.75;font-variant-numeric:tabular-nums}
+  .tag-reset{
+    font-family:inherit;cursor:pointer;margin-left:auto;
+    font-size:11.5px;font-weight:700;color:var(--snow);background:var(--ink);
+    border:none;padding:5px 11px;border-radius:30px;
+  }
+  .tag-reset:hover{background:var(--moss)}
+  .tag-reset[hidden]{display:none}
+
   /* ===== 関連する課題 ===== */
   .rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px}
   .rel-card{
@@ -389,6 +413,17 @@
   </div>
 </section>
 
+<section class="trends">
+  <div class="wrap">
+    <div class="trends-head">
+      <h3 class="trends-title">いま注目のキーワード</h3>
+      <p class="trends-lede">直近で多く取り上げられているキーワード。押すと該当する課題に絞り込めます。</p>
+      <button id="tag-reset" class="tag-reset" hidden>✕ キーワード解除</button>
+    </div>
+    <div class="tag-row" id="tag-row"></div>
+  </div>
+</section>
+
 <div class="controls">
   <div class="wrap">
     <div>
@@ -454,7 +489,7 @@
     return scored.slice(0,3).map(p=>p.x);
   }
 
-  let state = { cat:'all', region:'all', sort:'urgency' };
+  let state = { cat:'all', region:'all', sort:'urgency', tag:null };
 
   // チップ生成（地域のみ）
   const regChips = document.getElementById('region-chips');
@@ -502,6 +537,53 @@
     if(window.gtag) gtag('event','structure_map_reset',{});
     render();
   });
+
+  // トレンドキーワード生成（鮮度重み付き）
+  const TODAY = new Date(META.updated);
+  function recencyScore(addedAt){
+    if(!addedAt) return 1;
+    const d = new Date(addedAt);
+    const days = (TODAY - d) / 86400000;
+    return days <= 90 ? 2 : 1;
+  }
+  const tagScore = {};
+  const tagCount = {};
+  ISSUES.forEach(it=>{
+    const sc = recencyScore(it.addedAt);
+    (it.tags||[]).forEach(t=>{
+      tagScore[t] = (tagScore[t]||0) + sc;
+      tagCount[t] = (tagCount[t]||0) + 1;
+    });
+  });
+  const topTags = Object.entries(tagScore).sort((a,b)=>b[1]-a[1]).slice(0,12).map(e=>e[0]);
+  const tagRow = document.getElementById('tag-row');
+  tagRow.innerHTML = topTags.map(t=>`<button class="tag-btn" data-tag="${t}" aria-pressed="false">${t}<span class="tag-cnt">${tagCount[t]}</span></button>`).join('');
+
+  const tagReset = document.getElementById('tag-reset');
+  function syncTagUI(){
+    tagRow.querySelectorAll('.tag-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.tag===state.tag));
+    tagReset.hidden = !state.tag;
+  }
+
+  tagRow.addEventListener('click',e=>{
+    const b=e.target.closest('[data-tag]'); if(!b)return;
+    const t=b.dataset.tag;
+    state.tag = (state.tag===t) ? null : t;
+    syncTagUI();
+    if(window.gtag) gtag('event','keyword_click',{tag:state.tag||'cleared'});
+    render();
+    if(state.tag){
+      const g=document.getElementById('grid');
+      if(g) g.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+
+  tagReset.addEventListener('click',()=>{
+    state.tag=null;
+    syncTagUI();
+    if(window.gtag) gtag('event','keyword_reset',{});
+    render();
+  });
   regChips.addEventListener('click',e=>{
     const b=e.target.closest('[data-region]'); if(!b)return;
     state.region=b.dataset.region;
@@ -522,7 +604,8 @@
     let list = ISSUES.filter(it=>{
       const okCat = state.cat==='all' || it.cat===state.cat;
       const okReg = state.region==='all' || it.regions.includes(state.region);
-      return okCat && okReg;
+      const okTag = !state.tag || (it.tags||[]).includes(state.tag);
+      return okCat && okReg && okTag;
     });
     list.sort((a,b)=>{
       if(state.sort==='initiatives') return b.initiatives.length - a.initiatives.length;
