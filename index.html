@@ -1538,7 +1538,7 @@
     const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${encShare(pageURL)}`;
     const mailShareUrl = `mailto:?subject=${encShare('北海道・地域課題リサーチ: ' + it.title)}&body=${encShare(it.title + '\n\n' + (it.summary||'') + '\n\n' + pageURL)}`;
     const consultUrl = `https://x.com/intent/tweet?text=${encShare('@h_ohigashi 「' + it.title + '」について相談したいです')}&url=${encShare(pageURL)}`;
-    const contribUrl = `https://x.com/intent/tweet?text=${encShare('@h_ohigashi 「' + it.title + '」に追加情報 / 訂正提案があります:')}&url=${encShare(pageURL)}`;
+    const contribUrl = `https://x.com/h_ohigashi`;
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
         <div class="share-actions">
@@ -1547,7 +1547,7 @@
           <a class="share-btn share-mail" href="${mailShareUrl}">✉ メール</a>
           <button class="share-btn" id="share-card">🔗 リンクをコピー</button>
           <a class="share-btn share-consult" href="${consultUrl}" target="_blank" rel="noopener">💬 運営者に相談 ( X )</a>
-          <a class="share-btn share-contrib" href="${contribUrl}" target="_blank" rel="noopener">✉ 情報を寄せる ・ 訂正 ( X )</a>
+          <a class="share-btn share-contrib" href="${contribUrl}" target="_blank" rel="noopener">✉ DM で情報を寄せる ・ 訂正</a>
         </div>
       </div>`;
     const filteredList = filtered();
