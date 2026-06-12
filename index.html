@@ -789,16 +789,6 @@
   </div>
 </header>
 
-<section class="opps-section">
-  <div class="wrap">
-    <div class="opps-head">
-      <h2 class="opps-title">いま参加できること ・ 仲間と動く入口</h2>
-      <p class="opps-lede">直近の募集 ・ プロジェクト ・ ネットワーク。クリックで詳細へ。</p>
-    </div>
-    <div class="opps-grid" id="opps-grid"></div>
-  </div>
-</section>
-
 <section class="overview">
   <div class="wrap">
     <div class="ov-head">
@@ -831,15 +821,6 @@
   </div>
 </section>
 
-<section class="players-section">
-  <div class="wrap">
-    <div class="players-head">
-      <h3 class="players-title">課題に紐づく注目の取り組み・記事</h3>
-      <p class="players-lede">各地で動いている具体的な取り組みや記事を、紐づく課題タグとともに表示。タグタップで該当課題を開きます。</p>
-    </div>
-    <div class="picks-grid" id="picks-grid"></div>
-  </div>
-</section>
 
 <div class="controls">
   <div class="wrap">
@@ -918,18 +899,6 @@
 <script src="data.js"></script>
 <script>
   document.getElementById('upd').textContent = META.updated;
-
-  // いま参加できること OPPORTUNITIES 描画
-  (function(){
-    const grid = document.getElementById('opps-grid');
-    if(!grid || typeof OPPORTUNITIES === 'undefined') return;
-    grid.innerHTML = OPPORTUNITIES.map(o=>`<a class="opp-card" href="${o.url}" target="_blank" rel="noopener">
-      <span class="opp-type">${o.type}</span>
-      <div class="opp-title">${o.title} ↗</div>
-      <div class="opp-org">${o.org}</div>
-      <div class="opp-summary">${o.summary}</div>
-    </a>`).join('');
-  })();
 
   // 情報量サマリー ( クリック可 )
   (function(){
@@ -1354,31 +1323,6 @@
     render();
   });
 
-  // 課題に紐づく注目の取り組み・記事
-  (function(){
-    const grid = document.getElementById('picks-grid');
-    if(!grid || typeof CONTENT_PICKS === 'undefined') return;
-    const issueTitleMap = Object.fromEntries(ISSUES.map(it=>[it.id, it.title]));
-    grid.innerHTML = CONTENT_PICKS.map(p=>{
-      const issueTags = (p.issues||[]).map(iid=>{
-        const t = issueTitleMap[iid] || iid;
-        return `<button class="pick-issue-tag" data-pick-issue="${iid}">${t}</button>`;
-      }).join('');
-      return `<div class="pick-card">
-        <div class="pick-title"><a href="${p.url}" target="_blank" rel="noopener">${p.title} ↗</a></div>
-        <div class="pick-org">${p.org}</div>
-        <div class="pick-summary">${p.summary}</div>
-        <div class="pick-issues">${issueTags}</div>
-      </div>`;
-    }).join('');
-    grid.addEventListener('click',e=>{
-      const b = e.target.closest('[data-pick-issue]'); if(!b) return;
-      const iid = b.dataset.pickIssue;
-      if(window.gtag) gtag('event','pick_issue_click',{issue_id:iid});
-      openModal(iid);
-    });
-  })();
-
   // 新着リスト生成 ( addedAt 降順、tie-break は取組件数 )
   const LATEST_INITIAL = 7;
   const latestSorted = [...ISSUES].sort((a,b)=>{
@@ -1680,8 +1624,7 @@
     const xShareUrl = `https://x.com/intent/tweet?text=${encShare(it.title + ' / 北海道・地域課題リサーチ')}&url=${encShare(pageURL)}`;
     const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${encShare(pageURL)}`;
     const mailShareUrl = `mailto:?subject=${encShare('北海道・地域課題リサーチ: ' + it.title)}&body=${encShare(it.title + '\n\n' + (it.summary||'') + '\n\n' + pageURL)}`;
-    const consultUrl = `https://x.com/h_ohigashi`;
-    const contribUrl = `https://x.com/h_ohigashi`;
+    const dmUrl = `https://x.com/h_ohigashi`;
     const shareBlock = `
       <div class="mb-section" style="margin-bottom:0">
         <div class="share-actions">
@@ -1689,8 +1632,7 @@
           <a class="share-btn share-line" href="${lineShareUrl}" target="_blank" rel="noopener">LINE</a>
           <a class="share-btn share-mail" href="${mailShareUrl}">✉ メール</a>
           <button class="share-btn" id="share-card">🔗 リンクをコピー</button>
-          <a class="share-btn share-consult" href="${consultUrl}" target="_blank" rel="noopener">💬 DM で運営者に相談</a>
-          <a class="share-btn share-contrib" href="${contribUrl}" target="_blank" rel="noopener">✉ DM で情報を寄せる ・ 訂正</a>
+          <a class="share-btn share-consult" href="${dmUrl}" target="_blank" rel="noopener">💬 DM で相談 ・ 情報を寄せる ・ 訂正</a>
         </div>
       </div>`;
     const filteredList = filtered();
