@@ -130,4 +130,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/childcare-shortage-structure-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/school-consolidation-structure-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hokkaido-research.lrg.jp/articles/infra-aging-resilience-2026-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

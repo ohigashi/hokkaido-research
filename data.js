@@ -2962,6 +2962,33 @@ const ARTICLES = [
     relatedIssues: ["ainu-culture"],
     summary: "アイヌ施策推進法 2019 ・ ウポポイ開設後、アイヌ文化の継承 ・ 経済参加 ・ 偏見の解消が新たな段階に。北海道のアイデンティティとして読み解く。",
   },
+  {
+    id: "childcare-shortage-structure-2026-06",
+    title: "保育所待機児童と保育士不足 - 北海道の子育てインフラ構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["childcare-shortage"],
+    summary: "札幌待機児童 100 人前後、保育士有効求人倍率 2.5 倍超。「施設を増やす」だけでない構造的な子育てインフラの作り方。",
+  },
+  {
+    id: "school-consolidation-structure-2026-06",
+    title: "学校統合と地域 - 小規模校の存続と教育環境の構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["school-consolidation"],
+    summary: "道内小規模校の統廃合が進む一方、地域から学校が消える影響は深刻。「規模の効率」と「地域の核」の両立を読み解く。",
+  },
+  {
+    id: "infra-aging-resilience-2026-06",
+    title: "インフラ老朽化と維持 - 道路 ・ 橋 ・ 水道の長期戦略",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["infra-aging"],
+    summary: "高度成長期建設のインフラが一斉に更新期。「すべて維持」と「集約 ・ 撤退」の選択を構造的に判断する視点。",
+  },
 ];
 
 
