@@ -125,7 +125,13 @@
   .dots i.on{background:var(--slate)}
   .dots.u i.on{background:var(--ice)}
   .dots.s i.on{background:#B5733A}
-  .card h3{font-size:18px;font-weight:800;line-height:1.32;margin-bottom:9px}
+  .card h3{font-size:18px;font-weight:800;line-height:1.32;margin-bottom:6px}
+  .card .score-sum{
+    display:flex;align-items:center;gap:8px;margin:0 0 10px;
+    font-size:10.5px;color:var(--slate);font-weight:700;letter-spacing:.04em;
+  }
+  .card .score-sum b{color:var(--ink);font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;margin-left:3px}
+  .card .score-sep{color:var(--line);font-weight:400}
   .card .summary{font-size:13px;color:var(--slate);line-height:1.6;flex:1}
   .card-foot{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;align-items:center}
   .rtag{font-size:10.5px;font-weight:700;color:var(--moss);background:rgba(44,110,99,.09);padding:3px 8px;border-radius:3px}
@@ -152,11 +158,18 @@
   .modal-close:hover{background:rgba(255,255,255,.32)}
   .modal-cat{font-size:11px;font-weight:700;letter-spacing:.08em;opacity:.9;margin-bottom:8px}
   .modal-head h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:14px;padding-right:30px}
-  .modal-scores{display:flex;gap:22px}
+  .modal-scores{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   .modal-score{font-size:11px;font-weight:700;letter-spacing:.04em;opacity:.95}
   .modal-score .dots{margin-top:5px}
   .modal-score .dots i{background:rgba(255,255,255,.3)}
   .modal-score .dots i.on{background:#fff}
+  .modal-score-num{
+    background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.25);
+    padding:5px 11px;border-radius:30px;font-size:11.5px;font-weight:700;letter-spacing:.04em;
+    display:inline-flex;align-items:baseline;gap:4px;
+  }
+  .modal-score-num b{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
+  .modal-score-num .ms-unit{font-size:10px;opacity:.85}
   .modal-body{padding:24px 26px 28px}
   .mb-section{margin-bottom:22px}
   .mb-label{
@@ -432,8 +445,8 @@
     </div>
     <div class="sort-row">
       <span class="ctrl-label" style="margin:0">並び替え</span>
-      <button class="sort-btn" data-sort="urgency" aria-pressed="true">緊急度</button>
-      <button class="sort-btn" data-sort="severity" aria-pressed="false">深刻度</button>
+      <button class="sort-btn" data-sort="importance" aria-pressed="true">重要度</button>
+      <button class="sort-btn" data-sort="heat" aria-pressed="false">話題度</button>
       <button class="sort-btn" data-sort="initiatives" aria-pressed="false">取組数</button>
       <span class="count"><b id="num">0</b> 件の課題</span>
     </div>
@@ -489,7 +502,22 @@
     return scored.slice(0,3).map(p=>p.x);
   }
 
-  let state = { cat:'all', region:'all', sort:'urgency', tag:null };
+  let state = { cat:'all', region:'all', sort:'importance', tag:null };
+
+  // 重要度 / 話題度 スコア
+  function importanceScore(it){ return (it.urgency||0) + (it.severity||0); }
+  function heatRaw(it){
+    const nSrc = (it.sources||[]).length;
+    const nRes = (it.research||[]).length;
+    const nIni = (it.initiatives||[]).length;
+    const freshSrc = (it.sources||[]).filter(si=>{
+      const s = SOURCES[si];
+      return s && s.year && s.year >= 2025;
+    }).length;
+    return nSrc + nRes*1.5 + nIni*0.3 + freshSrc;
+  }
+  const _MAX_HEAT = Math.max(1, ...ISSUES.map(heatRaw));
+  function heatScore(it){ return Math.round(heatRaw(it) / _MAX_HEAT * 10); }
 
   // チップ生成（地域のみ）
   const regChips = document.getElementById('region-chips');
@@ -609,6 +637,8 @@
     });
     list.sort((a,b)=>{
       if(state.sort==='initiatives') return b.initiatives.length - a.initiatives.length;
+      if(state.sort==='importance') return importanceScore(b) - importanceScore(a) || (b.urgency - a.urgency);
+      if(state.sort==='heat') return heatScore(b) - heatScore(a) || importanceScore(b) - importanceScore(a);
       const s = state.sort;
       return (b[s]-a[s]) || (b.severity-a.severity);
     });
@@ -634,6 +664,7 @@
             </div>
           </div>
           <h3>${it.title}</h3>
+          <div class="score-sum"><span>重要度<b>${importanceScore(it)}</b></span><span class="score-sep">｜</span><span>話題度<b>${heatScore(it)}</b></span></div>
           <p class="summary">${it.summary}</p>
           <div class="card-foot">
             ${rtags}
@@ -736,6 +767,8 @@
         <div class="modal-scores">
           <div class="modal-score">緊急度 ${dots(it.urgency,'')}</div>
           <div class="modal-score">深刻度 ${dots(it.severity,'')}</div>
+          <div class="modal-score-num">重要度 <b>${importanceScore(it)}</b><span class="ms-unit">/10</span></div>
+          <div class="modal-score-num">話題度 <b>${heatScore(it)}</b><span class="ms-unit">/10</span></div>
         </div>
       </div>
       <div class="modal-body">
