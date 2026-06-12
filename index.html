@@ -524,6 +524,22 @@
   .stat-trend-row.now .stat-trend-val,.stat-trend-row.now .stat-trend-year{color:var(--ink);font-weight:900}
   .stat-trend-row.now .stat-trend-bar{background:var(--ink)}
 
+  /* わたしたちにできること */
+  .habits-list{display:flex;flex-direction:column;gap:11px}
+  .habit-group{
+    background:rgba(79,138,107,.06);border:1px solid rgba(79,138,107,.18);
+    border-left:3px solid #4F8A6B;border-radius:5px;padding:11px 14px;
+  }
+  .habit-actor{
+    font-size:11.5px;font-weight:800;color:#4F8A6B;letter-spacing:.04em;
+    margin-bottom:6px;
+  }
+  .habit-actions{padding-left:18px;margin:0}
+  .habit-actions li{
+    font-size:12.5px;line-height:1.7;color:var(--ink);margin-bottom:3px;
+  }
+  .habit-note{font-size:10.5px;color:var(--slate);margin-top:8px;font-style:italic}
+
   /* 施策の例 */
   .measure-list{display:flex;flex-direction:column;gap:10px;counter-reset:msr}
   .measure{
@@ -1864,6 +1880,17 @@
         <div class="measure-list">${it.measures.map(m=>`<div class="measure"><h5>${m.t}</h5><p>${m.d}</p></div>`).join('')}</div>
         <div class="measure-note">施策例は公開事例と一般的な政策メニューを編集部が整理した選択肢であり、特定地域への推奨ではありません。</div>
       </div>` : '';
+    const habitsBlock = (it.habits && it.habits.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:#4F8A6B">わたしたちにできること</div>
+        <div class="habits-list">${it.habits.map(h=>`
+          <div class="habit-group">
+            <div class="habit-actor">${h.actor}</div>
+            <ul class="habit-actions">${(h.actions||[]).map(a=>`<li>${a}</li>`).join('')}</ul>
+          </div>
+        `).join('')}</div>
+        <div class="habit-note">日常の選択や関わり方で、わたしたち一人ひとりが課題に近づく方法の例。</div>
+      </div>` : '';
     const researchBlock = (it.research && it.research.length) ? `
       <div class="mb-section">
         <div class="mb-label" style="color:#6B5B95">調査研究・レポート（深く学ぶ）</div>
@@ -1954,6 +1981,7 @@
         <div class="mb-section"><div class="mb-label ini">取り組み事例（${it.initiatives.length}）</div><div class="ini-list">${inis||'<div class="mb-text" style="color:var(--slate)">公開された具体事例は整理中。</div>'}</div></div>
         ${externalBlock}
         ${measuresBlock}
+        ${habitsBlock}
         ${researchBlock}
         ${relatedBlock}
         ${relatedArticlesBlock}
