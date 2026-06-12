@@ -3025,6 +3025,24 @@ const ARTICLES = [
     relatedIssues: ["semiconductor"],
     summary: "ラピダス 1 社依存から複数集積の起点へ。住宅 ・ 人材 ・ 関連産業 ・ 教育 ・ 国際性の 5 戦略で半導体クラスターを 20 年で育てる。",
   },
+  {
+    id: "elderly-care-staff-structure-2026-06",
+    title: "介護人材 32 万人不足時代の地域ケア - 構造的課題と長期戦略",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["elderly-care-staff", "aging-care"],
+    summary: "全国 32 万人介護人材不足 ( 2025 ) 、北海道は広域分散で特に深刻。介護を「個別職員確保」ではなく構造課題として読み解く。",
+  },
+  {
+    id: "forest-circulation-structure-2026-06",
+    title: "北海道の林業と森林循環 - 木材自給率と地域経済の構造",
+    category: "課題発見",
+    publishedAt: "2026-06-13",
+    readMinutes: 4,
+    relatedIssues: ["forest-circulation"],
+    summary: "道内森林面積 554 万 ha、木材自給率上昇中。林業を「縮小産業」ではなく「森林循環の核」として再定義する構造。",
+  },
 ];
 
 
