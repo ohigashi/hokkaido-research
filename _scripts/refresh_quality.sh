@@ -45,6 +45,10 @@ echo "=== Step 4: 記事 HTML 再生成 ( 新スコア反映 ) ==="
 python3 _scripts/generate_articles.py | tail -3
 
 echo
+echo "=== Step 4b: OG IMAGE 再生成 ( カテゴリ別 + 記事個別 ) ==="
+python3 _scripts/generate_og_images.py | tail -5
+
+echo
 echo "=== Step 5: git 差分 ==="
 CHANGES=$(git status --porcelain | wc -l | tr -d ' ')
 if [ "$CHANGES" = "0" ]; then

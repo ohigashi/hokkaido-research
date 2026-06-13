@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D6B9E" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#213A56" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#FFFFFF"/>
+  <text x="64" y="120" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" opacity="0.85">アイデア</text>
+  <rect x="64" y="160" width="172" height="48" fill="#FFFFFF" fill-opacity="0.18" rx="6"/><text x="84" y="194" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">地域インフラ</text>
+  <g font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-weight="900" fill="#FFFFFF">
+        <text x="64" y="320" font-size="92" letter-spacing="-1">インフラ集約と居住誘導 - 富山モデルの実装</text>
+  </g>
+  <text x="64" y="540" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="22" font-weight="600" fill="#FFFFFF" opacity="0.7">hokkaido-research.lrg.jp</text>
+  <text x="64" y="580" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="20" font-weight="500" fill="#FFFFFF" opacity="0.55">北海道・地域課題リサーチ</text>
+</svg>

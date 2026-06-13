@@ -7355,7 +7355,10 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="北海道・地域課題リサーチ">
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/articles/{id}.html">
-<meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
+<meta property="og:image" content="https://hokkaido-research.lrg.jp/og/article-{id}.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://hokkaido-research.lrg.jp/og/article-{id}.svg">
 <meta property="article:published_time" content="{publishedAt}">
 <meta property="article:modified_time" content="{updatedAt}">
 <meta property="article:author" content="hokkaido-research 編集部">

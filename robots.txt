@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /hokkaido-todo.html
+Disallow: /internal-archive.html
 Disallow: /_docs/
 Disallow: /_scripts/
 Disallow: /_articles_quality.json
