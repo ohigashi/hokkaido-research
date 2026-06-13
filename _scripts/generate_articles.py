@@ -7080,7 +7080,21 @@ def main():
     ART_DIR.mkdir(exist_ok=True)
     import json as _json
 
+    # _articles_quality.json から updatedAt を読み込み ( 真値 )
+    quality_path = ROOT / "_articles_quality.json"
+    updated_by_slug = {}
+    if quality_path.exists():
+        try:
+            for q in _json.loads(quality_path.read_text(encoding="utf-8")):
+                if q.get("updatedAt"):
+                    updated_by_slug[q["slug"]] = q["updatedAt"]
+        except Exception:
+            pass
+
     for a in ARTICLES:
+        # updatedAt は quality JSON 優先、 なければエントリ自身、 fallback で publishedAt
+        a_updated = updated_by_slug.get(a["id"]) or a.get("updatedAt") or a["publishedAt"]
+        a["updatedAt"] = a_updated
         body_html = link_glossary_terms(render_body(a["body"]))
         related_js = (
             RELATED_JS
