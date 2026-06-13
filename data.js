@@ -4097,8 +4097,11 @@ const ARTICLES = [
     quality: 85,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 100,
+    compositeScore: 85,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4117,8 +4120,11 @@ const ARTICLES = [
     quality: 78,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 93,
+    compositeScore: 78,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4137,8 +4143,11 @@ const ARTICLES = [
     quality: 64,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 79,
+    compositeScore: 64,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4157,8 +4166,11 @@ const ARTICLES = [
     quality: 44,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 59,
+    compositeScore: 44,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4177,8 +4189,11 @@ const ARTICLES = [
     quality: 56,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 71,
+    compositeScore: 56,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4197,8 +4212,11 @@ const ARTICLES = [
     quality: 62,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 77,
+    compositeScore: 62,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4217,8 +4235,11 @@ const ARTICLES = [
     quality: 71,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 86,
+    compositeScore: 71,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4237,8 +4258,11 @@ const ARTICLES = [
     quality: 69,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 84,
+    compositeScore: 69,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4257,8 +4281,11 @@ const ARTICLES = [
     quality: 52,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 67,
+    compositeScore: 52,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4277,8 +4304,11 @@ const ARTICLES = [
     quality: 68,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 83,
+    compositeScore: 68,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4297,8 +4327,11 @@ const ARTICLES = [
     quality: 48,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 63,
+    compositeScore: 48,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4317,8 +4350,11 @@ const ARTICLES = [
     quality: 49,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 64,
+    compositeScore: 49,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4337,8 +4373,11 @@ const ARTICLES = [
     quality: 55,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 70,
+    compositeScore: 55,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4357,8 +4396,11 @@ const ARTICLES = [
     quality: 62,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 77,
+    compositeScore: 62,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4377,8 +4419,11 @@ const ARTICLES = [
     quality: 42,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 57,
+    compositeScore: 42,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4397,8 +4442,11 @@ const ARTICLES = [
     quality: 45,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 60,
+    compositeScore: 45,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4417,8 +4465,11 @@ const ARTICLES = [
     quality: 53,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 68,
+    compositeScore: 53,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4437,8 +4488,11 @@ const ARTICLES = [
     quality: 47,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 62,
+    compositeScore: 47,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4457,8 +4511,11 @@ const ARTICLES = [
     quality: 51,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 66,
+    compositeScore: 51,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4477,8 +4534,11 @@ const ARTICLES = [
     quality: 64,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 79,
+    compositeScore: 64,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4497,8 +4557,11 @@ const ARTICLES = [
     quality: 57,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 72,
+    compositeScore: 57,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4517,8 +4580,11 @@ const ARTICLES = [
     quality: 46,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 61,
+    compositeScore: 46,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4537,8 +4603,11 @@ const ARTICLES = [
     quality: 55,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 70,
+    compositeScore: 55,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4557,8 +4626,11 @@ const ARTICLES = [
     quality: 48,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 63,
+    compositeScore: 48,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4577,8 +4649,11 @@ const ARTICLES = [
     quality: 44,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 59,
+    compositeScore: 44,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4597,8 +4672,11 @@ const ARTICLES = [
     quality: 45,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 60,
+    compositeScore: 45,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4617,8 +4695,11 @@ const ARTICLES = [
     quality: 41,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 56,
+    compositeScore: 41,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4637,8 +4718,11 @@ const ARTICLES = [
     quality: 39,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 54,
+    compositeScore: 39,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4657,8 +4741,11 @@ const ARTICLES = [
     quality: 42,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 57,
+    compositeScore: 42,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4677,8 +4764,11 @@ const ARTICLES = [
     quality: 51,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 66,
+    compositeScore: 51,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4697,8 +4787,11 @@ const ARTICLES = [
     quality: 53,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 68,
+    compositeScore: 53,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4717,8 +4810,11 @@ const ARTICLES = [
     quality: 39,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 54,
+    compositeScore: 39,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4737,8 +4833,11 @@ const ARTICLES = [
     quality: 24,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 39,
+    compositeScore: 24,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4757,8 +4856,11 @@ const ARTICLES = [
     quality: 34,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 49,
+    compositeScore: 34,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4777,8 +4879,11 @@ const ARTICLES = [
     quality: 24,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 39,
+    compositeScore: 24,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4797,8 +4902,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4817,8 +4925,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4837,8 +4948,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4857,8 +4971,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4877,8 +4994,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4897,8 +5017,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4917,8 +5040,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4937,8 +5063,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4957,8 +5086,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4977,8 +5109,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -4997,8 +5132,11 @@ const ARTICLES = [
     quality: 25,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 40,
+    compositeScore: 25,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5017,8 +5155,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5037,8 +5178,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5057,8 +5201,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5077,8 +5224,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5097,8 +5247,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5117,8 +5270,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5137,8 +5293,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5157,8 +5316,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5177,8 +5339,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5197,8 +5362,11 @@ const ARTICLES = [
     quality: 24,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 39,
+    compositeScore: 24,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5217,8 +5385,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5237,8 +5408,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5257,8 +5431,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5277,8 +5454,11 @@ const ARTICLES = [
     quality: 27,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 42,
+    compositeScore: 27,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5297,8 +5477,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5317,8 +5500,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5337,8 +5523,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5357,8 +5546,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5377,8 +5569,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5397,8 +5592,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5417,8 +5615,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5437,8 +5638,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5457,8 +5661,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5477,8 +5684,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5497,8 +5707,11 @@ const ARTICLES = [
     quality: 25,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 40,
+    compositeScore: 25,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5517,8 +5730,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5537,8 +5753,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5557,8 +5776,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5577,8 +5799,11 @@ const ARTICLES = [
     quality: 27,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 42,
+    compositeScore: 27,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5597,8 +5822,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5617,8 +5845,11 @@ const ARTICLES = [
     quality: 27,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 42,
+    compositeScore: 27,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5637,8 +5868,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5657,8 +5891,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5677,8 +5914,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5697,8 +5937,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5717,8 +5960,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5737,8 +5983,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5757,8 +6006,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5777,8 +6029,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5797,8 +6052,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5817,8 +6075,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5837,8 +6098,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5857,8 +6121,11 @@ const ARTICLES = [
     quality: 25,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 40,
+    compositeScore: 25,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5877,8 +6144,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5897,8 +6167,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5917,8 +6190,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5937,8 +6213,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5957,8 +6236,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5977,8 +6259,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -5997,8 +6282,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6017,8 +6305,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6037,8 +6328,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6057,8 +6351,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6077,8 +6374,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6097,8 +6397,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6117,8 +6420,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6137,8 +6443,11 @@ const ARTICLES = [
     quality: 21,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 36,
+    compositeScore: 21,
+    priorityType: "NODATA",
   },
+
+
 
 
 
@@ -6157,8 +6466,11 @@ const ARTICLES = [
     quality: 23,
     freshness: 15,
     ga4Score: 0,
-    compositeScore: 38,
+    compositeScore: 23,
+    priorityType: "NODATA",
   },
+
+
 
 
 

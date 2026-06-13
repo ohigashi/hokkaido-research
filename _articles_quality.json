@@ -7,7 +7,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 826,
     "table_count": 0,
     "breakdown": {
@@ -19,7 +19,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "agritech-smart-structure-2026-06",
@@ -29,7 +36,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 794,
     "table_count": 0,
     "breakdown": {
@@ -41,7 +48,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "ainu-culture-future-2026-06",
@@ -51,7 +65,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 797,
     "table_count": 0,
     "breakdown": {
@@ -63,7 +77,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "carbon-neutral-structure-2026-06",
@@ -73,7 +94,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 775,
     "table_count": 0,
     "breakdown": {
@@ -85,7 +106,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "climate-adaptation-implementation-2026-06",
@@ -95,7 +123,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 781,
     "table_count": 0,
     "breakdown": {
@@ -107,7 +135,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "climate-adaptation-structure-2026-06",
@@ -117,7 +152,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 798,
     "table_count": 0,
     "breakdown": {
@@ -129,7 +164,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "coastal-erosion-adaptation-2026-06",
@@ -139,7 +181,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 789,
     "table_count": 0,
     "breakdown": {
@@ -151,7 +193,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "coastal-erosion-structure-2026-06",
@@ -161,7 +210,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 792,
     "table_count": 0,
     "breakdown": {
@@ -173,7 +222,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "community-broadcasting-renewal-2026-06",
@@ -183,7 +239,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 792,
     "table_count": 0,
     "breakdown": {
@@ -195,7 +251,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "community-broadcasting-structure-2026-06",
@@ -205,7 +268,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 807,
     "table_count": 0,
     "breakdown": {
@@ -217,7 +280,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "cost-of-living-strategy-2026-06",
@@ -227,7 +297,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 769,
     "table_count": 0,
     "breakdown": {
@@ -239,7 +309,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "craft-industry-renaissance-2026-06",
@@ -249,7 +326,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 804,
     "table_count": 0,
     "breakdown": {
@@ -261,7 +338,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "cyber-security-local-2026-06",
@@ -271,7 +355,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 809,
     "table_count": 0,
     "breakdown": {
@@ -283,7 +367,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "cyber-security-shared-2026-06",
@@ -293,7 +384,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 806,
     "table_count": 0,
     "breakdown": {
@@ -305,7 +396,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "depopulation-residual-strategy-2026-06",
@@ -315,7 +413,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 801,
     "table_count": 0,
     "breakdown": {
@@ -327,7 +425,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "disaster-recovery-resilience-2026-06",
@@ -337,7 +442,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 799,
     "table_count": 0,
     "breakdown": {
@@ -349,7 +454,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "diversity-inclusion-strategy-2026-06",
@@ -359,7 +471,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 794,
     "table_count": 0,
     "breakdown": {
@@ -371,7 +483,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "elderly-care-staff-strategy-2026-06",
@@ -381,7 +500,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 783,
     "table_count": 0,
     "breakdown": {
@@ -393,7 +512,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "energy-security-structure-2026-06",
@@ -403,7 +529,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 805,
     "table_count": 0,
     "breakdown": {
@@ -415,7 +541,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "fisheries-climate-strategy-2026-06",
@@ -425,7 +558,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 763,
     "table_count": 0,
     "breakdown": {
@@ -437,7 +570,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "food-security-strategy-2026-06",
@@ -447,7 +587,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 762,
     "table_count": 0,
     "breakdown": {
@@ -459,7 +599,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "food-waste-strategy-2026-06",
@@ -469,7 +616,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 779,
     "table_count": 0,
     "breakdown": {
@@ -481,7 +628,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "hikikomori-step-support-2026-06",
@@ -491,7 +645,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 831,
     "table_count": 0,
     "breakdown": {
@@ -503,7 +657,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "hikikomori-structure-2026-06",
@@ -513,7 +674,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 818,
     "table_count": 0,
     "breakdown": {
@@ -525,7 +686,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "isolation-structure-2026-06",
@@ -535,7 +703,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 798,
     "table_count": 0,
     "breakdown": {
@@ -547,7 +715,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-media-renewal-2026-06",
@@ -557,7 +732,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 805,
     "table_count": 0,
     "breakdown": {
@@ -569,7 +744,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-media-structure-2026-06",
@@ -579,7 +761,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 825,
     "table_count": 0,
     "breakdown": {
@@ -591,7 +773,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-startup-ecosystem-2026-06",
@@ -601,7 +790,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 827,
     "table_count": 0,
     "breakdown": {
@@ -613,7 +802,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "low-birthrate-structure-2026-06",
@@ -623,7 +819,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 775,
     "table_count": 0,
     "breakdown": {
@@ -635,7 +831,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "new-industry-strategy-2026-06",
@@ -645,7 +848,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 769,
     "table_count": 0,
     "breakdown": {
@@ -657,7 +860,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "north-territory-continuity-2026-06",
@@ -667,7 +877,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 781,
     "table_count": 0,
     "breakdown": {
@@ -679,7 +889,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "north-territory-structure-2026-06",
@@ -689,7 +906,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 810,
     "table_count": 0,
     "breakdown": {
@@ -701,7 +918,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "nuclear-safety-alternative-2026-06",
@@ -711,7 +935,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 798,
     "table_count": 0,
     "breakdown": {
@@ -723,7 +947,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "nuclear-safety-structure-2026-06",
@@ -733,7 +964,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 799,
     "table_count": 0,
     "breakdown": {
@@ -745,7 +976,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "rail-transit-structure-2026-06",
@@ -755,7 +993,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 784,
     "table_count": 0,
     "breakdown": {
@@ -767,7 +1005,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-airport-strategy-2026-06",
@@ -777,7 +1022,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 36,
+    "composite": 21,
     "char_count": 796,
     "table_count": 0,
     "breakdown": {
@@ -789,7 +1034,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-medical-strategy-2026-06",
@@ -799,7 +1051,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 766,
     "table_count": 0,
     "breakdown": {
@@ -811,7 +1063,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "religious-shrine-structure-2026-06",
@@ -821,7 +1080,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 803,
     "table_count": 0,
     "breakdown": {
@@ -833,7 +1092,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "reskilling-regional-2026-06",
@@ -843,7 +1109,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 770,
     "table_count": 0,
     "breakdown": {
@@ -855,7 +1121,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "school-consolidation-attractive-2026-06",
@@ -865,7 +1138,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 780,
     "table_count": 0,
     "breakdown": {
@@ -877,7 +1150,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "senior-second-career-strategy-2026-06",
@@ -887,7 +1167,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 774,
     "table_count": 0,
     "breakdown": {
@@ -899,7 +1179,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "senior-second-career-structure-2026-06",
@@ -909,7 +1196,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 801,
     "table_count": 0,
     "breakdown": {
@@ -921,7 +1208,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "urban-downtown-renewal-2026-06",
@@ -931,7 +1225,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 797,
     "table_count": 0,
     "breakdown": {
@@ -943,7 +1237,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "wildlife-management-strategy-2026-06",
@@ -953,7 +1254,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 774,
     "table_count": 0,
     "breakdown": {
@@ -965,7 +1266,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "wildlife-management-structure-2026-06",
@@ -975,7 +1283,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 36,
+    "composite": 21,
     "char_count": 780,
     "table_count": 0,
     "breakdown": {
@@ -987,7 +1295,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "winter-sports-strategy-2026-06",
@@ -997,7 +1312,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 799,
     "table_count": 0,
     "breakdown": {
@@ -1009,7 +1324,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "youth-mental-structure-2026-06",
@@ -1019,7 +1341,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 805,
     "table_count": 0,
     "breakdown": {
@@ -1031,7 +1353,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "youth-mental-support-2026-06",
@@ -1041,7 +1370,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 36,
+    "composite": 21,
     "char_count": 803,
     "table_count": 0,
     "breakdown": {
@@ -1053,7 +1382,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "biodiversity-structure-2026-06",
@@ -1063,7 +1399,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 38,
+    "composite": 23,
     "char_count": 770,
     "table_count": 0,
     "breakdown": {
@@ -1075,7 +1411,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "childcare-shortage-strategy-2026-06",
@@ -1085,7 +1428,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 779,
     "table_count": 0,
     "breakdown": {
@@ -1097,7 +1440,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "craft-industry-structure-2026-06",
@@ -1107,7 +1457,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 38,
+    "composite": 23,
     "char_count": 821,
     "table_count": 0,
     "breakdown": {
@@ -1119,7 +1469,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "depopulation-recover-2026-06",
@@ -1129,7 +1486,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 761,
     "table_count": 0,
     "breakdown": {
@@ -1141,7 +1498,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "disability-inclusive-design-2026-06",
@@ -1151,7 +1515,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 38,
+    "composite": 23,
     "char_count": 821,
     "table_count": 0,
     "breakdown": {
@@ -1163,7 +1527,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "disaster-recovery-structure-2026-06",
@@ -1173,7 +1544,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 811,
     "table_count": 0,
     "breakdown": {
@@ -1185,7 +1556,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "foreign-resident-strategy-2026-06",
@@ -1195,7 +1573,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 777,
     "table_count": 0,
     "breakdown": {
@@ -1207,7 +1585,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "forest-circulation-strategy-2026-06",
@@ -1217,7 +1602,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 761,
     "table_count": 0,
     "breakdown": {
@@ -1229,7 +1614,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "infra-aging-compact-2026-06",
@@ -1239,7 +1631,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 784,
     "table_count": 0,
     "breakdown": {
@@ -1251,7 +1643,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-startup-structure-2026-06",
@@ -1261,7 +1660,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 38,
+    "composite": 23,
     "char_count": 808,
     "table_count": 0,
     "breakdown": {
@@ -1273,7 +1672,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "multicultural-strategy-2026-06",
@@ -1283,7 +1689,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 38,
+    "composite": 23,
     "char_count": 759,
     "table_count": 0,
     "breakdown": {
@@ -1295,7 +1701,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-airport-structure-2026-06",
@@ -1305,7 +1718,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 38,
+    "composite": 23,
     "char_count": 812,
     "table_count": 0,
     "breakdown": {
@@ -1317,7 +1730,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "religious-shrine-revival-2026-06",
@@ -1327,7 +1747,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 38,
+    "composite": 23,
     "char_count": 791,
     "table_count": 0,
     "breakdown": {
@@ -1339,7 +1759,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "winter-sports-structure-2026-06",
@@ -1349,7 +1776,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 38,
+    "composite": 23,
     "char_count": 813,
     "table_count": 0,
     "breakdown": {
@@ -1361,7 +1788,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-finance-role-2026-06",
@@ -1371,7 +1805,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 39,
+    "composite": 24,
     "char_count": 929,
     "table_count": 1,
     "breakdown": {
@@ -1383,7 +1817,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "snow-removal-strategy-2026-06",
@@ -1393,7 +1834,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 39,
+    "composite": 24,
     "char_count": 975,
     "table_count": 1,
     "breakdown": {
@@ -1405,7 +1846,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "urban-downtown-structure-2026-06",
@@ -1415,7 +1863,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 39,
+    "composite": 24,
     "char_count": 821,
     "table_count": 0,
     "breakdown": {
@@ -1427,7 +1875,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "aging-care-strategy-2026-06",
@@ -1437,7 +1892,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 40,
+    "composite": 25,
     "char_count": 779,
     "table_count": 0,
     "breakdown": {
@@ -1449,7 +1904,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "disability-inclusion-structure-2026-06",
@@ -1459,7 +1921,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 40,
+    "composite": 25,
     "char_count": 822,
     "table_count": 0,
     "breakdown": {
@@ -1471,7 +1933,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "shinkansen-donan-structure-2026-06",
@@ -1481,7 +1950,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 40,
+    "composite": 25,
     "char_count": 794,
     "table_count": 0,
     "breakdown": {
@@ -1493,7 +1962,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "diversity-inclusion-structure-2026-06",
@@ -1503,7 +1979,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 42,
+    "composite": 27,
     "char_count": 796,
     "table_count": 0,
     "breakdown": {
@@ -1515,7 +1991,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "food-security-structure-2026-06",
@@ -1525,7 +2008,7 @@
     "freshness": 15,
     "days_since_update": -2,
     "updatedAt": "2026-06-15",
-    "composite": 42,
+    "composite": 27,
     "char_count": 809,
     "table_count": 0,
     "breakdown": {
@@ -1537,7 +2020,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "smart-city-gx-structure-2026-06",
@@ -1547,7 +2037,7 @@
     "freshness": 15,
     "days_since_update": -1,
     "updatedAt": "2026-06-14",
-    "composite": 42,
+    "composite": 27,
     "char_count": 784,
     "table_count": 0,
     "breakdown": {
@@ -1559,7 +2049,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "local-finance-structure-2026-06",
@@ -1569,7 +2066,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 49,
+    "composite": 34,
     "char_count": 929,
     "table_count": 2,
     "breakdown": {
@@ -1581,7 +2078,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "bear-coexistence-cases-2026-06",
@@ -1591,7 +2095,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 54,
+    "composite": 39,
     "char_count": 1599,
     "table_count": 0,
     "breakdown": {
@@ -1603,7 +2107,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "snow-removal-structure-2026-06",
@@ -1613,7 +2124,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 54,
+    "composite": 39,
     "char_count": 979,
     "table_count": 2,
     "breakdown": {
@@ -1625,7 +2136,14 @@
       "habits": 10,
       "central": 5,
       "assets": 5
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "fisheries-climate-change-2026-06",
@@ -1635,7 +2153,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 56,
+    "composite": 41,
     "char_count": 1473,
     "table_count": 2,
     "breakdown": {
@@ -1647,7 +2165,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "jr-hokkaido-future-structure-2026-06",
@@ -1657,7 +2182,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 57,
+    "composite": 42,
     "char_count": 1544,
     "table_count": 2,
     "breakdown": {
@@ -1669,7 +2194,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "semiconductor-rapidus-strategy-2026-06",
@@ -1679,7 +2211,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 57,
+    "composite": 42,
     "char_count": 1396,
     "table_count": 1,
     "breakdown": {
@@ -1691,7 +2223,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "furusato-nozei-transition-2026-06",
@@ -1701,7 +2240,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 59,
+    "composite": 44,
     "char_count": 1979,
     "table_count": 2,
     "breakdown": {
@@ -1713,7 +2252,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "infra-aging-resilience-2026-06",
@@ -1723,7 +2269,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 59,
+    "composite": 44,
     "char_count": 1501,
     "table_count": 2,
     "breakdown": {
@@ -1735,7 +2281,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "cost-of-living-hokkaido-2026-06",
@@ -1745,7 +2298,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 60,
+    "composite": 45,
     "char_count": 1449,
     "table_count": 2,
     "breakdown": {
@@ -1757,7 +2310,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "tourism-sustainability-dual-2026-06",
@@ -1767,7 +2327,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 60,
+    "composite": 45,
     "char_count": 1444,
     "table_count": 2,
     "breakdown": {
@@ -1779,7 +2339,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "ainu-culture-coexistence-2026-06",
@@ -1789,7 +2356,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 61,
+    "composite": 46,
     "char_count": 1602,
     "table_count": 2,
     "breakdown": {
@@ -1801,7 +2368,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "decarbonization-renewable-2026-06",
@@ -1811,7 +2385,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 62,
+    "composite": 47,
     "char_count": 1532,
     "table_count": 2,
     "breakdown": {
@@ -1823,7 +2397,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-recruitment-transition-2026-06",
@@ -1833,7 +2414,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 63,
+    "composite": 48,
     "char_count": 2038,
     "table_count": 2,
     "breakdown": {
@@ -1845,7 +2426,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "school-consolidation-structure-2026-06",
@@ -1855,7 +2443,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 63,
+    "composite": 48,
     "char_count": 1531,
     "table_count": 2,
     "breakdown": {
@@ -1867,7 +2455,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "youth-leaving-reasons-2026-06",
@@ -1877,7 +2472,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 64,
+    "composite": 49,
     "char_count": 2361,
     "table_count": 3,
     "breakdown": {
@@ -1889,7 +2484,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "disaster-resilience-2026-06",
@@ -1899,7 +2501,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 66,
+    "composite": 51,
     "char_count": 1525,
     "table_count": 2,
     "breakdown": {
@@ -1911,7 +2513,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "elderly-care-staff-structure-2026-06",
@@ -1921,7 +2530,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 66,
+    "composite": 51,
     "char_count": 1471,
     "table_count": 2,
     "breakdown": {
@@ -1933,7 +2542,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "succession-primary-industry-2026-06",
@@ -1943,7 +2559,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 67,
+    "composite": 52,
     "char_count": 1995,
     "table_count": 2,
     "breakdown": {
@@ -1955,7 +2571,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "forest-circulation-structure-2026-06",
@@ -1965,7 +2588,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 68,
+    "composite": 53,
     "char_count": 1505,
     "table_count": 2,
     "breakdown": {
@@ -1977,7 +2600,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-medical-structure-2026-06",
@@ -1987,7 +2617,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 68,
+    "composite": 53,
     "char_count": 1598,
     "table_count": 2,
     "breakdown": {
@@ -1999,7 +2629,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "bear-conflict-structure-2026-06",
@@ -2009,7 +2646,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 70,
+    "composite": 55,
     "char_count": 1545,
     "table_count": 3,
     "breakdown": {
@@ -2021,7 +2658,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "childcare-shortage-structure-2026-06",
@@ -2031,7 +2675,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 70,
+    "composite": 55,
     "char_count": 1455,
     "table_count": 2,
     "breakdown": {
@@ -2043,7 +2687,14 @@
       "habits": 10,
       "central": 5,
       "assets": 5
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "vacant-houses-perspective-2026-06",
@@ -2053,7 +2704,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 71,
+    "composite": 56,
     "char_count": 2105,
     "table_count": 2,
     "breakdown": {
@@ -2065,7 +2716,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "aging-single-household-2026-06",
@@ -2075,7 +2733,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 72,
+    "composite": 57,
     "char_count": 1591,
     "table_count": 2,
     "breakdown": {
@@ -2087,7 +2745,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "semiconductor-rapidus-economy-2026-06",
@@ -2097,7 +2762,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 77,
+    "composite": 62,
     "char_count": 1748,
     "table_count": 2,
     "breakdown": {
@@ -2109,7 +2774,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "vacant-houses-onomichi-2026-06",
@@ -2119,7 +2791,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 77,
+    "composite": 62,
     "char_count": 2284,
     "table_count": 2,
     "breakdown": {
@@ -2131,7 +2803,14 @@
       "habits": 10,
       "central": 0,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "furusato-nozei-asset-question-2026-06",
@@ -2141,7 +2820,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 79,
+    "composite": 64,
     "char_count": 2142,
     "table_count": 2,
     "breakdown": {
@@ -2153,7 +2832,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "multicultural-living-2026-06",
@@ -2163,7 +2849,7 @@
     "freshness": 15,
     "days_since_update": 0,
     "updatedAt": "2026-06-13",
-    "composite": 79,
+    "composite": 64,
     "char_count": 1635,
     "table_count": 2,
     "breakdown": {
@@ -2175,7 +2861,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "regional-recruitment-structure-2026-06",
@@ -2185,7 +2878,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 83,
+    "composite": 68,
     "char_count": 2475,
     "table_count": 3,
     "breakdown": {
@@ -2197,7 +2890,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "food-self-sufficiency-waste-2026-06",
@@ -2207,7 +2907,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 84,
+    "composite": 69,
     "char_count": 1999,
     "table_count": 3,
     "breakdown": {
@@ -2219,7 +2919,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "child-poverty-structure-2026-06",
@@ -2229,7 +2936,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 86,
+    "composite": 71,
     "char_count": 1962,
     "table_count": 2,
     "breakdown": {
@@ -2241,7 +2948,14 @@
       "habits": 10,
       "central": 5,
       "assets": 5
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "migration-longterm-cases-2026-06",
@@ -2251,7 +2965,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 93,
+    "composite": 78,
     "char_count": 2719,
     "table_count": 3,
     "breakdown": {
@@ -2263,7 +2977,14 @@
       "habits": 10,
       "central": 5,
       "assets": 0
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   },
   {
     "slug": "migration-residual-assets-2026-06",
@@ -2273,7 +2994,7 @@
     "freshness": 15,
     "days_since_update": 1,
     "updatedAt": "2026-06-12",
-    "composite": 100,
+    "composite": 85,
     "char_count": 2764,
     "table_count": 3,
     "breakdown": {
@@ -2285,6 +3006,13 @@
       "habits": 10,
       "central": 5,
       "assets": 5
-    }
+    },
+    "internal_pv": 0,
+    "external_pv": 0,
+    "engagement_seconds_avg": 0,
+    "ga4Score": 0,
+    "priorityType": "NODATA",
+    "priorityLabel": "GA4 データ未取得",
+    "priorityAction": "構造スコアベースで判定"
   }
 ]

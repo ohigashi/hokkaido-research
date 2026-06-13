@@ -286,9 +286,16 @@
       if(currentCat && a.category === currentCat) s += 10;
       return s;
     };
-    // 合成スコア = 関連性 + 品質 + 鮮度 ( GA4 連携後は ga4Score も加算済み )
-    var compositeScore = function(a){
-      return relevanceScore(a) + (a.quality||0) + (a.freshness||0) + (a.ga4Score||0);
+    // メインスコア = 関連性 + 品質 + GA4 ( 鮮度は tiebreaker )
+    var mainScore = function(a){
+      return relevanceScore(a) + (a.quality||0) + (a.ga4Score||0);
+    };
+    var sortByMain = function(a,b){
+      var d = mainScore(b) - mainScore(a);
+      if(d !== 0) return d;
+      var f = (b.freshness||0) - (a.freshness||0);
+      if(f !== 0) return f;
+      return (b.publishedAt||"").localeCompare(a.publishedAt||"");
     };
     var others = [];
     var allArticles = [];
@@ -296,12 +303,12 @@
       allArticles = ARTICLES.filter(function(a){ return a.id !== ARTICLE_ID; });
       // 関連性 >0 のものを優先プール、関連性 0 のものを補完プールに
       var relevant = allArticles.filter(function(a){ return relevanceScore(a) > 0; });
-      relevant.sort(function(a,b){ return compositeScore(b) - compositeScore(a); });
+      relevant.sort(sortByMain);
       others = relevant;
     }
-    // 4本に満たないときは全体から composite で補完
+    // 4本に満たないときは全体から補完
     if(others.length < 4 && allArticles.length){
-      var sortedAll = allArticles.slice().sort(function(a,b){ return compositeScore(b) - compositeScore(a); });
+      var sortedAll = allArticles.slice().sort(sortByMain);
       var existingIds = others.map(function(a){ return a.id; });
       for(var i=0; i<sortedAll.length && others.length<4; i++){
         if(existingIds.indexOf(sortedAll[i].id) < 0){

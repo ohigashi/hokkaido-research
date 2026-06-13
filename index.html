@@ -1526,17 +1526,21 @@
     window.updateReadingGrid = function(filteredIssues){
       const activeIds = (filteredIssues && filteredIssues.length)
         ? filteredIssues.map(i=>i.id) : null;
-      // フィルタが「すべて」なら関連性 = 0 とみなして品質 + 鮮度のみで決まる
+      // フィルタが「すべて」なら関連性 = 0 とみなして品質のみで決まる
       const isAll = !activeIds || activeIds.length >= (typeof ISSUES !== 'undefined' ? ISSUES.length : 9999);
       const relevance = a => {
         if(isAll) return 0;
         const shared = (a.relatedIssues||[]).filter(x => activeIds.indexOf(x) >= 0).length;
         return shared * 15;
       };
-      const composite = a => relevance(a) + (a.quality||0) + (a.freshness||0) + (a.ga4Score||0);
+      // メインスコアは relevance + quality + ga4Score ( 内部回遊エンゲ ) 。鮮度は tiebreaker
+      const mainScore = a => relevance(a) + (a.quality||0) + (a.ga4Score||0);
       const sorted = [...ARTICLES].sort((a,b)=>{
-        const d = composite(b) - composite(a);
+        const d = mainScore(b) - mainScore(a);
         if(d !== 0) return d;
+        // 同パフォーマンスは鮮度の高い ( freshness 大 ) 方を上に
+        const f = (b.freshness||0) - (a.freshness||0);
+        if(f !== 0) return f;
         return (b.publishedAt||'').localeCompare(a.publishedAt||'');
       });
       const items = sorted.slice(0, 4);

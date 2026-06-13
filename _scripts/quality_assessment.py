@@ -125,6 +125,45 @@ def freshness_score(updated_at_str):
     return 0, days
 
 
+def classify_priority(pv, eng_sec, pv_thresholds, eng_thresholds):
+    """PV × エンゲージメント の象限から打ち手タイプを判定。
+
+    Returns:
+      ( type, label, action )
+      type: A / B / C / D / E / F / NODATA
+    """
+    if pv is None or eng_sec is None:
+        return "NODATA", "GA4 データ未取得", "構造スコアベースで判定"
+    pv_lo, pv_hi = pv_thresholds
+    eng_lo, eng_hi = eng_thresholds
+    pv_band = "high" if pv >= pv_hi else ("low" if pv <= pv_lo else "mid")
+    eng_band = "high" if eng_sec >= eng_hi else ("low" if eng_sec <= eng_lo else "mid")
+    table = {
+        ("high", "high"): ("D", "高エンゲ × 高 PV", "維持 ( 触らない )"),
+        ("high", "mid"):  ("A", "高エンゲ × 中 PV", "露出 + SEO 強化"),
+        ("high", "low"):  ("A", "高エンゲ × 低 PV", "露出 + SEO 強化"),
+        ("mid", "high"):  ("F", "中エンゲ × 高 PV", "コンテンツ強化"),
+        ("mid", "mid"):   ("F", "中エンゲ × 中 PV", "ローテーション ( コンテンツ )"),
+        ("mid", "low"):   ("C", "中エンゲ × 低 PV", "SEO 先 → 流入後にコンテンツ"),
+        ("low", "high"):  ("B", "低エンゲ × 高 PV", "コンテンツ強化 ( 離脱対策 )"),
+        ("low", "mid"):   ("B", "低エンゲ × 中 PV", "コンテンツ強化"),
+        ("low", "low"):   ("E", "低エンゲ × 低 PV", "根本見直し ( 両方強化 )"),
+    }
+    key = (eng_band, pv_band)
+    return table.get(key, ("NODATA", "未分類", "構造スコアベース"))
+
+
+def percentile_thresholds(values, lo_pct=33, hi_pct=67):
+    """Return ( lo_threshold, hi_threshold ) at given percentiles."""
+    if not values:
+        return 0, 0
+    sv = sorted(values)
+    n = len(sv)
+    lo = sv[max(0, n * lo_pct // 100 - 1)]
+    hi = sv[min(n - 1, n * hi_pct // 100)]
+    return lo, hi
+
+
 def main():
     # data.js の ARTICLES セクションから updatedAt を読み込み
     data_js = (ROOT / "data.js").read_text(encoding="utf-8")
@@ -138,6 +177,23 @@ def main():
     ):
         updated_by_slug[m.group("id")] = m.group("u")
 
+    # GA4 データを読み込み ( なければ None )
+    ga4_path = ROOT / "_ga4_engagement.json"
+    ga4_by_slug = {}
+    if ga4_path.exists():
+        try:
+            data = json.loads(ga4_path.read_text(encoding="utf-8"))
+            ga4_by_slug = {x["slug"]: x for x in data}
+        except Exception:
+            pass
+
+    # 閾値 ( 全記事の中央値ベース ) - GA4 がある記事のみで計算
+    ga4_records = list(ga4_by_slug.values())
+    pv_thr = percentile_thresholds([r["pv"] for r in ga4_records if r.get("pv", 0) > 0])
+    eng_thr = percentile_thresholds(
+        [r["engagement_seconds_avg"] for r in ga4_records if r.get("engagement_seconds_avg", 0) > 0]
+    )
+
     results = []
     for f in sorted(ART_DIR.glob("*-2026-06.html")):
         if f.name == "index.html":
@@ -149,9 +205,17 @@ def main():
         upd = updated_by_slug.get(f.stem)
         fresh_score, days_since = freshness_score(upd)
 
+        # GA4 情報と打ち手分類
+        ga4 = ga4_by_slug.get(f.stem, {})
+        pv = ga4.get("pv")
+        eng_sec = ga4.get("engagement_seconds_avg")
+        ptype, plabel, paction = classify_priority(pv, eng_sec, pv_thr, eng_thr)
+
         # Extract title and id
         title_m = re.search(r"<h1 class=\"article-title\">(.+?)</h1>", html)
         title = title_m.group(1) if title_m else f.stem
+        # composite = 構造 + GA4 ( 内部回遊エンゲージメント ) 。鮮度は別管理
+        ga4_score = ga4.get("ga4Score", 0)
         results.append({
             "slug": f.stem,
             "title": title,
@@ -160,10 +224,17 @@ def main():
             "freshness": fresh_score,
             "days_since_update": days_since,
             "updatedAt": upd or "",
-            "composite": a["total"] + fresh_score,
+            "composite": a["total"] + ga4_score,  # 鮮度を含めない
             "char_count": a["char_count"],
             "table_count": a["table_count"],
             "breakdown": a["scores"],
+            "internal_pv": ga4.get("internal_pv", 0),
+            "external_pv": ga4.get("external_pv", 0),
+            "engagement_seconds_avg": eng_sec if eng_sec is not None else 0,
+            "ga4Score": ga4_score,
+            "priorityType": ptype,
+            "priorityLabel": plabel,
+            "priorityAction": paction,
         })
 
     # Sort by composite ( weakest first ) - 構造 + 鮮度 の合算で弱い順
@@ -171,12 +242,13 @@ def main():
 
     # Output
     print(f"Total articles assessed: {len(results)}\n")
-    print(f"{'Comp':<5} {'Str':<4} {'Frs':<4} {'Days':<5} {'Chars':<6} {'Tbls':<5} Slug")
-    print("-" * 80)
+    print(f"{'Comp':<5} {'Str':<4} {'GA4':<4} {'Frs':<4} {'Days':<5} {'iPV':<4} {'Type':<6} Slug")
+    print("-" * 95)
     for r in results:
         print(
-            f"{r['composite']:>3}   {r['total']:>3}  {r['freshness']:>3}  "
-            f"{r['days_since_update']:>4}  {r['char_count']:>5}  {r['table_count']:>2}    {r['slug']}"
+            f"{r['composite']:>3}   {r['total']:>3}  {r['ga4Score']:>3}  "
+            f"{r['freshness']:>3}  {r['days_since_update']:>4}  "
+            f"{r['internal_pv']:>3}  {r['priorityType']:<5}  {r['slug']}"
         )
 
     # Save full JSON
@@ -188,7 +260,24 @@ def main():
     weak = [r for r in results if r["total"] < 60]
     print(f"\n構造弱: {len(weak)} 件 ( total < 60 )")
     stale = [r for r in results if r["freshness"] < 6]
-    print(f"鮮度低下: {len(stale)} 件 ( freshness < 6 )")
+    print(f"鮮度低下: {len(stale)} 件 ( freshness < 6 ・ 古さ自体は欠点ではない )")
+    # 優先タイプ別の件数
+    from collections import Counter
+    type_counts = Counter(r["priorityType"] for r in results)
+    print("\n優先タイプ別件数:")
+    type_order = ["A", "B", "C", "D", "E", "F", "NODATA"]
+    for t in type_order:
+        if type_counts.get(t):
+            label_map = {
+                "A": "高エンゲ × 低PV ( 露出+SEO )",
+                "B": "低エンゲ × 高PV ( コンテンツ )",
+                "C": "中エンゲ × 低PV ( SEO先→コンテンツ )",
+                "D": "高エンゲ × 高PV ( 維持 )",
+                "E": "低エンゲ × 低PV ( 根本見直し )",
+                "F": "中エンゲ × 中/高PV ( コンテンツ )",
+                "NODATA": "GA4 データなし ( 構造ベース判定 )",
+            }
+            print(f"  {t}  {type_counts[t]:>3} 件  {label_map[t]}")
 
 
 if __name__ == "__main__":
