@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>データソース・道内一次資料一覧｜北海道・地域課題リサーチ</title>
+<link rel="canonical" href="https://hokkaido-research.lrg.jp/data-sources.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="description" content="北海道・地域課題リサーチが活用する道内一次資料 30+ 件・全国・海外オープンデータの一覧。 道庁統計課・MAFF 北海道・気象庁 AMeDAS・TDB・帝国書院等。 出典の透明性とデータ駆動の編集方針。">
+<meta name="author" content="hokkaido-research 編集部">
+<meta property="og:title" content="データソース・道内一次資料一覧｜北海道・地域課題リサーチ">
+<meta property="og:description" content="北海道・地域課題リサーチが活用する道内一次資料 30+ 件・全国・海外オープンデータの一覧。 出典の透明性とデータ駆動の編集方針。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hokkaido-research.lrg.jp/data-sources.html">
+<meta property="og:image" content="https://hokkaido-research.lrg.jp/og/site.png">
+<meta property="og:site_name" content="北海道・地域課題リサーチ">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="データソース・道内一次資料一覧｜北海道・地域課題リサーチ">
+<meta name="twitter:description" content="北海道・地域課題リサーチが活用する道内一次資料 30+ 件・全国・海外オープンデータの一覧。">
+<meta name="twitter:image" content="https://hokkaido-research.lrg.jp/og/site.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "データソース・道内一次資料一覧",
+  "url": "https://hokkaido-research.lrg.jp/data-sources.html",
+  "inLanguage": "ja",
+  "isPartOf": {"@type": "WebSite", "name": "北海道・地域課題リサーチ", "url": "https://hokkaido-research.lrg.jp/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hokkaido-research.lrg.jp/"},
+    {"@type": "ListItem", "position": 2, "name": "データソース", "item": "https://hokkaido-research.lrg.jp/data-sources.html"}
+  ]
+}
+</script>
+<style>
+  :root{
+    --snow:#F2F0E9;--snow2:#E8E5DB;--ink:#1F2A28;--moss:#2C6E63;
+    --slate:#3A4A52;--ice:#2E7CA8;--line:#CDCABE;--paper:#FBFAF6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
+    background:var(--snow);color:var(--ink);
+    line-height:1.78;font-size:14.5px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:60px 24px 100px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:28px;margin-bottom:40px}
+  .back-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .back-link{
+    font-size:11.5px;color:var(--ink);text-decoration:none;font-weight:700;
+    letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;
+    padding:6px 13px;background:var(--paper);border:1px solid var(--line);
+    border-radius:30px;transition:all .12s;
+  }
+  .back-link:hover{border-color:var(--moss);background:var(--moss);color:var(--snow)}
+  h1{font-size:30px;font-weight:900;letter-spacing:-.01em;margin:18px 0 12px;line-height:1.32}
+  .meta{font-size:11.5px;color:var(--slate);font-weight:600;letter-spacing:.04em}
+  .lede{font-size:15px;color:var(--slate);margin-top:18px;line-height:1.85}
+  .lede strong{color:var(--ink)}
+  .stat-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:32px 0 8px;
+  }
+  .stat-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:18px 14px;text-align:center;
+  }
+  .stat-num{font-size:30px;font-weight:900;color:var(--moss);line-height:1;letter-spacing:-.02em}
+  .stat-lbl{font-size:10.5px;color:var(--slate);margin-top:6px;font-weight:700;letter-spacing:.04em}
+  @media(max-width:720px){
+    .stat-row{grid-template-columns:repeat(2,1fr)}
+    h1{font-size:24px}
+  }
+  h2{
+    font-size:18px;font-weight:900;color:var(--ink);
+    margin:40px 0 16px;letter-spacing:-.005em;
+    border-left:4px solid var(--moss);padding-left:14px;
+  }
+  h3{
+    font-size:14.5px;font-weight:800;color:var(--ink);
+    margin:24px 0 10px;letter-spacing:.01em;
+  }
+  p{margin-bottom:14px;color:var(--ink)}
+  .src-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:12px 0 16px}
+  .src-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:14px 16px;transition:border-color .12s;
+  }
+  .src-card:hover{border-color:var(--moss)}
+  .src-name{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:4px}
+  .src-name a{color:var(--ice);text-decoration:none}
+  .src-name a:hover{text-decoration:underline}
+  .src-desc{font-size:12px;color:var(--slate);line-height:1.7}
+  .src-tag{
+    display:inline-block;font-size:10px;font-weight:700;color:var(--moss);
+    letter-spacing:.06em;text-transform:uppercase;margin-right:8px;
+  }
+  .src-tag.global{color:var(--ice)}
+  .src-tag.national{color:#B5733A}
+  .principle{
+    background:var(--paper);border-left:4px solid var(--moss);
+    padding:18px 22px;margin:24px 0;border-radius:0 6px 6px 0;font-size:13.5px;
+  }
+  .principle strong{color:var(--ink)}
+  footer{
+    border-top:1px solid var(--line);padding-top:28px;margin-top:48px;
+    font-size:11.5px;color:var(--slate);
+  }
+  footer p{margin-bottom:5px}
+  footer a{color:var(--ice)}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-45HHCDR0LB');
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<div class="back-links">
+<a class="back-link" href="/">← トップへ戻る</a>
+<a class="back-link" href="/articles/">読み物一覧へ</a>
+</div>
+<h1>データソース ・ 道内一次資料一覧</h1>
+<p class="meta">最終更新: 2026年6月13日・運営: Largo 株式会社</p>
+<p class="lede">北海道・地域課題リサーチは、 <strong>道内一次資料を最優先</strong>に活用し、 不足を全国 ・ 海外のオープンデータで補う編集方針を採用しています。 本ページは現在活用中のデータソース全件と、 「データ駆動編集」を支える設計原則を公開します。</p>
+</header>
+
+<div class="stat-row">
+<div class="stat-card"><div class="stat-num">35+</div><div class="stat-lbl">活用データソース</div></div>
+<div class="stat-card"><div class="stat-num">22</div><div class="stat-lbl">道内一次資料</div></div>
+<div class="stat-card"><div class="stat-num">110+</div><div class="stat-lbl">記事数</div></div>
+<div class="stat-card"><div class="stat-num">6</div><div class="stat-lbl">データ駆動型記事</div></div>
+</div>
+
+<h2>編集の 3 つの設計原則</h2>
+
+<div class="principle"><strong>原則 1 . 道内一次資料を最優先</strong><br>道庁 ・ MAFF 北海道 ・ 気象庁札幌等の道内一次資料を ISSUE 発見 ・ ファクト確認の基盤に。 不足する分野は全国 ・ 海外データで補完。</div>
+
+<div class="principle"><strong>原則 2 . 出典を 2 階層で明示</strong><br>記事内で「FACT ( ファクト根拠 ) 」と「参考リンク ( 解釈 ・ 道外事例 ) 」を区別。 読者が信頼性を判断できる透明性を確保。</div>
+
+<div class="principle"><strong>原則 3 . 推移 ・ 構造で読む</strong><br>「現在値」だけでなく、 5-10 年の推移 ・ 業種別 / 地域別の構造を可視化。 「平均値」を疑い、 二極化 ・ 類型化を重視。</div>
+
+<h2>1. 道庁 ・ 道内行政機関 ( 一次資料 )</h2>
+<div class="src-grid">
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.pref.hokkaido.lg.jp/ss/tuk/" target="_blank" rel="noopener">北海道庁 統計課 - 分野別統計 ( 20 分野 )</a></div>
+<div class="src-desc">人口 ・ 農林水産 ・ 労働 ・ 福祉 ・ 経済 ・ 観光等 20 分野の道内一次統計。 ISSUE 発見の基盤。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.pref.hokkaido.lg.jp/kz/dxs/opendata/opendata.html" target="_blank" rel="noopener">北海道庁 オープンデータページ ( e-Stat 連携 )</a></div>
+<div class="src-desc">国土気象 ・ 人口 ・ 労働 ・ 農林水産他 16 分野。 CSV / EXCEL で取得可能。 石油価格 ・ 木材市況等の最新更新も。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.pref.hokkaido.lg.jp/kn/tac/chika/" target="_blank" rel="noopener">北海道庁 地価調査結果</a></div>
+<div class="src-desc">道内市町村別公示地価 ・ 住宅地 ・ 商業地動向。 札幌 ・ ニセコ ・ 千歳 ・ 地方の二極化を可視化。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.pref.hokkaido.lg.jp/ks/tot/kankyo/zero-carbon.html" target="_blank" rel="noopener">北海道庁 ゼロカーボン北海道</a></div>
+<div class="src-desc">2030 年 48% 削減目標 ・ 道内 GHG 排出量推移 ・ 脱炭素先行地域指定状況。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.pref.hokkaido.lg.jp/ss/csr/216638.html" target="_blank" rel="noopener">北海道庁 人口ビジョン 2024 年改訂版</a></div>
+<div class="src-desc">道内 179 市町村別人口推計 ・ 自然動態 ・ 社会動態 ・ 第 3 期創生総合戦略の前提資料。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.hkd.meti.go.jp/" target="_blank" rel="noopener">北海道経済産業局</a></div>
+<div class="src-desc">道内産業 ・ エネルギー ・ 中小企業 ・ 半導体 ・ 新産業の経済データ。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.maff.go.jp/hokkaido/toukei/index.html" target="_blank" rel="noopener">MAFF 北海道農政事務所 統計</a></div>
+<div class="src-desc">道内農林水産業の基本データ集 ・ なんばん BOOK ( 市町村別農業順位 ) ・ 食と農林水産データライブラリー。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://jsite.mhlw.go.jp/hokkaido-roudoukyoku/" target="_blank" rel="noopener">北海道労働局 労働市場年報</a></div>
+<div class="src-desc">道内有効求人倍率 ・ 職種別 ・ 地域別 ・ 安定所別の月次データ。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://wwwtb.mlit.go.jp/hokkaido/kakusyu/toukei/syukuhakutoukei.html" target="_blank" rel="noopener">北海道運輸局 宿泊統計</a></div>
+<div class="src-desc">道内月別 ・ 年間宿泊客数 ・ 地域別 ・ インバウンド動向。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://lfb.mof.go.jp/hokkaido/keizai/index.html" target="_blank" rel="noopener">北海道財務局 管内経済情勢報告</a></div>
+<div class="src-desc">道内法人企業景気予測 BSI ・ 業種別 ・ 規模別の景気判断。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www3.boj.or.jp/sapporo/" target="_blank" rel="noopener">日本銀行 札幌支店 北海道金融経済概況</a></div>
+<div class="src-desc">道内金融 ・ 経済の月次概況 ・ 長期トレンド分析。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.jma-net.go.jp/sapporo/" target="_blank" rel="noopener">気象庁 札幌管区気象台</a></div>
+<div class="src-desc">道内 AMeDAS 174 地点 ・ 気温 ・ 降水 ・ 風 ・ 平年差 ・ 極値ランキング。 リアルタイム更新。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.hro.or.jp/list/fisheries/" target="_blank" rel="noopener">北海道立総合研究機構 水産研究本部</a></div>
+<div class="src-desc">道内漁業資源評価 ・ 鮭遡上 ・ 海洋環境 ・ 養殖技術。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://www.harp.lg.jp/opendata/" target="_blank" rel="noopener">HARP オープンデータ ( 自治体共同 )</a></div>
+<div class="src-desc">道内自治体共同オープンデータポータル ・ 行政 ・ 統計 ・ 地理データ。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://pf.hoda.jp/" target="_blank" rel="noopener">北海道オープンデータプラットフォーム ( HODaP )</a></div>
+<div class="src-desc">道内自治体 ・ 道庁の統合オープンデータ ・ CC-BY 4.0 ライセンス。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag">道内</span><a href="https://hoda.jp/" target="_blank" rel="noopener">HODA ( 北海道オープンデータ )</a></div>
+<div class="src-desc">道内オープンデータの集約ハブ ・ CKAN ベース。</div>
+</div>
+
+</div>
+
+<h2>2. 全国一次資料 ・ 民間データ</h2>
+<div class="src-grid">
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.stat.go.jp/data/kokusei/" target="_blank" rel="noopener">総務省 国勢調査</a></div>
+<div class="src-desc">5 年ごとの人口 ・ 世帯統計 ・ 道内 179 市町村別動態の基盤。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/daityo/jinkou_jinkoudoutai-setaisuu.html" target="_blank" rel="noopener">総務省 住民基本台帳 人口動態</a></div>
+<div class="src-desc">道内市町村別の月次自然動態 ・ 社会動態を EXCEL で取得可能。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.ipss.go.jp/pp-shicyoson/j/shicyoson23/t-page.asp" target="_blank" rel="noopener">国立社会保障 ・ 人口問題研究所 地域別将来人口推計</a></div>
+<div class="src-desc">道内 179 市町村別の 2070 年までの人口推計 ・ 50% 以下推計の自治体特定。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.maff.go.jp/j/tokei/census/afc/" target="_blank" rel="noopener">MAFF 農林業センサス</a></div>
+<div class="src-desc">道内農業経営体数 ・ 平均耕地面積 ・ 高齢化率 ・ 5 年ごと。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.maff.go.jp/j/tokei/kouhyou/kaimen_gyosei/" target="_blank" rel="noopener">MAFF 漁業生産統計</a></div>
+<div class="src-desc">道内漁獲量 ・ 養殖量 ・ 全国 1 位品目内訳。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.jfa.maff.go.jp/" target="_blank" rel="noopener">水産庁 資源評価</a></div>
+<div class="src-desc">鮭 ・ 秋刀魚 ・ ホタテ等の道内漁業対象魚種の資源評価。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.land.mlit.go.jp/landPrice/" target="_blank" rel="noopener">国土交通省 地価公示</a></div>
+<div class="src-desc">道内住宅地 ・ 商業地の公示地価 ・ 過去推移。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.stat.go.jp/data/jyutaku/" target="_blank" rel="noopener">総務省 住宅 ・ 土地統計調査</a></div>
+<div class="src-desc">道内空き家率 ・ 住宅ストック ・ 5 年ごと。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.jma.go.jp/jma/kishou/know/amedas/" target="_blank" rel="noopener">気象庁 AMeDAS</a></div>
+<div class="src-desc">道内 174 地点リアルタイム気象観測 ・ 過去データ API ・ CC-BY 相当。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.data.jma.go.jp/cpdinfo/monitor/" target="_blank" rel="noopener">気象庁 気候変動監視レポート</a></div>
+<div class="src-desc">道内気温推移 ・ 真夏日日数 ・ 平年差の長期データ。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.boj.or.jp/statistics/tk/index.htm" target="_blank" rel="noopener">日本銀行 短観</a></div>
+<div class="src-desc">全国企業 1 万社以上の四半期景気判断 DI ・ 道内 DI 補完。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.tdb.co.jp/report/economic/" target="_blank" rel="noopener">TDB 北海道経済レポート ( 月次 )</a></div>
+<div class="src-desc">道内 2,000 社対象の景気 DI ・ 業種別 ・ 地域別 ・ 月次。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.teikokushoin.co.jp/statistics/prefecture/detail/1/" target="_blank" rel="noopener">帝国書院 都道府県別統計 ( 北海道 )</a></div>
+<div class="src-desc">道内が全国 1 位の指標 ( 農産物 13 品目 ・ 漁業 ・ 面積等 ) を一覧化。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://policies.env.go.jp/policy/roadmap/preceding-region/" target="_blank" rel="noopener">環境省 脱炭素先行地域</a></div>
+<div class="src-desc">札幌 ・ 上士幌 ・ 厚真等の道内脱炭素先行地域指定状況。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://www.bousai.go.jp/updates/h30jishin_hokkaido/index.html" target="_blank" rel="noopener">内閣府 北海道胆振東部地震</a></div>
+<div class="src-desc">2018 年地震 ・ 全道ブラックアウトの公式記録 ・ 復興進捗。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://data.e-gov.go.jp/info/ja" target="_blank" rel="noopener">e-Gov データポータル</a></div>
+<div class="src-desc">全国行政データの集約ポータル ・ 国全体のオープンデータ。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://esrij-gov-japan.hub.arcgis.com/" target="_blank" rel="noopener">ESRI Japan Government Hub</a></div>
+<div class="src-desc">国土地理院 ・ 自治体の GIS データを横断検索 ・ 地図ビジュアル素材。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag national">全国</span><a href="https://japan-opendata.github.io/awesome-japan-opendata/" target="_blank" rel="noopener">awesome-japan-opendata ( GitHub )</a></div>
+<div class="src-desc">日本全国のオープンデータリソースをコミュニティで集約したリポジトリ。</div>
+</div>
+
+</div>
+
+<h2>3. 海外 ・ 比較データ ( 道外事例の参照点 )</h2>
+<div class="src-grid">
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://www.wur.nl/" target="_blank" rel="noopener">Wageningen University & Research ( オランダ )</a></div>
+<div class="src-desc">農産物輸出世界 2 位を支える R&D 拠点 ・ 道内農業 R&D の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://en.seafood.no/" target="_blank" rel="noopener">Norwegian Seafood Council ( ノルウェー )</a></div>
+<div class="src-desc">養殖鮭世界 1 位の輸出戦略 ・ 道内漁業の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://www.alaskaseafood.org/" target="_blank" rel="noopener">Alaska Seafood Marketing Institute</a></div>
+<div class="src-desc">持続可能漁業 ・ MSC 認証 ・ 30 年資源管理の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://www.dmi.dk/" target="_blank" rel="noopener">Danish Meteorological Institute</a></div>
+<div class="src-desc">農業向け気象 API ・ 営農 ・ 散布 ・ 収穫タイミング判断の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://samsoe.org/" target="_blank" rel="noopener">Samsø Energy Academy</a></div>
+<div class="src-desc">再エネ 100% 島 ・ 道内脱炭素先行地域の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://english.leipzig.de/" target="_blank" rel="noopener">City of Leipzig ( ドイツ )</a></div>
+<div class="src-desc">縮小都市再生 ・ 道内中核都市の参照点。</div>
+</div>
+
+<div class="src-card">
+<div class="src-name"><span class="src-tag global">海外</span><a href="https://www.ifo.de/en/" target="_blank" rel="noopener">ifo Institute ( ドイツ )</a></div>
+<div class="src-desc">月次景気指数 30 年連続データ ・ 道内 DI の参照点。</div>
+</div>
+
+</div>
+
+<h2>4. オープンデータ ・ ライセンス ・ 引用</h2>
+<p>当サイトは全データを <strong>出典明示 ・ 適法引用</strong>の原則で活用しています。 各記事末尾の「sources」欄で出典 URL を全件公開、 著作権は各データ提供者に帰属します。</p>
+<p>引用元の表記 ・ リンクは絶対に削除しません。 データの解釈 ・ 道内文脈への翻訳は当編集部の責任で行い、 該当箇所には「仮説」「推測」のバッジを明示します ( <a href="/articles/agritech-smart-structure-2026-06.html">記事例</a> )。</p>
+
+<h2>5. データ駆動編集の今後</h2>
+<p>2026 年 6 月時点で「データ」分類記事は 6 本。 今後の拡充候補:</p>
+<ul style="margin:8px 0 16px 22px">
+<li>全国 1 位 13 品目農産物の構造解剖</li>
+<li>道内市町村別ふるさと納税ランキング</li>
+<li>道内消費者物価指数 ・ 暖房費 ・ 食料の本州格差</li>
+<li>千歳ラピダス経済波及効果モニタリング</li>
+<li>道内住宅 ・ 土地統計 ・ 空き家マップ</li>
+</ul>
+<p>データソースに関するご提案 ・ 追加要望は <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a> までお願いいたします。</p>
+
+<footer>
+<p>運営: Largo 株式会社 ( <a href="https://lrg.jp" target="_blank" rel="noopener">lrg.jp</a> )</p>
+<p>本サイトの編集方針 ・ 出典管理 ・ データ活用ポリシーに関するお問い合わせ: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
+<p>最終更新: 2026年6月13日</p>
+</footer>
+
+</div>
+</body>
+</html>
