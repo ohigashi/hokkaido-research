@@ -260,7 +260,23 @@ const ISSUES = [
         "子育て世帯への理解と日常的な支援の意識",
         "地域の子育てイベントに参加・応援",
         "パートナーシップ・育児・家事の分担を見直す",
-      ]},
+      ],
+    businessIdeas: [
+      {
+        title: "道内子育てインフラスコア + 移住エージェント",
+        target: "道外子育て世代 ・ 自治体 ・ 不動産会社",
+        revenueModel: "成約手数料 + 自治体 SaaS",
+        mechanism: "道内 179 市町村の子育て支援 ・ 学校 ・ 保育 ・ 医療 ・ 物価 ・ 通勤性 を統合スコア化。 道外世帯にマッチング + 物件 + 移住手続を一気通貫サポート。",
+        combo: "ふるさと納税 + 自治体補助金 + JR / 航空アライアンス",
+      },
+      {
+        title: "保育士コミュニティ + 道内自治体送客 SaaS",
+        target: "保育士 ・ 学童指導員 ・ 道内自治体",
+        revenueModel: "月額 SaaS + 採用成功報酬",
+        mechanism: "全国の保育士向けコミュニティを運営し、 道内子育て先進自治体への移住 ・ 転職を支援。 住宅 + キャリアパスをセット提案。",
+        combo: "自治体住宅手当 + 北海道大学 ・ 教育大の養成課程",
+      },
+    ],},
       { actor: "企業・組織として", actions: [
         "育休・時短勤務を取りやすい制度設計",
         "子連れ出勤・在宅勤務など柔軟な働き方",
@@ -453,7 +469,23 @@ const ISSUES = [
         "鉄道・公共交通を積極的に利用する",
         "廃線議論のある地域を訪れて実態を見る",
         "地域メディア・SNS で公共交通の現状を発信",
-      ]},
+      ],
+    businessIdeas: [
+      {
+        title: "道内 MaaS スーパーアプリ",
+        target: "観光客 ・ 通勤者 ・ 自治体 ・ 観光関連事業者",
+        revenueModel: "サブスク + 加盟手数料 + 広告",
+        mechanism: "JR ・ バス ・ 第三セクター ・ タクシー ・ ライドシェア ・ レンタカー ・ シェアサイクルを 1 つのアプリで横断検索 ・ 予約 ・ 決済。",
+        combo: "ふるさと納税 + 観光 DMO + JR / 道内航空",
+      },
+      {
+        title: "過疎地域デマンドモビリティ SaaS",
+        target: "道内過疎自治体 ・ 高齢者向け事業者",
+        revenueModel: "自治体 SaaS + ライドシェア手数料",
+        mechanism: "予約型デマンド交通 ・ ライドシェア ・ 自動運転バスを 1 つのプラットフォームで運営。 高齢者 ・ 観光客 ・ 通学 ・ 物流の混載で運行効率を上げる。",
+        combo: "JR 北海道 + 道内バス事業者 + 地域おこし協力隊",
+      },
+    ],},
       { actor: "企業・組織として", actions: [
         "出張・通勤での公共交通利用推進",
         "鉄道・バス事業者との連携・CSR",
@@ -1633,7 +1665,23 @@ const ISSUES = [
         "省エネ・節電を日常化",
         "エネルギー自給に関心を持つ",
         "再エネ電力プランへの切替",
-      ]},
+      ],
+    businessIdeas: [
+      {
+        title: "道内自治体マイクログリッド SaaS + 運営代行",
+        target: "道内市町村 ・ JA ・ 漁協 ・ 商工会",
+        revenueModel: "月額 SaaS + 運営代行手数料 + 売電収入分配",
+        mechanism: "上士幌型マイクログリッドを 30-50 自治体に横展開。 バイオガス ・ PV ・ 蓄電池 ・ EV 充電を統合制御。",
+        combo: "環境省脱炭素先行地域 + 北電 + 道内大学",
+      },
+      {
+        title: "ラピダス需要対応 PPA + 蓄電池ファンド",
+        target: "半導体 ・ データセンター事業者 ・ 機関投資家",
+        revenueModel: "PPA 売電 + ファンド運用",
+        mechanism: "ラピダス + データセンター + 半導体集積向けに長期 PPA を組み、 再エネ + 蓄電池 + 需給シフトでベースロード供給。 道内余剰再エネを需要側に直接届ける。",
+        combo: "千歳市 + 道庁ゼロカーボン推進局 + JBIC ・ DBJ",
+      },
+    ],},
       { actor: "企業・組織として", actions: [
         "再エネ自家発電・自家消費",
         "エネルギー削減目標の設定",
@@ -1747,7 +1795,23 @@ const ISSUES = [
         "介護職への理解・応援を伝える",
         "認知症サポーター養成講座を受講",
         "介護現場の声を聞く・体験する",
-      ]},
+      ],
+    businessIdeas: [
+      {
+        title: "広域介護シェアプラットフォーム",
+        target: "道内中小介護事業者 ・ 自治体",
+        revenueModel: "月額 SaaS + 派遣手数料",
+        mechanism: "複数市町村のヘルパー ・ 看護師を 1 つのシフト管理 ・ 移動 ・ 報酬システムで広域シェア。 道北 ・ オホーツク等の人材不足地域へ道央から週次派遣。",
+        combo: "JR北海道 / 道北バス + 自動運転バス + ICT 見守りデバイス",
+      },
+      {
+        title: "外国人介護人材一気通貫支援サービス",
+        target: "ベトナム ・ フィリピン ・ インドネシア介護人材 + 道内事業者",
+        revenueModel: "成功報酬 + 住宅 ・ 日本語学習サブスク",
+        mechanism: "雇用契約 ・ ビザ ・ 住宅 ・ 日本語 ・ 生活支援 ・ コミュニティ参加を 1 社で提供。 道内自治体 ・ 大学 ・ 不動産と連携し人材リテンションを確保。",
+        combo: "ふるさと納税 ( 企業版 ) + 道内多文化共生センター",
+      },
+    ],},
       { actor: "企業・組織として", actions: [
         "介護経験者の支援休暇制度",
         "介護事業者との連携・寄附",
@@ -1858,7 +1922,23 @@ const ISSUES = [
         "道産魚介を消費・応援",
         "漁業の現状・気候変動影響を学ぶ",
         "海洋環境保全活動への参加・寄附",
-      ]},
+      ],
+    businessIdeas: [
+      {
+        title: "道内陸上養殖ブランド統合ハブ",
+        target: "道内陸上養殖事業者 ・ 投資家",
+        revenueModel: "ブランドライセンス + 共同販売手数料",
+        mechanism: "上士幌 ・ 苫小牧 ・ 八雲等で進む陸上サーモン ・ サバ ・ チョウザメを「北海道陸上養殖」統一ブランドで束ね、 出荷 ・ EC ・ B2B 営業を共同化。",
+        combo: "北海道経済産業局 + 北電再エネ PPA + EC 産地直販",
+      },
+      {
+        title: "北海道ブリ ・ 新魚種ブランディングサブスク",
+        target: "首都圏 ・ 海外の高所得層 ・ 飲食店",
+        revenueModel: "月額定期便 + 季節限定プレミアム",
+        mechanism: "気候変動で増えた新魚種を月額定期便で出荷。 漁港ごとの顔の見える生産者ストーリーと組み合わせて、 量ではなく単価で勝負。",
+        combo: "ふるさと納税返礼 + SNS 産地ライブ",
+      },
+    ],},
       { actor: "企業・組織として", actions: [
         "道産魚介の活用・販路提供",
         "漁業者との連携・共同開発",
@@ -4116,6 +4196,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "migration-longterm-cases-2026-06",
     title: "17年、15年継続する町に共通するもの - 海士町・神山町の長期視点",
@@ -4133,6 +4214,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4178,6 +4260,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "furusato-nozei-transition-2026-06",
     title: "寄附から関係人口へ - ふるさと納税の 4 つの転換",
@@ -4195,6 +4278,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4240,6 +4324,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "vacant-houses-onomichi-2026-06",
     title: "20年継続が作る空き家再生 - 尾道に学ぶ仕組み",
@@ -4257,6 +4342,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4302,6 +4388,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "food-self-sufficiency-waste-2026-06",
     title: "食料自給率 220% と廃棄の同居 - 北海道のフードロス構造",
@@ -4319,6 +4406,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4364,6 +4452,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "regional-recruitment-structure-2026-06",
     title: "地域企業の採用難 - なぜ給与 UP では届かないのか",
@@ -4381,6 +4470,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4426,6 +4516,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "youth-leaving-reasons-2026-06",
     title: "若者が地域を離れる - 5 つの理由と地域に残る選択肢の作り方",
@@ -4443,6 +4534,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4488,6 +4580,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "semiconductor-rapidus-economy-2026-06",
     title: "ラピダス進出が変える北海道経済 - 半導体集積の構造と影響",
@@ -4505,6 +4598,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4550,6 +4644,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "tourism-sustainability-dual-2026-06",
     title: "北海道観光の二重構造 - オーバーツーリズムと過疎観光の同時進行",
@@ -4567,6 +4662,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4612,6 +4708,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "decarbonization-renewable-2026-06",
     title: "北海道の脱炭素 - 再エネ大国の実装課題と地域経済",
@@ -4629,6 +4726,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4674,6 +4772,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "multicultural-living-2026-06",
     title: "外国人住民との暮らし - 30年継続する地域に学ぶ多文化共生",
@@ -4691,6 +4790,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4736,6 +4836,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "ainu-culture-coexistence-2026-06",
     title: "アイヌ文化と現代北海道 - 共生の歴史と未来への構造",
@@ -4753,6 +4854,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4798,6 +4900,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "school-consolidation-structure-2026-06",
     title: "学校統合と地域 - 小規模校の存続と教育環境の構造",
@@ -4815,6 +4918,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4860,6 +4964,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "cost-of-living-hokkaido-2026-06",
     title: "北海道の暮らしのコスト - 暖房費・物価・家計の構造",
@@ -4877,6 +4982,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4922,6 +5028,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "bear-coexistence-cases-2026-06",
     title: "ヒグマと共存する自治体の取り組み - 知床・大牟田に学ぶ長期事例",
@@ -4939,6 +5046,7 @@ const ARTICLES = [
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4984,6 +5092,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "elderly-care-staff-structure-2026-06",
     title: "介護人材 32万人不足時代の地域ケア - 構造的課題と長期戦略",
@@ -5001,6 +5110,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5046,6 +5156,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "snow-removal-structure-2026-06",
     title: "除雪と雪害対策の構造 - すべて維持か集約・共助か",
@@ -5063,6 +5174,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5108,6 +5220,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "local-finance-structure-2026-06",
     title: "地方銀行・地域金融の再編 - 単純統合か役割転換か",
@@ -5125,6 +5238,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5170,6 +5284,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "regional-airport-structure-2026-06",
     title: "地方空港の維持と地域経済 - 旅客数か多面的価値か",
@@ -5187,6 +5302,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5232,6 +5348,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "nuclear-safety-structure-2026-06",
     title: "泊原発と北海道のエネルギー - 再稼働か脱原発か",
@@ -5249,6 +5366,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5294,6 +5412,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "local-startup-structure-2026-06",
     title: "北海道スタートアップ生態系 - 資金・人材・拠点の構造",
@@ -5311,6 +5430,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5356,6 +5476,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "cyber-security-local-2026-06",
     title: "地方 DX のサイバーセキュリティ - 自治体・中小企業・医療の脆弱性",
@@ -5373,6 +5494,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5418,6 +5540,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "hikikomori-structure-2026-06",
     title: "ひきこもり 146 万人時代の支援 - 8050 問題と長期戦略",
@@ -5435,6 +5558,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5480,6 +5604,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "disability-inclusion-structure-2026-06",
     title: "障害者 1,000 万人時代のインクルーシブ - 合理的配慮義務化の構造",
@@ -5497,6 +5622,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5542,6 +5668,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "craft-industry-structure-2026-06",
     title: "道内工芸・伝統産業の継承 - 衰退業種か地域資産か",
@@ -5559,6 +5686,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5604,6 +5732,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "local-media-structure-2026-06",
     title: "ローカルメディアの危機 - 商業ビジネスか公共インフラか",
@@ -5621,6 +5750,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5666,6 +5796,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "winter-sports-structure-2026-06",
     title: "北海道冬季観光の持続性 - 気候変動 ・ 労働力 ・ 国際化の構造",
@@ -5683,6 +5814,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5728,6 +5860,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "agritech-smart-structure-2026-06",
     title: "北海道スマート農業 - 大規模化と担い手不足の構造",
@@ -5745,6 +5878,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5790,6 +5924,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "urban-downtown-structure-2026-06",
     title: "地方都市中心市街地の衰退 - 商業集積か地域核か",
@@ -5807,6 +5942,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5852,6 +5988,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "north-territory-structure-2026-06",
     title: "北方領土問題と道東地域 - 元島民 ・ 経済 ・ 教育の構造",
@@ -5869,6 +6006,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5914,6 +6052,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "diversity-inclusion-structure-2026-06",
     title: "性的指向 ・ 多様性と地域社会 - 制度か文化変容か",
@@ -5931,6 +6070,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5976,6 +6116,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "youth-mental-structure-2026-06",
     title: "若者のメンタルヘルス - 自殺 ・ 孤立 ・ SNS の複合構造",
@@ -5993,6 +6134,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6038,6 +6180,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "religious-shrine-structure-2026-06",
     title: "神社仏閣 ・ 宗教施設の維持 - 個別経営か地域文化か",
@@ -6055,6 +6198,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6100,6 +6244,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "coastal-erosion-structure-2026-06",
     title: "北海道海岸の侵食 - 気候変動と土砂供給の構造",
@@ -6117,6 +6262,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6162,6 +6308,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "depopulation-residual-strategy-2026-06",
     title: "人口減少を「数」ではなく「資産」で見る - 残る資産戦略",
@@ -6179,6 +6326,7 @@ const ARTICLES = [
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6224,6 +6372,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "isolation-structure-2026-06",
     title: "社会的孤立と地域コミュニティ - 8050 ・ 単身高齢 ・ ひきこもりの共通構造",
@@ -6241,6 +6390,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6286,6 +6436,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "rail-transit-structure-2026-06",
     title: "道内 JR ・ 私鉄 ・ バスの統合 - 公共交通の地域インフラ化",
@@ -6303,6 +6454,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6348,6 +6500,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "biodiversity-structure-2026-06",
     title: "北海道の生物多様性 - 自然保全と経済活動の両立",
@@ -6365,6 +6518,7 @@ const ARTICLES = [
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6410,6 +6564,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "energy-security-structure-2026-06",
     title: "エネルギー安全保障と北海道 - 自給 ・ 脱炭素 ・ レジリエンス",
@@ -6427,6 +6582,7 @@ const ARTICLES = [
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6472,6 +6628,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "food-security-strategy-2026-06",
     title: "北海道発の食料安全保障戦略 - 5 つの実装",
@@ -6489,6 +6646,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6534,6 +6692,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "wildlife-management-strategy-2026-06",
     title: "野生動物との共生をジビエ ・ 観光に - 4 つの活用戦略",
@@ -6551,6 +6710,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6596,6 +6756,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "climate-adaptation-implementation-2026-06",
     title: "分野別 ・ 地域別の気候変動適応 - オランダ ・ デンマーク事例",
@@ -6613,6 +6774,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6658,6 +6820,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "community-broadcasting-renewal-2026-06",
     title: "コミュニティ FM を災害時公共インフラに - 4 戦略",
@@ -6675,6 +6838,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6720,6 +6884,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "senior-second-career-strategy-2026-06",
     title: "シニアの経験を地域に - 起業 ・ 学び ・ 移住の 4 戦略",
@@ -6737,6 +6902,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6782,6 +6948,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "disaster-recovery-resilience-2026-06",
     title: "復興からレジリエンスへ - 5 つの仕組みづくり",
@@ -6799,6 +6966,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6844,6 +7012,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "childcare-shortage-strategy-2026-06",
     title: "保育不足を解決する - 流山モデルの 4 戦略",
@@ -6861,6 +7030,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6906,6 +7076,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "school-consolidation-attractive-2026-06",
     title: "小規模校を地域の核に - 海士町 ・ 神山町モデル",
@@ -6923,6 +7094,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6968,6 +7140,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "cost-of-living-strategy-2026-06",
     title: "暮らしのコストを下げる - 道産活用と地域循環の 4 戦略",
@@ -6985,6 +7158,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -7030,6 +7204,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "fisheries-climate-strategy-2026-06",
     title: "気候変動下の漁業 - 4 つの適応 ・ 転換戦略",
@@ -7047,6 +7222,7 @@ const ARTICLES = [
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -7092,6 +7268,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "reskilling-regional-2026-06",
     title: "地域でリスキリング - 副業 ・ 学び直しの 4 戦略",
@@ -7109,6 +7286,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -7154,6 +7332,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "new-industry-strategy-2026-06",
     title: "新産業を北海道で育てる - 4 つの実装",
@@ -7171,6 +7350,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -7216,6 +7396,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "regional-medical-strategy-2026-06",
     title: "地域医療を支える仕組み - 4 つの実装戦略",
@@ -7233,6 +7414,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -7278,6 +7460,7 @@ const ARTICLES = [
 
 
 
+
   {
     id: "multicultural-strategy-2026-06",
     title: "多文化共生の長期戦略 - 浜松 ・ 大泉モデル",
@@ -7295,6 +7478,7 @@ const ARTICLES = [
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 

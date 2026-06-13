@@ -578,6 +578,22 @@
   .challenge-alt{font-size:10.5px;color:var(--slate);margin-top:8px}
   .challenge-alt a{color:var(--ice);text-decoration:none;border-bottom:1px solid currentColor}
 
+  /* ビジネスアイデア */
+  .biz-list{display:flex;flex-direction:column;gap:11px}
+  .biz-item{
+    background:#fff;border:1px solid var(--line);border-left:3px solid #B5733A;
+    border-radius:0 6px 6px 0;padding:13px 16px;
+  }
+  .biz-title{font-size:13.5px;font-weight:900;color:var(--ink);margin-bottom:6px;letter-spacing:-.005em}
+  .biz-meta{display:flex;flex-wrap:wrap;gap:7px;margin:5px 0 8px}
+  .biz-tag{
+    font-size:10.5px;font-weight:700;color:var(--slate);background:var(--snow2);
+    padding:2px 8px;border-radius:3px;letter-spacing:.02em;
+  }
+  .biz-tag b{color:#B5733A;font-weight:800;margin-right:4px}
+  .biz-desc{font-size:12.5px;color:var(--slate);line-height:1.7}
+  .biz-note{font-size:11px;color:var(--slate);margin-top:8px;font-style:italic}
+
   /* わたしたちにできること */
   .habits-list{display:flex;flex-direction:column;gap:11px}
   .habit-group{
@@ -1959,6 +1975,22 @@
         `).join('')}</div>
         <div class="habit-note">日常の選択や関わり方で、わたしたち一人ひとりが課題に近づく方法の例。</div>
       </div>` : '';
+    const bizBlock = (it.businessIdeas && it.businessIdeas.length) ? `
+      <div class="mb-section">
+        <div class="mb-label" style="color:#B5733A">ビジネスアイデア</div>
+        <div class="biz-list">${it.businessIdeas.map(b=>`
+          <div class="biz-item">
+            <div class="biz-title">${b.title || ''}</div>
+            <div class="biz-meta">
+              ${b.target ? `<span class="biz-tag"><b>ターゲット</b>${b.target}</span>` : ''}
+              ${b.revenueModel ? `<span class="biz-tag"><b>収益</b>${b.revenueModel}</span>` : ''}
+            </div>
+            ${b.mechanism ? `<div class="biz-desc">${b.mechanism}</div>` : ''}
+            ${b.combo ? `<div class="biz-desc" style="margin-top:6px"><b style="color:#B5733A">組み合わせ:</b> ${b.combo}</div>` : ''}
+          </div>
+        `).join('')}</div>
+        <div class="biz-note">編集部が課題から逆算した新規事業 ・ 起業 ・ 投資の方向性 ( 推奨ではなく出発点 ) 。</div>
+      </div>` : '';
     const challengeText = `「${it.title}」について、わたしが取り組むこと:\n\n( 自分の宣言を書く )\n\n#北海道地域課題リサーチ`;
     const challengeUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(challengeText)}&url=${encodeURIComponent(pageURL)}`;
     const challengeBlock = `
@@ -2061,6 +2093,7 @@
         ${externalBlock}
         ${measuresBlock}
         ${habitsBlock}
+        ${bizBlock}
         ${challengeBlock}
         ${researchBlock}
         ${relatedBlock}
