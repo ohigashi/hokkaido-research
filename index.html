@@ -1533,8 +1533,8 @@
         const shared = (a.relatedIssues||[]).filter(x => activeIds.indexOf(x) >= 0).length;
         return shared * 15;
       };
-      // メインスコアは relevance + quality + ga4Score ( 内部回遊エンゲ ) 。鮮度は tiebreaker
-      const mainScore = a => relevance(a) + (a.quality||0) + (a.ga4Score||0);
+      // メインスコア = 関連性 + 品質 + GA4 + 打席ブースト ( 鮮度は tiebreaker )
+      const mainScore = a => relevance(a) + (a.quality||0) + (a.ga4Score||0) + (a.boostScore||0);
       const sorted = [...ARTICLES].sort((a,b)=>{
         const d = mainScore(b) - mainScore(a);
         if(d !== 0) return d;

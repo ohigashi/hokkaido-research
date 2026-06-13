@@ -4096,11 +4096,13 @@ const ARTICLES = [
     summary: "「何人来たか」「何%残ったか」では地域に何が残るかを測れない。事業・関係・仕組みの 3 資産で評価する視点と、評価軸を組み替えると施策がどう変わるかを整理。",
     quality: 85,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 10,
-    compositeScore: 95,
+    compositeScore: 110,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4121,11 +4123,13 @@ const ARTICLES = [
     summary: "海士町と神山町に共通するのは「長期継続」と「仕組み化」。事例の表面ではなく、20年続いた 5 つの設計原則を読み解く。",
     quality: 78,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 86,
+    compositeScore: 101,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4146,11 +4150,13 @@ const ARTICLES = [
     summary: "ふるさと納税を短期収入として扱うか、長期の関係資産として扱うか。評価軸の選択が、制度改正への脆弱性と長期の安定性を分ける。",
     quality: 64,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 72,
+    compositeScore: 87,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4171,11 +4177,13 @@ const ARTICLES = [
     summary: "短期収入から長期関係資産への移行に必要な 4 つの具体策と、KPI の組み替えを整理。寄附者を地域のファンに育てる投資戦略。",
     quality: 44,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 48,
+    compositeScore: 63,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4196,11 +4204,13 @@ const ARTICLES = [
     summary: "「いかに減らすか」から「誰が、何のために使うか」へ。住む・働く・集まるの 3 用途で統合的に組み立てる視点を整理。",
     quality: 56,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 64,
+    compositeScore: 79,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4221,11 +4231,13 @@ const ARTICLES = [
     summary: "尾道空き家再生プロジェクトの 20年。設備でも補助金でもなく、組織・関わり方・循環という仕組み資産を残した 5 つの設計原則。",
     quality: 62,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 70,
+    compositeScore: 85,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4246,11 +4258,13 @@ const ARTICLES = [
     summary: "北海道の子どもの貧困率 18% 、ひとり親世帯 50% 近く。経済支援を超えた仕組み転換と、わたしたちの日常でできる関わり方。",
     quality: 71,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 10,
-    compositeScore: 81,
+    compositeScore: 96,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4271,11 +4285,13 @@ const ARTICLES = [
     summary: "北海道の自給率 220% は全国突出、一方で流通・加工段階のロスは膨大。生産大国の影に潜む構造的廃棄と、わたしたちの食卓でできること。",
     quality: 69,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 77,
+    compositeScore: 92,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4296,11 +4312,13 @@ const ARTICLES = [
     summary: "黒字でも廃業に至る事業者が少なくない。承継 = 人 + 価値再設計 + 販路という三層構造と、わたしたちにできる関わり方。",
     quality: 52,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 60,
+    compositeScore: 75,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4321,11 +4339,13 @@ const ARTICLES = [
     summary: "中小企業・サービス・建設・介護・飲食・製造業のいずれも深刻な採用難。給与差・情報接点・移住障壁・ブランド力不在の 4 構造要因を読み解く。",
     quality: 68,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 76,
+    compositeScore: 91,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4346,11 +4366,13 @@ const ARTICLES = [
     summary: "個別企業の給与競争でなく、業界・主体・接点・指標を組み替える 4 つの転換で、地域全体での採用ブランディングを設計する。",
     quality: 48,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 52,
+    compositeScore: 67,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4371,11 +4393,13 @@ const ARTICLES = [
     summary: "若者の地域離脱を「個人の選択」と諦めず、5 つの理由を構造的に読み解き、残る・戻る・関わるの 3 つの選択肢を地域に作る視点。",
     quality: 49,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 10,
-    compositeScore: 59,
+    compositeScore: 74,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4396,11 +4420,13 @@ const ARTICLES = [
     summary: "道内ヒグマ生息数約 1.2万頭、出没年1万件超。駆除か共存かではなく、5 つの構造要因 ( 人口減・林業衰退・緩衝帯消失・個体数増・学習 ) を統合的に扱う視点。",
     quality: 55,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 63,
+    compositeScore: 78,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4421,11 +4447,13 @@ const ARTICLES = [
     summary: "ラピダス 5兆円投資、千歳・苫小牧に半導体産業集積。雇用・サプライチェーン・地域インフラへの影響を構造から読み解く。",
     quality: 62,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 70,
+    compositeScore: 85,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4446,11 +4474,13 @@ const ARTICLES = [
     summary: "13 路線で「維持困難」表明、廃線進行中。鉄道存続を「赤字 vs 黒字」ではなく、地域インフラの構造として読み解く。",
     quality: 42,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 50,
+    compositeScore: 65,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4471,11 +4501,13 @@ const ARTICLES = [
     summary: "ニセコ過熱と過疎観光地の衰退が同時進行。「観光客を呼ぶ」だけでなく、観光持続性の構造を読み解く。",
     quality: 45,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 53,
+    compositeScore: 68,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4496,11 +4528,13 @@ const ARTICLES = [
     summary: "道内無医地区 137、医師は札幌・都市部集中。地域医療を「個別の医師確保」ではなく、構造的な仕組みとして読み解く。",
     quality: 53,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 61,
+    compositeScore: 76,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4521,11 +4555,13 @@ const ARTICLES = [
     summary: "再エネポテンシャル日本一の北海道、だが系統制約と地域経済への波及が課題。脱炭素を地域経済の競争優位に変える構造。",
     quality: 47,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 55,
+    compositeScore: 70,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4546,11 +4582,13 @@ const ARTICLES = [
     summary: "北海道は大雪・地震・津波・火山の複合災害リスク。BCP と住民の備えで地域レジリエンスを構造化する視点。",
     quality: 51,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 59,
+    compositeScore: 74,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4571,11 +4609,13 @@ const ARTICLES = [
     summary: "道内外国人住民約 4万人。「労働力」から「生活者」への転換と、大泉町・浜松市の 30年継続事例に学ぶ多文化共生の構造。",
     quality: 64,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 10,
-    compositeScore: 74,
+    compositeScore: 89,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4596,11 +4636,13 @@ const ARTICLES = [
     summary: "道内高齢化率 33% 、単身世帯急増。介護・認知症・在宅医療を「個別ケア」ではなく地域包括ケアの構造として読み解く。",
     quality: 57,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 65,
+    compositeScore: 80,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4621,11 +4663,13 @@ const ARTICLES = [
     summary: "アイヌ施策推進法 2019・ウポポイ開設後、アイヌ文化の継承・経済参加・偏見の解消が新たな段階に。北海道のアイデンティティとして読み解く。",
     quality: 46,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 54,
+    compositeScore: 69,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4646,11 +4690,13 @@ const ARTICLES = [
     summary: "札幌待機児童 100人前後、保育士有効求人倍率 2.5倍超。「施設を増やす」だけでない構造的な子育てインフラの作り方。",
     quality: 55,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 63,
+    compositeScore: 78,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4671,11 +4717,13 @@ const ARTICLES = [
     summary: "道内小規模校の統廃合が進む一方、地域から学校が消える影響は深刻。「規模の効率」と「地域の核」の両立を読み解く。",
     quality: 48,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 56,
+    compositeScore: 71,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4696,11 +4744,13 @@ const ARTICLES = [
     summary: "高度成長期建設のインフラが一斉に更新期。「すべて維持」と「集約・撤退」の選択を構造的に判断する視点。",
     quality: 44,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 52,
+    compositeScore: 67,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4721,11 +4771,13 @@ const ARTICLES = [
     summary: "暖房費は本州の数倍、食料品・ガソリンも物流コスト分高い。北海道の暮らしのコスト構造と、地域経済への影響を読み解く。",
     quality: 45,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 53,
+    compositeScore: 68,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4746,11 +4798,13 @@ const ARTICLES = [
     summary: "ホタテ・サンマ・サケの不漁・漁獲変動。海洋温暖化と漁業の構造的な対応を読み解く。",
     quality: 41,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 49,
+    compositeScore: 64,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4771,11 +4825,13 @@ const ARTICLES = [
     summary: "知床財団 30年・福岡県大牟田市 20年継続事例から、ヒグマと共存できる地域を作る 5 つの設計原則を学ぶ。",
     quality: 39,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 42,
+    compositeScore: 57,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4796,11 +4852,13 @@ const ARTICLES = [
     summary: "ラピダス 1社依存から複数集積の起点へ。住宅・人材・関連産業・教育・国際性の 5 戦略で半導体クラスターを 20年で育てる。",
     quality: 42,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 45,
+    compositeScore: 60,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4821,11 +4879,13 @@ const ARTICLES = [
     summary: "全国 32万人介護人材不足 ( 2025 ) 、北海道は広域分散で特に深刻。介護を「個別職員確保」ではなく構造課題として読み解く。",
     quality: 51,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 10,
-    compositeScore: 61,
+    compositeScore: 76,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4846,11 +4906,13 @@ const ARTICLES = [
     summary: "道内森林面積 554万 ha、木材自給率上昇中。林業を「縮小産業」ではなく「森林循環の核」として再定義する構造。",
     quality: 53,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 61,
+    compositeScore: 76,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4871,11 +4933,13 @@ const ARTICLES = [
     summary: "除雪関連予算は年数百億円規模、業者の高齢化深刻。「すべての道路を維持」から「集約・共助・IoT 効率化」への構造転換。",
     quality: 39,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 6,
-    compositeScore: 45,
+    compositeScore: 60,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4896,11 +4960,13 @@ const ARTICLES = [
     summary: "町内会の互助、IoT センサーでルート最適化、通年雇用化、コンパクトシティとの統合。4 つの転換で除雪を持続可能に。",
     quality: 24,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4921,11 +4987,13 @@ const ARTICLES = [
     summary: "低金利・人口減で地銀経営困難、合併進行。単純な統合か、地方創生・事業承継のキーパートナーへ役割転換か。",
     quality: 34,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 6,
-    compositeScore: 40,
+    compositeScore: 55,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4946,11 +5014,13 @@ const ARTICLES = [
     summary: "事業承継・M&A 支援・スタートアップ投資・デジタル化・地域共生。5 戦略で地域金融を再定義。",
     quality: 24,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4971,11 +5041,13 @@ const ARTICLES = [
     summary: "道内 13 空港、新千歳以外は赤字運営多い。旅客数だけでなく観光・物流・防災の多面的価値で評価する視点。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 27,
+    compositeScore: 42,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -4996,11 +5068,13 @@ const ARTICLES = [
     summary: "多目的活用、地域ブランディング、観光連携、共同運営。4 つの転換で地方空港を維持する戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5021,11 +5095,13 @@ const ARTICLES = [
     summary: "泊原発 3 基 207 万 kW、停止 12 年超。再稼働 vs 廃炉判断は経済・脱炭素・安全性の総合判断。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5046,11 +5122,13 @@ const ARTICLES = [
     summary: "再エネ拡大・系統増強・蓄電・住民理解・立地地域経済転換。脱原発時の 5 つの実装課題と長期戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5071,11 +5149,13 @@ const ARTICLES = [
     summary: "道内スタートアップは数百規模、首都圏依存。福岡市の 10 年継続事例に学ぶ北海道型生態系の構築論点。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5096,11 +5176,13 @@ const ARTICLES = [
     summary: "VC・大学発・地方拠点・国際連携・規範構築。5 戦略で 10 年スパンの北海道スタートアップ生態系を作る。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "D",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5121,11 +5203,13 @@ const ARTICLES = [
     summary: "ランサムウェア被害 年数百件、復旧コスト数千万 - 数億円。地方の IT 人材・予算限定下での対策構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5146,11 +5230,13 @@ const ARTICLES = [
     summary: "共同 SOC・クラウドセキュリティ・人材育成・BCP 統合。地方の限られたリソースで守る 4 つの実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5171,11 +5257,13 @@ const ARTICLES = [
     summary: "全国ひきこもり推計 146 万人、8050 問題深刻。「就労促進」を超えた本人・家族・地域の長期支援構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5196,11 +5284,13 @@ const ARTICLES = [
     summary: "アウトリーチ・居場所・ピアサポート・段階的就労・福祉連携。江戸川区 7,919 人把握 + 兵庫 10 年継続から学ぶ実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "A",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5221,11 +5311,13 @@ const ARTICLES = [
     summary: "障害者 1,000 万人、2024 年合理的配慮義務化。個別対応を超えたインクルーシブ地域設計の構造。",
     quality: 25,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5246,11 +5338,13 @@ const ARTICLES = [
     summary: "公共空間・教育・雇用・サービス・規範。5 つの転換でインクルーシブな地域を作る千葉県 20 年事例から学ぶ実装。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 26,
+    compositeScore: 41,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5271,11 +5365,13 @@ const ARTICLES = [
     summary: "アイヌ工芸・旭川家具・小樽ガラス等の継承困難。衰退業種ではなく地域アイデンティティ・ブランディングの構造。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 27,
+    compositeScore: 42,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5296,11 +5392,13 @@ const ARTICLES = [
     summary: "後継者育成・ブランディング・海外展開・観光連携・教育統合。5 戦略で工芸を地域資産に再定義する実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5321,11 +5419,13 @@ const ARTICLES = [
     summary: "新聞部数 10 年で半減、北海道新聞・地方紙も同様。商業メディアではなく地方民主主義の公共インフラとして読み解く。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5346,11 +5446,13 @@ const ARTICLES = [
     summary: "デジタル展開・サブスク・読者参加型・公共財化。新潟日報・西日本新聞型の事例から学ぶ 4 つの再生戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5371,11 +5473,13 @@ const ARTICLES = [
     summary: "ニセコ ・ ルスツ等の国際リゾート化と気候変動 ・ 労働力不足 ・ 住宅高騰の同時進行。冬季観光の構造を読み解く。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5396,11 +5500,13 @@ const ARTICLES = [
     summary: "通年化 ・ MICE ・ ワーケーション ・ 住民共生。クイーンズタウン型 4 戦略で冬季観光を持続可能に。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5421,11 +5527,13 @@ const ARTICLES = [
     summary: "道内 1 経営体平均 34 ha 、全国 13 倍の大規模化。担い手減少下でのスマート農業による構造転換。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5446,11 +5554,13 @@ const ARTICLES = [
     summary: "GPS 自動操舵 ・ AI 与信 ・ ドローン散布 ・ センサー ・ データ統合。更別村事例から学ぶスマート農業の 5 つの実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5471,11 +5581,13 @@ const ARTICLES = [
     summary: "道内地方都市の空き店舗率 10-30% 超、シャッター街化進行。商業集積維持か地域コミュニティの核へ再定義か。",
     quality: 24,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 28,
+    compositeScore: 43,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5496,11 +5608,13 @@ const ARTICLES = [
     summary: "コンパクトシティ ・ 多機能化 ・ 文化観光統合 ・ 商店街再生。富山 ・ 金沢の長期事例から学ぶ 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5521,11 +5635,13 @@ const ARTICLES = [
     summary: "元島民約 5,000 人と高齢化、ウクライナ侵攻後の停滞。地域経済 ・ 教育 ・ 国際政治の複合構造を読み解く。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5546,11 +5662,13 @@ const ARTICLES = [
     summary: "元島民支援 ・ 教育継承 ・ 国際発信 ・ 平和構築。返還を待つだけでない長期戦略の 4 つの柱。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5571,11 +5689,13 @@ const ARTICLES = [
     summary: "札幌市 2017 年道内初のパートナーシップ制度。制度導入を超えた地域社会の文化変容の構造。",
     quality: 27,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5596,11 +5716,13 @@ const ARTICLES = [
     summary: "制度 ・ 教育 ・ 雇用 ・ サービス ・ コミュニティの 5 層で包摂性を構築。渋谷 ・ デンマーク等の事例実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5621,11 +5743,13 @@ const ARTICLES = [
     summary: "若年層自殺率高水準、コロナ禍以降増加傾向。SNS ・ 学校 ・ 職場 ・ 家庭 ・ オンラインの 5 場での構造課題。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5646,11 +5770,13 @@ const ARTICLES = [
     summary: "学校 ・ 職場 ・ 家庭 ・ 地域 ・ オンラインの 5 場での予防 ・ 早期発見 ・ 介入。フィンランド ・ 東京の事例実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "C",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5671,11 +5797,13 @@ const ARTICLES = [
     summary: "道内宗教施設数千、後継者不在 ・ 維持困難。地域コミュニティ ・ 文化 ・ 観光の核として再定義する構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5696,11 +5824,13 @@ const ARTICLES = [
     summary: "文化財連動 ・ 祭り再生 ・ アイヌ祭祀 ・ 観光統合。京都 ・ 出雲事例から学ぶ宗教施設再生の 4 戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5721,11 +5851,13 @@ const ARTICLES = [
     summary: "気候変動 ・ 海面上昇 ・ 河川 ・ 港湾の複合で道内海岸の砂浜消失進行。漁業 ・ 観光 ・ 集落への影響構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5746,11 +5878,13 @@ const ARTICLES = [
     summary: "サンドバイパス ・ 海岸生態系保全 ・ 集落移転計画 ・ 国際連携。オランダデルタワークス型 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5771,11 +5905,13 @@ const ARTICLES = [
     summary: "「人口維持」だけでは追いつかない。人口減でも残る事業 ・ 関係 ・ 仕組み資産で地域を支える視点。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5796,11 +5932,13 @@ const ARTICLES = [
     summary: "道内合計特殊出生率 1.0 台、全国でも低水準。経済 ・ 暮らし ・ 子育て環境の構造的課題。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5821,11 +5959,13 @@ const ARTICLES = [
     summary: "高齢者 ・ ひきこもり ・ ヤングケアラー等、社会的孤立の共通構造。地域コミュニティ再生の論点。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5846,11 +5986,13 @@ const ARTICLES = [
     summary: "新函館北斗 - 札幌延伸の遅延、並行在来線議論、道南地域の影響。鉄道 ・ 地域経済の構造を読み解く。",
     quality: 25,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 33,
+    compositeScore: 48,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5871,11 +6013,13 @@ const ARTICLES = [
     summary: "JR 単体ではなく、鉄道 ・ バス ・ デマンド交通の統合運営。地域公共交通の構造再設計。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5896,11 +6040,13 @@ const ARTICLES = [
     summary: "2050 カーボンニュートラル目標。脱炭素先行地域指定と地域実装の構造課題。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5921,11 +6067,13 @@ const ARTICLES = [
     summary: "知床 ・ 阿寒 ・ 釧路湿原等の自然 ・ 生物多様性。観光 ・ 一次産業 ・ 開発との両立構造。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5946,11 +6094,13 @@ const ARTICLES = [
     summary: "DX × GX で都市運営 ・ 脱炭素を統合。札幌 ・ ニセコ ・ 上士幌等の道内事例構造を読み解く。",
     quality: 27,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 35,
+    compositeScore: 50,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5971,11 +6121,13 @@ const ARTICLES = [
     summary: "ウクライナ侵攻後のエネルギー安全保障。北海道のエネルギー自給 ・ 脱炭素 ・ レジリエンスの統合構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -5996,11 +6148,13 @@ const ARTICLES = [
     summary: "北海道 カロリー自給率 220% は全国 38% の要。輸入依存 ・ 気候変動 ・ 地政学リスク下での役割構造。",
     quality: 27,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 35,
+    compositeScore: 50,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6021,11 +6175,13 @@ const ARTICLES = [
     summary: "生産基盤 ・ 備蓄 ・ 物流 ・ 輸出 ・ 国際協調。北海道発の食料安全保障 5 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6046,11 +6202,13 @@ const ARTICLES = [
     summary: "エゾシカ 70 万頭超 ・ ヒグマ 1.2 万頭 ・ アライグマ等の複合的な野生動物管理の構造。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6071,11 +6229,13 @@ const ARTICLES = [
     summary: "ハンター育成 ・ ジビエ流通 ・ 観光連携 ・ 生態系管理。兵庫モデルから学ぶ 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6096,11 +6256,13 @@ const ARTICLES = [
     summary: "気温 100 年で 1.5℃ 上昇、農業 ・ 漁業 ・ 観光に影響。緩和 ( 脱炭素 ) と適応 ( 影響対応 ) の両輪戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6121,11 +6283,13 @@ const ARTICLES = [
     summary: "デルタワークス ・ コペンハーゲン豪雨計画 ・ 分野別適応。世界の長期事例から学ぶ実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6146,11 +6310,13 @@ const ARTICLES = [
     summary: "全国 340 局のコミュニティ FM 、能登地震で災害情報源として機能。商業放送を超えた公共インフラ価値。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 29,
+    compositeScore: 44,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6171,11 +6337,13 @@ const ARTICLES = [
     summary: "公的支援 ・ デジタル展開 ・ 地域連携 ・ 災害インフラ化。コミュニティ FM 持続の 4 つの実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6196,11 +6364,13 @@ const ARTICLES = [
     summary: "高齢者 3,600 万人、健康寿命延伸でシニアの社会経済参加が地域活性化の鍵。構造を読み解く。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 4,
-    compositeScore: 25,
+    compositeScore: 40,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6221,11 +6391,13 @@ const ARTICLES = [
     summary: "起業塾 ・ 学び直し ・ CCRC ・ 顧問制度。AARP モデルから学ぶシニア活用 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6246,11 +6418,13 @@ const ARTICLES = [
     summary: "2018 年震度 7 ・ 43 名死亡 ・ 全道ブラックアウト。復興と教訓継承 ・ 次の災害への備えの構造。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "F",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6271,11 +6445,13 @@ const ARTICLES = [
     summary: "教訓体系化 ・ アーカイブ ・ 訓練 ・ コミュニティ ・ 制度。東日本 ・ クライストチャーチ事例から学ぶ実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6296,11 +6472,13 @@ const ARTICLES = [
     summary: "柏プロジェクト 15 年 ・ 大牟田 20 年継続事例から、地域包括ケア構築の 5 戦略を実装。",
     quality: 25,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 33,
+    compositeScore: 48,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6321,11 +6499,13 @@ const ARTICLES = [
     summary: "送迎保育 ・ 拡充 ・ 子育てブランディング ・ 企業連携。流山市から学ぶ保育問題解決 4 戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6346,11 +6526,13 @@ const ARTICLES = [
     summary: "言語復興 ・ 教育 ・ 経済参加 ・ ブランディング ・ 国際発信。アイヌ文化と地域アイデンティティの 5 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 3,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6371,11 +6553,13 @@ const ARTICLES = [
     summary: "島留学 ・ 地域協働カリキュラム ・ サテライト ・ コミュニティ運営。長期事例から学ぶ実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6396,11 +6580,13 @@ const ARTICLES = [
     summary: "コンパクトシティ ・ 公共交通軸 ・ 居住誘導 ・ 多機能化。富山市 20 年事例から学ぶ実装戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6421,11 +6607,13 @@ const ARTICLES = [
     summary: "省エネ住宅 ・ 道産食材 ・ 地域循環 ・ 公共交通。暮らしのコスト構造改善の 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6446,11 +6634,13 @@ const ARTICLES = [
     summary: "下川 SDGs 未来都市 ・ 智頭杉 ・ ドイツ持続林業から学ぶ森林循環 5 戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6471,11 +6661,13 @@ const ARTICLES = [
     summary: "新魚種 ・ 養殖 ・ ノルウェーモデル ・ MSC 認証。気候変動下の漁業適応 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6496,11 +6688,13 @@ const ARTICLES = [
     summary: "処遇改善 ・ 外国人活用 ・ DX ・ タスクシフト ・ 地域包括 ・ 評価転換。介護人材確保 6 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6521,11 +6715,13 @@ const ARTICLES = [
     summary: "HICTA ・ 大学講座 ・ 副業 ・ ふるさと副業。地方でのリスキリング 4 戦略の実装。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6546,11 +6742,13 @@ const ARTICLES = [
     summary: "言語 ・ 住宅 ・ コミュニティ ・ 子ども教育 ・ 文化変容。大泉町 30 年継続事例から 5 戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 8,
-    compositeScore: 31,
+    compositeScore: 46,
     priorityType: "B",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6571,11 +6769,13 @@ const ARTICLES = [
     summary: "宇宙 ・ 半導体 ・ 食品テック ・ クリーンテック。北海道の新産業 4 領域の実装戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6596,11 +6796,13 @@ const ARTICLES = [
     summary: "20 年継続事例から学ぶ人口減地域の回復構造。仕組み資産による長期戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6621,11 +6823,13 @@ const ARTICLES = [
     summary: "オンライン診療 ・ タスクシフト ・ 地域包括 ・ 広域連携。地域医療維持の 4 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6646,11 +6850,13 @@ const ARTICLES = [
     summary: "規格外加工 ・ ロス削減 ・ 飼料化 ・ 堆肥化 ・ ブランディング。サーキュラーフード 5 戦略。",
     quality: 21,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 22,
+    compositeScore: 37,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 
@@ -6671,11 +6877,13 @@ const ARTICLES = [
     summary: "HICE 30 年 ・ 大泉町 30 年。多文化共生の長期事例から学ぶ実装戦略。",
     quality: 23,
     freshness: 15,
+    boostScore: 15,
     ga4Score: 1,
-    compositeScore: 24,
+    compositeScore: 39,
     priorityType: "E",
     ga4Source: "estimated",
   },
+
 
 
 

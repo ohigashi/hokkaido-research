@@ -297,9 +297,9 @@
       if(currentCat && a.category === currentCat) s += 10;
       return s;
     };
-    // メインスコア = 関連性 + 品質 + GA4 ( 鮮度は tiebreaker )
+    // メインスコア = 関連性 + 品質 + GA4 + 打席ブースト ( 鮮度は tiebreaker )
     var mainScore = function(a){
-      return relevanceScore(a) + (a.quality||0) + (a.ga4Score||0);
+      return relevanceScore(a) + (a.quality||0) + (a.ga4Score||0) + (a.boostScore||0);
     };
     var sortByMain = function(a,b){
       var d = mainScore(b) - mainScore(a);

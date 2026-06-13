@@ -32,14 +32,16 @@ def repl(m):
     info = info_by_slug.get(aid, {})
     structure = info.get("total", 0)
     freshness = info.get("freshness", 0)
+    boost = info.get("boost", 0)
     ga4 = info.get("ga4Score", 0)
     ptype = info.get("priorityType", "NODATA")
     gsrc = info.get("ga4Source", "estimated")
-    composite = structure + ga4  # 鮮度は含めない
+    composite = structure + ga4 + boost  # 鮮度は含めない
 
     # Strip existing score fields
     cleaned = re.sub(r"\s*quality:\s*\d+,", "", full)
     cleaned = re.sub(r"\s*freshness:\s*\d+,", "", cleaned)
+    cleaned = re.sub(r"\s*boostScore:\s*\d+,", "", cleaned)
     cleaned = re.sub(r"\s*ga4Score:\s*\d+,", "", cleaned)
     cleaned = re.sub(r"\s*compositeScore:\s*\d+,", "", cleaned)
     cleaned = re.sub(r"\s*priorityType:\s*\"[A-Z_]+\",", "", cleaned)
@@ -48,6 +50,7 @@ def repl(m):
     insertion = (
         f"    quality: {structure},\n"
         f"    freshness: {freshness},\n"
+        f"    boostScore: {boost},\n"
         f"    ga4Score: {ga4},\n"
         f"    compositeScore: {composite},\n"
         f"    priorityType: \"{ptype}\",\n"

@@ -105,6 +105,31 @@ def assess(html: str) -> dict:
     }
 
 
+def boost_score(updated_at_str):
+    """新規 / リライト記事の打席ブースト ( 0-15 )。
+
+    updatedAt から:
+    - 0-7 日: 15 ( フル ブースト )
+    - 8-14 日: 10
+    - 15-21 日: 5
+    - 22 日以降: 0
+    """
+    if not updated_at_str:
+        return 0
+    try:
+        d = datetime.strptime(updated_at_str, "%Y-%m-%d").date()
+    except Exception:
+        return 0
+    days = (date.today() - d).days
+    if days <= 7:
+        return 15
+    if days <= 14:
+        return 10
+    if days <= 21:
+        return 5
+    return 0
+
+
 def freshness_score(updated_at_str):
     """Return ( score 0-15, days_since_update )."""
     if not updated_at_str:
@@ -279,9 +304,10 @@ def main():
         html = f.read_text(encoding="utf-8")
         a = assess(html)
 
-        # 鮮度スコア
+        # 鮮度スコア + 打席ブースト
         upd = updated_by_slug.get(f.stem)
         fresh_score, days_since = freshness_score(upd)
+        bst = boost_score(upd)
 
         # GA4 情報 ( 実データ優先、なければ推定値 )
         if f.stem in ga4_by_slug:
@@ -331,7 +357,7 @@ def main():
         # Extract title and id
         title_m = re.search(r"<h1 class=\"article-title\">(.+?)</h1>", html)
         title = title_m.group(1) if title_m else f.stem
-        # composite = 構造 + GA4 ( 内部回遊エンゲージメント ) 。鮮度は別管理
+        # composite = 構造 + GA4 ( 内部回遊エンゲージメント ) + 打席ブースト 。鮮度は別管理
         # 推定値の場合は ga4Score の重みを半分に ( 実データほど信頼できないため )
         effective_ga4 = ga4_score if ga4_source == "actual" else ga4_score // 2
         results.append({
@@ -342,7 +368,8 @@ def main():
             "freshness": fresh_score,
             "days_since_update": days_since,
             "updatedAt": upd or "",
-            "composite": a["total"] + effective_ga4,
+            "boost": bst,
+            "composite": a["total"] + effective_ga4 + bst,
             "char_count": a["char_count"],
             "table_count": a["table_count"],
             "breakdown": a["scores"],
