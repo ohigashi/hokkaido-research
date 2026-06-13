@@ -1582,7 +1582,7 @@
         return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
           <div class="reading-row-top">
             ${labelOf(a)}<span class="reading-cat ${catCls}">${a.category}</span>
-            <span class="reading-meta-inline">${a.readMinutes || 2} 分・${a.publishedAt || ''}</span>
+            <span class="reading-meta-inline">${a.readMinutes || 2}分・${a.publishedAt || ''}</span>
           </div>
           <div class="reading-title-text">${a.title}</div>
           ${a.summary ? `<div class="reading-summary">${a.summary}</div>` : ''}
@@ -2066,7 +2066,7 @@
             <div class="mb-art-meta-row">
               <span class="mb-art-cat ${catCls}">${a.category}</span>
               <span>${a.publishedAt || ''}</span>
-              <span>${a.readMinutes || 2} 分で読める</span>
+              <span>${a.readMinutes || 2}分で読める</span>
             </div>
             <div class="mb-art-title">${a.title}</div>
           </a>`;

@@ -7150,7 +7150,7 @@ def render_body(blocks):
 
 def format_date_jp(iso_date):
     y, m, d = iso_date.split("-")
-    return f"{y} 年 {int(m)} 月 {int(d)} 日"
+    return f"{y}年{int(m)}月{int(d)}日"
 
 
 def compute_label(published_at: str, updated_at: str) -> str:
@@ -7322,7 +7322,7 @@ RELATED_JS = """
         return '<a class="rel-art" href="/articles/' + a.id + '.html">' +
           '<div class="rel-art-meta-row">' +
             '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +
-            '<span class="rel-art-meta">' + esc(a.publishedAt) + '・' + (a.readMinutes||2) + ' 分</span>' +
+            '<span class="rel-art-meta">' + esc(a.publishedAt) + '・' + (a.readMinutes||2) + '分</span>' +
           '</div>' +
           '<div class="rel-art-title">' + esc(a.title) + '</div>' +
           (a.summary ? '<div class="rel-art-summary">' + esc(a.summary) + '</div>' : '') +
@@ -7415,7 +7415,7 @@ TEMPLATE = """<!DOCTYPE html>
 <div class="article-meta-row">
 {label_html}<span class="article-cat {cat_class}">{category}</span>
 <span class="article-date">{date_jp}</span>
-<span class="article-time">{minutes} 分で読める</span>
+<span class="article-time">{minutes}分で読める</span>
 </div>
 <h1 class="article-title">{title}</h1>
 <p class="article-summary">{summary}</p>
