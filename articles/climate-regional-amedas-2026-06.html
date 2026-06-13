@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <meta name="description" content="気象庁 AMeDAS 道内 174 地点のデータは、 1 つの「北海道」が存在しないことを示す。 同日内陸 28℃ ・ 沿岸 14℃の 14℃格差、 平年差 +6℃地点。 地域差を踏まえた営農 ・ 観光 ・ 防災設計の必要性。">
-<meta name="keywords" content="北海道,地域課題,課題発見,AMeDAS 174 地点で見る道内気候の地域差">
+<meta name="keywords" content="北海道,地域課題,データ,AMeDAS 174 地点で見る道内気候の地域差">
 <meta property="og:title" content="AMeDAS 174 地点で見る道内気候の地域差｜北海道・地域課題リサーチ">
 <meta property="og:description" content="気象庁 AMeDAS 道内 174 地点のデータは、 1 つの「北海道」が存在しないことを示す。 同日内陸 28℃ ・ 沿岸 14℃の 14℃格差、 平年差 +6℃地点。 地域差を踏まえた営農 ・ 観光 ・ 防災設計の必要性。">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="article:published_time" content="2026-06-13">
 <meta property="article:modified_time" content="2026-06-13">
 <meta property="article:author" content="hokkaido-research 編集部">
-<meta property="article:section" content="課題発見">
+<meta property="article:section" content="データ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AMeDAS 174 地点で見る道内気候の地域差">
 <meta name="twitter:description" content="気象庁 AMeDAS 道内 174 地点のデータは、 1 つの「北海道」が存在しないことを示す。 同日内陸 28℃ ・ 沿岸 14℃の 14℃格差、 平年差 +6℃地点。 地域差を踏まえた営農 ・ 観光 ・ 防災設計の必要性。">
@@ -47,7 +47,7 @@
     "@type": "WebPage",
     "@id": "https://hokkaido-research.lrg.jp/articles/climate-regional-amedas-2026-06.html"
   },
-  "articleSection": "課題発見",
+  "articleSection": "データ",
   "inLanguage": "ja"
 }
 </script>
@@ -79,7 +79,7 @@
 
 <header class="article-head">
 <div class="article-meta-row">
-<span class="art-label new">NEW</span><span class="article-cat discovery">課題発見</span>
+<span class="art-label new">NEW</span><span class="article-cat data">データ</span>
 <span class="article-date">2026年6月13日</span>
 <span class="article-time">5分で読める</span>
 </div>
@@ -184,7 +184,7 @@
 (function(){
   var ARTICLE_ID = "climate-regional-amedas-2026-06";
   var RELATED_IDS = ["climate-adaptation", "fisheries-climate"];
-  var ARTICLE_CATEGORY = "課題発見";
+  var ARTICLE_CATEGORY = "データ";
 
   function esc(s){ return String(s||"").replace(/[<>&"]/g, function(c){
     return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];
@@ -324,7 +324,7 @@
     others = others.slice(0, 4);
     if(others.length){
       artEl.innerHTML = others.map(function(a){
-        var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");
+        var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : (a.category === "データ" ? "data" : (a.category === "取り組みを知る" ? "efforts" : "")));
         return '<a class="rel-art" href="/articles/' + a.id + '.html">' +
           '<div class="rel-art-meta-row">' +
             '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +

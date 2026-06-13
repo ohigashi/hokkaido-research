@@ -324,7 +324,7 @@
     others = others.slice(0, 4);
     if(others.length){
       artEl.innerHTML = others.map(function(a){
-        var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : "");
+        var catCls = a.category === "課題発見" ? "discovery" : (a.category === "アイデア" ? "idea" : (a.category === "データ" ? "data" : (a.category === "取り組みを知る" ? "efforts" : "")));
         return '<a class="rel-art" href="/articles/' + a.id + '.html">' +
           '<div class="rel-art-meta-row">' +
             '<span class="rel-art-cat ' + catCls + '">' + esc(a.category) + '</span>' +

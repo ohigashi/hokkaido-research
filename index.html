@@ -190,6 +190,8 @@
   }
   .reading-cat.discovery{color:#B5733A}
   .reading-cat.idea{color:var(--ice)}
+  .reading-cat.data{color:#7A8450}
+  .reading-cat.efforts{color:#9E5A6B}
   .reading-meta-inline{
     font-size:10px;color:var(--slate);font-weight:600;letter-spacing:.02em;
   }
@@ -217,6 +219,8 @@
   }
   .mb-art-cat.discovery{background:#B5733A}
   .mb-art-cat.idea{background:var(--ice)}
+  .mb-art-cat.data{background:#7A8450}
+  .mb-art-cat.efforts{background:#9E5A6B}
   .mb-art-title{font-size:13px;font-weight:800;color:var(--ink);line-height:1.4}
 
   /* ===== カード: 関連記事バッジ ===== */
@@ -1618,7 +1622,7 @@
         return '';
       };
       grid.innerHTML = items.map(a=>{
-        const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
+        const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : (a.category === 'データ' ? 'data' : (a.category === '取り組みを知る' ? 'efforts' : '')));
         return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
           <div class="reading-row-top">
             ${labelOf(a)}<span class="reading-cat ${catCls}">${a.category}</span>
@@ -2101,7 +2105,7 @@
       <div class="mb-section">
         <div class="mb-label" style="color:var(--moss)">関連する読み物</div>
         <div class="mb-articles">${relArticles.map(a=>{
-          const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
+          const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : (a.category === 'データ' ? 'data' : (a.category === '取り組みを知る' ? 'efforts' : '')));
           return `<a class="mb-art" href="/articles/${a.id}.html">
             <div class="mb-art-meta-row">
               <span class="mb-art-cat ${catCls}">${a.category}</span>

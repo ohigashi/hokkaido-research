@@ -116,6 +116,8 @@
   }
   .idx-cat.discovery{color:#B5733A}
   .idx-cat.idea{color:var(--ice)}
+  .idx-cat.data{color:#7A8450}
+  .idx-cat.efforts{color:#9E5A6B}
   .art-label{display:inline-block;font-size:9.5px;font-weight:900;letter-spacing:.06em;padding:2px 7px;border-radius:3px;color:#fff;}
   .art-label.new{background:#2C6E63}
   .art-label.updated{background:#2E7CA8}
@@ -411,7 +413,7 @@
       return;
     }
     out.innerHTML = list.map(a => {
-      const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
+      const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : (a.category === 'データ' ? 'data' : (a.category === '取り組みを知る' ? 'efforts' : '')));
       return `<a class="idx-item" href="/articles/${esc(a.id)}.html">
         <div class="idx-meta-row">
           ${labelOf(a)}<span class="idx-cat ${catCls}">${esc(a.category)}</span>
