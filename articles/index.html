@@ -136,6 +136,7 @@
   <div class="dd" data-dd="kw">
     <button class="dd-btn" id="dd-kw-btn" type="button" aria-expanded="false">キーワード<span class="dd-arrow">▼</span></button>
     <div class="dd-panel" id="dd-kw-panel">
+      <div class="dd-row" id="dd-kw-chips" style="margin-bottom:8px"></div>
       <input class="dd-search-input" id="dd-kw-input" type="search" placeholder="タイトル ・ 概要で検索">
     </div>
   </div>
@@ -180,15 +181,20 @@
     return;
   }
   const ISSUES_LIST = (typeof ISSUES !== 'undefined') ? ISSUES : [];
-  const REGIONS = (typeof regMap !== 'undefined') ? regMap : null;
-  const TRAITS = (typeof traitMap !== 'undefined') ? traitMap : null;
-  const CAT_MAP = (typeof catMap !== 'undefined') ? catMap : null;
+  const REGIONS_LIST = (typeof REGIONS !== 'undefined') ? REGIONS : [];
+  const TRAITS_LIST = (typeof TRAITS !== 'undefined') ? TRAITS : [];
+  const CATEGORIES_LIST = (typeof CATEGORIES !== 'undefined') ? CATEGORIES : [];
+
+  // Map 化
+  const regMap = {}; REGIONS_LIST.forEach(r => { regMap[r.id] = r; });
+  const traitMap = {}; TRAITS_LIST.forEach(t => { traitMap[t.id] = t; });
+  const catMap = {}; CATEGORIES_LIST.forEach(c => { catMap[c.id] = c; });
 
   function esc(s){ return String(s||"").replace(/[<>&"]/g, function(c){
     return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];
   });}
 
-  // 各記事 → 関連 ISSUE 経由で regions / traits を逆引き
+  // 各記事 → 関連 ISSUE 経由で regions / traits / cat / tags を逆引き
   const issueById = {};
   ISSUES_LIST.forEach(it => { issueById[it.id] = it; });
   function articleRegions(a){
@@ -207,6 +213,22 @@
     });
     return set;
   }
+  function articleCats(a){
+    const set = new Set();
+    (a.relatedIssues||[]).forEach(iid => {
+      const it = issueById[iid]; if(!it) return;
+      if(it.cat) set.add(it.cat);
+    });
+    return set;
+  }
+  function articleTags(a){
+    const set = new Set();
+    (a.relatedIssues||[]).forEach(iid => {
+      const it = issueById[iid]; if(!it) return;
+      (it.tags||[]).forEach(t => set.add(t));
+    });
+    return set;
+  }
 
   // フィルタ状態
   const state = {
@@ -217,31 +239,42 @@
     trait: 'all',
   };
 
-  // ===== 課題分類 chip =====
-  const cats = Array.from(new Set(ARTICLES.map(a => a.category)));
+  // ===== 課題分類 chip ( TOP と同じ 8 分類 CATEGORIES ベース、 記事に紐づくものだけ ) =====
+  const usedCats = new Set();
+  ARTICLES.forEach(a => articleCats(a).forEach(c => usedCats.add(c)));
   const catRow = document.getElementById('dd-cat-row');
-  catRow.innerHTML = cats.map(c => `<button class="dd-chip" data-cat="${esc(c)}" aria-pressed="false" type="button">${esc(c)}</button>`).join('');
+  const catList = CATEGORIES_LIST.filter(c => usedCats.has(c.id));
+  catRow.innerHTML = catList.map(c => `<button class="dd-chip" data-cat="${esc(c.id)}" aria-pressed="false" type="button">${esc(c.name)}</button>`).join('');
 
-  // ===== 地域 chip ( ISSUES から ) =====
+  // ===== 地域 chip ( REGIONS から、 記事に紐づくものだけ ・ 「全道共通」は除外 ) =====
+  const usedRegions = new Set();
+  ARTICLES.forEach(a => articleRegions(a).forEach(r => usedRegions.add(r)));
   const regionRow = document.getElementById('dd-region-row');
-  if(REGIONS){
-    const usedRegions = new Set();
-    ARTICLES.forEach(a => articleRegions(a).forEach(r => usedRegions.add(r)));
-    const regList = Object.keys(REGIONS).filter(r => usedRegions.has(r));
-    regionRow.innerHTML = regList.map(r => `<button class="dd-chip" data-region="${esc(r)}" aria-pressed="false" type="button">${esc(REGIONS[r].short || r)}</button>`).join('');
+  const regList = REGIONS_LIST.filter(r => usedRegions.has(r.id) && r.id !== 'all');
+  if(regList.length){
+    regionRow.innerHTML = regList.map(r => `<button class="dd-chip" data-region="${esc(r.id)}" aria-pressed="false" type="button">${esc(r.short || r.name)}</button>`).join('');
   } else {
     regionRow.innerHTML = '<span style="font-size:11px;color:var(--slate)">地域データなし</span>';
   }
 
   // ===== 地域特性 chip =====
+  const usedTraits = new Set();
+  ARTICLES.forEach(a => articleTraits(a).forEach(t => usedTraits.add(t)));
   const traitRow = document.getElementById('dd-trait-row');
-  if(TRAITS){
-    const usedTraits = new Set();
-    ARTICLES.forEach(a => articleTraits(a).forEach(t => usedTraits.add(t)));
-    const trList = Object.keys(TRAITS).filter(t => usedTraits.has(t));
-    traitRow.innerHTML = trList.map(t => `<button class="dd-chip" data-trait="${esc(t)}" aria-pressed="false" type="button">${esc(TRAITS[t].short || TRAITS[t].name || t)}</button>`).join('');
+  const trList = TRAITS_LIST.filter(t => usedTraits.has(t.id));
+  if(trList.length){
+    traitRow.innerHTML = trList.map(t => `<button class="dd-chip" data-trait="${esc(t.id)}" aria-pressed="false" type="button">${esc(t.name)}</button>`).join('');
   } else {
     traitRow.innerHTML = '<span style="font-size:11px;color:var(--slate)">特性データなし</span>';
+  }
+
+  // ===== キーワード: 頻出 tag 上位 5 件 chip =====
+  const tagFreq = {};
+  ARTICLES.forEach(a => articleTags(a).forEach(t => { tagFreq[t] = (tagFreq[t]||0) + 1; }));
+  const topTags = Object.entries(tagFreq).sort((a,b) => b[1] - a[1]).slice(0, 5).map(x => x[0]);
+  const kwChips = document.getElementById('dd-kw-chips');
+  if(kwChips){
+    kwChips.innerHTML = topTags.map(t => `<button class="dd-chip" data-tag="${esc(t)}" aria-pressed="false" type="button">${esc(t)}</button>`).join('');
   }
 
   // ===== Dropdown 開閉 =====
@@ -302,15 +335,19 @@
 
   function applyFilters(){
     let list = ARTICLES.slice();
-    if(state.cat !== 'all') list = list.filter(a => a.category === state.cat);
+    if(state.cat !== 'all') list = list.filter(a => articleCats(a).has(state.cat));
     if(state.region !== 'all') list = list.filter(a => articleRegions(a).has(state.region));
     if(state.trait !== 'all') list = list.filter(a => articleTraits(a).has(state.trait));
     if(state.kw){
       const kw = state.kw.toLowerCase();
-      list = list.filter(a =>
-        (a.title || '').toLowerCase().indexOf(kw) >= 0 ||
-        (a.summary || '').toLowerCase().indexOf(kw) >= 0
-      );
+      list = list.filter(a => {
+        if((a.title || '').toLowerCase().indexOf(kw) >= 0) return true;
+        if((a.summary || '').toLowerCase().indexOf(kw) >= 0) return true;
+        // 関連 ISSUE 経由の tags も検索対象
+        let hit = false;
+        articleTags(a).forEach(t => { if(t.toLowerCase().indexOf(kw) >= 0) hit = true; });
+        return hit;
+      });
     }
     return sortBy(list);
   }
@@ -348,7 +385,8 @@
   function setCatBtnState(){
     const btn = document.getElementById('dd-cat-btn');
     btn.classList.toggle('active', state.cat !== 'all');
-    btn.firstChild.textContent = state.cat === 'all' ? '課題分類' : `課題分類: ${state.cat}`;
+    const label = (state.cat !== 'all' && catMap[state.cat]) ? catMap[state.cat].name : null;
+    btn.firstChild.textContent = label ? `課題分類: ${label}` : '課題分類';
     document.querySelectorAll('#dd-cat-row [data-cat]').forEach(b => {
       b.setAttribute('aria-pressed', String(b.dataset.cat === state.cat));
     });
@@ -357,11 +395,14 @@
     const btn = document.getElementById('dd-kw-btn');
     btn.classList.toggle('active', !!state.kw);
     btn.firstChild.textContent = state.kw ? `キーワード: ${state.kw}` : 'キーワード';
+    document.querySelectorAll('#dd-kw-chips [data-tag]').forEach(b => {
+      b.setAttribute('aria-pressed', String(b.dataset.tag === state.kw));
+    });
   }
   function setRegionBtnState(){
     const btn = document.getElementById('dd-region-btn');
     btn.classList.toggle('active', state.region !== 'all');
-    const label = (REGIONS && state.region !== 'all') ? (REGIONS[state.region]?.short || state.region) : null;
+    const label = (state.region !== 'all' && regMap[state.region]) ? (regMap[state.region].short || regMap[state.region].name) : null;
     btn.firstChild.textContent = label ? `地域: ${label}` : '地域';
     document.querySelectorAll('#dd-region-row [data-region]').forEach(b => {
       b.setAttribute('aria-pressed', String(b.dataset.region === state.region));
@@ -370,7 +411,7 @@
   function setTraitBtnState(){
     const btn = document.getElementById('dd-trait-btn');
     btn.classList.toggle('active', state.trait !== 'all');
-    const label = (TRAITS && state.trait !== 'all') ? (TRAITS[state.trait]?.short || TRAITS[state.trait]?.name || state.trait) : null;
+    const label = (state.trait !== 'all' && traitMap[state.trait]) ? traitMap[state.trait].name : null;
     btn.firstChild.textContent = label ? `地域特性: ${label}` : '地域特性';
     document.querySelectorAll('#dd-trait-row [data-trait]').forEach(b => {
       b.setAttribute('aria-pressed', String(b.dataset.trait === state.trait));
@@ -402,6 +443,13 @@
   document.getElementById('dd-kw-input').addEventListener('input', e => {
     state.kw = e.target.value.trim();
     refreshAll();
+  });
+  document.getElementById('dd-kw-chips').addEventListener('click', e => {
+    const b = e.target.closest('[data-tag]'); if(!b) return;
+    state.kw = (state.kw === b.dataset.tag) ? '' : b.dataset.tag;
+    document.getElementById('dd-kw-input').value = state.kw;
+    refreshAll();
+    if(window.gtag) gtag('event','article_list_filter',{filter:'kw',value:state.kw});
   });
   document.getElementById('dd-region-row').addEventListener('click', e => {
     const b = e.target.closest('[data-region]'); if(!b) return;
