@@ -16,18 +16,52 @@
 <link rel="stylesheet" href="/articles/_article_styles.css">
 <style>
   .index-wrap{max-width:880px;margin:0 auto;padding:50px 24px 80px}
-  .idx-head{margin:24px 0 36px;padding-bottom:24px;border-bottom:2px solid var(--ink)}
+  .idx-head{margin:24px 0 24px;padding-bottom:20px;border-bottom:2px solid var(--ink)}
   .idx-head h1{font-size:30px;font-weight:900;letter-spacing:-.01em;line-height:1.3;margin-bottom:10px}
   .idx-head p{font-size:14px;color:var(--slate);line-height:1.7}
-  .idx-filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-  .idx-filter{
+
+  /* ===== フィルタバー ( TOP 課題カードと同役割同デザイン ) ===== */
+  .ctrl-bar{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    margin:18px 0 16px;padding:10px 0;border-bottom:1px solid var(--line);
+  }
+  .ctrl-meta{font-size:11.5px;color:var(--slate);font-weight:600;margin-right:auto}
+  .ctrl-meta b{color:var(--ink);font-weight:900;font-size:13px}
+  .dd{position:relative}
+  .dd-btn{
     font-family:inherit;cursor:pointer;background:var(--paper);
     font-size:11.5px;font-weight:700;color:var(--ink);
-    border:1px solid var(--line);padding:6px 13px;border-radius:30px;
+    border:1px solid var(--line);padding:6px 11px;border-radius:30px;
+    transition:all .12s;display:inline-flex;align-items:center;gap:5px;
+  }
+  .dd-btn:hover{border-color:var(--ink)}
+  .dd-btn.active{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+  .dd-arrow{font-size:8px;opacity:.7}
+  .dd-panel{
+    display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:30;
+    background:#fff;border:1px solid var(--line);border-radius:6px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    padding:12px;min-width:260px;max-width:380px;
+  }
+  .dd-panel[aria-expanded="true"]{display:block}
+  .dd-row{display:flex;flex-wrap:wrap;gap:5px}
+  .dd-chip{
+    font-family:inherit;cursor:pointer;background:var(--paper);
+    font-size:11px;font-weight:700;color:var(--ink);
+    border:1px solid var(--line);padding:4px 10px;border-radius:30px;
     transition:all .12s;
   }
-  .idx-filter:hover{border-color:var(--ink)}
-  .idx-filter[aria-pressed="true"]{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+  .dd-chip:hover{border-color:var(--ink)}
+  .dd-chip[aria-pressed="true"]{background:var(--ink);color:var(--snow);border-color:var(--ink)}
+  .dd-search-input{
+    font-family:inherit;width:100%;
+    font-size:12.5px;color:var(--ink);
+    border:1px solid var(--line);padding:6px 10px;border-radius:4px;
+    background:var(--paper);
+  }
+  .dd-search-input:focus{outline:none;border-color:var(--ink);background:#fff}
+
+  /* ===== 一覧 ===== */
   .idx-list{display:flex;flex-direction:column;gap:10px}
   .idx-item{
     background:var(--paper);border:1px solid var(--line);border-radius:6px;
@@ -48,17 +82,24 @@
   .idx-title{font-size:16px;font-weight:800;color:var(--ink);line-height:1.45}
   .idx-summary{font-size:12.5px;color:var(--slate);line-height:1.65}
   .idx-empty{padding:40px 0;text-align:center;color:var(--slate);font-size:13px}
+  .idx-reset{
+    font-family:inherit;cursor:pointer;background:transparent;
+    font-size:11px;font-weight:700;color:var(--slate);
+    border:none;padding:6px 8px;text-decoration:underline;
+  }
+  .idx-reset:hover{color:var(--ink)}
   @media(max-width:560px){
     .index-wrap{padding:32px 18px 60px}
     .idx-head h1{font-size:23px}
+    .dd-panel{min-width:240px;max-width:300px}
   }
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FN8N9DLPP"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-3FN8N9DLPP');
+  gtag('config', 'G-45HHCDR0LB');
 </script>
 </head>
 <body>
@@ -69,10 +110,52 @@
 
 <header class="idx-head">
 <h1>読み物 一覧</h1>
-<p>移住定住・ふるさと納税・空き家・子どもの貧困・食料自給・一次産業の担い手・採用難・若者の地域離脱等のテーマを、構造から読み解き、海士町・神山町・尾道・沖縄・鯖江市等の長期事例から学ぶ。実践アイデアと、わたしたちにできることまで含めた深掘り読み物。</p>
+<p>移住定住 ・ ふるさと納税 ・ 空き家 ・ 子どもの貧困 ・ 食料自給 ・ 一次産業の担い手 ・ 採用難 ・ 若者の地域離脱等のテーマを、 構造から読み解き、 海士町 ・ 神山町 ・ 尾道 ・ 沖縄 ・ 鯖江市等の長期事例から学ぶ。 実践アイデアと、 わたしたちにできることまで含めた深掘り読み物。</p>
 </header>
 
-<div class="idx-filter-row" id="idx-filter-row"></div>
+<div class="ctrl-bar">
+  <span class="ctrl-meta"><b id="idx-num">0</b> 件</span>
+
+  <div class="dd" data-dd="sort">
+    <button class="dd-btn active" id="dd-sort-btn" type="button" aria-expanded="false">並び順: おすすめ<span class="dd-arrow">▼</span></button>
+    <div class="dd-panel" id="dd-sort-panel">
+      <div class="dd-row" id="dd-sort-row">
+        <button class="dd-chip" data-sort="recommended" aria-pressed="true" type="button">おすすめ ( スコア順 )</button>
+        <button class="dd-chip" data-sort="newest" aria-pressed="false" type="button">新しい順</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dd" data-dd="cat">
+    <button class="dd-btn" id="dd-cat-btn" type="button" aria-expanded="false">課題分類<span class="dd-arrow">▼</span></button>
+    <div class="dd-panel" id="dd-cat-panel">
+      <div class="dd-row" id="dd-cat-row"></div>
+    </div>
+  </div>
+
+  <div class="dd" data-dd="kw">
+    <button class="dd-btn" id="dd-kw-btn" type="button" aria-expanded="false">キーワード<span class="dd-arrow">▼</span></button>
+    <div class="dd-panel" id="dd-kw-panel">
+      <input class="dd-search-input" id="dd-kw-input" type="search" placeholder="タイトル ・ 概要で検索">
+    </div>
+  </div>
+
+  <div class="dd" data-dd="region">
+    <button class="dd-btn" id="dd-region-btn" type="button" aria-expanded="false">地域<span class="dd-arrow">▼</span></button>
+    <div class="dd-panel" id="dd-region-panel">
+      <div class="dd-row" id="dd-region-row"></div>
+    </div>
+  </div>
+
+  <div class="dd" data-dd="trait">
+    <button class="dd-btn" id="dd-trait-btn" type="button" aria-expanded="false">地域特性<span class="dd-arrow">▼</span></button>
+    <div class="dd-panel" id="dd-trait-panel">
+      <div class="dd-row" id="dd-trait-row"></div>
+    </div>
+  </div>
+
+  <button class="idx-reset" id="idx-reset" type="button">リセット</button>
+</div>
 
 <div class="idx-list" id="idx-list">
 <div class="idx-empty">記事を読み込み中...</div>
@@ -84,8 +167,8 @@
 
 <footer>
 <p>運営: Largo 株式会社 ( <a href="https://lrg.jp" target="_blank" rel="noopener">lrg.jp</a> )</p>
-<p>お問い合わせ・提携・連携: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
-<p><a href="/terms.html">利用規約</a>・<a href="/privacy.html">プライバシーポリシー</a></p>
+<p>お問い合わせ ・ 提携 ・ 連携: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
+<p><a href="/terms.html">利用規約</a> ・ <a href="/privacy.html">プライバシーポリシー</a></p>
 </footer>
 </div>
 
@@ -96,43 +179,151 @@
     document.getElementById('idx-list').innerHTML = '<div class="idx-empty">まだ記事がありません。</div>';
     return;
   }
+  const ISSUES_LIST = (typeof ISSUES !== 'undefined') ? ISSUES : [];
+  const REGIONS = (typeof regMap !== 'undefined') ? regMap : null;
+  const TRAITS = (typeof traitMap !== 'undefined') ? traitMap : null;
+  const CAT_MAP = (typeof catMap !== 'undefined') ? catMap : null;
 
   function esc(s){ return String(s||"").replace(/[<>&"]/g, function(c){
     return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];
   });}
 
-  // 質重視: quality スコア降順 → 同点は新着順
-  const sorted = [...ARTICLES].sort((a,b)=>{
-    const qd = (b.quality||0) - (a.quality||0);
-    if(qd !== 0) return qd;
-    return (b.publishedAt||'').localeCompare(a.publishedAt||'');
+  // 各記事 → 関連 ISSUE 経由で regions / traits を逆引き
+  const issueById = {};
+  ISSUES_LIST.forEach(it => { issueById[it.id] = it; });
+  function articleRegions(a){
+    const set = new Set();
+    (a.relatedIssues||[]).forEach(iid => {
+      const it = issueById[iid]; if(!it) return;
+      (it.regions||[]).forEach(r => set.add(r));
+    });
+    return set;
+  }
+  function articleTraits(a){
+    const set = new Set();
+    (a.relatedIssues||[]).forEach(iid => {
+      const it = issueById[iid]; if(!it) return;
+      (it.traits||[]).forEach(t => set.add(t));
+    });
+    return set;
+  }
+
+  // フィルタ状態
+  const state = {
+    sort: 'recommended',
+    cat: 'all',
+    kw: '',
+    region: 'all',
+    trait: 'all',
+  };
+
+  // ===== 課題分類 chip =====
+  const cats = Array.from(new Set(ARTICLES.map(a => a.category)));
+  const catRow = document.getElementById('dd-cat-row');
+  catRow.innerHTML = cats.map(c => `<button class="dd-chip" data-cat="${esc(c)}" aria-pressed="false" type="button">${esc(c)}</button>`).join('');
+
+  // ===== 地域 chip ( ISSUES から ) =====
+  const regionRow = document.getElementById('dd-region-row');
+  if(REGIONS){
+    const usedRegions = new Set();
+    ARTICLES.forEach(a => articleRegions(a).forEach(r => usedRegions.add(r)));
+    const regList = Object.keys(REGIONS).filter(r => usedRegions.has(r));
+    regionRow.innerHTML = regList.map(r => `<button class="dd-chip" data-region="${esc(r)}" aria-pressed="false" type="button">${esc(REGIONS[r].short || r)}</button>`).join('');
+  } else {
+    regionRow.innerHTML = '<span style="font-size:11px;color:var(--slate)">地域データなし</span>';
+  }
+
+  // ===== 地域特性 chip =====
+  const traitRow = document.getElementById('dd-trait-row');
+  if(TRAITS){
+    const usedTraits = new Set();
+    ARTICLES.forEach(a => articleTraits(a).forEach(t => usedTraits.add(t)));
+    const trList = Object.keys(TRAITS).filter(t => usedTraits.has(t));
+    traitRow.innerHTML = trList.map(t => `<button class="dd-chip" data-trait="${esc(t)}" aria-pressed="false" type="button">${esc(TRAITS[t].short || TRAITS[t].name || t)}</button>`).join('');
+  } else {
+    traitRow.innerHTML = '<span style="font-size:11px;color:var(--slate)">特性データなし</span>';
+  }
+
+  // ===== Dropdown 開閉 =====
+  function closeAllDd(except){
+    document.querySelectorAll('.dd').forEach(dd => {
+      if(dd === except) return;
+      const panel = dd.querySelector('.dd-panel');
+      const btn = dd.querySelector('.dd-btn');
+      if(panel) panel.setAttribute('aria-expanded', 'false');
+      if(btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.querySelectorAll('.dd-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const dd = btn.parentElement;
+      const panel = dd.querySelector('.dd-panel');
+      const isOpen = panel.getAttribute('aria-expanded') === 'true';
+      closeAllDd(dd);
+      panel.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
   });
-  const cats = ["すべて", ...Array.from(new Set(sorted.map(a=>a.category)))];
+  document.addEventListener('click', () => closeAllDd(null));
+  document.querySelectorAll('.dd-panel').forEach(p => {
+    p.addEventListener('click', e => e.stopPropagation());
+  });
 
-  let activeCat = "すべて";
+  // ===== ラベル ・ ソートロジック =====
+  const today = new Date();
+  function labelOf(a){
+    const pub = a.publishedAt ? new Date(a.publishedAt) : null;
+    const upd = a.updatedAt ? new Date(a.updatedAt) : null;
+    const dayDiff = d => d ? Math.floor((today - d) / 86400000) : 9999;
+    const isUpdated = upd && a.updatedAt !== a.publishedAt && dayDiff(upd) <= 5;
+    if(isUpdated) return '<span class="art-label updated">UPDATED</span>';
+    const isNew = pub && dayDiff(pub) <= 5;
+    if(isNew) return '<span class="art-label new">NEW</span>';
+    return '';
+  }
+  function sortBy(list){
+    if(state.sort === 'newest'){
+      return list.slice().sort((a,b) => {
+        const u = (b.updatedAt||b.publishedAt||'').localeCompare(a.updatedAt||a.publishedAt||'');
+        if(u !== 0) return u;
+        return (b.compositeScore||0) - (a.compositeScore||0);
+      });
+    }
+    // recommended ( composite + boost ) 降順 → 同点 freshness → publishedAt
+    return list.slice().sort((a,b) => {
+      const main = (b.compositeScore||0) - (a.compositeScore||0);
+      if(main !== 0) return main;
+      const f = (b.freshness||0) - (a.freshness||0);
+      if(f !== 0) return f;
+      return (b.publishedAt||'').localeCompare(a.publishedAt||'');
+    });
+  }
 
-  const filterRow = document.getElementById('idx-filter-row');
-  filterRow.innerHTML = cats.map(c => `<button class="idx-filter" data-cat="${esc(c)}" aria-pressed="${c==='すべて'}">${esc(c)}</button>`).join('');
+  function applyFilters(){
+    let list = ARTICLES.slice();
+    if(state.cat !== 'all') list = list.filter(a => a.category === state.cat);
+    if(state.region !== 'all') list = list.filter(a => articleRegions(a).has(state.region));
+    if(state.trait !== 'all') list = list.filter(a => articleTraits(a).has(state.trait));
+    if(state.kw){
+      const kw = state.kw.toLowerCase();
+      list = list.filter(a =>
+        (a.title || '').toLowerCase().indexOf(kw) >= 0 ||
+        (a.summary || '').toLowerCase().indexOf(kw) >= 0
+      );
+    }
+    return sortBy(list);
+  }
 
   function render(){
-    const list = activeCat === "すべて" ? sorted : sorted.filter(a => a.category === activeCat);
+    const list = applyFilters();
+    document.getElementById('idx-num').textContent = list.length;
     const out = document.getElementById('idx-list');
     if(!list.length){
-      out.innerHTML = '<div class="idx-empty">該当する記事はありません。</div>';
+      out.innerHTML = '<div class="idx-empty">該当する記事はありません。 フィルタを調整してください。</div>';
       return;
     }
-    const today = new Date();
-    const labelOf = a => {
-      const pub = a.publishedAt ? new Date(a.publishedAt) : null;
-      const upd = a.updatedAt ? new Date(a.updatedAt) : null;
-      const dayDiff = d => d ? Math.floor((today - d) / 86400000) : 9999;
-      const isUpdated = upd && a.updatedAt !== a.publishedAt && dayDiff(upd) <= 5;
-      if(isUpdated) return '<span class="art-label updated">UPDATED</span>';
-      const isNew = pub && dayDiff(pub) <= 5;
-      if(isNew) return '<span class="art-label new">NEW</span>';
-      return '';
-    };
-    out.innerHTML = list.map(a=>{
+    out.innerHTML = list.map(a => {
       const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
       return `<a class="idx-item" href="/articles/${esc(a.id)}.html">
         <div class="idx-meta-row">
@@ -145,15 +336,96 @@
       </a>`;
     }).join('');
   }
-  render();
 
-  filterRow.addEventListener('click', e=>{
-    const b = e.target.closest('[data-cat]'); if(!b) return;
-    activeCat = b.dataset.cat;
-    filterRow.querySelectorAll('[data-cat]').forEach(x=>x.setAttribute('aria-pressed', x.dataset.cat === activeCat));
+  // ===== ボタン状態同期 =====
+  function setSortBtnLabel(){
+    const lbl = state.sort === 'newest' ? '新しい順' : 'おすすめ';
+    document.getElementById('dd-sort-btn').firstChild.textContent = `並び順: ${lbl}`;
+    document.querySelectorAll('#dd-sort-row [data-sort]').forEach(b => {
+      b.setAttribute('aria-pressed', String(b.dataset.sort === state.sort));
+    });
+  }
+  function setCatBtnState(){
+    const btn = document.getElementById('dd-cat-btn');
+    btn.classList.toggle('active', state.cat !== 'all');
+    btn.firstChild.textContent = state.cat === 'all' ? '課題分類' : `課題分類: ${state.cat}`;
+    document.querySelectorAll('#dd-cat-row [data-cat]').forEach(b => {
+      b.setAttribute('aria-pressed', String(b.dataset.cat === state.cat));
+    });
+  }
+  function setKwBtnState(){
+    const btn = document.getElementById('dd-kw-btn');
+    btn.classList.toggle('active', !!state.kw);
+    btn.firstChild.textContent = state.kw ? `キーワード: ${state.kw}` : 'キーワード';
+  }
+  function setRegionBtnState(){
+    const btn = document.getElementById('dd-region-btn');
+    btn.classList.toggle('active', state.region !== 'all');
+    const label = (REGIONS && state.region !== 'all') ? (REGIONS[state.region]?.short || state.region) : null;
+    btn.firstChild.textContent = label ? `地域: ${label}` : '地域';
+    document.querySelectorAll('#dd-region-row [data-region]').forEach(b => {
+      b.setAttribute('aria-pressed', String(b.dataset.region === state.region));
+    });
+  }
+  function setTraitBtnState(){
+    const btn = document.getElementById('dd-trait-btn');
+    btn.classList.toggle('active', state.trait !== 'all');
+    const label = (TRAITS && state.trait !== 'all') ? (TRAITS[state.trait]?.short || TRAITS[state.trait]?.name || state.trait) : null;
+    btn.firstChild.textContent = label ? `地域特性: ${label}` : '地域特性';
+    document.querySelectorAll('#dd-trait-row [data-trait]').forEach(b => {
+      b.setAttribute('aria-pressed', String(b.dataset.trait === state.trait));
+    });
+  }
+
+  function refreshAll(){
+    setSortBtnLabel();
+    setCatBtnState();
+    setKwBtnState();
+    setRegionBtnState();
+    setTraitBtnState();
     render();
-    if(window.gtag) gtag('event','article_list_filter',{category:activeCat});
+  }
+
+  // ===== イベント =====
+  document.getElementById('dd-sort-row').addEventListener('click', e => {
+    const b = e.target.closest('[data-sort]'); if(!b) return;
+    state.sort = b.dataset.sort;
+    refreshAll();
+    if(window.gtag) gtag('event','article_list_sort',{sort:state.sort});
   });
+  document.getElementById('dd-cat-row').addEventListener('click', e => {
+    const b = e.target.closest('[data-cat]'); if(!b) return;
+    state.cat = (state.cat === b.dataset.cat) ? 'all' : b.dataset.cat;
+    refreshAll();
+    if(window.gtag) gtag('event','article_list_filter',{filter:'cat',value:state.cat});
+  });
+  document.getElementById('dd-kw-input').addEventListener('input', e => {
+    state.kw = e.target.value.trim();
+    refreshAll();
+  });
+  document.getElementById('dd-region-row').addEventListener('click', e => {
+    const b = e.target.closest('[data-region]'); if(!b) return;
+    state.region = (state.region === b.dataset.region) ? 'all' : b.dataset.region;
+    refreshAll();
+    if(window.gtag) gtag('event','article_list_filter',{filter:'region',value:state.region});
+  });
+  document.getElementById('dd-trait-row').addEventListener('click', e => {
+    const b = e.target.closest('[data-trait]'); if(!b) return;
+    state.trait = (state.trait === b.dataset.trait) ? 'all' : b.dataset.trait;
+    refreshAll();
+    if(window.gtag) gtag('event','article_list_filter',{filter:'trait',value:state.trait});
+  });
+  document.getElementById('idx-reset').addEventListener('click', () => {
+    state.sort = 'recommended';
+    state.cat = 'all';
+    state.kw = '';
+    state.region = 'all';
+    state.trait = 'all';
+    document.getElementById('dd-kw-input').value = '';
+    refreshAll();
+  });
+
+  refreshAll();
 })();
 </script>
 </body>
