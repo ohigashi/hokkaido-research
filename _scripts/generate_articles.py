@@ -6852,12 +6852,12 @@ TEMPLATE = """<!DOCTYPE html>
   ]
 }}
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FN8N9DLPP"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
-  gtag('config', 'G-3FN8N9DLPP');
+  gtag('config', 'G-45HHCDR0LB');
 </script>
 </head>
 <body>
