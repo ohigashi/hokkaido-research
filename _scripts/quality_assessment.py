@@ -164,18 +164,67 @@ def percentile_thresholds(values, lo_pct=33, hi_pct=67):
     return lo, hi
 
 
+def estimate_engagement_seconds(char_count, table_count, has_central, has_assets, has_habits):
+    """コンテンツの構造から平均エンゲージメント秒を推定。
+
+    根拠 ( 経験的近似 ):
+    - 読み速度: 約 300 文字/分 = 5 文字/秒、ただし完読率を加味して 0.15 ( 約 30% 読了相当 )
+    - 表 1 個あたり +30 秒 ( 立ち止まって読む )
+    - 中心問い callout +60 秒 ( 引き寄せて深く読む )
+    - 残る資産フレーム +30 秒
+    - habits 節 +30 秒 ( 行動への落とし込みで時間消費 )
+    """
+    base = char_count * 0.15
+    base += table_count * 30
+    if has_central:
+        base += 60
+    if has_assets:
+        base += 30
+    if has_habits:
+        base += 30
+    return int(base)
+
+
+def estimate_internal_pv(quality, related_count, category):
+    """内部回遊 PV を推定 ( quality との相関を弱めて PV と Eng を独立化 )。
+
+    根拠:
+    - 内部回遊 PV は「サイト導線の多さ」が支配的: 関連 ISSUE 数 × カテゴリの広さ
+    - quality は弱い相関にとどめる ( quality 高 = 必ず読まれる、ではない )
+    - 課題発見系の方が ISSUE 一覧から流入しやすく PV が高め
+    """
+    cat_boost = {"課題発見": 8, "アイデア": 5, "事例": 6}.get(category, 5)
+    return max(1, int(related_count * 8 + cat_boost + quality * 0.1))
+
+
 def main():
-    # data.js の ARTICLES セクションから updatedAt を読み込み
+    # data.js の ARTICLES セクションから updatedAt と relatedIssueIds を読み込み
     data_js = (ROOT / "data.js").read_text(encoding="utf-8")
     art_start = data_js.find("const ARTICLES = [")
     art_end = data_js.find("];", art_start)
     art_section = data_js[art_start:art_end] if art_start >= 0 else ""
     updated_by_slug = {}
-    for m in re.finditer(
-        r'id:\s*"(?P<id>[a-z0-9-]+-2026-\d{2})"[\s\S]*?updatedAt:\s*"(?P<u>[\d-]+)"',
+    related_count_by_slug = {}
+    category_by_slug = {}
+    # エントリブロック単位で処理
+    for entry_m in re.finditer(
+        r'\{\s*\n\s*id:\s*"(?P<id>[a-z0-9-]+-2026-\d{2})"[\s\S]+?\n\s*\}\,',
         art_section,
     ):
-        updated_by_slug[m.group("id")] = m.group("u")
+        block = entry_m.group(0)
+        slug = entry_m.group("id")
+        upd_m = re.search(r'updatedAt:\s*"([\d-]+)"', block)
+        if upd_m:
+            updated_by_slug[slug] = upd_m.group(1)
+        rel_m = re.search(r'relatedIssues:\s*\[([^\]]*)\]', block)
+        if rel_m:
+            related_count_by_slug[slug] = len(
+                [x for x in re.findall(r'"([^"]+)"', rel_m.group(1))]
+            )
+        else:
+            related_count_by_slug[slug] = 0
+        cat_m = re.search(r'category:\s*"([^"]+)"', block)
+        category_by_slug[slug] = cat_m.group(1) if cat_m else ""
 
     # GA4 データを読み込み ( なければ None )
     ga4_path = ROOT / "_ga4_engagement.json"
@@ -183,15 +232,44 @@ def main():
     if ga4_path.exists():
         try:
             data = json.loads(ga4_path.read_text(encoding="utf-8"))
-            ga4_by_slug = {x["slug"]: x for x in data}
+            ga4_by_slug = {x["slug"]: x for x in data
+                          if x.get("internal_pv", 0) > 0 or x.get("engagement_seconds_avg", 0) > 0}
         except Exception:
             pass
 
-    # 閾値 ( 全記事の中央値ベース ) - GA4 がある記事のみで計算
-    ga4_records = list(ga4_by_slug.values())
-    pv_thr = percentile_thresholds([r["pv"] for r in ga4_records if r.get("pv", 0) > 0])
+    # GA4 データのない記事には構造ベースの推定値を仮置きする
+    # ( 実データが入ったら ga4_by_slug 側が優先される )
+    estimated_by_slug = {}
+    for f in sorted(ART_DIR.glob("*-2026-06.html")):
+        if f.name == "index.html" or f.stem in ga4_by_slug:
+            continue
+        html = f.read_text(encoding="utf-8")
+        a = assess(html)
+        # 構造要素の有無
+        has_central = a["scores"].get("central", 0) > 0
+        has_assets = a["scores"].get("assets", 0) > 0
+        has_habits = a["scores"].get("habits", 0) > 0
+        related_n = related_count_by_slug.get(f.stem, 0)
+        est_eng = estimate_engagement_seconds(
+            a["char_count"], a["table_count"], has_central, has_assets, has_habits
+        )
+        est_pv = estimate_internal_pv(a["total"], related_n, category_by_slug.get(f.stem, ""))
+        estimated_by_slug[f.stem] = {
+            "slug": f.stem,
+            "internal_pv": est_pv,
+            "external_pv": 0,
+            "engagement_seconds_avg": est_eng,
+            "engagement_volume": est_pv * est_eng,
+            "ga4Source": "estimated",
+        }
+
+    # 推定値も合わせて閾値計算 ( 実データのみで計算するとサンプル不足 )
+    combined = list(ga4_by_slug.values()) + list(estimated_by_slug.values())
+    pv_thr = percentile_thresholds(
+        [r.get("internal_pv", 0) for r in combined if r.get("internal_pv", 0) > 0]
+    )
     eng_thr = percentile_thresholds(
-        [r["engagement_seconds_avg"] for r in ga4_records if r.get("engagement_seconds_avg", 0) > 0]
+        [r["engagement_seconds_avg"] for r in combined if r.get("engagement_seconds_avg", 0) > 0]
     )
 
     results = []
@@ -205,17 +283,57 @@ def main():
         upd = updated_by_slug.get(f.stem)
         fresh_score, days_since = freshness_score(upd)
 
-        # GA4 情報と打ち手分類
-        ga4 = ga4_by_slug.get(f.stem, {})
-        pv = ga4.get("pv")
-        eng_sec = ga4.get("engagement_seconds_avg")
-        ptype, plabel, paction = classify_priority(pv, eng_sec, pv_thr, eng_thr)
+        # GA4 情報 ( 実データ優先、なければ推定値 )
+        if f.stem in ga4_by_slug:
+            ga4 = ga4_by_slug[f.stem]
+            ga4_source = "actual"
+        else:
+            ga4 = estimated_by_slug.get(f.stem, {})
+            ga4_source = "estimated"
+        internal_pv = ga4.get("internal_pv", 0)
+        eng_sec = ga4.get("engagement_seconds_avg", 0)
+        # ga4Score を四分位で算出 ( internal_pv 上位 +10 / 上中 +6 / 中央 +3 / 下位 0 )
+        pv_vals = [r.get("internal_pv", 0) for r in combined if r.get("internal_pv", 0) > 0]
+        vol_vals = [r.get("engagement_volume", 0) for r in combined if r.get("engagement_volume", 0) > 0]
+        ga4_score = 0
+        if pv_vals:
+            sv = sorted(pv_vals)
+            n = len(sv)
+            rank = sum(1 for v in sv if v <= internal_pv) / n if internal_pv > 0 else 0
+            if rank >= 0.75:
+                ga4_score += 10
+            elif rank >= 0.5:
+                ga4_score += 6
+            elif rank >= 0.25:
+                ga4_score += 3
+        vol = ga4.get("engagement_volume", internal_pv * eng_sec)
+        if vol_vals:
+            sv = sorted(vol_vals)
+            n = len(sv)
+            rank = sum(1 for v in sv if v <= vol) / n if vol > 0 else 0
+            if rank >= 0.75:
+                ga4_score += 10
+            elif rank >= 0.5:
+                ga4_score += 6
+            elif rank >= 0.25:
+                ga4_score += 3
+        if internal_pv >= 50:
+            ga4_score += 5
+
+        # 打ち手分類 ( 推定値でも分類できる )
+        ptype, plabel, paction = classify_priority(
+            internal_pv if internal_pv > 0 else None,
+            eng_sec if eng_sec > 0 else None,
+            pv_thr,
+            eng_thr,
+        )
 
         # Extract title and id
         title_m = re.search(r"<h1 class=\"article-title\">(.+?)</h1>", html)
         title = title_m.group(1) if title_m else f.stem
         # composite = 構造 + GA4 ( 内部回遊エンゲージメント ) 。鮮度は別管理
-        ga4_score = ga4.get("ga4Score", 0)
+        # 推定値の場合は ga4Score の重みを半分に ( 実データほど信頼できないため )
+        effective_ga4 = ga4_score if ga4_source == "actual" else ga4_score // 2
         results.append({
             "slug": f.stem,
             "title": title,
@@ -224,14 +342,16 @@ def main():
             "freshness": fresh_score,
             "days_since_update": days_since,
             "updatedAt": upd or "",
-            "composite": a["total"] + ga4_score,  # 鮮度を含めない
+            "composite": a["total"] + effective_ga4,
             "char_count": a["char_count"],
             "table_count": a["table_count"],
             "breakdown": a["scores"],
-            "internal_pv": ga4.get("internal_pv", 0),
+            "internal_pv": internal_pv,
             "external_pv": ga4.get("external_pv", 0),
-            "engagement_seconds_avg": eng_sec if eng_sec is not None else 0,
-            "ga4Score": ga4_score,
+            "engagement_seconds_avg": eng_sec,
+            "ga4Score": effective_ga4,
+            "ga4ScoreRaw": ga4_score,
+            "ga4Source": ga4_source,
             "priorityType": ptype,
             "priorityLabel": plabel,
             "priorityAction": paction,

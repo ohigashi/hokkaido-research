@@ -34,6 +34,7 @@ def repl(m):
     freshness = info.get("freshness", 0)
     ga4 = info.get("ga4Score", 0)
     ptype = info.get("priorityType", "NODATA")
+    gsrc = info.get("ga4Source", "estimated")
     composite = structure + ga4  # 鮮度は含めない
 
     # Strip existing score fields
@@ -42,6 +43,7 @@ def repl(m):
     cleaned = re.sub(r"\s*ga4Score:\s*\d+,", "", cleaned)
     cleaned = re.sub(r"\s*compositeScore:\s*\d+,", "", cleaned)
     cleaned = re.sub(r"\s*priorityType:\s*\"[A-Z_]+\",", "", cleaned)
+    cleaned = re.sub(r"\s*ga4Source:\s*\"[a-z]+\",", "", cleaned)
 
     insertion = (
         f"    quality: {structure},\n"
@@ -49,6 +51,7 @@ def repl(m):
         f"    ga4Score: {ga4},\n"
         f"    compositeScore: {composite},\n"
         f"    priorityType: \"{ptype}\",\n"
+        f"    ga4Source: \"{gsrc}\",\n"
         f"  }},"
     )
     return re.sub(r"\s*\}\,\s*$", "\n" + insertion + "\n", cleaned)
