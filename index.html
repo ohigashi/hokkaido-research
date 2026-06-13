@@ -6,9 +6,9 @@
 <title>北海道・地域課題リサーチ｜知る、考える、向き合う</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="description" content="北海道の地域課題を 8 つの課題分類で分類、構造分析と道内 / 道外の取り組み事例を信頼できる出典付きで整理。地域プレイヤー・行政・起業家・地域おこし協力隊の「知る → 着想 → 実行」を支援するリサーチプラットフォーム。">
+<meta name="description" content="北海道の地域課題を 8つの課題分類で分類、構造分析と道内 / 道外の取り組み事例を信頼できる出典付きで整理。地域プレイヤー・行政・起業家・地域おこし協力隊の「知る → 着想 → 実行」を支援するリサーチプラットフォーム。">
 <meta property="og:title" content="北海道の地域課題を知る、北海道の未来と向き合う。">
-<meta property="og:description" content="8 つの課題分類で分類した 20 課題、構造分析と道内 / 道外の取り組み事例を出典付きで整理。地域プレイヤーの「知る → 着想 → 実行」を支援。">
+<meta property="og:description" content="8つの課題分類で分類した 20 課題、構造分析と道内 / 道外の取り組み事例を出典付きで整理。地域プレイヤーの「知る → 着想 → 実行」を支援。">
 <meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/">
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="北海道の地域課題を知る、北海道の未来と向き合う。">
-<meta name="twitter:description" content="8 つの課題分類 × 20 課題の構造分析と道内 / 道外の取り組み事例。">
+<meta name="twitter:description" content="8つの課題分類 × 20 課題の構造分析と道内 / 道外の取り組み事例。">
 <meta name="twitter:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-45HHCDR0LB"></script>
 <script>
@@ -1533,7 +1533,7 @@
     renderLatest();
   });
 
-  // 読み物セクション: アクティブフィルタ ISSUE 群との関連性 + 品質 + 鮮度の合成で 4 本表示
+  // 読み物セクション: アクティブフィルタ ISSUE 群との関連性 + 品質 + 鮮度の合成で 4本表示
   // hero での件数表示も同時に行う
   (function(){
     const heroNum = document.getElementById('hero-articles-num');
@@ -1565,7 +1565,7 @@
         return (b.publishedAt||'').localeCompare(a.publishedAt||'');
       });
       const items = sorted.slice(0, 4);
-      // NEW / UPDATED ラベル判定 ( 5 日以内 ・ 競合は UPDATED 優先 )
+      // NEW / UPDATED ラベル判定 ( 5日以内・競合は UPDATED 優先 )
       const today = new Date();
       const labelOf = a => {
         const pub = a.publishedAt ? new Date(a.publishedAt) : null;
@@ -1833,7 +1833,7 @@
       const articleCount = (typeof ARTICLES !== 'undefined')
         ? ARTICLES.filter(a => (a.relatedIssues||[]).includes(it.id)).length : 0;
       return `<article class="card" data-id="${it.id}" tabindex="0" role="button">
-        <button class="card-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加 ・ クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
+        <button class="card-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加・クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
         <div class="cat-bar" style="background:${c.color};height:5px"></div>
         <div class="card-body">
           <div class="card-top">
@@ -1989,7 +1989,7 @@
             ${b.combo ? `<div class="biz-desc" style="margin-top:6px"><b style="color:#B5733A">組み合わせ:</b> ${b.combo}</div>` : ''}
           </div>
         `).join('')}</div>
-        <div class="biz-note">編集部が課題から逆算した新規事業 ・ 起業 ・ 投資の方向性 ( 推奨ではなく出発点 ) 。</div>
+        <div class="biz-note">編集部が課題から逆算した新規事業・起業・投資の方向性 ( 推奨ではなく出発点 ) 。</div>
       </div>` : '';
     const challengeText = `「${it.title}」について、わたしが取り組むこと:\n\n( 自分の宣言を書く )\n\n#北海道地域課題リサーチ`;
     const challengeUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(challengeText)}&url=${encodeURIComponent(pageURL)}`;
@@ -2075,7 +2075,7 @@
     inner.innerHTML = `
       <div class="modal-head" style="background:${c.color}">
         <button class="modal-close" aria-label="閉じる">×</button>
-        <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加 ・ クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
+        <button id="modal-bookmark-btn" class="modal-bookmark-btn ${isBookmarked(it.id)?'is-bookmarked':''}" data-bookmark-id="${it.id}" aria-label="気になるに追加・クリップする">${isBookmarked(it.id)?'📎':'📎'}</button>
         <div class="modal-cat">${c.name}</div>
         <h2>${it.title}</h2>
         <div class="modal-scores">

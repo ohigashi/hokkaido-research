@@ -110,7 +110,7 @@
 
 <header class="idx-head">
 <h1>読み物 一覧</h1>
-<p>移住定住 ・ ふるさと納税 ・ 空き家 ・ 子どもの貧困 ・ 食料自給 ・ 一次産業の担い手 ・ 採用難 ・ 若者の地域離脱等のテーマを、 構造から読み解き、 海士町 ・ 神山町 ・ 尾道 ・ 沖縄 ・ 鯖江市等の長期事例から学ぶ。 実践アイデアと、 わたしたちにできることまで含めた深掘り読み物。</p>
+<p>移住定住・ふるさと納税・空き家・子どもの貧困・食料自給・一次産業の担い手・採用難・若者の地域離脱等のテーマを、構造から読み解き、海士町・神山町・尾道・沖縄・鯖江市等の長期事例から学ぶ。実践アイデアと、わたしたちにできることまで含めた深掘り読み物。</p>
 </header>
 
 <div class="ctrl-bar">
@@ -138,7 +138,7 @@
     <button class="dd-btn" id="dd-kw-btn" type="button" aria-expanded="false">キーワード<span class="dd-arrow">▼</span></button>
     <div class="dd-panel" id="dd-kw-panel">
       <div class="dd-row" id="dd-kw-chips" style="margin-bottom:8px"></div>
-      <input class="dd-search-input" id="dd-kw-input" type="search" placeholder="タイトル ・ 概要で検索">
+      <input class="dd-search-input" id="dd-kw-input" type="search" placeholder="タイトル・概要で検索">
     </div>
   </div>
 
@@ -169,8 +169,8 @@
 
 <footer>
 <p>運営: Largo 株式会社 ( <a href="https://lrg.jp" target="_blank" rel="noopener">lrg.jp</a> )</p>
-<p>お問い合わせ ・ 提携 ・ 連携: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
-<p><a href="/terms.html">利用規約</a> ・ <a href="/privacy.html">プライバシーポリシー</a></p>
+<p>お問い合わせ・提携・連携: <a href="https://x.com/h_ohigashi" target="_blank" rel="noopener">運営者 ( X )</a></p>
+<p><a href="/terms.html">利用規約</a>・<a href="/privacy.html">プライバシーポリシー</a></p>
 </footer>
 </div>
 
@@ -240,14 +240,14 @@
     trait: 'all',
   };
 
-  // ===== 課題分類 chip ( TOP と同じ 8 分類 CATEGORIES ベース、 記事に紐づくものだけ ) =====
+  // ===== 課題分類 chip ( TOP と同じ 8分類 CATEGORIES ベース、記事に紐づくものだけ ) =====
   const usedCats = new Set();
   ARTICLES.forEach(a => articleCats(a).forEach(c => usedCats.add(c)));
   const catRow = document.getElementById('dd-cat-row');
   const catList = CATEGORIES_LIST.filter(c => usedCats.has(c.id));
   catRow.innerHTML = catList.map(c => `<button class="dd-chip" data-cat="${esc(c.id)}" aria-pressed="false" type="button">${esc(c.name)}</button>`).join('');
 
-  // ===== 地域 chip ( REGIONS から、 記事に紐づくものだけ ・ 「全道共通」は除外 ) =====
+  // ===== 地域 chip ( REGIONS から、記事に紐づくものだけ・「全道共通」は除外 ) =====
   const usedRegions = new Set();
   ARTICLES.forEach(a => articleRegions(a).forEach(r => usedRegions.add(r)));
   const regionRow = document.getElementById('dd-region-row');
@@ -269,7 +269,7 @@
     traitRow.innerHTML = '<span style="font-size:11px;color:var(--slate)">特性データなし</span>';
   }
 
-  // ===== キーワード: 頻出 tag 上位 5 件 chip =====
+  // ===== キーワード: 頻出 tag 上位 5件 chip =====
   const tagFreq = {};
   ARTICLES.forEach(a => articleTags(a).forEach(t => { tagFreq[t] = (tagFreq[t]||0) + 1; }));
   const topTags = Object.entries(tagFreq).sort((a,b) => b[1] - a[1]).slice(0, 5).map(x => x[0]);
@@ -304,7 +304,7 @@
     p.addEventListener('click', e => e.stopPropagation());
   });
 
-  // ===== ラベル ・ ソートロジック =====
+  // ===== ラベル・ソートロジック =====
   const today = new Date();
   function labelOf(a){
     const pub = a.publishedAt ? new Date(a.publishedAt) : null;
@@ -326,7 +326,7 @@
       });
     }
     if(state.sort === 'updated'){
-      // 更新日 ( updatedAt ) 降順 ・ リライト含む
+      // 更新日 ( updatedAt ) 降順・リライト含む
       return list.slice().sort((a,b) => {
         const u = (b.updatedAt||b.publishedAt||'').localeCompare(a.updatedAt||a.publishedAt||'');
         if(u !== 0) return u;
@@ -367,7 +367,7 @@
     document.getElementById('idx-num').textContent = list.length;
     const out = document.getElementById('idx-list');
     if(!list.length){
-      out.innerHTML = '<div class="idx-empty">該当する記事はありません。 フィルタを調整してください。</div>';
+      out.innerHTML = '<div class="idx-empty">該当する記事はありません。フィルタを調整してください。</div>';
       return;
     }
     out.innerHTML = list.map(a => {

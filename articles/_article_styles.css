@@ -230,7 +230,7 @@ footer p{margin-bottom:5px}
   article.body h2{font-size:15.5px}
 }
 
-/* NEW / UPDATED ラベル ( 公開 5 日以内 / 更新 5 日以内 ) */
+/* NEW / UPDATED ラベル ( 公開 5日以内 / 更新 5日以内 ) */
 .art-label{
   display:inline-block;font-size:10px;font-weight:900;letter-spacing:.06em;
   padding:2px 8px;border-radius:3px;margin-right:6px;
@@ -255,7 +255,7 @@ footer p{margin-bottom:5px}
 .biz-desc{font-size:13px;color:var(--slate);line-height:1.72}
 .biz-note{font-size:11.5px;color:var(--slate);margin-top:8px;font-style:italic}
 
-/* UPDATE ノート ( 記事内 ・ 更新箇所明示 ) */
+/* UPDATE ノート ( 記事内・更新箇所明示 ) */
 .update-note{
   display:block;padding:9px 14px 10px;margin:14px 0;
   background:#EAF2F8;border-left:3px solid #2E7CA8;border-radius:0 4px 4px 0;
