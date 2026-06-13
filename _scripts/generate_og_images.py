@@ -1,22 +1,28 @@
 #!/usr/bin/env python3
-"""OG IMAGE を SVG で生成する。
+"""OG IMAGE を PNG で生成する ( 文字化け対策で SVG ではなく PNG ) 。
 
 生成物:
-1. カテゴリ別 OG IMAGE 8 種 ( /og/category-{cat_id}.svg )
-2. 記事個別 OG IMAGE 104 件 ( /og/article-{slug}.svg )
-3. 静的ページ用 OG IMAGE ( /og/site.svg / og/articles.svg / og/glossary.svg )
+1. カテゴリ別 OG IMAGE 8 種 ( /og/category-{cat_id}.png )
+2. 記事個別 OG IMAGE 104 件 ( /og/article-{slug}.png )
+3. 静的ページ用 OG IMAGE ( /og/site.png / og/articles.png / og/glossary.png )
 
 サイズ: 1200x630 ( OG 標準 )
+フォント: ヒラギノ角ゴシック ( システム ・ macOS )
 """
 import re
-import json
 from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 OG_DIR = ROOT / "og"
 OG_DIR.mkdir(exist_ok=True)
 
-# CATEGORIES from data.js
+# フォント
+FONT_HEAVY = "/System/Library/Fonts/ヒラギノ角ゴシック W8.ttc"
+FONT_BOLD = "/System/Library/Fonts/ヒラギノ角ゴシック W7.ttc"
+FONT_MEDIUM = "/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc"
+
+# CATEGORIES
 CATEGORIES = [
     {"id": "population",  "name": "人口・世代・暮らし",     "color": "#2C6E63", "label_jp": "人口"},
     {"id": "primary",     "name": "一次産業・食・森林",     "color": "#7A8450", "label_jp": "一次産業"},
@@ -29,7 +35,6 @@ CATEGORIES = [
 ]
 CAT_BY_ID = {c["id"]: c for c in CATEGORIES}
 
-# ARTICLE_CATEGORIES ( 編集カテゴリ ・ Article の category 値 → 色 )
 ARTICLE_CAT_COLOR = {
     "課題発見": "#B5733A",
     "アイデア": "#2E7CA8",
@@ -37,112 +42,118 @@ ARTICLE_CAT_COLOR = {
 }
 
 
-def escape_xml(s):
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-              .replace('"', "&quot;").replace("'", "&apos;"))
+def hex_to_rgb(h):
+    h = h.lstrip("#")
+    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
 
 
-def wrap_title(title, max_per_line=18, max_lines=3):
-    """タイトルを max_per_line 文字で改行。 max_lines を超えたら省略。"""
-    # 句読点 / 記号での自然改行を優先
+def darken(rgb, factor=0.55):
+    return tuple(int(c * factor) for c in rgb)
+
+
+def make_gradient(size, top_rgb, bottom_rgb):
+    """斜めグラデーション ( 左上 → 右下 ) を作る。RGBA で返す。"""
+    w, h = size
+    base = Image.new("RGB", size, top_rgb)
+    overlay = Image.new("L", size, 0)
+    px = overlay.load()
+    diag = w + h
+    for y in range(h):
+        for x in range(w):
+            t = (x + y) / diag
+            px[x, y] = int(t * 255)
+    bottom_img = Image.new("RGB", size, bottom_rgb)
+    base = Image.composite(bottom_img, base, overlay)
+    return base.convert("RGBA")
+
+
+def wrap_text(text, font, max_width, draw):
+    """draw.textbbox で 1 行ずつ計測しながら折り返し。"""
     lines = []
-    current = ""
-    for ch in title:
-        if len(current) >= max_per_line and ch in "・ -ー":
-            lines.append(current)
-            current = ch
-            if len(lines) >= max_lines:
-                break
-            continue
-        current += ch
-        if len(current) >= max_per_line + 4:
-            # 強制改行
-            lines.append(current)
-            current = ""
-            if len(lines) >= max_lines:
-                break
-    if current and len(lines) < max_lines:
-        lines.append(current)
-    if len(lines) > max_lines:
-        lines = lines[:max_lines]
-        lines[-1] = lines[-1][:max_per_line] + "…"
+    line = ""
+    for ch in text:
+        candidate = line + ch
+        bbox = draw.textbbox((0, 0), candidate, font=font)
+        if bbox[2] - bbox[0] > max_width and line:
+            lines.append(line)
+            line = ch
+        else:
+            line = candidate
+    if line:
+        lines.append(line)
     return lines
 
 
-SVG_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="{bg_color}" stop-opacity="1"/>
-      <stop offset="100%" stop-color="{bg_color2}" stop-opacity="1"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="0" y="0" width="1200" height="14" fill="{accent}"/>
-  <text x="64" y="120" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" opacity="0.85">{breadcrumb}</text>
-  {category_label}
-  <g font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-weight="900" fill="#FFFFFF">
-    {title_lines}
-  </g>
-  <text x="64" y="540" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="22" font-weight="600" fill="#FFFFFF" opacity="0.7">hokkaido-research.lrg.jp</text>
-  <text x="64" y="580" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" font-size="20" font-weight="500" fill="#FFFFFF" opacity="0.55">北海道・地域課題リサーチ</text>
-</svg>
-"""
+def render_og(title, breadcrumb, bg_hex, category_label_text=None, out_path=None):
+    W, H = 1200, 630
+    bg_rgb = hex_to_rgb(bg_hex)
+    bottom_rgb = darken(bg_rgb, 0.55)
+    img = make_gradient((W, H), bg_rgb, bottom_rgb)
+    draw = ImageDraw.Draw(img, "RGBA")
 
+    # 上部アクセント線
+    draw.rectangle([(0, 0), (W, 14)], fill=(255, 255, 255, 255))
 
-def darken(hex_color, factor=0.7):
-    h = hex_color.lstrip("#")
-    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
-    return f"#{int(r*factor):02X}{int(g*factor):02X}{int(b*factor):02X}"
+    # breadcrumb ( 上部 )
+    breadcrumb_font = ImageFont.truetype(FONT_BOLD, 30)
+    draw.text((64, 70), breadcrumb, font=breadcrumb_font, fill=(255, 255, 255, 220))
 
-
-def render_svg(title, breadcrumb, bg_color, accent="#FFFFFF", category_label_text=None):
-    """SVG を生成して返す。"""
-    bg_color2 = darken(bg_color, 0.55)
-    lines = wrap_title(title, max_per_line=18, max_lines=3)
-    n = len(lines)
-    # フォントサイズを行数で調整
-    if n == 1:
-        fs = 92
-        start_y = 320
-    elif n == 2:
-        fs = 80
-        start_y = 280
-    else:
-        fs = 64
-        start_y = 250
-    title_svg = ""
-    line_h = int(fs * 1.25)
-    for i, line in enumerate(lines):
-        title_svg += f'    <text x="64" y="{start_y + i * line_h}" font-size="{fs}" letter-spacing="-1">{escape_xml(line)}</text>\n'
-
-    category_label = ""
+    # カテゴリラベル ( pill 型 ・ 暗色背景 + 白文字 )
+    next_y = 130
     if category_label_text:
-        category_label = (
-            f'<rect x="64" y="160" width="{len(category_label_text)*22+40}" height="48" '
-            f'fill="#FFFFFF" fill-opacity="0.18" rx="6"/>'
-            f'<text x="84" y="194" font-family="Hiragino Kaku Gothic ProN, Hiragino Sans, sans-serif" '
-            f'font-size="22" font-weight="700" fill="#FFFFFF">{escape_xml(category_label_text)}</text>'
+        label_font = ImageFont.truetype(FONT_BOLD, 26)
+        bbox = draw.textbbox((0, 0), category_label_text, font=label_font)
+        pad_x, pad_y = 18, 10
+        label_w = bbox[2] - bbox[0] + pad_x * 2
+        label_h = bbox[3] - bbox[1] + pad_y * 2
+        # 暗色オーバーレイで pill ・ 白文字を確実に視認
+        draw.rounded_rectangle(
+            [(64, next_y), (64 + label_w, next_y + label_h)],
+            radius=8, fill=(0, 0, 0, 90),
         )
+        draw.text((64 + pad_x, next_y + pad_y - 4), category_label_text,
+                  font=label_font, fill=(255, 255, 255, 255))
+        next_y += label_h + 30
+    else:
+        next_y = 180
 
-    return SVG_TEMPLATE.format(
-        bg_color=bg_color, bg_color2=bg_color2, accent=accent,
-        breadcrumb=escape_xml(breadcrumb),
-        category_label=category_label,
-        title_lines=title_svg.rstrip(),
-    )
+    # タイトル本体 ・ 折り返し
+    # フォントサイズを適応
+    max_w = W - 128
+    for fs in (88, 78, 68, 58, 50):
+        font = ImageFont.truetype(FONT_HEAVY, fs)
+        lines = wrap_text(title, font, max_w, draw)
+        # 3 行以内なら採用
+        if len(lines) <= 3:
+            break
+    if len(lines) > 3:
+        lines = lines[:3]
+        lines[-1] = lines[-1][:-1] + "…"
+
+    # タイトル描画
+    line_h = int(fs * 1.22)
+    title_block_h = line_h * len(lines)
+    title_start = max(next_y + 20, 320 - title_block_h // 2)
+    for i, line in enumerate(lines):
+        draw.text((64, title_start + i * line_h), line, font=font, fill="white")
+
+    # フッター ( URL + サイト名 )
+    foot_url = ImageFont.truetype(FONT_BOLD, 24)
+    foot_site = ImageFont.truetype(FONT_MEDIUM, 22)
+    draw.text((64, 528), "hokkaido-research.lrg.jp", font=foot_url,
+              fill=(255, 255, 255, 200))
+    draw.text((64, 568), "北海道・地域課題リサーチ", font=foot_site,
+              fill=(255, 255, 255, 160))
+
+    img.convert("RGB").save(out_path, "PNG", optimize=True)
 
 
 def parse_articles_from_generator():
-    """generate_articles.py から ARTICLES の id / title / category / relatedIssueIds を取得。"""
     gen_path = ROOT / "_scripts" / "generate_articles.py"
     text = gen_path.read_text(encoding="utf-8")
-    # 簡易: "id": "..." と "title": "..." と "category": "..." と "relatedIssueIds": [...] を順に抽出
-    art_section_start = text.find("ARTICLES = [")
-    if art_section_start < 0:
+    art_start = text.find("ARTICLES = [")
+    if art_start < 0:
         return []
-    # 最初のエントリブロックは "{ ... }," が複数並ぶ
-    # 簡易パターンマッチ
     entries = []
     pat = re.compile(
         r'"id":\s*"(?P<id>[a-z0-9-]+-2026-\d{2})",[\s\S]*?'
@@ -150,7 +161,7 @@ def parse_articles_from_generator():
         r'"category":\s*"(?P<category>[^"]+)",[\s\S]*?'
         r'"relatedIssueIds":\s*\[(?P<rel>[^\]]*)\]'
     )
-    for m in pat.finditer(text[art_section_start:]):
+    for m in pat.finditer(text[art_start:]):
         rel = re.findall(r'"([^"]+)"', m.group("rel"))
         entries.append({
             "id": m.group("id"),
@@ -162,65 +173,40 @@ def parse_articles_from_generator():
 
 
 def parse_issues_from_data():
-    """data.js から ISSUES の id / cat を取得。"""
     data_path = ROOT / "data.js"
     text = data_path.read_text(encoding="utf-8")
-    # const ISSUES = [...]
     start = text.find("const ISSUES = [")
     end = text.find("];", start)
     section = text[start:end] if start >= 0 else ""
     issues = {}
-    pat = re.compile(
-        r'id:\s*"(?P<id>[a-z0-9-]+)",[\s\S]+?cat:\s*"(?P<cat>[^"]+)"'
-    )
+    pat = re.compile(r'id:\s*"(?P<id>[a-z0-9-]+)",[\s\S]+?cat:\s*"(?P<cat>[^"]+)"')
     for m in pat.finditer(section):
         issues[m.group("id")] = m.group("cat")
     return issues
 
 
 def main():
-    # 1. カテゴリ別 OG ( 8 種 )
+    # 1. カテゴリ別 OG
     for c in CATEGORIES:
-        svg = render_svg(
-            title=c["name"],
-            breadcrumb="課題分類",
-            bg_color=c["color"],
-            category_label_text=None,
-        )
-        out = OG_DIR / f"category-{c['id']}.svg"
-        out.write_text(svg, encoding="utf-8")
+        out = OG_DIR / f"category-{c['id']}.png"
+        render_og(c["name"], "課題分類", c["color"], None, out)
     print(f"✓ カテゴリ別 OG ・ {len(CATEGORIES)} 件")
 
-    # 2. 静的ページ用 OG
-    site_svg = render_svg(
-        title="北海道の地域課題を構造から読み解く",
-        breadcrumb="hokkaido-research",
-        bg_color="#2C6E63",
-        accent="#FFFFFF",
-    )
-    (OG_DIR / "site.svg").write_text(site_svg, encoding="utf-8")
-    articles_svg = render_svg(
-        title="読み物一覧 ・ 構造分析と長期事例",
-        breadcrumb="読み物",
-        bg_color="#3A4A52",
-    )
-    (OG_DIR / "articles.svg").write_text(articles_svg, encoding="utf-8")
-    glossary_svg = render_svg(
-        title="用語集 ・ 65 専門用語を 16 カテゴリで整理",
-        breadcrumb="用語集",
-        bg_color="#5A7D8C",
-    )
-    (OG_DIR / "glossary.svg").write_text(glossary_svg, encoding="utf-8")
+    # 2. 静的ページ用
+    render_og("北海道の地域課題を構造から読み解く", "hokkaido-research",
+              "#2C6E63", None, OG_DIR / "site.png")
+    render_og("読み物一覧・構造分析と長期事例", "読み物",
+              "#3A4A52", None, OG_DIR / "articles.png")
+    render_og("用語集・65 専門用語を 16 カテゴリで整理", "用語集",
+              "#5A7D8C", None, OG_DIR / "glossary.png")
     print("✓ 静的ページ用 OG ・ 3 件")
 
     # 3. 記事個別 OG
     issues_cat = parse_issues_from_data()
     arts = parse_articles_from_generator()
     for a in arts:
-        # 関連 ISSUE の cat → CATEGORIES の色を選ぶ
-        related = a["relatedIssueIds"]
         cat_id = None
-        for iid in related:
+        for iid in a["relatedIssueIds"]:
             if iid in issues_cat:
                 cat_id = issues_cat[iid]
                 break
@@ -231,17 +217,15 @@ def main():
         else:
             bg = ARTICLE_CAT_COLOR.get(a["category"], "#2C6E63")
             label = a["category"]
-
-        svg = render_svg(
-            title=a["title"],
-            breadcrumb=a["category"],
-            bg_color=bg,
-            category_label_text=label,
-        )
-        out = OG_DIR / f"article-{a['id']}.svg"
-        out.write_text(svg, encoding="utf-8")
+        out = OG_DIR / f"article-{a['id']}.png"
+        render_og(a["title"], a["category"], bg, label, out)
     print(f"✓ 記事個別 OG ・ {len(arts)} 件")
-    print(f"\n→ {OG_DIR.relative_to(ROOT)}/ に合計 {len(CATEGORIES) + 3 + len(arts)} ファイル")
+
+    # 4. 既存 SVG を削除
+    for svg in OG_DIR.glob("*.svg"):
+        svg.unlink()
+    print("✓ 旧 SVG 削除")
+    print(f"\n→ {OG_DIR.relative_to(ROOT)}/ に PNG {len(CATEGORIES) + 3 + len(arts)} 件")
 
 
 if __name__ == "__main__":
