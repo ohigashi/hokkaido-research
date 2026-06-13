@@ -1512,7 +1512,8 @@
     renderLatest();
   });
 
-  // 読み物セクション ( 質の高い 4本 を優先表示 ) + hero での件数表示
+  // 読み物セクション: アクティブフィルタ ISSUE 群との関連性 + 品質 + 鮮度の合成で 4 本表示
+  // hero での件数表示も同時に行う
   (function(){
     const heroNum = document.getElementById('hero-articles-num');
     if(heroNum && typeof ARTICLES !== 'undefined') heroNum.textContent = ARTICLES.length;
@@ -1521,24 +1522,38 @@
       if(grid) grid.parentElement.parentElement.style.display = 'none';
       return;
     }
-    // 質重視: quality スコア降順 → 同点は新着順
-    const sorted = [...ARTICLES].sort((a,b)=>{
-      const qd = (b.quality||0) - (a.quality||0);
-      if(qd !== 0) return qd;
-      return (b.publishedAt||'').localeCompare(a.publishedAt||'');
-    });
-    const items = sorted.slice(0, 4);
-    grid.innerHTML = items.map(a=>{
-      const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
-      return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
-        <div class="reading-row-top">
-          <span class="reading-cat ${catCls}">${a.category}</span>
-          <span class="reading-meta-inline">${a.readMinutes || 2} 分・${a.publishedAt || ''}</span>
-        </div>
-        <div class="reading-title-text">${a.title}</div>
-        ${a.summary ? `<div class="reading-summary">${a.summary}</div>` : ''}
-      </a>`;
-    }).join('');
+    // 公開関数として window に晒し、フィルタ render() から呼ぶ
+    window.updateReadingGrid = function(filteredIssues){
+      const activeIds = (filteredIssues && filteredIssues.length)
+        ? filteredIssues.map(i=>i.id) : null;
+      // フィルタが「すべて」なら関連性 = 0 とみなして品質 + 鮮度のみで決まる
+      const isAll = !activeIds || activeIds.length >= (typeof ISSUES !== 'undefined' ? ISSUES.length : 9999);
+      const relevance = a => {
+        if(isAll) return 0;
+        const shared = (a.relatedIssues||[]).filter(x => activeIds.indexOf(x) >= 0).length;
+        return shared * 15;
+      };
+      const composite = a => relevance(a) + (a.quality||0) + (a.freshness||0) + (a.ga4Score||0);
+      const sorted = [...ARTICLES].sort((a,b)=>{
+        const d = composite(b) - composite(a);
+        if(d !== 0) return d;
+        return (b.publishedAt||'').localeCompare(a.publishedAt||'');
+      });
+      const items = sorted.slice(0, 4);
+      grid.innerHTML = items.map(a=>{
+        const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
+        return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
+          <div class="reading-row-top">
+            <span class="reading-cat ${catCls}">${a.category}</span>
+            <span class="reading-meta-inline">${a.readMinutes || 2} 分・${a.publishedAt || ''}</span>
+          </div>
+          <div class="reading-title-text">${a.title}</div>
+          ${a.summary ? `<div class="reading-summary">${a.summary}</div>` : ''}
+        </a>`;
+      }).join('');
+    };
+    // 初期表示はフィルタなしで実行 ( render() から再度呼ばれる )
+    window.updateReadingGrid(null);
     grid.addEventListener('click', e=>{
       const card = e.target.closest('[data-article-id]'); if(!card) return;
       if(window.gtag) gtag('event','article_card_click',{article_id: card.dataset.articleId});
@@ -1770,6 +1785,8 @@
     const list = filtered();
     document.getElementById('num').textContent = list.length;
     renderFilterStatus(list.length);
+    // 読み物セクションをフィルタに連動して更新
+    if(window.updateReadingGrid) window.updateReadingGrid(list);
     const grid = document.getElementById('grid');
     if(!list.length){grid.innerHTML=`<div class="empty">条件に合う課題はありません。フィルタを調整してください。</div>`;return;}
     grid.innerHTML = list.map(it=>{

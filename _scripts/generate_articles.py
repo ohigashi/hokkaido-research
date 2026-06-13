@@ -6641,6 +6641,7 @@ RELATED_JS = """
 (function(){
   var ARTICLE_ID = "__ARTICLE_ID__";
   var RELATED_IDS = __RELATED_IDS__;
+  var ARTICLE_CATEGORY = "__ARTICLE_CATEGORY__";
 
   function esc(s){ return String(s||"").replace(/[<>&"]/g, function(c){
     return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];
@@ -6735,30 +6736,34 @@ RELATED_JS = """
     }
   }
 
-  // 4. 他の関連記事・なければ高品質記事 4本を表示 ( 回遊強化 )
+  // 4. 関連記事を「関連性 × 品質 × 鮮度」の合成スコアで選定 ( 回遊強化 )
   var artEl = document.getElementById("rel-articles");
   if(artEl){
-    // 質重視ソート: quality 降順 → 同点は新着順
-    var byQuality = function(a,b){
-      var qd = (b.quality||0) - (a.quality||0);
-      if(qd !== 0) return qd;
-      return (b.publishedAt||"").localeCompare(a.publishedAt||"");
+    // 関連性スコア: 共通 ISSUE 数 × 15 + カテゴリ一致なら +10
+    var currentCat = (typeof ARTICLE_CATEGORY !== "undefined") ? ARTICLE_CATEGORY : "";
+    var relevanceScore = function(a){
+      var s = 0;
+      var shared = (a.relatedIssues||[]).filter(function(x){ return RELATED_IDS.indexOf(x) >= 0; }).length;
+      s += shared * 15;
+      if(currentCat && a.category === currentCat) s += 10;
+      return s;
+    };
+    // 合成スコア = 関連性 + 品質 + 鮮度 ( GA4 連携後は ga4Score も加算済み )
+    var compositeScore = function(a){
+      return relevanceScore(a) + (a.quality||0) + (a.freshness||0) + (a.ga4Score||0);
     };
     var others = [];
     var allArticles = [];
     if(typeof ARTICLES !== "undefined"){
       allArticles = ARTICLES.filter(function(a){ return a.id !== ARTICLE_ID; });
-      // 関連記事はまず quality >= 50 を優先、なければ全関連を質順
-      var relAll = allArticles.filter(function(a){
-        return (a.relatedIssues||[]).some(function(x){ return RELATED_IDS.indexOf(x) >= 0; });
-      });
-      var relStrong = relAll.filter(function(a){ return (a.quality||0) >= 50; }).sort(byQuality);
-      var relWeak = relAll.filter(function(a){ return (a.quality||0) < 50; }).sort(byQuality);
-      others = relStrong.concat(relWeak);
+      // 関連性 >0 のものを優先プール、関連性 0 のものを補完プールに
+      var relevant = allArticles.filter(function(a){ return relevanceScore(a) > 0; });
+      relevant.sort(function(a,b){ return compositeScore(b) - compositeScore(a); });
+      others = relevant;
     }
-    // 関連が4本に満たないときは高品質記事で補完 ( 質重視 )
+    // 4本に満たないときは全体から composite で補完
     if(others.length < 4 && allArticles.length){
-      var sortedAll = allArticles.slice().sort(byQuality);
+      var sortedAll = allArticles.slice().sort(function(a,b){ return compositeScore(b) - compositeScore(a); });
       var existingIds = others.map(function(a){ return a.id; });
       for(var i=0; i<sortedAll.length && others.length<4; i++){
         if(existingIds.indexOf(sortedAll[i].id) < 0){
@@ -6806,6 +6811,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:url" content="https://hokkaido-research.lrg.jp/articles/{id}.html">
 <meta property="og:image" content="https://hokkaido-research.lrg.jp/og-image.svg">
 <meta property="article:published_time" content="{publishedAt}">
+<meta property="article:modified_time" content="{updatedAt}">
 <meta property="article:author" content="hokkaido-research 編集部">
 <meta property="article:section" content="{category}">
 <meta name="twitter:card" content="summary_large_image">
@@ -6819,7 +6825,7 @@ TEMPLATE = """<!DOCTYPE html>
   "headline": "{title}",
   "description": "{summary}",
   "datePublished": "{publishedAt}",
-  "dateModified": "{publishedAt}",
+  "dateModified": "{updatedAt}",
   "author": {{"@type": "Organization", "name": "hokkaido-research 編集部"}},
   "publisher": {{
     "@type": "Organization",
@@ -6967,6 +6973,7 @@ def main():
             RELATED_JS
             .replace("__ARTICLE_ID__", a["id"])
             .replace("__RELATED_IDS__", _json.dumps(a["relatedIssueIds"]))
+            .replace("__ARTICLE_CATEGORY__", a["category"])
         )
         html = TEMPLATE.format(
             title=a["title"],
@@ -6976,6 +6983,7 @@ def main():
             category=a["category"],
             date_jp=format_date_jp(a["publishedAt"]),
             publishedAt=a["publishedAt"],
+            updatedAt=a.get("updatedAt", a["publishedAt"]),
             minutes=a["readMinutes"],
             body_html=body_html,
             related_js=related_js,

@@ -1,3 +1,6 @@
 _articles_data_snippet.js
 *.bak
 .DS_Store
+
+# GA4 service account / secrets
+_secrets/

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assess quality of all article HTML files and rank them.
 
-Scoring criteria ( 0-100 ):
+構造スコア ( 0-100 ):
 - Body length ( target 2,500+ chars ): up to 20
 - Number of tables: up to 15
 - Specific data ( numbers + Japanese counters ): up to 20
@@ -11,10 +11,20 @@ Scoring criteria ( 0-100 ):
 - 中心問い callout: 5
 - 残る資産 mention: 5
 
+鮮度スコア ( 0-15 ): articles updatedAt からの経過日数
+- 30 日内: 15
+- 90 日内: 10
+- 180 日内: 6
+- 365 日内: 3
+- それ以外: 0
+
+将来追加: GA4 エンゲージメントスコア ( 0-25 )
+
 Lower score = more improvement needed.
 """
 import re
 import json
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,13 +105,49 @@ def assess(html: str) -> dict:
     }
 
 
+def freshness_score(updated_at_str):
+    """Return ( score 0-15, days_since_update )."""
+    if not updated_at_str:
+        return 0, 9999
+    try:
+        d = datetime.strptime(updated_at_str, "%Y-%m-%d").date()
+    except Exception:
+        return 0, 9999
+    days = (date.today() - d).days
+    if days <= 30:
+        return 15, days
+    if days <= 90:
+        return 10, days
+    if days <= 180:
+        return 6, days
+    if days <= 365:
+        return 3, days
+    return 0, days
+
+
 def main():
+    # data.js の ARTICLES セクションから updatedAt を読み込み
+    data_js = (ROOT / "data.js").read_text(encoding="utf-8")
+    art_start = data_js.find("const ARTICLES = [")
+    art_end = data_js.find("];", art_start)
+    art_section = data_js[art_start:art_end] if art_start >= 0 else ""
+    updated_by_slug = {}
+    for m in re.finditer(
+        r'id:\s*"(?P<id>[a-z0-9-]+-2026-\d{2})"[\s\S]*?updatedAt:\s*"(?P<u>[\d-]+)"',
+        art_section,
+    ):
+        updated_by_slug[m.group("id")] = m.group("u")
+
     results = []
     for f in sorted(ART_DIR.glob("*-2026-06.html")):
         if f.name == "index.html":
             continue
         html = f.read_text(encoding="utf-8")
         a = assess(html)
+
+        # 鮮度スコア
+        upd = updated_by_slug.get(f.stem)
+        fresh_score, days_since = freshness_score(upd)
 
         # Extract title and id
         title_m = re.search(r"<h1 class=\"article-title\">(.+?)</h1>", html)
@@ -111,29 +157,38 @@ def main():
             "title": title,
             "url": f"https://hokkaido-research.lrg.jp/articles/{f.name}",
             "total": a["total"],
+            "freshness": fresh_score,
+            "days_since_update": days_since,
+            "updatedAt": upd or "",
+            "composite": a["total"] + fresh_score,
             "char_count": a["char_count"],
             "table_count": a["table_count"],
             "breakdown": a["scores"],
         })
 
-    # Sort by total ( weakest first )
-    results.sort(key=lambda x: x["total"])
+    # Sort by composite ( weakest first ) - 構造 + 鮮度 の合算で弱い順
+    results.sort(key=lambda x: x["composite"])
 
     # Output
     print(f"Total articles assessed: {len(results)}\n")
-    print(f"{'Score':<6} {'Chars':<6} {'Tbls':<5} Slug")
-    print("-" * 70)
+    print(f"{'Comp':<5} {'Str':<4} {'Frs':<4} {'Days':<5} {'Chars':<6} {'Tbls':<5} Slug")
+    print("-" * 80)
     for r in results:
-        print(f"{r['total']:>3}    {r['char_count']:>5}  {r['table_count']:>2}    {r['slug']}")
+        print(
+            f"{r['composite']:>3}   {r['total']:>3}  {r['freshness']:>3}  "
+            f"{r['days_since_update']:>4}  {r['char_count']:>5}  {r['table_count']:>2}    {r['slug']}"
+        )
 
     # Save full JSON
     out = ROOT / "_articles_quality.json"
     out.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n→ Saved to {out.relative_to(ROOT)}")
 
-    # Identify weak articles ( score < 60 )
+    # Identify weak articles ( 構造 score < 60 )
     weak = [r for r in results if r["total"] < 60]
-    print(f"\n弱い記事 ( score < 60 ): {len(weak)} 件")
+    print(f"\n構造弱: {len(weak)} 件 ( total < 60 )")
+    stale = [r for r in results if r["freshness"] < 6]
+    print(f"鮮度低下: {len(stale)} 件 ( freshness < 6 )")
 
 
 if __name__ == "__main__":
