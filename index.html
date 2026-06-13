@@ -118,6 +118,11 @@
   }
   .sec-link-all:hover{border-color:var(--moss);background:var(--moss);color:var(--snow)}
 
+  /* NEW / UPDATED ラベル */
+  .art-label{display:inline-block;font-size:9.5px;font-weight:900;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-right:6px;vertical-align:1px;color:#fff;}
+  .art-label.new{background:#2C6E63}
+  .art-label.updated{background:#2E7CA8}
+
   /* ===== 読み物セクション ( 編集リスト型 ) ===== */
   .reading-section{
     padding:22px 0 22px;position:relative;z-index:1;
@@ -1544,11 +1549,23 @@
         return (b.publishedAt||'').localeCompare(a.publishedAt||'');
       });
       const items = sorted.slice(0, 4);
+      // NEW / UPDATED ラベル判定 ( 5 日以内 ・ 競合は UPDATED 優先 )
+      const today = new Date();
+      const labelOf = a => {
+        const pub = a.publishedAt ? new Date(a.publishedAt) : null;
+        const upd = a.updatedAt ? new Date(a.updatedAt) : null;
+        const dayDiff = d => d ? Math.floor((today - d) / 86400000) : 9999;
+        const isUpdated = upd && a.updatedAt !== a.publishedAt && dayDiff(upd) <= 5;
+        if(isUpdated) return '<span class="art-label updated">UPDATED</span>';
+        const isNew = pub && dayDiff(pub) <= 5;
+        if(isNew) return '<span class="art-label new">NEW</span>';
+        return '';
+      };
       grid.innerHTML = items.map(a=>{
         const catCls = a.category === '課題発見' ? 'discovery' : (a.category === 'アイデア' ? 'idea' : '');
         return `<a class="reading-card" href="/articles/${a.id}.html" data-article-id="${a.id}">
           <div class="reading-row-top">
-            <span class="reading-cat ${catCls}">${a.category}</span>
+            ${labelOf(a)}<span class="reading-cat ${catCls}">${a.category}</span>
             <span class="reading-meta-inline">${a.readMinutes || 2} 分・${a.publishedAt || ''}</span>
           </div>
           <div class="reading-title-text">${a.title}</div>

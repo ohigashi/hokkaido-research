@@ -229,3 +229,36 @@ footer p{margin-bottom:5px}
   h1.article-title{font-size:22px}
   article.body h2{font-size:15.5px}
 }
+
+/* NEW / UPDATED ラベル ( 公開 5 日以内 / 更新 5 日以内 ) */
+.art-label{
+  display:inline-block;font-size:10px;font-weight:900;letter-spacing:.06em;
+  padding:2px 8px;border-radius:3px;margin-right:6px;
+  vertical-align:1px;color:#fff;text-transform:uppercase;
+}
+.art-label.new{background:#2C6E63}
+.art-label.updated{background:#2E7CA8}
+
+/* ファクト / 仮説 / 推測 のバッジ装置 */
+.claim{
+  display:block;padding:13px 16px 14px;margin:14px 0;
+  border-left:3px solid var(--line);border-radius:0 4px 4px 0;
+  background:#FBFAF6;font-size:14px;line-height:1.78;
+}
+.claim::before{
+  display:inline-block;font-size:10px;font-weight:900;letter-spacing:.08em;
+  padding:2px 8px;border-radius:3px;margin-right:10px;
+  vertical-align:1px;color:#fff;
+}
+.claim.fact::before{content:"FACT";background:#2C6E63}
+.claim.fact{border-left-color:#2C6E63}
+.claim.hypo::before{content:"仮説";background:#B5733A}
+.claim.hypo{border-left-color:#B5733A}
+.claim.spec::before{content:"推測";background:#3A4A52}
+.claim.spec{border-left-color:#3A4A52}
+.claim cite{
+  display:block;font-size:11px;color:var(--slate);
+  font-style:normal;margin-top:6px;
+}
+.claim cite a{color:var(--ice);text-decoration:none}
+.claim cite a:hover{text-decoration:underline}
