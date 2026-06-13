@@ -7482,22 +7482,26 @@ TEMPLATE = """<!DOCTYPE html>
 
 def generate_sitemap():
     """Generate sitemap.xml for SEO."""
+    from datetime import date as _date
+    today = _date.today().isoformat()
     urls = [
-        ("https://hokkaido-research.lrg.jp/", "daily", "1.0"),
-        ("https://hokkaido-research.lrg.jp/articles/", "weekly", "0.9"),
-        ("https://hokkaido-research.lrg.jp/glossary.html", "monthly", "0.7"),
-        ("https://hokkaido-research.lrg.jp/terms.html", "monthly", "0.3"),
-        ("https://hokkaido-research.lrg.jp/privacy.html", "monthly", "0.3"),
+        ("https://hokkaido-research.lrg.jp/", "daily", "1.0", today),
+        ("https://hokkaido-research.lrg.jp/articles/", "weekly", "0.9", today),
+        ("https://hokkaido-research.lrg.jp/glossary.html", "monthly", "0.7", today),
+        ("https://hokkaido-research.lrg.jp/terms.html", "monthly", "0.3", today),
+        ("https://hokkaido-research.lrg.jp/privacy.html", "monthly", "0.3", today),
     ]
     for a in ARTICLES:
         url = f"https://hokkaido-research.lrg.jp/articles/{a['id']}.html"
-        urls.append((url, "monthly", "0.8"))
+        lastmod = a.get("updatedAt") or a["publishedAt"]
+        urls.append((url, "monthly", "0.8", lastmod))
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
     lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-    for loc, freq, prio in urls:
+    for loc, freq, prio, lastmod in urls:
         lines.append("  <url>")
         lines.append(f"    <loc>{loc}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append(f"    <changefreq>{freq}</changefreq>")
         lines.append(f"    <priority>{prio}</priority>")
         lines.append("  </url>")

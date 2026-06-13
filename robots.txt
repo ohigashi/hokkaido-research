@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /hokkaido-todo.html
+Disallow: /_docs/
+Disallow: /_scripts/
+Disallow: /_articles_quality.json
+Disallow: /_articles_data_snippet.js
+Disallow: /_ga4_engagement.json
+Disallow: /_secrets/
 
 Sitemap: https://hokkaido-research.lrg.jp/sitemap.xml
