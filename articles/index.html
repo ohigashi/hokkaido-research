@@ -122,6 +122,7 @@
       <div class="dd-row" id="dd-sort-row">
         <button class="dd-chip" data-sort="recommended" aria-pressed="true" type="button">おすすめ</button>
         <button class="dd-chip" data-sort="newest" aria-pressed="false" type="button">新しい順</button>
+        <button class="dd-chip" data-sort="updated" aria-pressed="false" type="button">アップデート順</button>
       </div>
     </div>
   </div>
@@ -317,6 +318,15 @@
   }
   function sortBy(list){
     if(state.sort === 'newest'){
+      // 公開日 ( publishedAt ) 純粋降順
+      return list.slice().sort((a,b) => {
+        const p = (b.publishedAt||'').localeCompare(a.publishedAt||'');
+        if(p !== 0) return p;
+        return (b.compositeScore||0) - (a.compositeScore||0);
+      });
+    }
+    if(state.sort === 'updated'){
+      // 更新日 ( updatedAt ) 降順 ・ リライト含む
       return list.slice().sort((a,b) => {
         const u = (b.updatedAt||b.publishedAt||'').localeCompare(a.updatedAt||a.publishedAt||'');
         if(u !== 0) return u;
@@ -376,8 +386,8 @@
 
   // ===== ボタン状態同期 =====
   function setSortBtnLabel(){
-    const lbl = state.sort === 'newest' ? '新しい順' : 'おすすめ';
-    document.getElementById('dd-sort-btn').firstChild.textContent = `並び順: ${lbl}`;
+    const lblMap = {newest:'新しい順', updated:'アップデート順', recommended:'おすすめ'};
+    document.getElementById('dd-sort-btn').firstChild.textContent = `並び順: ${lblMap[state.sort] || 'おすすめ'}`;
     document.querySelectorAll('#dd-sort-row [data-sort]').forEach(b => {
       b.setAttribute('aria-pressed', String(b.dataset.sort === state.sort));
     });
