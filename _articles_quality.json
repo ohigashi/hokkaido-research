@@ -764,8 +764,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "B",
-    "priorityLabel": "低エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+    "priorityLabel": "低エンゲ × 中 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "local-media-structure-2026-06",
@@ -860,8 +860,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "B",
-    "priorityLabel": "低エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+    "priorityLabel": "低エンゲ × 中 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "senior-second-career-structure-2026-06",
@@ -988,8 +988,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "B",
-    "priorityLabel": "低エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+    "priorityLabel": "低エンゲ × 中 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "case-kamishihoro-zerocarbon-2026-06",
@@ -1020,8 +1020,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "B",
-    "priorityLabel": "低エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+    "priorityLabel": "低エンゲ × 中 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "community-broadcasting-structure-2026-06",
@@ -1276,8 +1276,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "F",
-    "priorityLabel": "中エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化"
+    "priorityLabel": "中エンゲ × 中 PV",
+    "priorityAction": "ローテーション ( コンテンツ )"
   },
   {
     "slug": "biodiversity-structure-2026-06",
@@ -1372,8 +1372,8 @@
     "ga4ScoreRaw": 9,
     "ga4Source": "estimated",
     "priorityType": "B",
-    "priorityLabel": "低エンゲ × 高 PV",
-    "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+    "priorityLabel": "低エンゲ × 中 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "nuclear-safety-structure-2026-06",
@@ -1918,6 +1918,38 @@
     "priorityType": "B",
     "priorityLabel": "低エンゲ × 高 PV",
     "priorityAction": "コンテンツ強化 ( 離脱対策 )"
+  },
+  {
+    "slug": "case-shimokawa-tukitoyasai-2026-06",
+    "title": "下川町 月と野菜 - 元製麺所が「はかり売り」と「移住者起業」の交点に",
+    "url": "https://hokkaido-research.lrg.jp/articles/case-shimokawa-tukitoyasai-2026-06.html",
+    "total": 33,
+    "freshness": 15,
+    "days_since_update": 0,
+    "updatedAt": "2026-06-13",
+    "boost": 15,
+    "composite": 56,
+    "char_count": 1589,
+    "table_count": 1,
+    "breakdown": {
+      "length": 12,
+      "tables": 5,
+      "specific_data": 4,
+      "case_detail": 12,
+      "sources": 0,
+      "habits": 0,
+      "central": 0,
+      "assets": 0
+    },
+    "internal_pv": 32,
+    "external_pv": 0,
+    "engagement_seconds_avg": 268,
+    "ga4Score": 8,
+    "ga4ScoreRaw": 16,
+    "ga4Source": "estimated",
+    "priorityType": "F",
+    "priorityLabel": "中エンゲ × 高 PV",
+    "priorityAction": "コンテンツ強化"
   },
   {
     "slug": "case-kamikatsu-zerowaste-2026-06",
@@ -2912,38 +2944,6 @@
     "priorityAction": "露出 + SEO 強化"
   },
   {
-    "slug": "new-industry-strategy-2026-06",
-    "title": "宇宙・半導体・食品テック・クリーンテック - 道内新産業 4 領域",
-    "url": "https://hokkaido-research.lrg.jp/articles/new-industry-strategy-2026-06.html",
-    "total": 67,
-    "freshness": 15,
-    "days_since_update": 0,
-    "updatedAt": "2026-06-13",
-    "boost": 15,
-    "composite": 86,
-    "char_count": 3236,
-    "table_count": 2,
-    "breakdown": {
-      "length": 20,
-      "tables": 10,
-      "specific_data": 2,
-      "case_detail": 15,
-      "sources": 0,
-      "habits": 10,
-      "central": 5,
-      "assets": 5
-    },
-    "internal_pv": 19,
-    "external_pv": 0,
-    "engagement_seconds_avg": 665,
-    "ga4Score": 4,
-    "ga4ScoreRaw": 9,
-    "ga4Source": "estimated",
-    "priorityType": "A",
-    "priorityLabel": "高エンゲ × 低 PV",
-    "priorityAction": "露出 + SEO 強化"
-  },
-  {
     "slug": "regional-medical-strategy-2026-06",
     "title": "無医地区と医師偏在 - 道内 10 医師少数区域をどう支えるか",
     "url": "https://hokkaido-research.lrg.jp/articles/regional-medical-strategy-2026-06.html",
@@ -3064,6 +3064,38 @@
     "internal_pv": 19,
     "external_pv": 0,
     "engagement_seconds_avg": 670,
+    "ga4Score": 6,
+    "ga4ScoreRaw": 13,
+    "ga4Source": "estimated",
+    "priorityType": "A",
+    "priorityLabel": "高エンゲ × 低 PV",
+    "priorityAction": "露出 + SEO 強化"
+  },
+  {
+    "slug": "new-industry-strategy-2026-06",
+    "title": "宇宙・半導体・食品テック・クリーンテック - 道内新産業 4 領域",
+    "url": "https://hokkaido-research.lrg.jp/articles/new-industry-strategy-2026-06.html",
+    "total": 67,
+    "freshness": 15,
+    "days_since_update": 0,
+    "updatedAt": "2026-06-13",
+    "boost": 15,
+    "composite": 88,
+    "char_count": 3236,
+    "table_count": 2,
+    "breakdown": {
+      "length": 20,
+      "tables": 10,
+      "specific_data": 2,
+      "case_detail": 15,
+      "sources": 0,
+      "habits": 10,
+      "central": 5,
+      "assets": 5
+    },
+    "internal_pv": 19,
+    "external_pv": 0,
+    "engagement_seconds_avg": 665,
     "ga4Score": 6,
     "ga4ScoreRaw": 13,
     "ga4Source": "estimated",
@@ -3227,9 +3259,9 @@
     "ga4Score": 6,
     "ga4ScoreRaw": 12,
     "ga4Source": "estimated",
-    "priorityType": "D",
-    "priorityLabel": "高エンゲ × 高 PV",
-    "priorityAction": "維持 ( 触らない )"
+    "priorityType": "A",
+    "priorityLabel": "高エンゲ × 中 PV",
+    "priorityAction": "露出 + SEO 強化"
   },
   {
     "slug": "coastal-erosion-adaptation-2026-06",
@@ -3419,9 +3451,9 @@
     "ga4Score": 6,
     "ga4ScoreRaw": 12,
     "ga4Source": "estimated",
-    "priorityType": "D",
-    "priorityLabel": "高エンゲ × 高 PV",
-    "priorityAction": "維持 ( 触らない )"
+    "priorityType": "A",
+    "priorityLabel": "高エンゲ × 中 PV",
+    "priorityAction": "露出 + SEO 強化"
   },
   {
     "slug": "land-price-bifurcation-2026-06",
@@ -3643,9 +3675,9 @@
     "ga4Score": 8,
     "ga4ScoreRaw": 16,
     "ga4Source": "estimated",
-    "priorityType": "D",
-    "priorityLabel": "高エンゲ × 高 PV",
-    "priorityAction": "維持 ( 触らない )"
+    "priorityType": "A",
+    "priorityLabel": "高エンゲ × 中 PV",
+    "priorityAction": "露出 + SEO 強化"
   },
   {
     "slug": "carbon-neutral-structure-2026-06",
