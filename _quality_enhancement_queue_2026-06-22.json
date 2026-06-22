@@ -1,0 +1,438 @@
+{
+  "generated": "2026-06-22",
+  "cycle": "品質強化サイクル #1",
+  "selection_mode": "GA4データほぼなし → 構造スコアベース (強2 + 弱8)",
+  "notion_db": "c34968df-e549-4e93-bb9e-6c3ecb024b63",
+  "status": "レビュー待ち",
+  "summary": {
+    "total_articles": 10,
+    "by_type": { "A": 2, "C": 2, "E": 4, "F": 2 },
+    "by_action": { "SEO強化": 2, "コンテンツ強化": 8 }
+  },
+  "articles": [
+    {
+      "no": 1,
+      "slug": "childcare-shortage-strategy-2026-06",
+      "title": "保育士不足と待機児童 - 北海道で「子育てインフラ」をどう設計するか",
+      "url": "https://hokkaido-research.lrg.jp/articles/childcare-shortage-strategy-2026-06.html",
+      "current_score": { "total": 85, "ga4Score": 8, "char_count": 3717, "table_count": 2 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 21, "engagement_seconds_avg": 737 },
+      "priorityType": "A",
+      "priorityAction": "露出 + SEO 強化",
+      "weak_axis": "[SEO] 出典URL未設定・relatedIssues単数・keywordsが汎用",
+      "enhancement_policy": "title/descriptionのキーワード前出し・relatedIssues拡張・内部リンク強化",
+      "enhancement_draft": {
+        "type": "SEO強化",
+        "title_candidates": [
+          "北海道の保育士不足と待機児童 - 子育てインフラを 5軸で設計する",
+          "保育士有効求人倍率 2.5倍超の北海道 - 流山・明石から学ぶ子育てインフラ設計",
+          "北海道 子育てインフラ設計 - 保育士不足・待機児童を根本から変える打ち手"
+        ],
+        "description": "北海道の保育士有効求人倍率 2.5倍超（2024）。待機児童が続く札幌と定員割れが続く地方。流山市100施設突破・明石市の成功モデルから、北海道に応用できる設計を逆算する。",
+        "relatedIssues_add": ["child-poverty", "migration", "regional-business-recruitment"],
+        "keywords_add": ["保育士不足", "待機児童", "保育士有効求人倍率", "子育てインフラ", "流山市", "明石市", "保育所整備", "こども誰でも通園制度", "送迎保育ステーション"],
+        "articleSection": "子育て・保育政策, 人口政策, 地域設計",
+        "internal_links": [
+          "child-poverty-structure-2026-06 → この記事（貧困家庭の子どもと保育アクセスの文脈で）",
+          "migration-residual-assets-2026-06 → この記事（移住先選択に子育てインフラが重要の文脈で）",
+          "youth-leaving-reasons-2026-06 → この記事（若者流出理由に保育インフラ格差の文脈で）",
+          "この記事 → childcare-shortage-structure-2026-06（課題の構造を深く知るとして）"
+        ]
+      },
+      "score_prediction": "85 → 90-93",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 2,
+      "slug": "elderly-care-staff-strategy-2026-06",
+      "title": "介護人材 32万人不足 - 道内で広域・多層に組み直す",
+      "url": "https://hokkaido-research.lrg.jp/articles/elderly-care-staff-strategy-2026-06.html",
+      "current_score": { "total": 85, "ga4Score": 8, "char_count": 3486, "table_count": 2 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 21, "engagement_seconds_avg": 702 },
+      "priorityType": "A",
+      "priorityAction": "露出 + SEO 強化",
+      "weak_axis": "[SEO] 出典URL未設定・relatedIssues単数・descriptionにHTMLタグ混入",
+      "enhancement_policy": "description整形・title危機感強化・relatedIssues拡張・内部リンク強化",
+      "enhancement_draft": {
+        "type": "SEO強化",
+        "title_candidates": [
+          "北海道 介護人材不足の処方箋 - 訪問介護倒産が続く今、4軸で組み直す",
+          "介護人材 2025年危機 北海道版 - 広域・DX・外国人で訪問介護を守る",
+          "北海道の介護崩壊を防ぐ - 32万人不足を広域・多層で構造転換する設計"
+        ],
+        "description": "北海道の介護事業者倒産7件（2024・前年比40%増）、不足感72.8%。32万人不足への処方箋を処遇改善・外国人・DX・地域包括の4軸で、179市町村の規模差を前提に設計する。",
+        "relatedIssues_add": ["aging-care", "migration"],
+        "keywords_add": ["介護人材不足", "訪問介護", "2025年問題", "広域連携", "介護DX", "外国人介護", "処遇改善", "地域包括ケア", "介護事業者倒産"],
+        "articleSection": "介護・福祉政策, 人材戦略, 高齢化対策",
+        "internal_links": [
+          "aging-single-household-2026-06 → この記事（単身高齢者増加→介護需要増の文脈で）",
+          "elderly-care-staff-structure-2026-06 → この記事（構造を理解した上で戦略記事へ）",
+          "この記事 → aging-single-household（介護人材+単身高齢者のセット読み）"
+        ]
+      },
+      "score_prediction": "85 → 90-93",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 3,
+      "slug": "infra-aging-compact-2026-06",
+      "title": "インフラ集約と居住誘導 — 富山モデルの実装",
+      "url": "https://hokkaido-research.lrg.jp/articles/infra-aging-compact-2026-06.html",
+      "current_score": { "total": 27, "ga4Score": 0, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "E",
+      "priorityAction": "根本見直し（コンテンツ + SEO 両方強化）",
+      "weak_axis": "[コンテンツ] スタブ相当・本文ほぼなし・データなし・事例なし",
+      "enhancement_policy": "北海道インフラ老朽化データ整備・富山LRT成果数値化・青森失敗事例・ライプツィヒ縮退デザイン・北海道応用論を1500字超で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道のインフラ老朽化の現状（2024年）— 道路橋梁50年超39%→63%予測・上下水道管路法定耐用年数超",
+          "表2：人口規模別・北海道市町村の財政的課題構造— 10万人以上6市/1〜10万人45市町/1万人未満128町村"
+        ],
+        "central_question": "インフラを広く薄く維持し続けるのか、居住を誘導してコンパクト化し集中投資するのか。どちらが北海道の住民生活を長く守れるか。",
+        "case_studies": [
+          "富山市LRT（2006〜20年継続）: 利用者平日2.1倍・休日3.8倍、沿線住宅着工1.61倍、居住誘導10年1,241件2,822戸、医療費削減年7,000万円試算",
+          "青森市（1999〜失敗事例）: 宣言型コンパクトシティ・実効インセンティブ不足で郊外ドーナツ化",
+          "ライプツィヒ（2000年代〜）: 縮退を「再配置チャンス」として12,000棟解体緑地化→人口回復"
+        ],
+        "hokkaido_application": "179市町村単位でなく圏域単位の居住誘導ゾーン設定・公共交通軸の選択集中。青森の教訓から規制より誘導インセンティブ優先。",
+        "actions": {
+          "short": "インフラ維持コスト住民一人当たり見える化義務付け・居住誘導区域外開発者負担",
+          "mid": "圏域単位公共交通LRT/BRT優先路線選定・移住者固定資産税優遇・広域連携インフラ共同管理",
+          "long": "選択的「集落終了」合意形成制度化・縮退農地カーボンクレジット収益化"
+        },
+        "key_sources": [
+          "北海道建設部「次期インフラ長寿命化計画素案」2024年11月",
+          "国土交通省「道路メンテナンス年報」2025年",
+          "富山市「公共交通活性化（コンパクトシティ構想）」",
+          "NEWSポストセブン「コンパクトシティ構想 先進地だった青森はなぜ失敗したか」2019年",
+          "SYNODOS「空き家から生まれる『ポスト成長都市』——ライプツィヒ」",
+          "内閣府「コンパクト化による生活圏の確保」2016年白書"
+        ]
+      },
+      "score_prediction": "27 → 72",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 4,
+      "slug": "nuclear-safety-structure-2026-06",
+      "title": "泊原発と北海道のエネルギー — 再稼働か脱原発か",
+      "url": "https://hokkaido-research.lrg.jp/articles/nuclear-safety-structure-2026-06.html",
+      "current_score": { "total": 30, "ga4Score": 1, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "E",
+      "priorityAction": "根本見直し（コンテンツ + SEO 両方強化）",
+      "weak_axis": "[コンテンツ] スタブ相当・本文ほぼなし・データなし・事例なし",
+      "enhancement_policy": "北海道電力再エネ実績・泊3号機審査経緯・ブラックアウト教訓・ドイツ脱原発成果データ・浜岡合意形成の長期性で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道の電力需給・電源構成（2023年度）— 再エネ40.5%過去最高・火力55%・原子力0%",
+          "（泊1〜3号機概要: 合計207万kW・停止14年・2025年7月設置変更許可・2027年再稼働目標）"
+        ],
+        "central_question": "再稼働（低コスト・脱炭素）vs 廃炉（安全・地域合意）— どちらが道民にとって長期的に合理的か。",
+        "key_data": [
+          "泊3号機再稼働で年間約600億円燃料費削減試算",
+          "北海道再エネ比率2023年度40.5%（前年比+5.4pt、過去最高）",
+          "2018年ブラックアウト：苫東厚真一拠点依存→295万戸全道停電",
+          "ドイツ脱原発後：2024年4月スポット48.39€/MWh（2021年水準まで回復）、再エネ2023年54.9%"
+        ],
+        "case_studies": [
+          "浜岡原発（静岡県・2011〜）: 政府要請停止・地元合意形成10年単位の長期性の教訓",
+          "ドイツ脱原発（2000〜2023年完了）: 23年計画・「脱原発=CO2増加」等式は成立しなかった"
+        ],
+        "hokkaido_application": "「泊再稼働か廃炉か」の二項対立でなく「道産再エネ60%超+泊ベースロード調整弁+北本連系線強化」の組み合わせ戦略",
+        "key_sources": [
+          "北海道電力「泊発電所3号機 新規制基準への対応」",
+          "日経「泊原発3号機再稼働、規制委が『合格』」2025年4月",
+          "北海道経済部ゼロカーボン推進局「道内新エネルギー導入の状況」2024年2月",
+          "FoE Japan「ドイツの脱原発から1年」2024年5月",
+          "経済産業省「日本初のブラックアウト、その時何が起きたのか」"
+        ]
+      },
+      "score_prediction": "30 → 70",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 5,
+      "slug": "climate-adaptation-structure-2026-06",
+      "title": "気候変動適応戦略 — 緩和と適応の両輪",
+      "url": "https://hokkaido-research.lrg.jp/articles/climate-adaptation-structure-2026-06.html",
+      "current_score": { "total": 27, "ga4Score": 1, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "E",
+      "priorityAction": "根本見直し（コンテンツ + SEO 両方強化）",
+      "weak_axis": "[コンテンツ] スタブ相当・本文ほぼなし・データなし・事例なし",
+      "enhancement_policy": "北海道気候変動観測データ・産業別影響表・熊本農業適応20年事例・オランダデルタワークス60年事例・北海道気候変動適応センター設置経緯で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道の気候変動観測・将来予測— 年均気温+1.79℃/100年・真夏日4→32日（4℃シナリオ）・強雨1.8〜4.6倍",
+          "表2：主要産業への気候変動影響— 水稲高温障害・リンゴ着色不良・ワイン産地拡大・漁業漁場北上・スキー雪不足"
+        ],
+        "central_question": "緩和（CO2削減・脱炭素）と適応（被害最小化・レジリエンス）— 北海道はどちらに優先投資すべきか。「両輪」は本当に回せるのか。",
+        "key_data": [
+          "北海道気候変動適応センター設置：2021年4月（北海道経済部ゼロカーボン推進局内）",
+          "北海道気候変動適応計画：2020年3月策定",
+          "石狩管内の真夏日予測：現在4日→2℃シナリオ8日→4℃シナリオ32日"
+        ],
+        "case_studies": [
+          "熊本県農業適応（2013〜12年継続）: 高温耐性品種+深水かんがい+施肥管理を面的展開、JA・県・研究センター連携",
+          "オランダ・デルタワークス（1958〜現在60年継続）: 「堤防だけでなく自然由来解決策」への転換、砂浜回復・湿地再生"
+        ],
+        "hokkaido_application": "農林水産業の品種・操業シフト加速（道農業試験場・水産試験場主導）・ハザード評価体系化（北海道気候変動適応センター軸に全市町村脆弱性マップ）・縮小観光資源のグリーンシーズン転換",
+        "key_sources": [
+          "文部科学省・気象庁「日本の気候変動2025」",
+          "札幌管区気象台「北海道地方の気候変動」",
+          "北海道経済部ゼロカーボン推進局「北海道気候変動適応センター」",
+          "国立環境研究所A-PLAT「北海道農業における気候変動適応の取組」",
+          "アグリポートWeb「気候変動が北海道の農業を変える？」"
+        ]
+      },
+      "score_prediction": "27 → 75",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 6,
+      "slug": "diversity-inclusion-structure-2026-06",
+      "title": "性的指向・多様性と地域社会 ― 制度か文化変容か",
+      "url": "https://hokkaido-research.lrg.jp/articles/diversity-inclusion-structure-2026-06.html",
+      "current_score": { "total": 29, "ga4Score": 1, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "E",
+      "priorityAction": "根本見直し（コンテンツ + SEO 両方強化）",
+      "weak_axis": "[コンテンツ] スタブ相当・本文ほぼなし・データなし・事例なし",
+      "enhancement_policy": "LGBTQ+当事者9.7%国内データ・道内パートナーシップ制度現状・渋谷モデル・鳥取県電子申請・アイスランド全会一致同性婚・農村コミュニティ応用論で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道・全国のパートナーシップ制度導入状況比較（2024年）— 道内約20市町・人口カバー率70%・札幌2017年先行・北海道庁未導入",
+          "表2：LGBTQ+当事者の社会的現実— 当事者比率9.7%・職場アウティング被害6%・SO隠している50%超・フレンドリーな職場28%"
+        ],
+        "central_question": "制度導入（可視化・法的保護）だけで十分か、地域文化変容（意識・慣習）こそが本質なのか。",
+        "key_data": [
+          "全国当事者比率9.7%（電通LGBTQ+調査2023）→北海道約50万人相当",
+          "全国462自治体導入・人口カバー90%超（2024年7月）",
+          "道内市長会が2024年に北海道庁への制度導入を要望"
+        ],
+        "case_studies": [
+          "渋谷区（2015〜11年継続）: 日本初条例・2023年改正でハードル緩和・「渋谷モデル」の全国波及効果",
+          "鳥取県（2021〜）: 都道府県初の電子申請匿名制度・教職員ハンドブック整備・制度と教育の連動",
+          "アイスランド（2010〜15年）: 全会一致同性婚合法化・ジェンダーギャップ指数16年連続世界1位・法律+10年以上の教育・職場研修並走"
+        ],
+        "hokkaido_application": "人口減少地方こそLGBTQ+フレンドリー化が移住・定住促進の鍵。農村コミュニティの「顔が見え過ぎる問題」には鳥取型電子申請匿名制度が最も近い。",
+        "key_sources": [
+          "電通グループ「LGBTQ+調査2023」",
+          "札幌市パートナーシップ宣誓制度",
+          "みんなのパートナーシップ制度",
+          "北海道新聞「パートナーシップ制度拡大 24年中に道内人口の7割利用可」2024年1月",
+          "山陰中央新報「鳥取県がパートナー制度 電子申請で匿名性確保」"
+        ]
+      },
+      "score_prediction": "29 → 72",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 7,
+      "slug": "disability-inclusion-structure-2026-06",
+      "title": "障害者1,000万人時代のインクルーシブ ― 合理的配慮義務化の構造",
+      "url": "https://hokkaido-research.lrg.jp/articles/disability-inclusion-structure-2026-06.html",
+      "current_score": { "total": 34, "ga4Score": 1, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "C",
+      "priorityAction": "SEO 先行 → 後でコンテンツ強化",
+      "weak_axis": "[コンテンツ] 本文が薄い・具体的数値なし・事例なし",
+      "enhancement_policy": "障害者1,164万人・合理的配慮2024年4月義務化・法定雇用率2.5%→2.7%・大牟田市20年事例・デンマーク70年インクルーシブ教育・北海道型汎用インフラ論で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道の障害者関連データ— 身体障害者手帳17万人・札幌市8.1万人・療育手帳2.1万人・法定雇用率50.1%達成率",
+          "表2：合理的配慮義務化の構造— 行政2016年・民間2024年4月・2026年7月雇用率2.7%引き上げ予定"
+        ],
+        "central_question": "合理的配慮（個別の事後対応）で十分か、インクルーシブ設計（ユニバーサルデザイン・事前の構造変革）こそが本質なのか。",
+        "key_data": [
+          "日本の障害者数2023年初めて1,000万人超→約1,164万人（総人口の約9%）",
+          "2024年4月民間事業者への義務化施行（違反時：主管大臣から指導・勧告）",
+          "2026年7月法定雇用率2.7%に引き上げ予定"
+        ],
+        "case_studies": [
+          "大牟田市（2003〜約20年継続）: 認知症SOS訓練・サポーター市人口30%超・行方不明発見6時間以内・「保護対象から地域の一員へ」",
+          "デンマーク（1950年代〜ノーマライゼーション・法制化2012年）: 「分離しないことが最善の配慮」・70年で社会常識が転換"
+        ],
+        "hokkaido_application": "過疎化農村ではインクルーシブ設計=全住民共用の汎用インフラ。車椅子スロープ→高齢者・子連れにも有効。「障害者のため」でなく「過疎地の全員のため」として費用正当化。",
+        "key_sources": [
+          "政府広報オンライン「事業者による合理的配慮の提供が義務化」",
+          "厚生労働省「令和5年度法定雇用率改定」",
+          "札幌市「さっぽろ障がい者プラン2024」",
+          "日経「デンマークのインクルーシブ教育とは」2024年1月",
+          "厚生労働省「認知症にもやさしいまち 大牟田市の取組み」"
+        ]
+      },
+      "score_prediction": "34 → 74",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 8,
+      "slug": "bear-coexistence-cases-2026-06",
+      "title": "ヒグマと共存する自治体の取り組み ― 知床・軽井沢に学ぶ長期事例",
+      "url": "https://hokkaido-research.lrg.jp/articles/bear-coexistence-cases-2026-06.html",
+      "current_score": { "total": 39, "ga4Score": 1, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "C",
+      "priorityAction": "SEO 先行 → 後でコンテンツ強化",
+      "weak_axis": "[コンテンツ] 本文が薄い・具体的数値なし・長期事例なし",
+      "enhancement_policy": "農業被害3億5400万円過去最高・捕獲1,422頭過去最多・知床財団30年システム・軽井沢ピッキオ30年被害ゼロ・5設計原則実装表で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道のヒグマ被害・管理データ推移— 2024年農業被害3億5,400万円（過去最高）・2023年捕獲1,422頭（過去最多）・推定生息11,661頭",
+          "表2：5設計原則と実装事例— 構造設計/中間組織/住民参加/教育/継続 × 知床財団・軽井沢ピッキオの実装例"
+        ],
+        "central_question": "ヒグマを「駆除で減らす」対策から「共存できる距離を設計する」対策への転換は、北海道全体に展開できるか。",
+        "key_data": [
+          "2024年農業被害額3億5,400万円：1962年統計開始以来の過去最高（日経2026年2月）",
+          "2023年捕獲数1,422頭：過去最多。推定生息11,661頭（前年比-514頭）",
+          "旭川市：2024年度78件→2025年度91件出没（市街地常態化）",
+          "軽井沢ピッキオ：1999年ゴミ集積所クマ被害100件超→2009年0件。15年間人身被害ゼロ"
+        ],
+        "case_studies": [
+          "知床財団（1994〜30年継続）: 個体識別4段階管理・電気柵・住民観光客教育・「ヒグマのいる風景」地域文化醸成",
+          "軽井沢NPOピッキオ（1992〜約30年継続）: 熊対策ゴミ箱・ゾーニングマップ・ベアドッグ・自治体+NPO+観光業者三者連携"
+        ],
+        "hokkaido_application": "「世界遺産でない地域」への展開障壁：専門人材不足（解決：酪農学園大・帯広畜産大との広域連携）・農業者理解（解決：電気柵補助金+保険料連動）・観光地でない農業地帯（解決：農協・猟友会共同スマートフォン出没マップ）",
+        "key_sources": [
+          "日経「北海道の24年度ヒグマ農業被害額、過去最高の3.5億円」2026年2月",
+          "北海道新聞「北海道内のヒグマ駆除数が過去最多 2023年度1422頭」2024年",
+          "知床財団公式サイト",
+          "NPOピッキオ公式サイト",
+          "テレビ東京「ガイアの夜明け」2026年1月取材"
+        ]
+      },
+      "score_prediction": "39 → 76",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 9,
+      "slug": "aging-single-household-2026-06",
+      "title": "単身高齢者30%時代の北海道 — 地域ケアの構造的課題",
+      "url": "https://hokkaido-research.lrg.jp/articles/aging-single-household-2026-06.html",
+      "current_score": { "total": 62, "ga4Score": 6, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "F",
+      "priorityAction": "コンテンツ強化",
+      "weak_axis": "[コンテンツ] 事例の具体性・継続年数・北海道固有課題の分析が不足",
+      "enhancement_policy": "道全体高齢化率33.3%・夕張三笠50%超・単身高齢世帯34.3%・介護倒産529件・柏プロジェクト在宅看取り率80%超・大牟田20年・Buurtzorg19年・北海道の広域分散+季節断絶問題を深く分析",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道の高齢化率市町村格差— 全体33.3%・夕張/三笠/芦別50%超・千歳24.2%・単身高齢世帯34.3%（1980年比2.8倍）",
+          "表2：介護人材・事業所危機指標— 道内不足感72.8%（全国69.1%）・訪問介護廃業2024年全国529件・2025年全国不足32万人",
+          "表3：在宅医療・介護の残る資産と課題— 地域包括支援センターネットワーク×広大な地理の訪問コスト高"
+        ],
+        "central_question": "広大な北海道で、一人で暮らす高齢者が急増している。医療も介護事業所も人手も足りなくなるとき、だれが「最後の一里」を担うのか。",
+        "key_data": [
+          "北海道高齢化率33.3%（全国平均29.3%、2024年10月）",
+          "単身高齢世帯34.3%→1980年の12.2%から2.8倍（2020年国勢調査）",
+          "訪問介護不足感72.8%・訪問介護廃業2024年全国529件",
+          "柏プロジェクト：在宅看取り率50%未満→80%超（2010→2014年）"
+        ],
+        "case_studies": [
+          "柏市「柏プロジェクト」（2010〜15年継続）: 東大・UR・柏市三者協働・退院調整一元化・在宅看取り率80%超",
+          "大牟田市（2002〜20年継続）: 認知症サポーター市人口30%超・行方不明平均発見6時間以内",
+          "オランダBuurtzorg（2006〜19年継続）: 10〜12人チームの小地区担当・入院日数38%削減・30か国拡大"
+        ],
+        "hokkaido_application": "北海道固有の「広域分散」と「季節断絶」への対応。釧路・北見基幹病院をハブにした広域ケアネットワーク。冬季訪問困難期の代替として農協・コンビニ・郵便局見守り協定。札幌集中是正には郡部への遠隔医療特例措置の国への働きかけ。",
+        "key_sources": [
+          "北海道保健福祉部「北海道の高齢者人口の状況」",
+          "東京商工リサーチ「2024年介護事業者倒産・休廃業調査」",
+          "healthycity.jp「柏プロジェクトの実践」",
+          "マイナビ介護職「北海道の介護職の求人動向」",
+          "厚生労働省「介護人材確保の現状」2025年5月"
+        ]
+      },
+      "score_prediction": "62 → 84",
+      "status": "レビュー待ち"
+    },
+    {
+      "no": 10,
+      "slug": "disaster-resilience-2026-06",
+      "title": "北海道の防災 — 大雪・地震・津波の複合リスク",
+      "url": "https://hokkaido-research.lrg.jp/articles/disaster-resilience-2026-06.html",
+      "current_score": { "total": 51, "ga4Score": 6, "char_count": 0, "table_count": 0 },
+      "ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "estimated_ga4": { "internal_pv": 0, "engagement_seconds_avg": 0 },
+      "priorityType": "F",
+      "priorityAction": "コンテンツ強化",
+      "weak_axis": "[コンテンツ] 具体的被害想定数値なし・長期継続事例なし・北海道固有の冬季複合リスク分析なし",
+      "enhancement_policy": "千島海溝M9.3・死者10万人・津波28m・ブラックアウト295万戸・仙台市15年継続・静岡県35年継続・オランダデルタプログラム16年・電力分散レジリエンス・道東沿岸3層防御構造で構築",
+      "enhancement_draft": {
+        "type": "コンテンツ強化",
+        "lead_tables": [
+          "表1：北海道の主要地震・津波リスク— 千島海溝M9.3・津波最大28m・死者10万人（冬深夜）・津波到達3〜10分",
+          "表2：胆振東部地震ブラックアウト実績— 295万戸・苫東厚真集中依存・復旧約2日・信号停止・食料棚空き",
+          "表3：北海道冬季複合リスク指標— 低体温症要対処2万2千人・津波到達3〜10分・防寒具なし夜間避難の低体温症リスク"
+        ],
+        "central_question": "千島海溝地震が「明日」起きたとして、北海道の沿岸に住む人々は逃げ切れるのか。2018年ブラックアウトが教えた「つながっているほど脆い」教訓から、分散と多重化こそが北海道型レジリエンスの答えではないか。",
+        "key_data": [
+          "千島海溝地震：M9.3・津波最大28m（えりも・釧路）・想定死者10万人（冬・深夜・避難遅延時）",
+          "2018年ブラックアウト：苫東厚真一拠点停止→全道295万戸・約2日で復旧",
+          "千島海溝津波到達時間：道東太平洋沿岸で地震発生後3〜10分",
+          "冬季低体温症要対処者：内閣府推計約2万2千人"
+        ],
+        "case_studies": [
+          "仙台市「防災環境都市」（2011〜15年継続）: 多重防御（防潮堤+避難道路+高台移転）・仙台防災枠組2015-2030の国際結実・住民意識向上",
+          "静岡県（1988〜35年継続）: 条例制定・耐震化95%以上・オレンジゾーン全国初・防災カリキュラム必修化",
+          "オランダ・デルタプログラム（2009〜16年継続）: 「Room for the River」自然由来解決策・遊水地整備・農業生態系観光との共存設計"
+        ],
+        "hokkaido_application": "仙台「多重防御」の北海道版3層構造（避難タワー+ハザードマップ徒歩確認+個別避難計画）。ブラックアウト対策として太陽光+蓄電池の「防災コモンズ」制度化。デルタプログラム「Room for the River」を石狩川・十勝川の遊水地整備に応用。",
+        "key_sources": [
+          "内閣府「日本海溝・千島海溝沿いの巨大地震の被害想定」令和3年12月",
+          "北海道「日本海溝・千島海溝沿いの巨大地震の被害想定」令和4年7月",
+          "北海道電力「胆振東部地震ブラックアウト検証委員会最終報告」2018年12月",
+          "仙台市「防災環境都市・仙台」",
+          "静岡県危機管理部「静岡県の地震・津波対策について」",
+          "国土技術政策総合研究所「オランダデルタプログラム」調査報告"
+        ]
+      },
+      "score_prediction": "51 → 85",
+      "status": "レビュー待ち"
+    }
+  ],
+  "next_recommendations": [
+    {
+      "slug": "childcare-shortage-structure-2026-06",
+      "reason": "childcare-shortage-strategy（A型）とセット構成。課題構造記事の整備で内部リンク強化効果が高い。",
+      "priority": 1
+    },
+    {
+      "slug": "elderly-care-staff-structure-2026-06",
+      "reason": "elderly-care-staff-strategy（A型）とセット。介護人材の構造記事がSEO軸の柱になる。",
+      "priority": 2
+    },
+    {
+      "slug": "bear-conflict-structure-2026-06",
+      "reason": "bear-coexistence-cases（C型）の課題構造記事。データ表と事例の追加でC型→B型昇格が期待できる。",
+      "priority": 3
+    },
+    {
+      "slug": "migration-residual-assets-2026-06",
+      "reason": "既存の高スコア記事（D型）のSEOメンテナンス。内部リンク集約の軸として機能させる。",
+      "priority": 4
+    },
+    {
+      "slug": "child-poverty-structure-2026-06",
+      "reason": "子育て・保育軸のハブ記事。childcare-shortage-strategyとの連携で内部リンク効果が高い。",
+      "priority": 5
+    }
+  ]
+}
